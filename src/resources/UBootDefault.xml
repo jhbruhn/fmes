@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE territorium SYSTEM "../src/resources/territorium.dtd">
+<territorium>
+<attributes>
+<fahrtRichtung id="fahrtRichtung" value="Ost"></fahrtRichtung>
+<feldSpalteBug value="4"></feldSpalteBug>
+<feldSpalteHeck value="3"></feldSpalteHeck>
+<feldReiheHeck value="4"></feldReiheHeck>
+<feldReiheBug value="4"></feldReiheBug>
+<territoriumSpecialFinishNummer value="9000"></territoriumSpecialFinishNummer>
+<startSpalteHeck value="0"></startSpalteHeck>
+<startSpalteBug value="0"></startSpalteBug>
+<startReiheHeck value="0"></startReiheHeck>
+<startReiheBug value="0"></startReiheBug>
+<resizeable value="true"></resizeable>
+<objectResizedWidth value="50.0"></objectResizedWidth>
+<objectResizedHeigth value="39.02597402597402"></objectResizedHeigth>
+<entfernungBreiteDesSpielFeldes value="0.0"></entfernungBreiteDesSpielFeldes>
+<entfernungHoeheDesSpielFeldes value="0.0"></entfernungHoeheDesSpielFeldes>
+<beleuchtung value="true"></beleuchtung>
+<batterieAnBord value="false"></batterieAnBord>
+<feldhoehe value="15"></feldhoehe>
+<feldbreite value="10"></feldbreite>
+<nachfolgeLevel value="0"></nachfolgeLevel>
+</attributes>
+<feld><feldZeile><feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+</feldZeile>
+<feldZeile><feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+</feldZeile>
+<feldZeile><feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+</feldZeile>
+<feldZeile><feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Felsen"></feldElement>
+<feldElement value="Batterie"></feldElement>
+<feldElement value="LeuchtFelsen"></feldElement>
+<feldElement value="ZielFeld"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+</feldZeile>
+<feldZeile><feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+</feldZeile>
+<feldZeile><feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+</feldZeile>
+<feldZeile><feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+</feldZeile>
+<feldZeile><feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+</feldZeile>
+<feldZeile><feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+</feldZeile>
+<feldZeile><feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Hai"></feldElement>
+</feldZeile>
+<feldZeile><feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+</feldZeile>
+<feldZeile><feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+</feldZeile>
+<feldZeile><feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+</feldZeile>
+<feldZeile><feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+</feldZeile>
+<feldZeile><feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+<feldElement value="Leer"></feldElement>
+</feldZeile>
+</feld>
+</territorium>
+
