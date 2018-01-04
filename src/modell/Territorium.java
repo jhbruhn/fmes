@@ -7,11 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 import dbZugriffe.SelectStatements;
-import views.TerritoriumPanel;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.scene.media.AudioClip;
-import javafx.util.Duration;
 
 @XmlRootElement(name = "territorium")
 public class Territorium extends Observable implements java.io.Serializable {
@@ -58,7 +54,7 @@ public class Territorium extends Observable implements java.io.Serializable {
 	private double entfernungBreiteDesSpielFeldes;
 	private double entfernungHoeheDesSpielFeldes;
 
-	private transient UBoot uboot;
+	private transient Roboter uboot;
 
 	private FeldEigenschaft[][] feld;
 
@@ -700,11 +696,11 @@ public class Territorium extends Observable implements java.io.Serializable {
 	}
 
 	@XmlTransient
-	public UBoot getUboot() {
+	public Roboter getUboot() {
 		return uboot;
 	}
 
-	public void setUboot(UBoot uboot) {
+	public void setUboot(Roboter uboot) {
 		this.uboot = uboot;
 	}
 

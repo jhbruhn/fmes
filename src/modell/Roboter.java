@@ -7,7 +7,7 @@ import controlls.RunCodeController;
 import resources.Invisible;
 import javafx.beans.property.SimpleDoubleProperty;
 
-public class UBoot extends Thread {
+public class Roboter extends Thread {
 
 	/**
 	 * 
@@ -43,12 +43,12 @@ public class UBoot extends Thread {
 	}
 
 	@Invisible
-	public UBoot(Territorium t) {
+	public Roboter(Territorium t) {
 		setTerritorium(t);
 	}
 
 	@Invisible
-	protected UBoot() {
+	protected Roboter() {
 	}
 
 	/*
@@ -114,11 +114,6 @@ public class UBoot extends Thread {
 				throw new ThreadStopException();
 			}
 		}
-	}
-
-	public  void nihmBatterie() throws KachelleerException, ThreadStopException {
-		getTerritorium().nihmBatterie();
-		checkRunning("nihmBatterie");
 	}
 
 	public  void vorFahren() throws FelsenDaException, ThreadStopException {
