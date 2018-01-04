@@ -1,6 +1,3 @@
-/**
- * @author sven
- */
 public class RandomChildMovement {
     Kind kind;
     Terretorium terretorium;
@@ -30,7 +27,7 @@ public class RandomChildMovement {
                     kind.goDown();
                     success=true;
                 }
-                case 4: 
+                case 4:
                     kind.stayStill();
                     success=true;
                 }
