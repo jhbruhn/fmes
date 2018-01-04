@@ -32,7 +32,7 @@ public class Territorium extends Observable implements java.io.Serializable {
 
 	private boolean resizeable = true;
 
-	private boolean levelGeschaft = false;
+	private boolean levelGeschafft = false;
 
 	private int feldHoehe = 10;
 	private int feldBreite = 19;
@@ -675,11 +675,11 @@ public class Territorium extends Observable implements java.io.Serializable {
 	}
 
 	public boolean isLevelGeschaft() {
-		return levelGeschaft;
+		return levelGeschafft;
 	}
 
 	public void setLevelGeschaft(boolean levelGeschaft) {
-		this.levelGeschaft = levelGeschaft;
+		this.levelGeschafft = levelGeschaft;
 	}
 
 	public int getFeldBreite() {
