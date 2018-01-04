@@ -18,47 +18,7 @@ public class Main {
         f.loadingStations.add(new Vector2(2, 2));
         f.loadingStations.add(new Vector2(2, 4));
         State initial = new State(f, new Vector2(1, 1), new Vector2(4, 4), true);
-        Graph g = generateGraph(initial);
+        Graph g = Graph.generateGraph(initial);
         System.out.println(g.toDotString());
-    }
-
-    public static Graph generateGraph(State initial) {
-        Graph g = new Graph();
-
-        g.initialState = initial;
-        g.states.add(initial);
-
-        Stack<State> statesToGenerate = new Stack<>();
-        statesToGenerate.add(initial);
-
-        while (!statesToGenerate.empty()) {
-            State currentState = statesToGenerate.pop();
-
-            List<Transition> transitions = currentState.generateNextStates();
-
-            // Check whether we already have that state in our set.
-            for (Transition t : transitions) {
-                boolean newState = true;
-                for (State s : g.states) {
-                    if (s.equals(t.to)) {
-                        newState = false;
-                        t.to = s;
-                        break;
-                    }
-
-                }
-                if (newState) {
-                    g.states.add(t.to);
-                    statesToGenerate.push(t.to);
-                }
-
-                if(!g.transitions.contains(t)) {
-                    g.transitions.add(t);
-                }
-            }
-        }
-
-
-        return g;
     }
 }
