@@ -45,7 +45,7 @@ public class RunCodeController {
 
 		startMenuItem.setOnAction(e -> {
 			if (runcode == null || !runcode.isAlive()) {
-				o.getSubmarineEvents().getComp().compilieren(territorium, o.getInternationalit�t().getRb(),
+				o.getSubmarineEvents().getComp().compilieren(territorium, o.getInternationalitaet().getRb(),
 						o.getPrimaryStage().getTitle());
 				runcode = null;
 				endlos = null;
