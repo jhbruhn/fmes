@@ -76,7 +76,7 @@ public class State {
         return other.robot.equals(this.robot) && other.child.equals(this.child) && other.isRobotState == this.isRobotState;
     }
 
-    public List<Transition> generateMoves() {
+    public List<Transition> generateNextStates() {
         if(isRobotState) {
             return generateRobotMoves();
         } else {

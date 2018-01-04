@@ -1,11 +1,11 @@
 package graph;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class Main {
 
-    private static final boolean[][] WALLS = new boolean[][] {
+    private static final boolean[][] WALLS = new boolean[][]{
             {true, true, true, true, true, true},
             {true, false, false, false, false, true},
             {true, false, false, false, false, true},
@@ -25,35 +25,30 @@ public class Main {
 
         g.initialState = initial;
 
-        List<State> statesToGenerate = new ArrayList<>();
+        Stack<State> statesToGenerate = new Stack<>();
         statesToGenerate.add(initial);
 
-        while(statesToGenerate.size() > 0) {
-            List<State> newStates = new ArrayList<>();
-            for(State currentState : statesToGenerate) {
-                List<Transition> transitions;
+        while (!statesToGenerate.empty()) {
+            State currentState = statesToGenerate.pop();
 
-                transitions = currentState.generateMoves();
+            List<Transition> transitions = currentState.generateNextStates();
 
-                // Check whether we already have that state in our set.
-                for(Transition t : transitions) {
-                    boolean newState = true;
-                    for(State s : g.states) {
-                        if(s.equals(t.to)) {
-                            newState = false;
-                            t.to = s;
-                            break;
-                        }
-                    }
-                    if(newState) {
-                        g.states.add(t.to);
-                        newStates.add(t.to);
+            // Check whether we already have that state in our set.
+            for (Transition t : transitions) {
+                boolean newState = true;
+                for (State s : g.states) {
+                    if (s.equals(t.to)) {
+                        newState = false;
+                        t.to = s;
+                        break;
                     }
                 }
-                g.transitions.addAll(transitions);
+                if (newState) {
+                    g.states.add(t.to);
+                    statesToGenerate.push(t.to);
+                }
             }
-            statesToGenerate.clear();
-            statesToGenerate.addAll(newStates);
+            g.transitions.addAll(transitions);
         }
 
 
