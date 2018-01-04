@@ -1001,7 +1001,7 @@ public class Oberflaeche {
 		pngSaveAs.setText(international.getRb().getString("pngSaveAs"));
 		jpgSaveAs.setText(international.getRb().getString("jpgSaveAs"));
 		druckenSpielMenuItem.setText(international.getRb().getString("druckenSpielMenuItem"));
-		groeßeAendernMenuItem.setText(international.getRb().getString("groe�eAendernMenuItem"));
+		groeßeAendernMenuItem.setText(international.getRb().getString("groeßeAendernMenuItem"));
 		resizeableMenuItem.setText(international.getRb().getString("resizeableMenuItem"));
 		submarine.setText(international.getRb().getString("submarine"));
 		felsen.setText(international.getRb().getString("felsen"));

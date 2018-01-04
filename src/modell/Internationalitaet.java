@@ -26,6 +26,9 @@ public class Internationalitaet {
 	static String language;
 
 	public String getLanguage() {
+		if(language == null){
+			return "de";
+		}
 		return language;
 	}
 
