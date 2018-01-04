@@ -10,10 +10,13 @@ public class Graph {
         StringBuilder s = new StringBuilder("digraph G {\n");
 
         for(Transition t : transitions) {
+            s.append("\"");
             s.append(t.from);
-            s.append(" -> ");
+            s.append("\" -> \"");
             s.append(t.to);
-            s.append("\n");
+            s.append("\" [ label=\"");
+            s.append(t.move.toString());
+            s.append("\"]\n");
         }
         s.append("}");
         return s.toString();

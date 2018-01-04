@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -22,33 +23,39 @@ public class Main {
 
         g.initialState = initial;
 
-        State currentState = initial;
+        List<State> statesToGenerate = new ArrayList<>();
+        statesToGenerate.add(initial);
 
-        List<Transition> transitions;
+        while(statesToGenerate.size() > 0) {
+            List<State> newStates = new ArrayList<>();
+            for(State currentState : statesToGenerate) {
+                List<Transition> transitions;
 
-        if(currentState.isRobotState) {
-            transitions = currentState.generateRobotMoves();
-        } else {
-            transitions = currentState.generateChildMoves();
-        }
+                transitions = currentState.generateMoves();
 
-        // Check whether we already have that state in our set.
-        boolean newStatesFound = false;
-        for(Transition t : transitions) {
-            boolean newState = true;
-            for(State s : g.states) {
-                if(s.equals(t.to)) {
-                    newState = false;
-                    break;
+                // Check whether we already have that state in our set.
+                boolean newStatesFound = false;
+                for(Transition t : transitions) {
+                    boolean newState = true;
+                    for(State s : g.states) {
+                        if(s.equals(t.to)) {
+                            newState = false;
+                            t.to = s;
+                            break;
+                        }
+                    }
+                    if(newState) {
+                        newStatesFound = true;
+                        g.states.add(t.to);
+                        newStates.add(t.to);
+                    }
                 }
+                g.transitions.addAll(transitions);
             }
-            if(newState) {
-                newStatesFound = true;
-                g.states.add(t.to);
-            }
+            statesToGenerate.clear();
+            statesToGenerate.addAll(newStates);
         }
 
-        g.transitions.addAll(transitions);
 
         return g;
     }

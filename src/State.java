@@ -50,7 +50,20 @@ public class State {
         return !field.isWallAt(position.add(move.directionVector));
     }
 
-    public boolean equals(State other) {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        State other = (State) o;
         return other.robot.equals(this.robot) && other.child.equals(this.child) && other.isRobotState == this.isRobotState;
+    }
+
+    public List<Transition> generateMoves() {
+        if(isRobotState) {
+            return generateRobotMoves();
+        } else {
+            return generateChildMoves();
+        }
     }
 }
