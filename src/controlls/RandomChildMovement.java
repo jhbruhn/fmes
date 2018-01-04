@@ -1,3 +1,5 @@
+package controlls;
+
 import modell.Territorium;
 import modell.Kind;
 
