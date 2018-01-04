@@ -3,8 +3,6 @@ package controlls;
 
 import graph.Graph;
 
-import javax.swing.text.Position;
-
 public class RobotMovement {
     Enum lastStep;
     Graph graph;
@@ -39,7 +37,6 @@ public class RobotMovement {
 
     //execute the next step
     public void runStep(Enum nextstep) {
-        //do nextStep
     }
 
     public Enum getLastStep() {
