@@ -15,7 +15,7 @@ import modell.NumberTextField;
 import modell.ScAchse;
 import modell.Territorium;
 import modell.Territorium.FeldEigenschaft;
-import modell.UBoot;
+import modell.Roboter;
 import views.Oberflaeche;
 import views.TerritoriumPanel;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -45,7 +45,6 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -206,7 +205,7 @@ public class SubmarineEvents {
 	 * hier keinen Effekt, sie wird nur an vielen anderen Stellen des aufrufes
 	 * von saveCode ben�tigt
 	 */
-	public void speichernEvent(Button b, TextArea text, Stage stage, ResourceBundle rb, UBoot uboot) {
+	public void speichernEvent(Button b, TextArea text, Stage stage, ResourceBundle rb, Roboter uboot) {
 		b.setOnAction(e -> saveCode(stage, text, stage.getTitle(), rb, uboot, new SimpleBooleanProperty()));
 	}
 
@@ -217,7 +216,7 @@ public class SubmarineEvents {
 	 * der Name noch der defaultName ist. Sollte der Text nicht akzeptabel sind,
 	 * wird der Vorgang wiederholt, bis der Code gespeichert werden kann
 	 */
-	public void saveCode(Stage stage, TextArea text, String stageTitle, ResourceBundle rb, UBoot uboot,
+	public void saveCode(Stage stage, TextArea text, String stageTitle, ResourceBundle rb, Roboter uboot,
 			SimpleBooleanProperty close) {
 		if (stageTitle.equals(LoadAndSaveCode.defaultName)) {
 			PrimaryStageName p = new PrimaryStageName();

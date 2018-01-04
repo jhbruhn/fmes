@@ -2,14 +2,14 @@ package controlls;
 
 import java.util.ArrayList;
 
-import modell.UBoot;
+import modell.Roboter;
 import views.TerritoriumPanel;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 
 public class EndlosschleifenThread extends Thread {
 	private TerritoriumPanel territoriumPanel;
-	private UBoot uBoot;
+	private Roboter roboter;
 	private ArrayList<MenuItem> menu;
 	private ArrayList<Button> button;
 	private MenuItem stopMenuItem;
@@ -19,9 +19,9 @@ public class EndlosschleifenThread extends Thread {
 	private MenuItem startMenuItem;
 	private Button start;
 
-	public EndlosschleifenThread(TerritoriumPanel t, UBoot u, ArrayList<MenuItem> menu, ArrayList<Button> button,
-			MenuItem stopMenuItem, Button stop, MenuItem pauseMenuItem, Button pause, MenuItem startMenuItem,
-			Button start) {
+	public EndlosschleifenThread(TerritoriumPanel t, Roboter u, ArrayList<MenuItem> menu, ArrayList<Button> button,
+                                 MenuItem stopMenuItem, Button stop, MenuItem pauseMenuItem, Button pause, MenuItem startMenuItem,
+                                 Button start) {
 		setTerritoriumPanel(t);
 		setUBoot(u);
 		setMenu(menu);
@@ -108,12 +108,12 @@ public class EndlosschleifenThread extends Thread {
 		this.territoriumPanel = territoriumPanel;
 	}
 
-	public UBoot getUBoot() {
-		return uBoot;
+	public Roboter getUBoot() {
+		return roboter;
 	}
 
-	public void setUBoot(UBoot uBoot) {
-		this.uBoot = uBoot;
+	public void setUBoot(Roboter roboter) {
+		this.roboter = roboter;
 	}
 
 	public ArrayList<MenuItem> getMenu() {

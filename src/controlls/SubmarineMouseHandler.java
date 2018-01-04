@@ -6,7 +6,7 @@ import java.lang.reflect.Parameter;
 import java.util.ResourceBundle;
 
 import modell.Territorium;
-import modell.UBoot;
+import modell.Roboter;
 import resources.Invisible;
 import views.Oberflaeche;
 import javafx.event.ActionEvent;
@@ -84,7 +84,7 @@ public class SubmarineMouseHandler {
 						if(Modifier.isStatic(m.getModifiers()) || Modifier.isAbstract(m.getModifiers())){
 							hinzufuegen = false;
 						}
-						for (java.lang.reflect.Method m2 : (new UBoot(getTerritorium())).getClass().getSuperclass()
+						for (java.lang.reflect.Method m2 : (new Roboter(getTerritorium())).getClass().getSuperclass()
 								.getMethods()) {
 							if (m.getName().equals(m2.getName())) {
 								hinzufuegen = false;

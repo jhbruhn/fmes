@@ -5,7 +5,7 @@ import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 
 import modell.Territorium;
-import modell.UBoot;
+import modell.Roboter;
 import resources.Invisible;
 import views.Oberflaeche;
 import javafx.event.ActionEvent;
@@ -112,7 +112,7 @@ public class TextAreaControls {
 						if (Modifier.isStatic(m.getModifiers()) || Modifier.isAbstract(m.getModifiers())) {
 							hinzufuegen = false;
 						}
-						for (java.lang.reflect.Method m2 : (new UBoot(territorium)).getClass().getSuperclass()
+						for (java.lang.reflect.Method m2 : (new Roboter(territorium)).getClass().getSuperclass()
 								.getMethods()) {
 							if (m.getName().equals(m2.getName())) {
 								hinzufuegen = false;

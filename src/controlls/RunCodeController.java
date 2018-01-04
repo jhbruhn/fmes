@@ -3,7 +3,7 @@ package controlls;
 import java.util.ArrayList;
 
 import modell.Territorium;
-import modell.UBoot;
+import modell.Roboter;
 import views.Oberflaeche;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
@@ -12,7 +12,7 @@ import javafx.scene.control.Slider;
 public class RunCodeController {
 	private Territorium territorium;
 	private Slider slider;
-	private UBoot runcode;
+	private Roboter runcode;
 	private EndlosschleifenThread endlos;
 	public static final int endlossAbbruchKriterium = 200;
 
@@ -45,8 +45,6 @@ public class RunCodeController {
 
 		startMenuItem.setOnAction(e -> {
 			if (runcode == null || !runcode.isAlive()) {
-				o.getSubmarineEvents().getComp().compilieren(territorium, o.getInternationalitaet().getRb(),
-						o.getPrimaryStage().getTitle());
 				runcode = null;
 				endlos = null;
 				runcode = getTerritorium().getUboot();
