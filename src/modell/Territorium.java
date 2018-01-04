@@ -379,11 +379,9 @@ public class Territorium extends Observable implements java.io.Serializable {
 			}
 			if (feldReiheRoboter > 0 && !felsenDaAdmin(feldReiheRoboter - 1, feldSpalteRoboter)) {
 				feldReiheRoboter = feldReiheRoboter - 1;
-				feldReiheKind = feldReiheKind - 1;
 			} else {
 				throw new FelsenDaException();
 			}
-			aggressiveFische();
 			zielFeldErreicht();
 			checkIfChanged();
 		} catch (FelsenDaException e) {
@@ -402,13 +400,11 @@ public class Territorium extends Observable implements java.io.Serializable {
 			if (start) {
 				startWerteSpeichern();
 			}
-			if (feldReiheKind < getFeld().length - 1 && !felsenDaAdmin(feldReiheKind + 1, feldSpalteKind)) {
+			if (feldReiheRoboter < getFeld().length - 1 && !felsenDaAdmin(feldReiheRoboter + 1, feldSpalteRoboter)) {
 				feldReiheRoboter = feldReiheRoboter + 1;
-				feldReiheKind = feldReiheKind + 1;
 			} else {
 				throw new FelsenDaException();
 			}
-			aggressiveFische();
 			zielFeldErreicht();
 		} catch (FelsenDaException e) {
 			e.play();
@@ -428,11 +424,9 @@ public class Territorium extends Observable implements java.io.Serializable {
 			}
 			if (feldReiheRoboter < getFeld().length - 1 && !felsenDaAdmin(feldReiheRoboter + 1, feldSpalteRoboter)) {
 				feldReiheRoboter = feldReiheRoboter + 1;
-				feldSpalteKind = feldSpalteKind + 1;
 			} else {
 				throw new FelsenDaException();
 			}
-			aggressiveFische();
 			zielFeldErreicht();
 		} catch (FelsenDaException e) {
 			e.play();
@@ -452,11 +446,9 @@ public class Territorium extends Observable implements java.io.Serializable {
 			}
 			if (feldReiheRoboter < getFeld().length - 1 && !felsenDaAdmin(feldReiheRoboter + 1, feldSpalteRoboter)) {
 				feldReiheRoboter = feldReiheRoboter + 1;
-				feldSpalteKind = feldSpalteKind - 1;
 			} else {
 				throw new FelsenDaException();
 			}
-			aggressiveFische();
 			zielFeldErreicht();
 		} catch (FelsenDaException e) {
 			e.play();
@@ -464,70 +456,6 @@ public class Territorium extends Observable implements java.io.Serializable {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-
-	/*
-	 * l�sst die Haie wandern nach einer lauf-aktion des U-Boots, dabei laufen
-	 * sie in einem drei Felder + Zeichen (Wie ein Turm beim Schach, nur 3
-	 * Felder weit blickend und ein Feld laufend pro zug) Ein Hai z�hlt f�r das
-	 * U-Boot wie ein Felsen!
-	 */
-	private void aggressiveFische() {
-		for (int i = 1; i <= 3; i++) {
-			if (feldReiheRoboter + i < feldHoehe && feldReiheKind + i < feldHoehe) {
-				if (getFeld()[feldReiheRoboter + i][feldSpalteRoboter] == FeldEigenschaft.Hai
-						&& getFeld()[feldReiheRoboter + i - 1][feldSpalteRoboter] == FeldEigenschaft.Leer) {
-					getFeld()[feldReiheRoboter + i][feldSpalteRoboter] = FeldEigenschaft.Leer;
-					getFeld()[feldReiheRoboter + i - 1][feldSpalteRoboter] = FeldEigenschaft.Hai;
-				} else if (getFeld()[feldReiheKind + i][feldSpalteKind] == FeldEigenschaft.Hai
-						&& getFeld()[feldReiheKind + i - 1][feldSpalteKind] == FeldEigenschaft.Leer) {
-					getFeld()[feldReiheKind + i][feldSpalteKind] = FeldEigenschaft.Leer;
-					getFeld()[feldReiheKind + i - 1][feldSpalteKind] = FeldEigenschaft.Hai;
-				}
-			}
-
-			if (feldReiheRoboter - i >= 0 && feldReiheKind - i >= 0) {
-				if (getFeld()[feldReiheRoboter - i][feldSpalteRoboter] == FeldEigenschaft.Hai
-						&& getFeld()[feldReiheRoboter - i + 1][feldSpalteRoboter] == FeldEigenschaft.Leer) {
-					getFeld()[feldReiheRoboter - i][feldSpalteRoboter] = FeldEigenschaft.Leer;
-					getFeld()[feldReiheRoboter - i + 1][feldSpalteRoboter] = FeldEigenschaft.Hai;
-				} else if (getFeld()[feldReiheKind - i][feldSpalteKind] == FeldEigenschaft.Hai
-						&& getFeld()[feldReiheKind - i + 1][feldSpalteKind] == FeldEigenschaft.Leer) {
-					getFeld()[feldReiheKind - i][feldSpalteKind] = FeldEigenschaft.Leer;
-					getFeld()[feldReiheKind - i + 1][feldSpalteKind] = FeldEigenschaft.Hai;
-				}
-			}
-
-			if (feldSpalteRoboter + i < feldBreite && feldSpalteKind + i < feldBreite) {
-				if (getFeld()[feldReiheRoboter][feldSpalteRoboter + i] == FeldEigenschaft.Hai
-						&& getFeld()[feldReiheRoboter][feldSpalteRoboter + i - 1] == FeldEigenschaft.Leer) {
-					getFeld()[feldReiheRoboter][feldSpalteRoboter + i] = FeldEigenschaft.Leer;
-					getFeld()[feldReiheRoboter][feldSpalteRoboter + i - 1] = FeldEigenschaft.Hai;
-				} else if (getFeld()[feldReiheKind][feldSpalteKind + i] == FeldEigenschaft.Hai
-						&& getFeld()[feldReiheKind][feldSpalteKind + i - 1] == FeldEigenschaft.Leer) {
-					getFeld()[feldReiheKind][feldSpalteKind + i] = FeldEigenschaft.Leer;
-					getFeld()[feldReiheKind][feldSpalteKind + i - 1] = FeldEigenschaft.Hai;
-				}
-			}
-
-			if (feldSpalteRoboter - i >= 0 && feldSpalteKind - i >= 0) {
-				if (getFeld()[feldReiheRoboter][feldSpalteRoboter - i] == FeldEigenschaft.Hai
-						&& getFeld()[feldReiheRoboter][feldSpalteRoboter - i + 1] == FeldEigenschaft.Leer) {
-					getFeld()[feldReiheRoboter][feldSpalteRoboter - i] = FeldEigenschaft.Leer;
-					getFeld()[feldReiheRoboter][feldSpalteRoboter - i + 1] = FeldEigenschaft.Hai;
-				} else if (getFeld()[feldReiheKind][feldSpalteKind - i] == FeldEigenschaft.Hai
-						&& getFeld()[feldReiheKind][feldSpalteKind - i + 1] == FeldEigenschaft.Leer) {
-					getFeld()[feldReiheKind][feldSpalteKind - i] = FeldEigenschaft.Leer;
-					getFeld()[feldReiheKind][feldSpalteKind - i + 1] = FeldEigenschaft.Hai;
-				}
-			}
-		}
-
-		if (getFeld()[feldReiheRoboter][feldSpalteRoboter] == FeldEigenschaft.Hai
-				|| getFeld()[feldReiheKind][feldSpalteKind] == FeldEigenschaft.Hai) {
-			verlorenFelsenGerammt();
-		}
-		checkIfChanged();
 	}
 
 	/*
