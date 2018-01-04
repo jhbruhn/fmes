@@ -1,3 +1,5 @@
+package graph;
+
 public class Vector2 {
     public final int x;
     public final int y;
@@ -37,5 +39,9 @@ public class Vector2 {
         int result = x;
         result = 31 * result + y;
         return result;
+    }
+
+    public double abs() {
+        return Math.sqrt(x * x + y * y);
     }
 }

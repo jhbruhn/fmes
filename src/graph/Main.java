@@ -1,3 +1,5 @@
+package graph;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +36,6 @@ public class Main {
                 transitions = currentState.generateMoves();
 
                 // Check whether we already have that state in our set.
-                boolean newStatesFound = false;
                 for(Transition t : transitions) {
                     boolean newState = true;
                     for(State s : g.states) {
@@ -45,7 +46,6 @@ public class Main {
                         }
                     }
                     if(newState) {
-                        newStatesFound = true;
                         g.states.add(t.to);
                         newStates.add(t.to);
                     }
