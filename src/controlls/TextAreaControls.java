@@ -264,20 +264,12 @@ public class TextAreaControls {
 			if (getTextArea() != null || !getTextArea().getText().equals("")) {
 				String s[] = getTextArea().getText().split("\n");
 
-				ArrayList<Integer> compileArray = ShortCompiler.shortCompile(
-						oberflaeche.getSubmarineEvents()
-								.erstelleSpeicherbarenCode(oberflaeche.getPrimaryStage().getTitle(), getTextArea()),
-						oberflaeche.getPrimaryStage().getTitle());
 
 				for (int i = 0; i < s.length; i++) {
 					Text t = new Text();
 					t.setFont(Font.font("Verdana", 14));
 					boolean fehler = false;
-					for (int j = 0; j < compileArray.size(); j++) {
-						if (i == compileArray.get(j)) {
-							fehler = true;
-						}
-					}
+
 					// hier wird mit den Angaben des shortCompilers ausgewertet
 					// ob in der Zeile ein Fehler vorliegt. Wenn Ja wird diese
 					// makiert

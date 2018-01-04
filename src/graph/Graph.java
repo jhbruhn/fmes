@@ -11,6 +11,14 @@ public class Graph {
     public String toDotString() {
         StringBuilder s = new StringBuilder("digraph G {\n");
 
+        for(State state : states) {
+            s.append("\"");
+            s.append(state);
+            s.append("\" [shape=");
+            s.append(state.isRobotState ? "oval" : "box");
+            s.append("]\n");
+        }
+
         for(Transition t : transitions) {
             s.append("\"");
             s.append(t.from);

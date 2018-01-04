@@ -63,8 +63,19 @@ public class State {
             posA = robot;
             posB = child.add(move.directionVector);
         }
+        double distance = posA.sub(posB).abs();
+        if(distance <= 1) return false;
 
-        return posA.sub(posB).abs() > 1;
+        // Check whether the child would be too close to a charging station
+        if(!isRobot) {
+            for(Vector2 station : field.loadingStations) {
+                distance = child.add(move.directionVector).sub(station).abs();
+                if(distance <= 1) return false;
+            }
+        }
+
+
+        return true;
     }
 
     @Override
@@ -82,5 +93,9 @@ public class State {
         } else {
             return generateChildMoves();
         }
+    }
+
+    public String toString() {
+        return robot + "; " + child + " " + (isRobotState ? "r" : "e");
     }
 }
