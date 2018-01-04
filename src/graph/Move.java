@@ -1,3 +1,5 @@
+package graph;
+
 public enum Move {
     UP(new Vector2(0, -1)),
     DOWN(new Vector2(0, 1)),

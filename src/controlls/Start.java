@@ -3,7 +3,7 @@ package controlls;
 import java.util.HashMap;
 
 import modell.Territorium;
-import modell.UBoot;
+import modell.Roboter;
 import views.Oberflaeche;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -28,7 +28,7 @@ public class Start extends Application {
 		Territorium territorium = new Territorium();
 		Oberflaeche oberflaeche = new Oberflaeche(primaryStage, territorium);
 		erstelleNeuesFenster(oberflaeche, primaryStage, territorium);
-		if (territorium.getUboot().getClass() == UBoot.class) {
+		if (territorium.getUboot().getClass() == Roboter.class) {
 			oberflaeche.getSubmarineEvents().ladeCodeInTextArea(oberflaeche.getTextArea(),
 					LoadAndSaveCode.defaultName + ".java");
 		} else {

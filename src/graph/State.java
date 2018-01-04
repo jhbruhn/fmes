@@ -1,3 +1,5 @@
+package graph;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,9 +47,24 @@ public class State {
     }
 
     public boolean isMovePossible(Move move, boolean isRobot) {
+
+        // Check whether the new position will be in a wall
         Vector2 position = isRobot ? robot : child;
-        // TODO: Add Child here.
-        return !field.isWallAt(position.add(move.directionVector));
+
+        if(field.isWallAt(position.add(move.directionVector)))
+            return false;
+
+        // Check whether the child and robot would be too close to each other
+        Vector2 posA, posB;
+        if(isRobot) {
+            posA = robot.add(move.directionVector);
+            posB = child;
+        } else {
+            posA = robot;
+            posB = child.add(move.directionVector);
+        }
+
+        return posA.sub(posB).abs() > 1;
     }
 
     @Override
@@ -59,7 +76,7 @@ public class State {
         return other.robot.equals(this.robot) && other.child.equals(this.child) && other.isRobotState == this.isRobotState;
     }
 
-    public List<Transition> generateMoves() {
+    public List<Transition> generateNextStates() {
         if(isRobotState) {
             return generateRobotMoves();
         } else {
