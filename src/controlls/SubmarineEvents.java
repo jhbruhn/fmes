@@ -57,7 +57,6 @@ import javafx.stage.Stage;
 public class SubmarineEvents {
 	private Territorium territorium;
 	private Start start;
-	private CompilerSubmarine comp;
 	private final static String fehlerText = "999Fehler%&%Abbruch";
 
 	/*
@@ -244,7 +243,6 @@ public class SubmarineEvents {
 			LoadAndSaveCode.save(stageTitle, code);
 			getStart().replaceStringKey(stage.getTitle(), stageTitle);
 			stage.setTitle(stageTitle);
-			getComp().compilieren(getTerritorium(), rb, stageTitle);
 			close.set(true);
 		}
 	}
@@ -629,15 +627,6 @@ public class SubmarineEvents {
 
 	public void setStart(Start start) {
 		this.start = start;
-		setComp(Start.compilerSubmarine);
-	}
-
-	public CompilerSubmarine getComp() {
-		return comp;
-	}
-
-	public void setComp(CompilerSubmarine comp) {
-		this.comp = comp;
 	}
 
 	/*

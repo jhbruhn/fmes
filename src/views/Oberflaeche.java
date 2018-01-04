@@ -63,7 +63,6 @@ public class Oberflaeche {
 	// MenuUnterpunkte im Menu "Datei"
 	private MenuItem newProjektMenuItem;
 	private MenuItem openProjectMenuItem;
-	private MenuItem kompilierenMenuItem;
 	private MenuItem druckenCodeMenuItem;
 	private Menu spracheMenuItem;
 	private ToggleGroup toggleSprache;
@@ -101,16 +100,11 @@ public class Oberflaeche {
 	private RadioMenuItem zielFeld;
 	private RadioMenuItem deleteBefehl;
 
-	// Licht an oder aus in dem Level
-	private MenuItem beleuchtungMenuItem;
-
 	// MenuUnterpunkte im Menu "U-Boot"
 	private MenuItem vorMenuItem;
 	private MenuItem rueckMenuItem;
 	private MenuItem linksMenuItem;
 	private MenuItem rechtsMenuItem;
-	private MenuItem nimmBatterieMenuItem;
-	private MenuItem sonarMenuItem;
 
 	// MenuUnterpunkte im Menupunkt "Simulation"
 	private MenuItem startMenuItem;
@@ -135,9 +129,6 @@ public class Oberflaeche {
 	// Button speichern
 	private Button buttonSpeichernDokument;
 
-	// Button Gl�hbirne
-	private ToggleButton buttonGluehbirne;
-
 	// Button Vor
 	private Button buttonUp;
 
@@ -149,12 +140,6 @@ public class Oberflaeche {
 
 	// Button Rechts
 	private Button buttonRight;
-
-	// Button Nimm Batterie
-	private Button buttonTakeBatterie;
-
-	// Button Sonar
-	private Button buttonSonar;
 
 	// Button Start
 	private Button buttonStart;
@@ -262,7 +247,6 @@ public class Oberflaeche {
 		exampleMenu = new Menu();
 		newProjektMenuItem = new MenuItem();
 		openProjectMenuItem = new MenuItem();
-		kompilierenMenuItem = new MenuItem();
 		druckenCodeMenuItem = new MenuItem();
 		spracheMenuItem = new Menu();
 		toggleSprache = new ToggleGroup();
@@ -293,13 +277,10 @@ public class Oberflaeche {
 		hai = new RadioMenuItem();
 		zielFeld = new RadioMenuItem();
 		deleteBefehl = new RadioMenuItem();
-		beleuchtungMenuItem = new MenuItem();
 		vorMenuItem = new MenuItem();
 		rueckMenuItem = new MenuItem();
 		linksMenuItem = new MenuItem();
 		rechtsMenuItem = new MenuItem();
-		nimmBatterieMenuItem = new MenuItem();
-		sonarMenuItem = new MenuItem();
 		startMenuItem = new MenuItem();
 		pauseMenuItem = new MenuItem();
 		stopMenuItem = new MenuItem();
@@ -314,8 +295,6 @@ public class Oberflaeche {
 				new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/openSmall.png"))));
 		buttonSpeichernDokument = new Button("", new ImageView(
 				new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/saveSmall.png"))));
-		buttonGluehbirne = new ToggleButton("", new ImageView(
-				new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/gl�hbirneSmall.png"))));
 		buttonUp = new Button("", new ImageView(
 				new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/arrowsUpSmall.png"))));
 		buttonLeft = new Button("", new ImageView(
@@ -324,10 +303,6 @@ public class Oberflaeche {
 				new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/arrowsDownSmall.png"))));
 		buttonRight = new Button("", new ImageView(
 				new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/arrowsRightSmall.png"))));
-		buttonTakeBatterie = new Button("", new ImageView(
-				new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/gl�hbirneSmall.png"))));
-		buttonSonar = new Button("", new ImageView(
-				new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/SonarSmall.png"))));
 		buttonStart = new Button("", new ImageView(
 				new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/startSmall.png"))));
 		buttonPause = new Button("", new ImageView(
@@ -469,7 +444,6 @@ public class Oberflaeche {
 		buttonStop.setPrefSize(Territorium.OBJ_WIDTH, Territorium.OBJ_WIDTH);
 		buttonSpeichernDokument.setPrefSize(Territorium.OBJ_WIDTH, Territorium.OBJ_WIDTH);
 		buttonNeuesDokument.setPrefSize(Territorium.OBJ_WIDTH, Territorium.OBJ_WIDTH);
-		buttonGluehbirne.setPrefSize(Territorium.OBJ_WIDTH, Territorium.OBJ_WIDTH);
 
 		// Erstellt eine ComboBox f�r nicht so h�ufig ben�tigte Buttons
 		bearbeiteComboBoxFuerDieButtons();
@@ -480,8 +454,8 @@ public class Oberflaeche {
 		// toolbar.getChildren().addAll(buttonSubmarine, buttonFelsen,
 		// buttonBatterie, buttonExitFeld, buttonDelete);
 		toolBar.getItems().addAll(buttonNeuesDokument, buttonOeffneDokument, buttonSpeichernDokument, new Separator(),
-				comboboxButtonBearbeitenAuswahl, buttonGluehbirne, new Separator(), buttonUp, buttonDown, buttonLeft,
-				buttonRight, buttonTakeBatterie, buttonSonar, new Separator(), buttonStart, buttonPause, buttonStop,
+				comboboxButtonBearbeitenAuswahl, new Separator(), buttonUp, buttonDown, buttonLeft,
+				buttonRight, new Separator(), buttonStart, buttonPause, buttonStop,
 				new Separator(), slider, new Separator(), buttonHinweis);
 
 		return toolBar;
@@ -565,13 +539,11 @@ public class Oberflaeche {
 
 		// Hinzuf�gen der MenuUnterpunkte zum MenuPunkt
 		fileMenu.getItems().addAll(newProjektMenuItem, openProjectMenuItem, new SeparatorMenuItem(),
-				kompilierenMenuItem, druckenCodeMenuItem, spracheMenuItem, new SeparatorMenuItem(), quitMenuItem);
+				druckenCodeMenuItem, spracheMenuItem, new SeparatorMenuItem(), quitMenuItem);
 		bearbeitenMenu.getItems().addAll(subMenuSave, subMenuLoad, subMenuPicture, druckenSpielMenuItem,
 				groeßeAendernMenuItem, new SeparatorMenuItem(), resizeableMenuItem, new SeparatorMenuItem(), submarine,
-				felsen, leuchtFelsen, batterie, hai, zielFeld, deleteBefehl, new SeparatorMenuItem(),
-				beleuchtungMenuItem);
-		uBoot.getItems().addAll(vorMenuItem, rueckMenuItem, linksMenuItem, rechtsMenuItem, nimmBatterieMenuItem,
-				sonarMenuItem);
+				felsen, leuchtFelsen, batterie, hai, zielFeld, deleteBefehl, new SeparatorMenuItem());
+		uBoot.getItems().addAll(vorMenuItem, rueckMenuItem, linksMenuItem, rechtsMenuItem);
 		simulationsMenu.getItems().addAll(startMenuItem, pauseMenuItem, stopMenuItem);
 		exampleMenu.getItems().addAll(speichernBeispiel, ladenBeispiel);
 		helpMenu.getItems().addAll(hinweisMenuItem, hilfeMenuItem);
@@ -674,22 +646,12 @@ public class Oberflaeche {
 		openProjectMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.CONTROL_DOWN));
 		openProjectMenuItem.setOnAction(e -> {
 			sbEvents.ladeCode(code, getPrimaryStage());
-			sbEvents.getComp().compilieren(getTerritorium(), international.getRb(), getPrimaryStage().getTitle());
 		});
 		buttonOeffneDokument.setOnAction(e -> openProjectMenuItem.fire());
 
 		// Button Speichern
 		sbEvents.speichernEvent(buttonSpeichernDokument, code, getPrimaryStage(), international.getRb(),
 				getTerritorium().getUboot());
-
-		// Unterpunkt "Kompilieren"
-		kompilierenMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.K, KeyCombination.CONTROL_DOWN));
-		kompilierenMenuItem.setOnAction(e -> {
-			buttonSpeichernDokument.fire();
-			sbEvents.getComp().compilieren(getTerritorium(), international.getRb(), getPrimaryStage().getTitle());
-		}
-
-		);
 
 		// Unterpunkt "Drucken"
 		druckenCodeMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.P, KeyCombination.CONTROL_DOWN));
@@ -884,14 +846,6 @@ public class Oberflaeche {
 		rechtsMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.D, KeyCombination.CONTROL_DOWN));
 		sbEvents.menuItemsButtonsFuerSubmarineAktions(rechtsMenuItem, buttonRight, 'r');
 
-		// Unterpunkt "NimmBAtterie"
-		nimmBatterieMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.E, KeyCombination.CONTROL_DOWN));
-		sbEvents.menuItemsButtonsFuerSubmarineAktions(nimmBatterieMenuItem, buttonTakeBatterie, 'n');
-
-		// Unterpunkt "Sonar"
-		sonarMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.F, KeyCombination.CONTROL_DOWN));
-		sbEvents.menuItemsButtonsFuerSubmarineAktions(sonarMenuItem, buttonSonar, 's');
-
 		// Aktionen im Menu "Simulation"
 		// Unterpunkt "start"
 		startMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.F11, KeyCombination.CONTROL_DOWN));
@@ -938,8 +892,6 @@ public class Oberflaeche {
 				getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/new_fileVerySmall.png"))));
 		openProjectMenuItem.setGraphic(new ImageView(
 				new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/openVerySmall.png"))));
-		kompilierenMenuItem.setGraphic(new ImageView(
-				new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/compileVerySmall.png"))));
 		druckenCodeMenuItem.setGraphic(new ImageView(
 				new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/printerVerySmall.png"))));
 		spracheMenuItem.setGraphic(new ImageView(new Image(
@@ -993,8 +945,6 @@ public class Oberflaeche {
 				getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/Exit-FeldVerySmall.png"))));
 		deleteBefehl.setGraphic(new ImageView(
 				new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/deleteVerySmall.png"))));
-		beleuchtungMenuItem.setGraphic(new ImageView(new Image(
-				getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/gl�hbirneVerySmall.png"))));
 
 		// U-Boot-Images
 		vorMenuItem.setGraphic(new ImageView(new Image(
@@ -1005,10 +955,6 @@ public class Oberflaeche {
 				getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/arrowsDownVerySmall.png"))));
 		rueckMenuItem.setGraphic(new ImageView(new Image(
 				getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/arrowsRightVerySmall.png"))));
-		nimmBatterieMenuItem.setGraphic(new ImageView(
-				new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/grabVerySmall.png"))));
-		sonarMenuItem.setGraphic(new ImageView(
-				new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/SonarVerySmall.png"))));
 
 		// Simulation-Images
 		startMenuItem.setGraphic(new ImageView(
@@ -1035,7 +981,6 @@ public class Oberflaeche {
 		uBoot.setText(international.getRb().getString("uBoot"));
 		newProjektMenuItem.setText(international.getRb().getString("newProjektMenuItem"));
 		openProjectMenuItem.setText(international.getRb().getString("openProjectMenuItem"));
-		kompilierenMenuItem.setText(international.getRb().getString("kompilierenMenuItem"));
 		druckenCodeMenuItem.setText(international.getRb().getString("druckenCodeMenuItem"));
 		spracheMenuItem.setText(international.getRb().getString("spracheMenuItem"));
 		englishSprache.setText(international.getRb().getString("englishSprache"));
@@ -1065,13 +1010,10 @@ public class Oberflaeche {
 		hai.setText(international.getRb().getString("hai"));
 		zielFeld.setText(international.getRb().getString("zielFeld"));
 		deleteBefehl.setText(international.getRb().getString("deleteBefehl"));
-		beleuchtungMenuItem.setText(international.getRb().getString("beleuchtungMenuItem"));
 		vorMenuItem.setText(international.getRb().getString("vorMenuItem"));
 		rueckMenuItem.setText(international.getRb().getString("rueckMenuItem"));
 		linksMenuItem.setText(international.getRb().getString("linksMenuItem"));
 		rechtsMenuItem.setText(international.getRb().getString("rechtsMenuItem"));
-		nimmBatterieMenuItem.setText(international.getRb().getString("nimmBatterieMenuItem"));
-		sonarMenuItem.setText(international.getRb().getString("sonarMenuItem"));
 		startMenuItem.setText(international.getRb().getString("startMenuItem"));
 		pauseMenuItem.setText(international.getRb().getString("pauseMenuItem"));
 		stopMenuItem.setText(international.getRb().getString("stopMenuItem"));
@@ -1085,12 +1027,8 @@ public class Oberflaeche {
 
 		buttonUp.setTooltip(new Tooltip(international.getRb().getString("buttonUp")));
 		buttonRight.setTooltip(new Tooltip(international.getRb().getString("buttonRight")));
-		buttonTakeBatterie.setTooltip(new Tooltip(international.getRb().getString("buttonTakeBatterie")));
 		buttonLeft.setTooltip(new Tooltip(international.getRb().getString("buttonLeft")));
 		buttonDown.setTooltip(new Tooltip(international.getRb().getString("buttonDown")));
-		buttonSonar.setTooltip(new Tooltip(international.getRb().getString("buttonSonar")));
-
-		buttonGluehbirne.setTooltip(new Tooltip(international.getRb().getString("buttonGluehbirne")));
 
 		buttonStart.setTooltip(new Tooltip(international.getRb().getString("buttonStart")));
 		buttonStop.setTooltip(new Tooltip(international.getRb().getString("buttonStop")));
