@@ -1,25 +1,25 @@
 package controlls;
 
-import com.sun.corba.se.impl.orbutil.graph.Graph;
+
+import graph.Graph;
 
 import javax.swing.text.Position;
 
 public class RobotMovement {
+    Enum lastStep;
     Graph graph;
 
     public RobotMovement(Graph graph) {
         this.graph = graph;
     }
 
-    public boolean doNext() {
-        //clearGraph(terretorium.getChild());
-        if (nextStep()!=null) {
-            runStep();
-            return true;
-        }
-        return false;
+    public void doNext() {
+        runStep(nextStep());
     }
 
+    public boolean isNotTerminated(){
+        return true;
+    }
     public Graph getGraph() {
         return graph;
     }
@@ -35,7 +35,16 @@ public class RobotMovement {
     public Enum nextStep() {
         return null;
     }
-    public void runStep(){
+
+    public void runStep(Enum nextstep) {
         //do nextStep
+    }
+
+    public Enum getLastStep() {
+        return lastStep;
+    }
+
+    public void setLastStep(Enum lastStep) {
+        this.lastStep = lastStep;
     }
 }
