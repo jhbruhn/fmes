@@ -8,6 +8,7 @@ public class State {
     public Vector2 child;
     Field field;
     boolean isRobotState; // True if it is the robots turn, false when not
+    public int enforceValue = -1;
 
     public State(Field field, Vector2 robot, Vector2 child, boolean isRobotState) {
         this.field = field;

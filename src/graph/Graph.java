@@ -51,6 +51,40 @@ public class Graph {
         return ts;
     }
 
+    public State findStateForPositions(Vector2 robotPosition, Vector2 childPosition) {
+        for(State state : states) {
+            if(state.robot.equals(robotPosition) && state.child.equals(childPosition))
+                return state;
+        }
+        return null;
+    }
+
+    public List<State> findStatesForRobotPosition(Vector2 robotPosition) {
+        List<State> foundStates = new ArrayList<>();
+        for(State state : states) {
+            if(state.robot.equals(robotPosition))
+                foundStates.add(state);
+        }
+        return foundStates;
+    }
+
+    public void calculateEnforce(Vector2 robotTarget) {
+        // TODO: Maybe move
+        // Clear enforce values of all states.
+        for(State s : states) {
+            s.enforceValue = -1;
+        }
+
+        List<State> targetStates = findStatesForRobotPosition(robotTarget);
+
+        // Set enforce value to 0 for targetstates.
+        for(State s : targetStates)
+            s.enforceValue = 0;
+
+        // TODO: Go from here and calculate more enforce values for 1-acceptance
+        // TODO: Eliminate Transitions for Buechi-Acceptance
+    }
+
     public static Graph generateGraph(State initial) {
         Graph g = new Graph();
 
