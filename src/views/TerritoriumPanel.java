@@ -60,7 +60,7 @@ public class TerritoriumPanel extends Region implements Observer {
 			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/submarineBugOstSmall.png"));
 
 	private final Image submarineBugSuedSmall = new Image(
-			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/submarineBugS�dSmall.png"));
+			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/submarineBugSüdSmall.png"));
 
 	private final Image submarineBugWestSmall = new Image(
 			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/submarineBugWestSmall.png"));
@@ -72,7 +72,7 @@ public class TerritoriumPanel extends Region implements Observer {
 			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/submarineHeckOstSmall.png"));
 
 	private final Image submarineHeckSuedSmall = new Image(
-			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/submarineHeckS�dSmall.png"));
+			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/submarineHeckSüdSmall.png"));
 
 	private final Image submarineHeckWestSmall = new Image(
 			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/submarineHeckWestSmall.png"));

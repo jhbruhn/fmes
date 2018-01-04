@@ -14,10 +14,10 @@ public class Start extends Application {
 //	public static void main(String[] args){
 //		launch(args);
 //	}
-	
+
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see javafx.application.Application#start(javafx.stage.Stage) start
 	 * Methode, welche ganz zu Anfang des Programmes aufgerufen wird. Von diesem
 	 * Object gehen dann alle Fenster aus und werden �berpr�ft.
@@ -28,13 +28,7 @@ public class Start extends Application {
 		Territorium territorium = new Territorium();
 		Oberflaeche oberflaeche = new Oberflaeche(primaryStage, territorium);
 		erstelleNeuesFenster(oberflaeche, primaryStage, territorium);
-		if (territorium.getUboot().getClass() == Roboter.class) {
-			oberflaeche.getSubmarineEvents().ladeCodeInTextArea(oberflaeche.getTextArea(),
-					LoadAndSaveCode.defaultName + ".java");
-		} else {
-			oberflaeche.getSubmarineEvents().ladeCodeInTextArea(oberflaeche.getTextArea(),
-					territorium.getUboot().getClass().getName() + ".java");
-		}
+
 		oberflaeche.setTextChanged(false);
 	}
 
@@ -63,11 +57,11 @@ public class Start extends Application {
 		hashOberflaeche.remove(oldName);
 		hashOberflaeche.put(newName, o);
 	}
-	
+
 	public boolean isOberflaecheVorhanden(String name){
 		return hashOberflaeche.containsKey(name);
 	}
-	
+
 	public Oberflaeche getOberflaecheByKey(String name){
 		return hashOberflaeche.get(name);
 	}
