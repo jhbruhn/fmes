@@ -44,4 +44,8 @@ public class Vector2 {
     public double abs() {
         return Math.sqrt(x * x + y * y);
     }
+
+    public String toString() {
+        return "(" + this.x + ", " + this.y + ")";
+    }
 }
