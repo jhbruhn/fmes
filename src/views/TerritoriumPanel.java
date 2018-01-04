@@ -59,7 +59,7 @@ public class TerritoriumPanel extends Region implements Observer {
 	private final Image submarineBugOstSmall = new Image(
 			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/submarineBugOstSmall.png"));
 
-	private final Image submarineBugS�dSmall = new Image(
+	private final Image submarineBugSuedSmall = new Image(
 			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/submarineBugS�dSmall.png"));
 
 	private final Image submarineBugWestSmall = new Image(
@@ -71,7 +71,7 @@ public class TerritoriumPanel extends Region implements Observer {
 	private final Image submarineHeckOstSmall = new Image(
 			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/submarineHeckOstSmall.png"));
 
-	private final Image submarineHeckS�dSmall = new Image(
+	private final Image submarineHeckSuedSmall = new Image(
 			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/submarineHeckS�dSmall.png"));
 
 	private final Image submarineHeckWestSmall = new Image(
@@ -103,8 +103,8 @@ public class TerritoriumPanel extends Region implements Observer {
 	private double objectheigth;
 	private double objectwidthpercent;
 	private double objectheigthpercent;
-	private double groe�eX;
-	private double groe�eY;
+	private double groeßeX;
+	private double groeßeY;
 
 	private AnimationController animation;
 
@@ -178,8 +178,8 @@ public class TerritoriumPanel extends Region implements Observer {
 		objectheigth = Territorium.OBJ_WIDTH;
 		objectwidthpercent = 1;
 		objectheigthpercent = 1;
-		groe�eX = Territorium.OBJ_WIDTH * t.getFeldBreite() + 2 * Oberflaeche.CANVAS_RAND_ABSTAND;
-		groe�eY = Territorium.OBJ_WIDTH * t.getFeldHoehe() + 2 * Oberflaeche.CANVAS_RAND_ABSTAND;
+		groeßeX = Territorium.OBJ_WIDTH * t.getFeldBreite() + 2 * Oberflaeche.CANVAS_RAND_ABSTAND;
+		groeßeY = Territorium.OBJ_WIDTH * t.getFeldHoehe() + 2 * Oberflaeche.CANVAS_RAND_ABSTAND;
 		/*
 		 * erster if-block macht das canvas "resizable", folglich wird das Feld
 		 * kleiner gezeichnet als sonst, wenn es nicht in die Scrollpane passt
@@ -190,10 +190,10 @@ public class TerritoriumPanel extends Region implements Observer {
 		 * "resizable" angesehen werden soll
 		 */
 		if (getTerritorium().isResizeable() && getScWidth() != null && getScHeigth() != null
-				&& (getScWidth().getValue() < groe�eX || getScHeigth().getValue() < groe�eY)) {
+				&& (getScWidth().getValue() < groeßeX || getScHeigth().getValue() < groeßeY)) {
 			t.setEntfernungBreiteDesSpielFeldes(0);
 			t.setEntfernungHoeheDesSpielFeldes(0);
-			if (getScWidth().getValue() > groe�eX && getScHeigth().getValue() > groe�eY) {
+			if (getScWidth().getValue() > groeßeX && getScHeigth().getValue() > groeßeY) {
 				x = (int) (Oberflaeche.CANVAS_RAND_ABSTAND
 						+ ((getScWidth().getValue() / 2.0) - (Territorium.OBJ_WIDTH * t.getFeldBreite() / 2.0)));
 				y = (int) (Oberflaeche.CANVAS_RAND_ABSTAND
@@ -202,9 +202,9 @@ public class TerritoriumPanel extends Region implements Observer {
 				x = Oberflaeche.CANVAS_RAND_ABSTAND;
 				y = Oberflaeche.CANVAS_RAND_ABSTAND;
 			}
-			objectwidth = ((getScWidth().getValue() - Oberflaeche.CANVAS_RAND_ABSTAND) / groe�eX)
+			objectwidth = ((getScWidth().getValue() - Oberflaeche.CANVAS_RAND_ABSTAND) / groeßeX)
 					* Territorium.OBJ_WIDTH;
-			objectheigth = ((getScHeigth().getValue() - Oberflaeche.CANVAS_RAND_ABSTAND) / groe�eY)
+			objectheigth = ((getScHeigth().getValue() - Oberflaeche.CANVAS_RAND_ABSTAND) / groeßeY)
 					* Territorium.OBJ_WIDTH;
 			if (objectwidth < Territorium.OBJ_MIN_WIDTH) {
 				objectwidth = Territorium.OBJ_MIN_WIDTH;
@@ -222,8 +222,8 @@ public class TerritoriumPanel extends Region implements Observer {
 			objectheigthpercent = objectheigth / Territorium.OBJ_WIDTH;
 			canvas.setWidth(t.getFeldBreite() * objectwidth + Oberflaeche.CANVAS_RAND_ABSTAND + x);
 			canvas.setHeight(t.getFeldHoehe() * objectheigth + Oberflaeche.CANVAS_RAND_ABSTAND + y);
-		} else if (getScWidth() != null && getScHeigth() != null && getScWidth().getValue() > groe�eX
-				&& getScHeigth().getValue() > groe�eY) {
+		} else if (getScWidth() != null && getScHeigth() != null && getScWidth().getValue() > groeßeX
+				&& getScHeigth().getValue() > groeßeY) {
 			x = (int) (Oberflaeche.CANVAS_RAND_ABSTAND
 					+ ((getScWidth().getValue() / 2.0) - (Territorium.OBJ_WIDTH * t.getFeldBreite() / 2.0)));
 			y = (int) (Oberflaeche.CANVAS_RAND_ABSTAND
