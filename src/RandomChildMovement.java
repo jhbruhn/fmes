@@ -1,43 +1,44 @@
-public class RandomChildMovement {
-    Kind kind;
-    Terretorium terretorium;
+import modell.Territorium;
+import modell.UBoot;
 
-    public RandomChildMovement(Kind kind, Terretorium terretorium) {
+public class RandomChildMovement {
+    UBoot kind;
+    Territorium territorium;
+
+    public RandomChildMovement(UBoot kind, Territorium territorium) {
         this.kind = kind;
-        this.terretorium = terretorium;
+        this.territorium = territorium;
     }
 
     public void doNextStep() {
         int zufallszahl = (int) ((4 * Math.random()) % 4);
-        boolean success;
+        boolean success=false;
         while (!success) {
             switch (zufallszahl) {
                 case 0:
-                    if (terretorium.isFree(terretorium.getChildPosition() - (1, 0))){//bullshit
-                    kind.goLeft();
+                    if (territorium.felsenDa(territorium.getFeldReiheKind(),territorium.getFeldSpalteKind()-1 )){//bullshit
+                    kind.linksBewegen();
                     success = true;
                 }
                 case 1:
-                    if (terretorium.isFree(terretorium.getChildPosition() + (1, 0)) {//bullshit
-                        kind.goRight();
+                    if (territorium.felsenDa(territorium.getFeldReiheKind(),territorium.getFeldSpalteKind()+1 )){//bullshit
+                        kind.rechtsBewegen();
                         success = true;
                     }
                 case 2:
-                    if (terretorium.isFree(terretorium.getChildPosition() - (0, 1))){//bullshit
-                    kind.goUp();
-                    success = true;
+                    if (territorium.felsenDa(territorium.getFeldReiheKind()-1,territorium.getFeldSpalteKind())){//bullshit
+                        kind.vorFahren();
+                        success = true;
                 }
                 case 3:
-                    if (terretorium.isFree(terretorium.getChildPosition() + (0, 1))){//bullshit
-                    kind.goDown();
-                    success = true;
+                    if (territorium.felsenDa(territorium.getFeldReiheKind()+1,territorium.getFeldSpalteKind())){//bullshit
+                        kind.rueckFahren();
+                        success = true;
                 }
                 case 4:
-                    kind.stayStill();
                     success = true;
             }
         }
     }
 
-}
 }

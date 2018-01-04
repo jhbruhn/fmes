@@ -10,7 +10,7 @@ public class RobotMovement {
     }
 
     public boolean doNext() {
-        clearGraph(terretorium.getChild());
+        //clearGraph(terretorium.getChild());
         if (nextStep()!=null) {
             runStep();
             return true;

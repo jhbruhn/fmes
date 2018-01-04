@@ -624,6 +624,37 @@ public class Territorium extends Observable implements java.io.Serializable {
 	public void setStartSpalteKind(int startSpalteKind) {
 		this.startSpalteKind = startSpalteKind;
 	}
+	public int getFeldReiheRoboter() {
+		return feldReiheRoboter;
+	}
+
+	public void setFeldReiheRoboter(int feldReiheRoboter) {
+		this.feldReiheRoboter = feldReiheRoboter;
+	}
+
+	public int getFeldSpalteRoboter() {
+		return feldSpalteRoboter;
+	}
+
+	public void setFeldSpalteRoboter(int feldSpalteRoboter) {
+		this.feldSpalteRoboter = feldSpalteRoboter;
+	}
+
+	public int getFeldReiheKind() {
+		return feldReiheKind;
+	}
+
+	public void setFeldReiheKind(int feldReiheKind) {
+		this.feldReiheKind = feldReiheKind;
+	}
+
+	public int getFeldSpalteKind() {
+		return feldSpalteKind;
+	}
+
+	public void setFeldSpalteKind(int feldSpalteKind) {
+		this.feldSpalteKind = feldSpalteKind;
+	}
 
 	public FeldEigenschaft[][] getStartFeld() {
 		return startFeld;

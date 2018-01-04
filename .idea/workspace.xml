@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2572ffed-2cd9-40a8-bcde-eb9c765ad732" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/controlls/CompilerSubmarine.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/controlls/ShortCompiler.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controlls/Start.java" afterPath="$PROJECT_DIR$/src/controlls/Start.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controlls/SubmarineEvents.java" afterPath="$PROJECT_DIR$/src/controlls/SubmarineEvents.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/Oberflaeche.java" afterPath="$PROJECT_DIR$/src/views/Oberflaeche.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/RandomChildMovement.java" afterPath="$PROJECT_DIR$/src/RandomChildMovement.java" />
+      <change beforePath="$PROJECT_DIR$/src/RobotMovement.java" afterPath="$PROJECT_DIR$/src/RobotMovement.java" />
+      <change beforePath="$PROJECT_DIR$/src/modell/Territorium.java" afterPath="$PROJECT_DIR$/src/modell/Territorium.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,26 +15,62 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="SubmarineEvents.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controlls/SubmarineEvents.java">
+      <file leaf-file-name="RandomChildMovement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/RandomChildMovement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="922" column="6" lean-forward="false" selection-start-line="922" selection-start-column="6" selection-end-line="922" selection-end-column="6" />
-              <folding />
+            <state relative-caret-position="1075">
+              <caret line="43" column="1" lean-forward="false" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Oberflaeche.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/views/Oberflaeche.java">
+      <file leaf-file-name="Territorium.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/modell/Territorium.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="456" column="48" lean-forward="false" selection-start-line="456" selection-start-column="48" selection-end-line="456" selection-end-column="48" />
+            <state relative-caret-position="286">
+              <caret line="299" column="26" lean-forward="false" selection-start-line="299" selection-start-column="19" selection-end-line="299" selection-end-column="26" />
+              <folding>
+                <element signature="e#19649#19650#0" expanded="true" />
+                <element signature="e#19679#19680#0" expanded="true" />
+                <element signature="e#19737#19738#0" expanded="true" />
+                <element signature="e#19784#19785#0" expanded="true" />
+                <element signature="e#19822#19823#0" expanded="true" />
+                <element signature="e#19853#19854#0" expanded="true" />
+                <element signature="e#19913#19914#0" expanded="true" />
+                <element signature="e#19962#19963#0" expanded="true" />
+                <element signature="e#19996#19997#0" expanded="true" />
+                <element signature="e#20023#20024#0" expanded="true" />
+                <element signature="e#20075#20076#0" expanded="true" />
+                <element signature="e#20116#20117#0" expanded="true" />
+                <element signature="e#20151#20152#0" expanded="true" />
+                <element signature="e#20179#20180#0" expanded="true" />
+                <element signature="e#20233#20234#0" expanded="true" />
+                <element signature="e#20276#20277#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RobotMovement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/RobotMovement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="12" column="10" lean-forward="false" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#171#172#0" expanded="true" />
+                <element signature="e#205#206#0" expanded="true" />
+                <element signature="e#431#432#0" expanded="true" />
+                <element signature="e#459#460#0" expanded="true" />
+                <element signature="e#500#501#0" expanded="true" />
+                <element signature="e#534#535#0" expanded="true" />
+                <element signature="e#620#621#0" expanded="true" />
+                <element signature="e#647#648#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -54,26 +88,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>J</find>
-      <find>ja</find>
-      <find>java</find>
-      <find>javaPrk</find>
-      <find>javaPr</find>
-      <find>javaPrak</find>
-      <find>javaPrakt</find>
-      <find>javaPrakti</find>
-      <find>javaPraktik</find>
-      <find>javaPraktiku</find>
-      <find>javaPraktikums</find>
-      <find>m</find>
-      <find>menu</find>
-      <find>menuItem</find>
-      <find>menuItemB</find>
-      <find>menuItemBu</find>
-      <find>menuItemBut</find>
-      <find>menuItemButt</find>
-      <find>menuItemButto</find>
-      <find>menuItemsButto</find>
+      <find>startReiheKind</find>
+      <find>feldReiheKind</find>
+      <find>felsenD</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -93,14 +110,10 @@
         <option value="$PROJECT_DIR$/src/Transition.java" />
         <option value="$PROJECT_DIR$/src/Move.java" />
         <option value="$PROJECT_DIR$/src/State.java" />
-        <option value="$PROJECT_DIR$/src/RandomChildMovement.java" />
         <option value="$PROJECT_DIR$/src/RobotMovement.java" />
-        <option value="$PROJECT_DIR$/src/modell/Internationalitaet.java" />
-        <option value="$PROJECT_DIR$/src/controlls/RunCodeController.java" />
-        <option value="$PROJECT_DIR$/src/views/TerritoriumPanel.java" />
-        <option value="$PROJECT_DIR$/src/controlls/Start.java" />
-        <option value="$PROJECT_DIR$/src/controlls/SubmarineEvents.java" />
-        <option value="$PROJECT_DIR$/src/views/Oberflaeche.java" />
+        <option value="$PROJECT_DIR$/src/modell/UBoot.java" />
+        <option value="$PROJECT_DIR$/src/modell/Territorium.java" />
+        <option value="$PROJECT_DIR$/src/RandomChildMovement.java" />
       </list>
     </option>
   </component>
@@ -110,11 +123,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-11" />
-    <option name="y" value="-11" />
-    <option name="width" value="2182" />
-    <option name="height" value="1402" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="202" />
+    <option name="y" value="45" />
+    <option name="width" value="1400" />
+    <option name="height" value="980" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -155,112 +168,30 @@
     <panes>
       <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ProjectX" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ProjectX" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ProjectX" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ProjectX" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ProjectX" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ProjectX" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ProjectX" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ProjectX" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modell" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ProjectX" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ProjectX" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controlls" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ProjectX" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ProjectX" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controlls" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SubmarineEvents.java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </PATH_ELEMENT>
-          </PATH>
+          <expand>
+            <path>
+              <item name="fmes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fmes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fmes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fmes" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fmes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fmes" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="modell" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -272,9 +203,6 @@
     <property name="aspect.path.notification.shown" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Raskur Sevenflame\IdeaProjects\ProjectX\src" />
-    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="" />
     </key>
@@ -293,6 +221,7 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Graph.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Main.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/State.java</PATH>
@@ -304,6 +233,164 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controlls/AnimationController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controlls/EndlosschleifenThread.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controlls/LoadAndSaveCode.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controlls/RunCodeController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controlls/Start.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controlls/SubmarineEvents.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controlls/SubmarineMouseHandler.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controlls/TextAreaControls.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/dbZugriffe/CreateDB.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/dbZugriffe/InsertStatements.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/dbZugriffe/SelectStatements.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/modell/FeldVollException.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/modell/FelsenDaException.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/modell/ImageCombo.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/modell/Internationalitaet.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/modell/KachelleerException.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/modell/NumberTextField.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/modell/ScAchse.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/modell/Territorium.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/modell/ThreadStopException.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/modell/UBoot.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/modell/UBootRuntimeException.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/modell/UBootTestClass.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resources/Invisible.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resources/MessageBundle.properties</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resources/MessageBundle_en.properties</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resources/PictureBundle.properties</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resources/Style.txt</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resources/UBootDefault.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resources/territorium.dtd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/BabyCryingSounds.wav</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/BatterieSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/BatterieVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/Device-Printer-icon.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/Exit-FeldSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/Exit-FeldVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/Felsen.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/FelsenSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/FelsenVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/FinishWave0.wav</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/FinishWave1.wav</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/FinishWave2.mp3</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/FinishWave2.wav</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/Flagge_des_Deutschen_Reiches.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/Fragezeichen_-_Vector-Icon.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/Hai_KH.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/Logo-Ausrufezeichen.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/OARIy.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/Union_flag_1606_(Kings_Colors).svg.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/YouGetNothing.wav</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/arrows.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/arrowsDownSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/arrowsDownVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/arrowsLeftSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/arrowsLeftVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/arrowsRightSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/arrowsRightVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/arrowsUpSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/arrowsUpVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/assorted-cool-icon-png-11.jpg.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/ausrufezeichenSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/ausrufezeichenVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/black-key-symbol-icon-6.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/cancel.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/compile.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/compileSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/compileVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/delete-button-png-27.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/deleteSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/deleteVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/deserialSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/deserialVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/englishSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/englishVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/fileopen16x16.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/fileopen22x22.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/fragezeichenSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/fragezeichenVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/germanSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/germanVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/glühbirne.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/glühbirneSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/glühbirneVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/grabSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/grabVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/haiSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/haiVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/images.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/javabean.gif</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/jaxbSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/jaxbVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/jpgSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/jpgVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/jpg_256.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/key-icon-4.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/languageSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/languageVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/leuchtFelsen.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/leuchtFelsenSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/leuchtFelsenVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/lost.wav</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/new_file.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/new_fileSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/new_fileVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/ok.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/open.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/openSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/openVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/pause.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/pauseSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/pauseVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/pictureSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/pictureVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/play.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/png.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/pngSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/pngVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/printerSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/printerVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/save.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/saveSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/saveVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/serialSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/serialVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/size.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/sizeSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/sizeVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/sonar.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/sonarSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/sonarVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/start.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/startSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/startVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/stop.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/stop2.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/stopSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/stopVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/submarine.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/submarineBugNordSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/submarineBugOstSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/submarineBugSüdSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/submarineBugWestSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/submarineHeckNordSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/submarineHeckOstSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/submarineHeckSüdSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/submarineHeckWestSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/submarineSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/submarineVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/sync4_xml.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/treasure.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/ursula.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/user-trash-full.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/user-trash.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/whirlpool-by-andy-blue-warping-whirlpool-requires-svg-filters-DKqO4W-clipart.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/xmlSmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/xmlVerySmall.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/views/Oberflaeche.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/views/TerritoriumPanel.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -404,8 +491,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration default="false" name="RandomChildMovement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Main">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="pathfind" />
+      <envs />
+    </configuration>
+    <configuration name="RandomChildMovement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="RandomChildMovement" />
       <option name="VM_PARAMETERS" />
@@ -418,76 +525,6 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="pathfind" />
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
-      <method />
-    </configuration>
-    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
-      <module name="" />
-      <option name="DEPLOY" value="true" />
-      <option name="ARTIFACT_NAME" value="" />
-      <option name="PM_INSTALL_OPTIONS" value="" />
-      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
-      <option name="MODE" value="default_activity" />
-      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
-      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
-      <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="DEBUGGER_TYPE" value="Java" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <Java />
-      <Profilers>
-        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
-        <option name="GAPID_ENABLED" value="false" />
-        <option name="GAPID_DISABLE_PCS" value="false" />
-        <option name="SUPPORT_LIB_ENABLED" value="true" />
-        <option name="INSTRUMENTATION_ENABLED" value="true" />
-      </Profilers>
-      <option name="DEEP_LINK" value="" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <method />
-    </configuration>
-    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
-      <module name="" />
-      <option name="TESTING_TYPE" value="0" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="EXTRA_OPTIONS" value="" />
-      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
-      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
-      <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="DEBUGGER_TYPE" value="Java" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <Java />
-      <Profilers>
-        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
-        <option name="GAPID_ENABLED" value="false" />
-        <option name="GAPID_DISABLE_PCS" value="false" />
-        <option name="SUPPORT_LIB_ENABLED" value="true" />
-        <option name="INSTRUMENTATION_ENABLED" value="true" />
-      </Profilers>
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <module />
-      <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -502,161 +539,6 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Cold Fusion runner description" factoryName="Cold Fusion" custom_browser="" web_path="">
-      <method />
-    </configuration>
-    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="myFilePath" />
-      <option name="GLUE" />
-      <option name="myNameFilter" />
-      <option name="myGeneratedName" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
-      <option name="BCName" value="" />
-      <option name="IOSSimulatorSdkPath" value="" />
-      <option name="adlOptions" value="" />
-      <option name="airProgramParameters" value="" />
-      <option name="appDescriptorForEmulator" value="Android" />
-      <option name="debugTransport" value="USB" />
-      <option name="debuggerSdkRaw" value="BC SDK" />
-      <option name="emulator" value="NexusOne" />
-      <option name="emulatorAdlOptions" value="" />
-      <option name="fastPackaging" value="true" />
-      <option name="fullScreenHeight" value="0" />
-      <option name="fullScreenWidth" value="0" />
-      <option name="launchUrl" value="false" />
-      <option name="launcherParameters">
-        <LauncherParameters>
-          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
-          <option name="launcherType" value="OSDefault" />
-          <option name="newPlayerInstance" value="false" />
-          <option name="playerPath" value="FlashPlayerDebugger.exe" />
-        </LauncherParameters>
-      </option>
-      <option name="mobileRunTarget" value="Emulator" />
-      <option name="moduleName" value="" />
-      <option name="overriddenMainClass" value="" />
-      <option name="overriddenOutputFileName" value="" />
-      <option name="overrideMainClass" value="false" />
-      <option name="runTrusted" value="true" />
-      <option name="screenDpi" value="0" />
-      <option name="screenHeight" value="0" />
-      <option name="screenWidth" value="0" />
-      <option name="url" value="http://" />
-      <option name="usbDebugPort" value="7936" />
-      <method />
-    </configuration>
-    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
-      <option name="BCName" value="" />
-      <option name="launcherParameters">
-        <LauncherParameters>
-          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
-          <option name="launcherType" value="OSDefault" />
-          <option name="newPlayerInstance" value="false" />
-          <option name="playerPath" value="FlashPlayerDebugger.exe" />
-        </LauncherParameters>
-      </option>
-      <option name="moduleName" value="" />
-      <option name="trusted" value="true" />
-      <method />
-    </configuration>
-    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list />
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
-      <setting name="vmparams" value="" />
-      <setting name="cmdLine" value="run-app" />
-      <setting name="passParentEnv" value="true" />
-      <setting name="launchBrowser" value="true" />
-      <setting name="launchBrowserUrl" value="" />
-      <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -677,69 +559,6 @@
       </option>
       <envs />
       <patterns />
-      <method />
-    </configuration>
-    <configuration default="true" type="JarApplication" factoryName="JAR Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="Java Scratch" factoryName="Java Scratch">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="SCRATCH_FILE_ID" value="0" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
-      <node-interpreter value="project" />
-      <working-dir value="" />
-      <envs />
-      <scope-kind value="ALL" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
-      <config-file value="" />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="pathfind" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <envs />
-      <method />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
@@ -747,13 +566,6 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <envs />
-      <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -781,30 +593,21 @@
       <envs />
       <properties />
       <listeners />
-      <method />
     </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <method />
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
-    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run" />
-      <scripts />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
-      <method />
-    </configuration>
-    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
-      <method />
-    </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Application.RandomChildMovement" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Main" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Application.RandomChildMovement" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="1" class="java.lang.String" itemvalue="Application.RandomChildMovement" />
       </list>
     </recent_temporary>
   </component>
@@ -822,8 +625,8 @@
       <option name="presentableId" value="Default" />
       <updated>1515074899490</updated>
       <workItem from="1515074901823" duration="386000" />
-      <workItem from="1515075717555" duration="1331000" />
-      <workItem from="1515077233899" duration="2646000" />
+      <workItem from="1515075717555" duration="3663000" />
+      <workItem from="1515079460122" duration="1629000" />
     </task>
     <task id="LOCAL-00001" summary="RandomChildMovement dummy">
       <created>1515076638098</created>
@@ -839,60 +642,46 @@
       <option name="project" value="LOCAL" />
       <updated>1515076668016</updated>
     </task>
-    <task id="LOCAL-00003" summary="Well played so far">
-      <created>1515078299632</created>
+    <task id="LOCAL-00003" summary="RobotMovement dummy">
+      <created>1515077059421</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1515078299632</updated>
+      <updated>1515077059421</updated>
     </task>
-    <task id="LOCAL-00004" summary="Well played so far">
-      <created>1515078621457</created>
+    <task id="LOCAL-00004" summary="RobotMovement dummy the 2.">
+      <created>1515077788272</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1515078621457</updated>
+      <updated>1515077788272</updated>
     </task>
-    <task id="LOCAL-00005" summary="Well played so far">
-      <created>1515078631685</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1515078631685</updated>
-    </task>
-    <task id="LOCAL-00006" summary="videos udn einige hd bilder rausgenommen">
-      <created>1515079151938</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1515079151938</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4363000" />
+    <option name="totallyTimeSpent" value="5678000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="2182" height="1402" extended-state="6" />
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32912844" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32912844" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32932073" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32912844" sideWeight="0.49791667" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32912844" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25406697" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932073" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -903,12 +692,11 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="processedProjectFiles" value="true" />
+    <option name="version" value="1" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -916,9 +704,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="RandomChildMovement dummy" />
     <MESSAGE value="no author" />
-    <MESSAGE value="Well played so far" />
-    <MESSAGE value="videos udn einige hd bilder rausgenommen" />
-    <option name="LAST_COMMIT_MESSAGE" value="videos udn einige hd bilder rausgenommen" />
+    <MESSAGE value="RobotMovement dummy" />
+    <MESSAGE value="RobotMovement dummy the 2." />
+    <option name="LAST_COMMIT_MESSAGE" value="RobotMovement dummy the 2." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -929,25 +717,45 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/RobotMovement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+        <state relative-caret-position="900">
+          <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#171#172#0" expanded="true" />
             <element signature="e#205#206#0" expanded="true" />
-            <element signature="e#429#430#0" expanded="true" />
-            <element signature="e#457#458#0" expanded="true" />
-            <element signature="e#498#499#0" expanded="true" />
-            <element signature="e#532#533#0" expanded="true" />
-            <element signature="e#618#619#0" expanded="true" />
-            <element signature="e#645#646#0" expanded="true" />
+            <element signature="e#431#432#0" expanded="true" />
+            <element signature="e#459#460#0" expanded="true" />
+            <element signature="e#500#501#0" expanded="true" />
+            <element signature="e#534#535#0" expanded="true" />
+            <element signature="e#620#621#0" expanded="true" />
+            <element signature="e#647#648#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Field.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="28" lean-forward="false" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Graph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="1" column="22" lean-forward="true" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -955,6 +763,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="5" column="25" lean-forward="true" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -962,6 +773,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="3" column="15" lean-forward="true" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -969,6 +781,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="5" column="11" lean-forward="false" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -984,6 +797,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="4" column="28" lean-forward="true" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -991,20 +807,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Field.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="28" lean-forward="false" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1013,6 +815,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="5" column="11" lean-forward="false" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1020,6 +823,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="6" column="19" lean-forward="true" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1027,6 +831,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="3" column="15" lean-forward="false" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1034,99 +839,113 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="5" column="25" lean-forward="false" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modell/Internationalitaet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1039">
-          <caret line="106" column="0" lean-forward="true" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
           <folding>
-            <element signature="e#681#682#0" expanded="true" />
-            <element signature="e#703#704#0" expanded="true" />
-            <element signature="e#895#896#0" expanded="true" />
-            <element signature="e#928#929#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/Steamer-Batterie.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/TerritoriumPanel.java">
+    <entry file="file://$PROJECT_DIR$/src/Graph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="293" column="34" lean-forward="true" selection-start-line="293" selection-start-column="34" selection-end-line="293" selection-end-column="34" />
+        <state relative-caret-position="0">
+          <caret line="1" column="22" lean-forward="false" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controlls/RunCodeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
-          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+        <state relative-caret-position="173">
+          <caret line="47" column="38" lean-forward="false" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controlls/TextAreaControls.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="266" column="50" lean-forward="false" selection-start-line="266" selection-start-column="50" selection-end-line="266" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-25">
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Field.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="28" lean-forward="false" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modell/UBoot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+          <folding>
+            <marker date="1515080005216" expanded="true" signature="1265:1269" ph="{}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/RobotMovement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="925">
-          <caret line="37" column="5" lean-forward="false" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+        <state relative-caret-position="300">
+          <caret line="12" column="10" lean-forward="false" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#171#172#0" expanded="true" />
             <element signature="e#205#206#0" expanded="true" />
-            <element signature="e#429#430#0" expanded="true" />
-            <element signature="e#457#458#0" expanded="true" />
-            <element signature="e#498#499#0" expanded="true" />
-            <element signature="e#532#533#0" expanded="true" />
-            <element signature="e#618#619#0" expanded="true" />
-            <element signature="e#645#646#0" expanded="true" />
+            <element signature="e#431#432#0" expanded="true" />
+            <element signature="e#459#460#0" expanded="true" />
+            <element signature="e#500#501#0" expanded="true" />
+            <element signature="e#534#535#0" expanded="true" />
+            <element signature="e#620#621#0" expanded="true" />
+            <element signature="e#647#648#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/RandomChildMovement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controlls/Start.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="53" column="28" lean-forward="true" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controlls/CompilerSubmarine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="939">
-          <caret line="121" column="1" lean-forward="true" selection-start-line="121" selection-start-column="1" selection-end-line="121" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controlls/SubmarineEvents.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="922" column="6" lean-forward="false" selection-start-line="922" selection-start-column="6" selection-end-line="922" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/Oberflaeche.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="456" column="48" lean-forward="false" selection-start-line="456" selection-start-column="48" selection-end-line="456" selection-end-column="48" />
+        <state relative-caret-position="1075">
+          <caret line="43" column="1" lean-forward="false" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modell/Territorium.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="299" column="26" lean-forward="false" selection-start-line="299" selection-start-column="19" selection-end-line="299" selection-end-column="26" />
+          <folding>
+            <element signature="e#19649#19650#0" expanded="true" />
+            <element signature="e#19679#19680#0" expanded="true" />
+            <element signature="e#19737#19738#0" expanded="true" />
+            <element signature="e#19784#19785#0" expanded="true" />
+            <element signature="e#19822#19823#0" expanded="true" />
+            <element signature="e#19853#19854#0" expanded="true" />
+            <element signature="e#19913#19914#0" expanded="true" />
+            <element signature="e#19962#19963#0" expanded="true" />
+            <element signature="e#19996#19997#0" expanded="true" />
+            <element signature="e#20023#20024#0" expanded="true" />
+            <element signature="e#20075#20076#0" expanded="true" />
+            <element signature="e#20116#20117#0" expanded="true" />
+            <element signature="e#20151#20152#0" expanded="true" />
+            <element signature="e#20179#20180#0" expanded="true" />
+            <element signature="e#20233#20234#0" expanded="true" />
+            <element signature="e#20276#20277#0" expanded="true" />
           </folding>
         </state>
       </provider>
