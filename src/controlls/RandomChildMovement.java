@@ -17,13 +17,14 @@ public class RandomChildMovement {
         boolean success=false;
         while (!success) {
             switch (zufallszahl) {
+                //todo Kind gegen Spielfeldende
                 case 0:
                     if (territorium.felsenDa(territorium.getFeldReiheKind(),territorium.getFeldSpalteKind()-1 )){
                     kind.linksBewegen();
                     success = true;
                 }
                 case 1:
-                    if (territorium.felsenDa(territorium.getFeldReiheKind(),territorium.getFeldSpalteKind()+1 )){
+                    if (true){
                         kind.rechtsBewegen();
                         success = true;
                     }

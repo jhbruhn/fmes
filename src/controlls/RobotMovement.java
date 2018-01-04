@@ -13,13 +13,16 @@ public class RobotMovement {
         this.graph = graph;
     }
 
-    public void doNext() {
+    //Move the robot to the best possible position
+    public void doNextStep() {
         runStep(nextStep());
     }
 
-    public boolean isNotTerminated(){
+    //there is a chance to reach the goal
+    public boolean isNotTerminated() {
         return true;
     }
+
     public Graph getGraph() {
         return graph;
     }
@@ -28,14 +31,13 @@ public class RobotMovement {
         this.graph = graph;
     }
 
-    public void clearGraph(Position position) {
-
-    }
-
+    //calculates the next step
     public Enum nextStep() {
+        lastStep = null;
         return null;
     }
 
+    //execute the next step
     public void runStep(Enum nextstep) {
         //do nextStep
     }
