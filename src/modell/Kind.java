@@ -31,7 +31,7 @@ public class Kind extends Thread {
 	public void run() {
 		try {
 			setRunning(true);
-			getTerritorium().getUboot().getClass().getMethod("main", null).invoke(territorium.getUboot());
+			getTerritorium().getRoboter().getClass().getMethod("main", null).invoke(territorium.getRoboter());
 		} catch (InvocationTargetException | ThreadStopException t) {
 		} catch (IllegalAccessException | IllegalArgumentException | NoSuchMethodException | SecurityException e) {
 			e.printStackTrace();
@@ -136,31 +136,6 @@ public class Kind extends Thread {
 		checkRunning("rechtsDrehen");
 	}
 
-	/*
-	 * Diese Methode gibt an, ob ein Fels oder das Feldende vor dem Bug ist in
-	 * Fahrtrichtung! Aber Achtung, nicht sichbare Felsen werden nicht erfasst!
-	 * 
-	 * @return true: wenn Feldende/Felsen vor einem liegt (non-Javadoc)
-	 * 
-	 * @see
-	 * Territorium#felsenDaOderSpielfeldEndeAbfrage(int,
-	 * int)
-	 */
-	public  boolean felsenDaOderSpielfeldEndeAbfrageVor() {
-		return getTerritorium().felsenDaOderSpielfeldEndeAbfrageVor();
-	}
-
-	public  boolean felsenDaOderSpielfeldEndeAbfrageRueck() {
-		return getTerritorium().felsenDaOderSpielfeldEndeAbfrageRueck();
-	}
-
-	public  boolean felsenDaOderSpielfeldEndeAbfrageLinks() {
-		return getTerritorium().felsenDaOderSpielfeldEndeAbfrageLinks();
-	}
-
-	public  boolean felsenDaOderSpielfeldEndeAbfrageRechts() {
-		return getTerritorium().felsenDaOderSpielfeldEndeAbfrageRechts();
-	}
 
 	public  boolean batterieDa() {
 		return getTerritorium().batterieDa();

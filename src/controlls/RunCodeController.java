@@ -47,10 +47,10 @@ public class RunCodeController {
 			if (runcode == null || !runcode.isAlive()) {
 				runcode = null;
 				endlos = null;
-				runcode = getTerritorium().getUboot();
+				runcode = getTerritorium().getRoboter();
 				endlos = new EndlosschleifenThread(o.territoriumPanel, runcode, menuItems, buttons, stopMenuItem, stop,
 						pauseMenuItem, pause, startMenuItem, start);
-				getTerritorium().getUboot().getSpeed().bind(getSlider().valueProperty());
+				getTerritorium().getRoboter().getSpeed().bind(getSlider().valueProperty());
 				runcode.setStopped(false);
 				runcode.start();
 				endlos.start();
