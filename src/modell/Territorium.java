@@ -27,6 +27,10 @@ public class Territorium extends Observable implements java.io.Serializable {
         Leer, Batterie, Felsen, Ort1, Ort2, Ort3
     }
 
+    public static enum Richtung implements java.io.Serializable {
+        UP, DOWN, LEFT, RIGHT
+    }
+
     private double objectResizedWidth = Territorium.OBJ_WIDTH;
     private double objectResizedHeigth = Territorium.OBJ_WIDTH;
 
@@ -288,86 +292,64 @@ public class Territorium extends Observable implements java.io.Serializable {
         start = false;
     }
 
-    /*
-     * L�sst das U-Boot ein Feld vor fahren in Fahrtrichtung
-     */
-    public void vorBewegen() {
+    public void bewege(Richtung richtung, boolean roboter) {
         try {
             if (start) {
                 startWerteSpeichern();
             }
-            if (!felsenDa(feldReiheRoboter - 1, feldSpalteRoboter)) {
-                feldReiheRoboter = feldReiheRoboter - 1;
+            boolean felsen = false;
+            if (roboter) {
+                switch (richtung) {
+                    case UP:
+                        if (felsen = (!felsenDa(feldReiheRoboter - 1, feldSpalteRoboter))) {
+                            feldReiheRoboter = feldReiheRoboter - 1;
+                        }
+                        break;
+                    case DOWN:
+                        if (felsen = (!felsenDa(feldReiheRoboter + 1, feldSpalteRoboter))) {
+                            feldReiheRoboter = feldReiheRoboter + 1;
+                        }
+                        break;
+                    case LEFT:
+                        if (felsen = (!felsenDa(feldReiheRoboter, feldSpalteRoboter - 1))) {
+                            feldSpalteRoboter = feldSpalteRoboter - 1;
+                        }
+                        break;
+                    case RIGHT:
+                        if (felsen = (!felsenDa(feldReiheRoboter, feldSpalteRoboter + 1))) {
+                            feldSpalteRoboter = feldSpalteRoboter + 1;
+                        }
+                        break;
+                    default:
+                        break;
+                }
             } else {
-                throw new FelsenDaException();
+                switch (richtung) {
+                    case UP:
+                        if (felsen = (!felsenDa(feldReiheKind - 1, feldSpalteKind))) {
+                            feldReiheKind = feldReiheKind - 1;
+                        }
+                        break;
+                    case DOWN:
+                        if (felsen = (!felsenDa(feldReiheKind + 1, feldSpalteKind))) {
+                            feldReiheKind = feldReiheKind + 1;
+                        }
+                        break;
+                    case LEFT:
+                        if (felsen = (!felsenDa(feldReiheKind, feldSpalteKind - 1))) {
+                            feldSpalteKind = feldSpalteKind - 1;
+                        }
+                        break;
+                    case RIGHT:
+                        if (felsen = (!felsenDa(feldReiheKind, feldSpalteKind + 1))) {
+                            feldSpalteKind = feldSpalteKind + 1;
+                        }
+                        break;
+                    default:
+                        break;
+                }
             }
-            zielFeldErreicht();
-            checkIfChanged();
-        } catch (FelsenDaException e) {
-            e.play();
-            verlorenFelsenGerammt();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    /*
-     * L�sst das U-Boot ein Feld zur�ck fahren in Fahrtrichtung
-     */
-    public void rueckBewegen() {
-        try {
-            if (start) {
-                startWerteSpeichern();
-            }
-            if (!felsenDa(feldReiheRoboter + 1, feldSpalteRoboter)) {
-                feldReiheRoboter = feldReiheRoboter + 1;
-            } else {
-                throw new FelsenDaException();
-            }
-            zielFeldErreicht();
-            checkIfChanged();
-        } catch (FelsenDaException e) {
-            e.play();
-            verlorenFelsenGerammt();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    /*
-     * L�sst das U-Boot sich nach links drehen in Fahrtrichtung
-     */
-    public void rechtsBewegen() {
-        try {
-            if (start) {
-                startWerteSpeichern();
-            }
-            if (!felsenDa(feldReiheRoboter, feldSpalteRoboter + 1)) {
-                feldSpalteRoboter = feldSpalteRoboter + 1;
-            } else {
-                throw new FelsenDaException();
-            }
-            zielFeldErreicht();
-            checkIfChanged();
-        } catch (FelsenDaException e) {
-            e.play();
-            verlorenFelsenGerammt();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    /*
-     * L�sst das U-Boot sich nach links drehen in Fahrtrichtung
-     */
-    public void linksBewegen() {
-        try {
-            if (start) {
-                startWerteSpeichern();
-            }
-            if (!felsenDa(feldReiheRoboter, feldSpalteRoboter - 1)) {
-                feldSpalteRoboter = feldSpalteRoboter - 1;
-            } else {
+            if (!felsen) {
                 throw new FelsenDaException();
             }
             zielFeldErreicht();
@@ -386,7 +368,6 @@ public class Territorium extends Observable implements java.io.Serializable {
     public void verlorenFelsenGerammt() {
         if (!getRoboter().isRunning() && !getRoboter().isAlive()) {
             setDeath(true);
-            System.out.println("Kekse 1");
         }
         aufAnfang();
     }

@@ -56,7 +56,7 @@ public class Kind extends Thread {
 	 * Methode. Hier wird auch Pause und Stop des Threads angegangen und
 	 * weitergeleitet im Falle von Stop
 	 */
-	private  void checkRunning(String name) throws ThreadStopException {
+	private  void checkRunning(Territorium.Richtung name) throws ThreadStopException {
 		if (isRunning) {
 			if (stopped) {
 				throw new ThreadStopException();
@@ -68,7 +68,7 @@ public class Kind extends Thread {
 			 * Sollte die Endlosschlaeife einen gr��eren Rahmen umfassen, so
 			 * wird nicht abgebrochen. Dieses ist aber sehr unwahrscheinlich.
 			 */
-			getAbbruchArray()[getCountAbbruch()] = name;
+			getAbbruchArray()[getCountAbbruch()] = name.toString();
 			setCountAbbruch(getCountAbbruch() + 1);
 			if (getAbbruchArray()[RunCodeController.endlossAbbruchKriterium - 1] != null && !getAbbruchArray()[RunCodeController.endlossAbbruchKriterium - 1].equals("")) {
 				ArrayList<String> abbruch = new ArrayList<String>();
@@ -116,24 +116,9 @@ public class Kind extends Thread {
 		}
 	}
 
-	public  void vorFahren() throws FelsenDaException, ThreadStopException {
-		getTerritorium().vorBewegen();
-		checkRunning("vorFahren");
-	}
-
-	public  void rueckFahren() throws FelsenDaException, ThreadStopException {
-		getTerritorium().rueckBewegen();
-		checkRunning("rueckFahren");
-	}
-
-	public  void linksBewegen() throws FelsenDaException, ThreadStopException {
-		getTerritorium().linksBewegen();
-		checkRunning("linksDrehen");
-	}
-
-	public  void rechtsBewegen() throws FelsenDaException, ThreadStopException {
-		getTerritorium().rechtsBewegen();
-		checkRunning("rechtsDrehen");
+	public  void bewege(Territorium.Richtung richtung) throws FelsenDaException, ThreadStopException {
+		getTerritorium().bewege(richtung, false);
+		checkRunning(richtung);
 	}
 
 

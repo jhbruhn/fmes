@@ -2,23 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2572ffed-2cd9-40a8-bcde-eb9c765ad732" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/kind.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/ladeStation.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/ort1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/ort2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/ort3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/roboter.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controlls/LoadAndSaveCode.java" afterPath="$PROJECT_DIR$/src/controlls/LoadAndSaveCode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controlls/RunCodeController.java" afterPath="$PROJECT_DIR$/src/controlls/RunCodeController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controlls/RandomChildMovement.java" afterPath="$PROJECT_DIR$/src/controlls/RandomChildMovement.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controlls/SubmarineEvents.java" afterPath="$PROJECT_DIR$/src/controlls/SubmarineEvents.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controlls/SubmarineMouseHandler.java" afterPath="$PROJECT_DIR$/src/controlls/SubmarineMouseHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controlls/TextAreaControls.java" afterPath="$PROJECT_DIR$/src/controlls/TextAreaControls.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modell/Kind.java" afterPath="$PROJECT_DIR$/src/modell/Kind.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modell/Roboter.java" afterPath="$PROJECT_DIR$/src/modell/Roboter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modell/Territorium.java" afterPath="$PROJECT_DIR$/src/modell/Territorium.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/Oberflaeche.java" afterPath="$PROJECT_DIR$/src/views/Oberflaeche.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/TerritoriumPanel.java" afterPath="$PROJECT_DIR$/src/views/TerritoriumPanel.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,17 +38,17 @@
         <entry file="file://$PROJECT_DIR$/src/controlls/Start.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="657">
-              <caret line="80" column="0" lean-forward="true" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+              <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Roboter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modell/Roboter.java">
+      <file leaf-file-name="RandomChildMovement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controlls/RandomChildMovement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="37" column="19" lean-forward="true" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
+            <state relative-caret-position="339">
+              <caret line="23" column="35" lean-forward="false" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -68,11 +57,11 @@
       <file leaf-file-name="Territorium.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/modell/Territorium.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="312" column="0" lean-forward="true" selection-start-line="312" selection-start-column="0" selection-end-line="312" selection-end-column="0" />
+            <state relative-caret-position="266">
+              <caret line="370" column="9" lean-forward="true" selection-start-line="370" selection-start-column="9" selection-end-line="370" selection-end-column="9" />
               <folding>
-                <element signature="e#18776#18777#0" expanded="true" />
-                <element signature="e#18806#18807#0" expanded="true" />
+                <element signature="e#18980#18981#0" expanded="true" />
+                <element signature="e#19010#19011#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -133,27 +122,9 @@
       <file leaf-file-name="SubmarineEvents.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controlls/SubmarineEvents.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1175">
-              <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1995#1996#0" expanded="false" />
-                <element signature="e#2019#2020#0" expanded="false" />
-                <element signature="e#20897#20898#0" expanded="false" />
-                <element signature="e#20922#20923#0" expanded="false" />
-                <element signature="e#20978#20979#0" expanded="false" />
-                <element signature="e#21015#21016#0" expanded="false" />
-                <element signature="e#21043#21044#0" expanded="false" />
-                <element signature="e#21062#21063#0" expanded="false" />
-                <element signature="e#21100#21101#0" expanded="false" />
-                <element signature="e#21125#21126#0" expanded="false" />
-                <element signature="e#30936#30937#0" expanded="false" />
-                <element signature="e#30960#30961#0" expanded="false" />
-                <element signature="e#30996#30997#0" expanded="false" />
-                <element signature="e#31016#31017#0" expanded="false" />
-                <element signature="e#31063#31064#0" expanded="false" />
-                <element signature="e#31081#31082#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="100">
+              <caret line="78" column="54" lean-forward="false" selection-start-line="78" selection-start-column="54" selection-end-line="78" selection-end-column="54" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -193,6 +164,7 @@
       <find>felsenD</find>
       <find>ort3</find>
       <find>Kekse</find>
+      <find>Keks</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -212,7 +184,6 @@
         <option value="$PROJECT_DIR$/src/Transition.java" />
         <option value="$PROJECT_DIR$/src/Move.java" />
         <option value="$PROJECT_DIR$/src/State.java" />
-        <option value="$PROJECT_DIR$/src/controlls/SubmarineEvents.java" />
         <option value="$PROJECT_DIR$/src/controlls/RunCodeController.java" />
         <option value="$PROJECT_DIR$/src/modell/UBoot.java" />
         <option value="$PROJECT_DIR$/src/RobotMovement.java" />
@@ -220,11 +191,13 @@
         <option value="$PROJECT_DIR$/src/controlls/TextAreaControls.java" />
         <option value="$PROJECT_DIR$/src/modell/Internationalitaet.java" />
         <option value="$PROJECT_DIR$/src/controlls/Start.java" />
-        <option value="$PROJECT_DIR$/src/modell/Roboter.java" />
-        <option value="$PROJECT_DIR$/src/modell/Kind.java" />
         <option value="$PROJECT_DIR$/src/views/TerritoriumPanel.java" />
         <option value="$PROJECT_DIR$/src/controlls/LoadAndSaveCode.java" />
         <option value="$PROJECT_DIR$/src/views/Oberflaeche.java" />
+        <option value="$PROJECT_DIR$/src/modell/Roboter.java" />
+        <option value="$PROJECT_DIR$/src/modell/Kind.java" />
+        <option value="$PROJECT_DIR$/src/controlls/RandomChildMovement.java" />
+        <option value="$PROJECT_DIR$/src/controlls/SubmarineEvents.java" />
         <option value="$PROJECT_DIR$/src/modell/Territorium.java" />
       </list>
     </option>
@@ -322,6 +295,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProjectX" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ProjectX" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modell" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1005,7 +996,7 @@
       <workItem from="1515074901823" duration="386000" />
       <workItem from="1515075717555" duration="1331000" />
       <workItem from="1515077233899" duration="8816000" />
-      <workItem from="1515160285575" duration="1861000" />
+      <workItem from="1515160285575" duration="3692000" />
     </task>
     <task id="LOCAL-00001" summary="RandomChildMovement dummy">
       <created>1515076638098</created>
@@ -1077,11 +1068,18 @@
       <option name="project" value="LOCAL" />
       <updated>1515082403854</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="der roboter kann jetzt sinnig bewegt werden">
+      <created>1515162193207</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1515162193207</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12394000" />
+    <option name="totallyTimeSpent" value="14225000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="2182" height="1402" extended-state="6" />
@@ -1132,7 +1130,8 @@
     <MESSAGE value="Wieder weiter falschen Code entfernt" />
     <MESSAGE value="laesst sich wieder starten" />
     <MESSAGE value="kleinere änderungen beim movement" />
-    <option name="LAST_COMMIT_MESSAGE" value="kleinere änderungen beim movement" />
+    <MESSAGE value="der roboter kann jetzt sinnig bewegt werden" />
+    <option name="LAST_COMMIT_MESSAGE" value="der roboter kann jetzt sinnig bewegt werden" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1176,8 +1175,8 @@
         <state relative-caret-position="10500">
           <caret line="420" column="82" lean-forward="false" selection-start-line="420" selection-start-column="82" selection-end-line="420" selection-end-column="82" />
           <folding>
-            <element signature="e#18776#18777#0" expanded="true" />
-            <element signature="e#18806#18807#0" expanded="true" />
+            <element signature="e#18980#18981#0" expanded="true" />
+            <element signature="e#19010#19011#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1222,25 +1221,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2500">
           <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1995#1996#0" expanded="false" />
-            <element signature="e#2019#2020#0" expanded="false" />
-            <element signature="e#20897#20898#0" expanded="false" />
-            <element signature="e#20922#20923#0" expanded="false" />
-            <element signature="e#20978#20979#0" expanded="false" />
-            <element signature="e#21015#21016#0" expanded="false" />
-            <element signature="e#21043#21044#0" expanded="false" />
-            <element signature="e#21062#21063#0" expanded="false" />
-            <element signature="e#21100#21101#0" expanded="false" />
-            <element signature="e#21125#21126#0" expanded="false" />
-            <element signature="e#30936#30937#0" expanded="false" />
-            <element signature="e#30960#30961#0" expanded="false" />
-            <element signature="e#30996#30997#0" expanded="false" />
-            <element signature="e#31016#31017#0" expanded="false" />
-            <element signature="e#31063#31064#0" expanded="false" />
-            <element signature="e#31081#31082#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1308,14 +1289,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modell/Kind.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controlls/RunCodeController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="331">
@@ -1368,32 +1341,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controlls/SubmarineEvents.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1175">
-          <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1995#1996#0" expanded="false" />
-            <element signature="e#2019#2020#0" expanded="false" />
-            <element signature="e#20897#20898#0" expanded="false" />
-            <element signature="e#20922#20923#0" expanded="false" />
-            <element signature="e#20978#20979#0" expanded="false" />
-            <element signature="e#21015#21016#0" expanded="false" />
-            <element signature="e#21043#21044#0" expanded="false" />
-            <element signature="e#21062#21063#0" expanded="false" />
-            <element signature="e#21100#21101#0" expanded="false" />
-            <element signature="e#21125#21126#0" expanded="false" />
-            <element signature="e#30936#30937#0" expanded="false" />
-            <element signature="e#30960#30961#0" expanded="false" />
-            <element signature="e#30996#30997#0" expanded="false" />
-            <element signature="e#31016#31017#0" expanded="false" />
-            <element signature="e#31063#31064#0" expanded="false" />
-            <element signature="e#31081#31082#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/Oberflaeche.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -1406,29 +1353,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controlls/Start.java">
+    <entry file="file://$PROJECT_DIR$/src/modell/Roboter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="657">
-          <caret line="80" column="0" lean-forward="true" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+        <state relative-caret-position="132">
+          <caret line="118" column="23" lean-forward="false" selection-start-line="118" selection-start-column="23" selection-end-line="118" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modell/Roboter.java">
+    <entry file="file://$PROJECT_DIR$/src/modell/Kind.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="118" column="23" lean-forward="false" selection-start-line="118" selection-start-column="23" selection-end-line="118" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controlls/Start.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="657">
+          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controlls/RandomChildMovement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="23" column="35" lean-forward="false" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controlls/SubmarineEvents.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
-          <caret line="37" column="19" lean-forward="true" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
+          <caret line="78" column="54" lean-forward="false" selection-start-line="78" selection-start-column="54" selection-end-line="78" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/modell/Territorium.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="312" column="0" lean-forward="true" selection-start-line="312" selection-start-column="0" selection-end-line="312" selection-end-column="0" />
+        <state relative-caret-position="266">
+          <caret line="370" column="9" lean-forward="true" selection-start-line="370" selection-start-column="9" selection-end-line="370" selection-end-column="9" />
           <folding>
-            <element signature="e#18776#18777#0" expanded="true" />
-            <element signature="e#18806#18807#0" expanded="true" />
+            <element signature="e#18980#18981#0" expanded="true" />
+            <element signature="e#19010#19011#0" expanded="true" />
           </folding>
         </state>
       </provider>

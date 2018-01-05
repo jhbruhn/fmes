@@ -20,22 +20,22 @@ public class RandomChildMovement {
                 //todo Kind gegen Spielfeldende
                 case 0:
                     if (territorium.felsenDa(territorium.getFeldReiheKind(),territorium.getFeldSpalteKind()-1 )){
-                    kind.linksBewegen();
+                    kind.bewege(Territorium.Richtung.LEFT);
                     success = true;
                 }
                 case 1:
                     if (true){
-                        kind.rechtsBewegen();
+                        kind.bewege(Territorium.Richtung.RIGHT);
                         success = true;
                     }
                 case 2:
                     if (territorium.felsenDa(territorium.getFeldReiheKind()-1,territorium.getFeldSpalteKind())){
-                        kind.vorFahren();
+                        kind.bewege(Territorium.Richtung.UP);
                         success = true;
                 }
                 case 3:
                     if (territorium.felsenDa(territorium.getFeldReiheKind()+1,territorium.getFeldSpalteKind())){
-                        kind.rueckFahren();
+                        kind.bewege(Territorium.Richtung.DOWN);
                         success = true;
                 }
                 case 4:
