@@ -3,7 +3,7 @@ package graph;
 import java.util.ArrayList;
 import java.util.List;
 
-public class State {
+public class State implements Cloneable {
     public Vector2 robot;
     public Vector2 child;
     Field field;
@@ -17,32 +17,54 @@ public class State {
         this.isRobotState = isRobotState;
     }
 
-    public List<Transition> generateRobotMoves() {
+    public List<Transition> generateRobotMoves(List<List<Move>> movePossibilities) {
         if (!isRobotState) throw new RuntimeException("Cannot create robot moves from nonrobotstate");
 
         List<Transition> transitions = new ArrayList<>();
-        for (Move m : Move.values()) {
-            if (isMovePossible(m, true)) {
-                State s = new State(field, robot.add(m.directionVector), child, false);
-                Transition t = new Transition(this, m, s);
-                transitions.add(t);
+        for (List<Move> sequence : movePossibilities) {
+            State startState = this;
+            boolean valid = true;
+            for(Move m : sequence) {
+                if (startState.isMovePossible(m, true)) {
+                    startState = new State(startState.field, startState.robot.add(m.directionVector), startState.child, false);
+                } else {
+                    valid = false;
+                    break;
+                }
             }
+            if(!valid) {
+                continue;
+            }
+
+            State s = startState;
+            Transition t = new Transition(this, sequence, s);
+            transitions.add(t);
         }
 
 
         return transitions;
     }
 
-    public List<Transition> generateChildMoves() {
+    public List<Transition> generateChildMoves(List<List<Move>> movePossibilities) {
         if (isRobotState) throw new RuntimeException("Cannot create child moves from robotstate");
 
+
         List<Transition> transitions = new ArrayList<>();
-        for (Move m : Move.values()) {
-            if (isMovePossible(m, false)) {
-                State s = new State(field, robot, child.add(m.directionVector), true);
-                Transition t = new Transition(this, m, s);
-                transitions.add(t);
+        for (List<Move> sequence : movePossibilities) {
+            State startState = this;
+            boolean valid = true;
+            for(Move m : sequence) {
+                if (startState.isMovePossible(m, false)) {
+                    startState = new State(startState.field, startState.robot, startState.child.add(m.directionVector), true);
+                } else {
+                    valid = false;
+                }
             }
+            if(!valid) continue;
+
+            State s = startState;
+            Transition t = new Transition(this, sequence, s);
+            transitions.add(t);
         }
         return transitions;
     }
@@ -51,9 +73,10 @@ public class State {
 
         // Check whether the new position will be in a wall
         Vector2 position = isRobot ? robot : child;
-
-        if(field.isWallAt(position.add(move.directionVector)))
+        Vector2 newPos = position.add(move.directionVector);
+        if(field.isWallAt(newPos))
             return false;
+
 
         // Check whether the child and robot would be too close to each other
         Vector2 posA, posB;
@@ -85,18 +108,22 @@ public class State {
         if (o == null || getClass() != o.getClass()) return false;
 
         State other = (State) o;
-        return other.robot.equals(this.robot) && other.child.equals(this.child) && other.isRobotState == this.isRobotState;
-    }
-
-    public List<Transition> generateNextStates() {
-        if(isRobotState) {
-            return generateRobotMoves();
-        } else {
-            return generateChildMoves();
-        }
+        return other.robot.equals(this.robot) && other.child.equals(this.child) && other.isRobotState == this.isRobotState && this.enforceValue == other.enforceValue;
     }
 
     public String toString() {
-        return robot + "; " + child + " " + (isRobotState ? "r" : "e");
+        return robot + "; " + child + " " + "\\n" + enforceValue;
+    }
+
+    public List<Transition> generateNextStates(List<List<Move>> movePossibilities) {
+        if(isRobotState) {
+            return generateRobotMoves(movePossibilities);
+        } else {
+            return generateChildMoves(movePossibilities);
+        }
+    }
+
+    public State clone() {
+        return new State(this.field, this.robot, this.child, this.isRobotState);
     }
 }
