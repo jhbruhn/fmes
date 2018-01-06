@@ -54,7 +54,7 @@ public class Oberflaeche {
     // ObermenuPunkte erstellen
     private Menu fileMenu;
     private Menu bearbeitenMenu;
-    private Menu uBoot;
+    private Menu roboter;
     private Menu simulationsMenu;
     private Menu exampleMenu;
     private Menu helpMenu;
@@ -242,7 +242,7 @@ public class Oberflaeche {
         sbEvents = new SubmarineEvents(getTerritorium());
         fileMenu = new Menu();
         bearbeitenMenu = new Menu();
-        uBoot = new Menu();
+        roboter = new Menu();
         exampleMenu = new Menu();
         newProjektMenuItem = new MenuItem();
         openProjectMenuItem = new MenuItem();
@@ -474,7 +474,7 @@ public class Oberflaeche {
 
         comboboxButtonBearbeitenAuswahl.getItems().addAll(
                 new ImageView(new Image(
-                        getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/submarineSmall.png"))),
+                        getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/roboter.png"))),
                 new ImageView(new Image(
                         getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/felsenSmall.png"))),
                 new ImageView(new Image(
@@ -542,13 +542,13 @@ public class Oberflaeche {
         bearbeitenMenu.getItems().addAll(subMenuSave, subMenuLoad, subMenuPicture, druckenSpielMenuItem,
                 groeßeAendernMenuItem, new SeparatorMenuItem(), resizeableMenuItem, new SeparatorMenuItem(), submarine,
                 felsen, ort1, batterie, ort2, ort3, deleteBefehl, new SeparatorMenuItem());
-        uBoot.getItems().addAll(vorMenuItem, rueckMenuItem, linksMenuItem, rechtsMenuItem);
+        roboter.getItems().addAll(vorMenuItem, rueckMenuItem, linksMenuItem, rechtsMenuItem);
         simulationsMenu.getItems().addAll(startMenuItem, pauseMenuItem, stopMenuItem);
         exampleMenu.getItems().addAll(speichernBeispiel, ladenBeispiel);
         helpMenu.getItems().addAll(hinweisMenuItem, hilfeMenuItem);
 
         // Hinzuf�gen der MenuPunkte zur MenuBar
-        menu.getMenus().addAll(fileMenu, bearbeitenMenu, uBoot, simulationsMenu, exampleMenu, helpMenu);
+        menu.getMenus().addAll(fileMenu, bearbeitenMenu, roboter, simulationsMenu, exampleMenu, helpMenu);
 
         return menu;
     }
@@ -882,7 +882,7 @@ public class Oberflaeche {
     private void setImagesOnMenuItems() {
         // Vorher noch eben das Logo xD
         getPrimaryStage().getIcons().add(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/submarineSmall.png")));
+                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/roboter.png")));
 
         // Images in die MenuLeiste einf�gen
 
@@ -931,7 +931,7 @@ public class Oberflaeche {
                 new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/sizeVerySmall.png"))));
         rezisableImageCheck();
         submarine.setGraphic(new ImageView(new Image(
-                getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/submarineVerySmall.png"))));
+                getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/roboter.png"))));
         felsen.setGraphic(new ImageView(
                 new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/felsenVerySmall.png"))));
         ort1.setGraphic(new ImageView(new Image(
@@ -977,7 +977,7 @@ public class Oberflaeche {
     private void setTooltipAndTexts() {
         fileMenu.setText(international.getRb().getString("fileMenu"));
         bearbeitenMenu.setText(international.getRb().getString("bearbeitenMenu"));
-        uBoot.setText(international.getRb().getString("uBoot"));
+        roboter.setText(international.getRb().getString("roboter"));
         newProjektMenuItem.setText(international.getRb().getString("newProjektMenuItem"));
         openProjectMenuItem.setText(international.getRb().getString("openProjectMenuItem"));
         druckenCodeMenuItem.setText(international.getRb().getString("druckenCodeMenuItem"));
