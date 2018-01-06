@@ -5,6 +5,7 @@ import javafx.scene.control.Alert;
 import modell.Kind;
 import modell.Roboter;
 import modell.Territorium;
+import modell.ZielFeld;
 
 import java.util.ArrayList;
 
@@ -14,15 +15,18 @@ public class Controller {
     Roboter robot;
     RandomChildController randomChildController;
     RobotController robotController;
-    //ArrayList<Goal> goals;
+    ArrayList<ZielFeld> goalfield;
 
     public Controller(Territorium territorium) {
         this.territorium = territorium;
         this.child = territorium.getChild();
         this.robot = territorium.getRoboter();
-        //randomChildController = new RandomChildController(child, territorium.chi);
-        //robotController = new RobotController(null, territorium.getChildMoves());
-        //goals = territorium.getGoals();
+        randomChildController = new RandomChildController(child, territorium.chi);//todo
+        this.goalfield = territorium.getZielFelder();
+
+        Graph graph = null;//todo
+        this.robotController = new RobotController(territorium);
+        this.goalfield = territorium.getZielFelder();
     }
 
     public void run() {
