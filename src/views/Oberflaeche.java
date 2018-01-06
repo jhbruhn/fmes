@@ -454,11 +454,11 @@ public class Oberflaeche {
                 new ImageView(new Image(
                         getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/roboter.png"))),
                 new ImageView(new Image(
+                        getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/kind.png"))),
+                new ImageView(new Image(
                         getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/felsenSmall.png"))),
                 new ImageView(new Image(
                         getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/batterieSmall.png"))),
-                new ImageView(new Image(
-                        getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/kind.png"))),
                 new ImageView(
                         new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/location.png"))),
                 new ImageView(new Image(
@@ -693,7 +693,7 @@ public class Oberflaeche {
         });
 
 		/*
-		 * ComboBox �ber PropertyListener mit den RadioMenuItems verbunden.
+         * ComboBox �ber PropertyListener mit den RadioMenuItems verbunden.
 		 */
         comboboxButtonBearbeitenAuswahl.getSelectionModel().selectedItemProperty()
                 .addListener((observable, oldValue, newValue) -> {
@@ -703,12 +703,12 @@ public class Oberflaeche {
                             roboterMenuItem.fire();
                             break;
                         case 1:
-                            felsen.setSelected(true);
-                            felsen.fire();
-                            break;
-                        case 2:
                             child.setSelected(true);
                             child.fire();
+                            break;
+                        case 2:
+                            felsen.setSelected(true);
+                            felsen.fire();
                             break;
                         case 3:
                             batterie.setSelected(true);
@@ -735,10 +735,10 @@ public class Oberflaeche {
                                         roboterMenuItem.setSelected(false);
                                         break;
                                     case 1:
-                                        felsen.setSelected(false);
+                                        child.setSelected(false);
                                         break;
                                     case 2:
-                                        child.setSelected(false);
+                                        felsen.setSelected(false);
                                         break;
                                     case 3:
                                         batterie.setSelected(false);
@@ -759,26 +759,28 @@ public class Oberflaeche {
                 });
 
         // Unterpunkt "Submarine"
-        sbEvents.setzeObjektEventCode(null, territoriumPanel, roboterMenuItem, 0, comboboxButtonBearbeitenAuswahl);
-
-        // Unterpunkt "Felsen"
-        sbEvents.setzeObjektEventCode(FeldEigenschaft.Felsen, territoriumPanel, felsen, 1,
-                comboboxButtonBearbeitenAuswahl);
-
-        // Unterpunkt "Batterie"
-        sbEvents.setzeObjektEventCode(FeldEigenschaft.Batterie, territoriumPanel, batterie, 2,
-                comboboxButtonBearbeitenAuswahl);
+        sbEvents.setzeObjektEventCode(null, territoriumPanel, roboterMenuItem, 0,
+                comboboxButtonBearbeitenAuswahl, false);
 
         // Unterpunkt "Leucht-Felsen"
-        sbEvents.setzeObjektEventCode(null, territoriumPanel, child, 3,
-                comboboxButtonBearbeitenAuswahl);
+        sbEvents.setzeObjektEventCode(null, territoriumPanel, child, 1,
+                comboboxButtonBearbeitenAuswahl, true);
+
+        // Unterpunkt "Felsen"
+        sbEvents.setzeObjektEventCode(FeldEigenschaft.Felsen, territoriumPanel, felsen, 2,
+                comboboxButtonBearbeitenAuswahl, false);
+
+        // Unterpunkt "Batterie"
+        sbEvents.setzeObjektEventCode(FeldEigenschaft.Batterie, territoriumPanel, batterie, 3,
+                comboboxButtonBearbeitenAuswahl, false);
 
         // Unterpunkt "Hai-Fisch"
-        sbEvents.setzeObjektEventCode(FeldEigenschaft.Location, territoriumPanel, location, 4, comboboxButtonBearbeitenAuswahl);
+        sbEvents.setzeObjektEventCode(FeldEigenschaft.Location, territoriumPanel, location, 4,
+                comboboxButtonBearbeitenAuswahl, false);
 
         // Unterpunkt "Delete"
         sbEvents.setzeObjektEventCode(FeldEigenschaft.Leer, territoriumPanel, deleteBefehl, 5,
-                comboboxButtonBearbeitenAuswahl);
+                comboboxButtonBearbeitenAuswahl, false);
 
         // Aktionen im Menu "U-Boot"
         // Unterpunkt "Vor"

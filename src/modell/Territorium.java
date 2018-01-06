@@ -77,6 +77,8 @@ public class Territorium extends Observable implements java.io.Serializable {
 
     private ArrayList<ZielFeld> zielFelder = new ArrayList<ZielFeld>();
 
+    private boolean trankfuellungBeachten = false;
+
     /*
      * bastelt das Teritorium, nach den default werten
      */
@@ -95,20 +97,9 @@ public class Territorium extends Observable implements java.io.Serializable {
      * erstellt das immer geladene Beispielfeld
      */
     private void erstelleBeispielFeld() {
-        setzeObjektAufsFeld(3, 3, FeldEigenschaft.Felsen);
-        setzeObjektAufsFeld(3, 4, FeldEigenschaft.Batterie);
-        setzeObjektAufsFeld(3, 5, FeldEigenschaft.Location);
-        setzeObjektAufsFeld(3, 6, FeldEigenschaft.Location);
-        setzeObjektAufsFeld(3, 7, FeldEigenschaft.Location);
-        setzeObjektAufsFeld(3, 8, FeldEigenschaft.Location);
-        setzeObjektAufsFeld(3, 9, FeldEigenschaft.Location);
-        setzeObjektAufsFeld(5, 1, FeldEigenschaft.Location);
-        setzeObjektAufsFeld(5, 2, FeldEigenschaft.Location);
-        setzeObjektAufsFeld(5, 3, FeldEigenschaft.Location);
-        setzeObjektAufsFeld(5, 4, FeldEigenschaft.Location);
-        setzeObjektAufsFeld(5, 5, FeldEigenschaft.Location);
-
-
+        setzeObjektAufsFeld(3, 3, FeldEigenschaft.Felsen, false);
+        setzeObjektAufsFeld(3, 4, FeldEigenschaft.Batterie, false);
+        setzeObjektAufsFeld(3, 5, FeldEigenschaft.Location, false);
     }
 
     /*
@@ -195,8 +186,8 @@ public class Territorium extends Observable implements java.io.Serializable {
      * wird, beim Feld erstellen. Es ist nicht ok, wenn ein Felsen darauf ist
      */
     public boolean setzeUBootAufsFeldAbfrage(int reihe, int spalte) {
-        if (spalte - 1 >= 0 && getFeld()[reihe][spalte] != FeldEigenschaft.Felsen
-                && getFeld()[reihe][spalte - 1] != FeldEigenschaft.Felsen
+        if (spalte >= 0 && getFeld()[reihe][spalte] != FeldEigenschaft.Felsen
+                && getFeld()[reihe][spalte] != FeldEigenschaft.Felsen
                 && (reihe != feldReiheKind && spalte != feldSpalteKind)) {
             return true;
         }
@@ -218,45 +209,50 @@ public class Territorium extends Observable implements java.io.Serializable {
     /*
      * Setzt ein m�gliches Objekt auf das Spielfeld.
      */
-    public void setzeObjektAufsFeld(int reihe, int spalte, FeldEigenschaft f) {
+    public void setzeObjektAufsFeld(int reihe, int spalte, FeldEigenschaft f, boolean child) {
         if (reihe < 0 || reihe >= feldHoehe || spalte < 0 || spalte >= feldBreite) {
             throw new IndexOutOfBoundsException();
         }
-        if (f == FeldEigenschaft.Location) {
-            ZielFeld z = new ZielFeld(reihe, spalte);
-            zielFelder.add(z);
-            getFeld()[reihe][spalte] = f;
-            if (nextGoalField == null) {
-                nextGoalField = z;
-            }
-        }
-        if (f == FeldEigenschaft.Batterie && (!(feldReiheRoboter == reihe && feldSpalteRoboter == spalte))) {
-            getFeld()[reihe][spalte] = f;
-        }
-
-        if (f == FeldEigenschaft.Leer) {
-            getFeld()[reihe][spalte] = f;
-            for (int k = 0; k < getZielFelder().size(); k++) {
-                if (getZielFelder().get(k).getReihe() == reihe
-                        && getZielFelder().get(k).getSpalte() == spalte) {
-
-                    if (getNextGoalField().getReihe() == reihe &&
-                            getNextGoalField().getSpalte() == spalte) {
-                        if (getZielFelder().size() > 1) {
-                            setNextGoalField(getZielFelder().get((k + 1) % getZielFelder().size()));
-                        } else {
-                            setNextGoalField(null);
-                        }
-                    }
-                    getZielFelder().remove(getZielFelder().get(k));
+        if (child) {
+            feldReiheKind = reihe;
+            feldSpalteKind = spalte;
+        } else {
+            if (f == FeldEigenschaft.Location) {
+                ZielFeld z = new ZielFeld(reihe, spalte);
+                zielFelder.add(z);
+                getFeld()[reihe][spalte] = f;
+                if (nextGoalField == null) {
+                    nextGoalField = z;
                 }
             }
-        }
-
-        if (f == FeldEigenschaft.Felsen) {
-            if (!((feldReiheRoboter == reihe && feldSpalteRoboter == spalte)
-                    || (feldReiheKind == reihe && feldSpalteKind == spalte))) {
+            if (f == FeldEigenschaft.Batterie && (!(feldReiheRoboter == reihe && feldSpalteRoboter == spalte))) {
                 getFeld()[reihe][spalte] = f;
+            }
+
+            if (f == FeldEigenschaft.Leer) {
+                getFeld()[reihe][spalte] = f;
+                for (int k = 0; k < getZielFelder().size(); k++) {
+                    if (getZielFelder().get(k).getReihe() == reihe
+                            && getZielFelder().get(k).getSpalte() == spalte) {
+
+                        if (getNextGoalField().getReihe() == reihe &&
+                                getNextGoalField().getSpalte() == spalte) {
+                            if (getZielFelder().size() > 1) {
+                                setNextGoalField(getZielFelder().get((k + 1) % getZielFelder().size()));
+                            } else {
+                                setNextGoalField(null);
+                            }
+                        }
+                        getZielFelder().remove(getZielFelder().get(k));
+                    }
+                }
+            }
+
+            if (f == FeldEigenschaft.Felsen) {
+                if (!((feldReiheRoboter == reihe && feldSpalteRoboter == spalte)
+                        || (feldReiheKind == reihe && feldSpalteKind == spalte))) {
+                    getFeld()[reihe][spalte] = f;
+                }
             }
         }
         checkIfChanged();
@@ -343,6 +339,12 @@ public class Territorium extends Observable implements java.io.Serializable {
             }
             boolean felsen = false;
             if (roboter) {
+                if (getRoboter().getTankFuellung() <= 0 && trankfuellungBeachten) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Tank leer");
+                    alert.setHeaderText("der Tank ist leer");
+                    alert.showAndWait();
+                }
                 switch (richtung) {
                     case UP:
                         if (felsen = (!istNichtBesuchbar(feldReiheRoboter - 1, feldSpalteRoboter))) {
@@ -368,7 +370,7 @@ public class Territorium extends Observable implements java.io.Serializable {
                         break;
                 }
                 getRoboter().setTankFuellung(getRoboter().getTankFuellung() - 1);
-                if(childNearby()){
+                if (childNearby()) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Kind ist nah");
                     alert.setHeaderText("Zu nah ans Kind gekommen");
@@ -412,16 +414,16 @@ public class Territorium extends Observable implements java.io.Serializable {
         }
     }
 
-    private boolean childNearby(){
+    private boolean childNearby() {
         if ((feldReiheRoboter == feldReiheKind && feldSpalteRoboter == feldSpalteKind) ||
-                (feldReiheRoboter +1 == feldReiheKind && feldSpalteRoboter == feldSpalteKind) ||
-                (feldReiheRoboter == feldReiheKind && feldSpalteRoboter +1 == feldSpalteKind) ||
-                (feldReiheRoboter -1 == feldReiheKind && feldSpalteRoboter == feldSpalteKind) ||
-                (feldReiheRoboter == feldReiheKind && feldSpalteRoboter -1 == feldSpalteKind) ||
-                (feldReiheRoboter +1 == feldReiheKind && feldSpalteRoboter +1 == feldSpalteKind) ||
-                (feldReiheRoboter -1 == feldReiheKind && feldSpalteRoboter -1 == feldSpalteKind) ||
-                (feldReiheRoboter +1 == feldReiheKind && feldSpalteRoboter -1 == feldSpalteKind) ||
-                (feldReiheRoboter -1 == feldReiheKind && feldSpalteRoboter +1 == feldSpalteKind) ){
+                (feldReiheRoboter + 1 == feldReiheKind && feldSpalteRoboter == feldSpalteKind) ||
+                (feldReiheRoboter == feldReiheKind && feldSpalteRoboter + 1 == feldSpalteKind) ||
+                (feldReiheRoboter - 1 == feldReiheKind && feldSpalteRoboter == feldSpalteKind) ||
+                (feldReiheRoboter == feldReiheKind && feldSpalteRoboter - 1 == feldSpalteKind) ||
+                (feldReiheRoboter + 1 == feldReiheKind && feldSpalteRoboter + 1 == feldSpalteKind) ||
+                (feldReiheRoboter - 1 == feldReiheKind && feldSpalteRoboter - 1 == feldSpalteKind) ||
+                (feldReiheRoboter + 1 == feldReiheKind && feldSpalteRoboter - 1 == feldSpalteKind) ||
+                (feldReiheRoboter - 1 == feldReiheKind && feldSpalteRoboter + 1 == feldSpalteKind)) {
             return true;
         }
         return false;
@@ -679,6 +681,14 @@ public class Territorium extends Observable implements java.io.Serializable {
 
     public void setNextGoalField(ZielFeld nextGoalField) {
         this.nextGoalField = nextGoalField;
+    }
+
+    public boolean isTrankfuellungBeachten() {
+        return trankfuellungBeachten;
+    }
+
+    public void setTrankfuellungBeachten(boolean trankfuellungBeachten) {
+        this.trankfuellungBeachten = trankfuellungBeachten;
     }
 
 }
