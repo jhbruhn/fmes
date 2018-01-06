@@ -32,8 +32,8 @@ public class Territorium extends Observable implements java.io.Serializable {
         UP, DOWN, LEFT, RIGHT, EPSILON
     }
 
-    private ArrayList<ArrayList<Richtung>> robotMoves;
-    private ArrayList<ArrayList<Richtung>> childMoves;
+    public ArrayList<ArrayList<Richtung>> robotMoves;
+    public ArrayList<ArrayList<Richtung>> childMoves;
 
     private double objectResizedWidth = Territorium.OBJ_WIDTH;
     private double objectResizedHeigth = Territorium.OBJ_WIDTH;

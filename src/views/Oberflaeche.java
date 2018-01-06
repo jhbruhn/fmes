@@ -2,13 +2,10 @@ package views;
 
 import java.util.ArrayList;
 
-import controlls.AnimationController;
-import controlls.LoadAndSaveCode;
+import controlls.*;
 import controlls.LoadAndSaveCode.Picture;
-import controlls.RunCodeController;
-import controlls.SubmarineEvents;
-import controlls.SubmarineMouseHandler;
-import controlls.TextAreaControls;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
 import modell.ImageCombo;
 import modell.Internationalitaet;
 import modell.ScAchse;
@@ -17,23 +14,7 @@ import modell.Territorium.FeldEigenschaft;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.RadioMenuItem;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
-import javafx.scene.control.Separator;
-import javafx.scene.control.SeparatorMenuItem;
-import javafx.scene.control.Slider;
-import javafx.scene.control.SplitPane;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.ToolBar;
-import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -227,6 +208,10 @@ public class Oberflaeche {
     // Oberflaeche, ist nur zum Initialieseren hier
     private AnimationController animation;
 
+    private MovementInputController movement;
+    private TextField robotInput;
+    private TextField childInput;
+
     /*
      * initialisiert alle Werte/Variablen/Atribute
      */
@@ -334,6 +319,13 @@ public class Oberflaeche {
         territoriumPanel = new TerritoriumPanel(getTerritorium(), scWidth, scHeigth, animation);
         borderPaneForCodeField = new BorderPane();
         root = new StackPane();
+
+        robotInput = new TextField();
+        robotInput.setText("lruu,e,rru");
+        childInput = new TextField();
+        childInput.setText("ldru,lrlr,ld,rd");
+        movement = new MovementInputController(territorium, robotInput, childInput);
+
         zuBeachtendeButtonsUndMenuItems();
     }
 
@@ -368,6 +360,13 @@ public class Oberflaeche {
         sc = new ScrollPane(territoriumPanel.getScrollPane());
 
         //TODO: ADD input controls for robot and child here.
+        VBox box = new VBox();
+        box.getChildren().add(new Label("Robot Moves:"));
+        box.getChildren().add(this.robotInput);
+
+        box.getChildren().add(new Label("Child Moves:"));
+        box.getChildren().add(this.childInput);
+        borderPaneForCodeField.setCenter(box);
         //borderPaneForCodeField.setRight();
         // Die folgenden Zahlen sind nur nach pers�nlichem Empfinden gesetzt
         borderPaneForCodeField.setMinWidth(175);
