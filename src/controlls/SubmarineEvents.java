@@ -238,8 +238,8 @@ public class SubmarineEvents {
 			});
 			waehleName(p);
 		} else {
-			String code = erstelleSpeicherbarenCode(stageTitle, text);
-			LoadAndSaveCode.save(stageTitle, code);
+			//String code = erstelleSpeicherbarenCode(stageTitle, text);
+			LoadAndSaveCode.save(stageTitle, "");
 			getStart().replaceStringKey(stage.getTitle(), stageTitle);
 			stage.setTitle(stageTitle);
 			close.set(true);

@@ -169,9 +169,6 @@ public class Oberflaeche {
     // fette UBOOT!!"
     private Territorium territorium;
 
-    // Code-Text-Feld
-    private TextArea code;
-
     // Wave Dateien
     // Audioclip f�r die Hilfe-Leiste
     private AudioClip clip;
@@ -216,9 +213,6 @@ public class Oberflaeche {
 
     // Kommen der Code und der TextFlow f�r den Linecount rein
     private BorderPane borderPaneForCodeField;
-
-    // H�lle f�r den TextFlow zum Linecount
-    private ScrollPane scrollPaneLineCount;
 
     // Ist nur f�r das sch�ne aussehen da..
     private StackPane root;
@@ -312,7 +306,6 @@ public class Oberflaeche {
         slider = new Slider();
         labelBottom = new Label();
         split = new SplitPane();
-        code = new TextArea();
         clip = new AudioClip(
                 getClass().getResource("../resourcesPicturesAndSoundsVidoes/BabyCryingSounds.wav").toString());
         border = new BorderPane();
@@ -340,10 +333,8 @@ public class Oberflaeche {
         animation = new AnimationController(m, comboboxButtonBearbeitenAuswahl, labelBottom, getInternationalitaet().getRb());
         territoriumPanel = new TerritoriumPanel(getTerritorium(), scWidth, scHeigth, animation);
         borderPaneForCodeField = new BorderPane();
-        scrollPaneLineCount = new ScrollPane(flow);
         root = new StackPane();
         zuBeachtendeButtonsUndMenuItems();
-        textAreaControls = new TextAreaControls(getTerritorium(), getTextArea(), this, flow);
     }
 
     /*
@@ -376,12 +367,8 @@ public class Oberflaeche {
 
         sc = new ScrollPane(territoriumPanel.getScrollPane());
 
-        borderPaneForCodeField.setCenter(code);
-        borderPaneForCodeField.setRight(scrollPaneLineCount);
-        // nervige Scrollbars ausblenden, da diese im sp�teren Verlauf nicht
-        // mehr n�tig sind.
-        scrollPaneLineCount.setHbarPolicy(ScrollBarPolicy.NEVER);
-        scrollPaneLineCount.setVbarPolicy(ScrollBarPolicy.NEVER);
+        //TODO: ADD input controls for robot and child here.
+        //borderPaneForCodeField.setRight();
         // Die folgenden Zahlen sind nur nach pers�nlichem Empfinden gesetzt
         borderPaneForCodeField.setMinWidth(175);
         borderPaneForCodeField.setMaxWidth(300);
@@ -401,7 +388,6 @@ public class Oberflaeche {
 
         root.getChildren().add(border);
 
-        // scrollPaneLineCount.Property
         // Hier noch mal die explizieten Sch�nheits�nderungen, welche nicht alle
         // gleich in der "CSS"-Datei sind
         territoriumPanel.getScrollPane().setStyle("-fx-background: #6680e6; -fx-background-color: #6680e6;");
@@ -410,9 +396,6 @@ public class Oberflaeche {
         // Hat keinen gr�en Effekt au�er, dass sie nicht transparent wird.
         // Sollte man sich jedoch entscheiden, den "Disable" raus zu nehmen, ist
         // die Farbe wieder "sch�n" gew�hlt.
-        scrollPaneLineCount.setStyle("-fx-background: #ffff99;");
-        scrollPaneLineCount.setDisable(true);
-        // scrollPaneLineCount.
 
         Scene scene = new Scene(root, 1250, 750);
         scene.getStylesheets().add(Oberflaeche.class.getResource("../resources/Style.txt").toExternalForm());
@@ -594,15 +577,6 @@ public class Oberflaeche {
         // kompliziert werden soll und ich das ganze vielleicht noch mal
         // erkl�ren mus..
         // Hier ist 17 der Wert f�r die SChriftgr��e (14) + Zeilenabst�nde
-        code.scrollTopProperty().addListener(l -> {
-            if (code.scrollTopProperty().getValue() > 0) {
-                String s[] = getTextArea().getText().split("\n");
-                double berechnung = s.length * 17 - (code.heightProperty().get() - (2 * 17));
-                scrollPaneLineCount.vvalueProperty().setValue(code.scrollTopProperty().getValue() / berechnung);
-            } else {
-                scrollPaneLineCount.vvalueProperty().setValue(0);
-            }
-        });
 
         // Erm�glicht durch das binding, dass das Spiel immer in die Mitte
         // gesetzt wird.
@@ -624,7 +598,6 @@ public class Oberflaeche {
 		 * 
 		 * Siehe textAreaControls f�r mehr Infos
 		 */
-        textAreaControls.setzeEventsZurTextArea();
 
         // MouseHandler f�r das Draggen und Dropen hinzuf�gen
         scMousehandler.handlerSetzen(territoriumPanel.getCanvas());
@@ -636,18 +609,16 @@ public class Oberflaeche {
 
         // Unterpunkt "�ffnen"
         openProjectMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.CONTROL_DOWN));
-        openProjectMenuItem.setOnAction(e -> {
-            sbEvents.ladeCode(code, getPrimaryStage());
-        });
+
         buttonOeffneDokument.setOnAction(e -> openProjectMenuItem.fire());
 
         // Button Speichern
-        sbEvents.speichernEvent(buttonSpeichernDokument, code, getPrimaryStage(), international.getRb(),
+        sbEvents.speichernEvent(buttonSpeichernDokument, null, getPrimaryStage(), international.getRb(),
                 getTerritorium().getRoboter());
 
         // Unterpunkt "Drucken"
         druckenCodeMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.P, KeyCombination.CONTROL_DOWN));
-        druckenCodeMenuItem.setOnAction(e -> sbEvents.print(getTextArea()));
+        druckenCodeMenuItem.setOnAction(e -> sbEvents.print(null));
 
         // Untermenu Sprache:
         // Unterpunkt Deutsch:
@@ -672,11 +643,11 @@ public class Oberflaeche {
         quitMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.Q, KeyCombination.CONTROL_DOWN));
         quitMenuItem.setOnAction(e -> {
             stopMenuItem.fire();
-            sbEvents.closeEvent(getPrimaryStage(), getTextArea(), international.getRb(), this);
+            sbEvents.closeEvent(getPrimaryStage(), null, international.getRb(), this);
         });
         getPrimaryStage().setOnCloseRequest(event -> {
             stopMenuItem.fire();
-            sbEvents.closeEvent(getPrimaryStage(), getTextArea(), international.getRb(), this);
+            sbEvents.closeEvent(getPrimaryStage(), null, international.getRb(), this);
             event.consume();
         });
 
@@ -842,10 +813,10 @@ public class Oberflaeche {
         // Aktionen im Menu "Beispiele"
         // Unterpunkt "speichernBeispiel"
         speichernBeispiel.setOnAction(e -> sbEvents.saveExample(getInternationalitaet().getRb(), getTerritorium(),
-                getTextArea(), getPrimaryStage().getTitle()));
+                null, getPrimaryStage().getTitle()));
 
         // Unterpunkt "ladenBeispiel"
-        ladenBeispiel.setOnAction(e -> sbEvents.loadExample(getInternationalitaet().getRb(), getTextArea()));
+        ladenBeispiel.setOnAction(e -> sbEvents.loadExample(getInternationalitaet().getRb(), null));
 
         // Aktionen im Menu "Hilfe"
         // Unterpunkt "Hinweis"
@@ -1037,14 +1008,6 @@ public class Oberflaeche {
 
     public void setInternationalitaet(Internationalitaet s) {
         international = s;
-    }
-
-    public TextArea getTextArea() {
-        return code;
-    }
-
-    public void setTextArea(TextArea a) {
-        code = a;
     }
 
     public boolean isTextChanged() {
