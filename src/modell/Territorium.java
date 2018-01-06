@@ -1,5 +1,6 @@
 package modell;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Observable;
 
@@ -18,8 +19,8 @@ public class Territorium extends Observable implements java.io.Serializable {
     private static final long serialVersionUID = 1L;
     public static final int MIN_WIDTH = 2;
     public static final int MIN_HEIGTH = 1;
-    public static final int MAX_WIDTH = 100;
-    public static final int MAX_HEIGTH = 100;
+    public static final int MAX_WIDTH = 64;
+    public static final int MAX_HEIGTH = 64;
     public static final int OBJ_WIDTH = 50;
     public static final int OBJ_MIN_WIDTH = 30;
 
@@ -28,8 +29,11 @@ public class Territorium extends Observable implements java.io.Serializable {
     }
 
     public static enum Richtung implements java.io.Serializable {
-        UP, DOWN, LEFT, RIGHT
+        UP, DOWN, LEFT, RIGHT, EPSILON
     }
+
+    private ArrayList<ArrayList<Richtung>> robotMoves;
+    private ArrayList<ArrayList<Richtung>> childMoves;
 
     private double objectResizedWidth = Territorium.OBJ_WIDTH;
     private double objectResizedHeigth = Territorium.OBJ_WIDTH;
@@ -60,6 +64,8 @@ public class Territorium extends Observable implements java.io.Serializable {
 
     private transient Roboter roboter;
 
+    private transient Kind child;
+
     private FeldEigenschaft[][] feld;
 
     private boolean notify = true;
@@ -77,6 +83,7 @@ public class Territorium extends Observable implements java.io.Serializable {
         setTerritoriumSpecialFinishNummer(0);
         erstelleBeispielFeld();
         roboter = new Roboter(this);
+        child = new Kind(this);
     }
 
     /*
@@ -175,7 +182,8 @@ public class Territorium extends Observable implements java.io.Serializable {
      */
     public boolean setzeUBootAufsFeldAbfrage(int reihe, int spalte) {
         if (spalte - 1 >= 0 && getFeld()[reihe][spalte] != FeldEigenschaft.Felsen
-                && getFeld()[reihe][spalte - 1] != FeldEigenschaft.Felsen) {
+                && getFeld()[reihe][spalte - 1] != FeldEigenschaft.Felsen
+                && (reihe != feldReiheKind && spalte != feldSpalteKind)) {
             return true;
         }
         return false;
@@ -188,9 +196,7 @@ public class Territorium extends Observable implements java.io.Serializable {
     public void setzeUBootAufsFeld(int reihe, int spalte) {
         if (setzeUBootAufsFeldAbfrage(reihe, spalte)) {
             feldReiheRoboter = reihe;
-            feldReiheKind = reihe;
             feldSpalteRoboter = spalte;
-            feldSpalteKind = spalte - 1;
         }
         checkIfChanged();
     }
@@ -270,7 +276,7 @@ public class Territorium extends Observable implements java.io.Serializable {
      * Gibt an ob auf dem Spalten- und ReihenIndex ein Felsen ist oder das Spielfeld ueberschritten wurde.
      */
     public boolean istNichtBesuchbar(int reihe, int spalte) {
-        if (reihe >= getFeld().length - 1 || reihe < 0 || spalte >= getFeld()[0].length - 1
+        if (reihe >= getFeld().length || reihe < 0 || spalte >= getFeld()[0].length
                 || spalte < 0 || (getFeld()[reihe][spalte] == FeldEigenschaft.Felsen)) {
             return true;
         }
@@ -555,6 +561,15 @@ public class Territorium extends Observable implements java.io.Serializable {
 
     public void setEntfernungHoeheDesSpielFeldes(double entfernungHoeheDesSpielFeldes) {
         this.entfernungHoeheDesSpielFeldes = entfernungHoeheDesSpielFeldes;
+    }
+
+    @XmlTransient
+    public Kind getChild() {
+        return child;
+    }
+
+    public void setChild(Kind child) {
+        this.child = child;
     }
 
     @XmlTransient
