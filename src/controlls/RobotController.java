@@ -60,8 +60,8 @@ public class RobotController {
             }
         }
         Field field = new Field(walls);
-        Vector2 robotPos = new Vector2(territorium.getFeldSpalteRoboter(),territorium.getFeldReiheRoboter());
-        Vector2 childPos = new Vector2(territorium.getFeldSpalteKind(),territorium.getFeldSpalteKind());
+        Vector2 robotPos = new Vector2(territorium.getFeldReiheRoboter(),territorium.getFeldSpalteRoboter());
+        Vector2 childPos = new Vector2(territorium.getFeldReiheKind(),territorium.getFeldSpalteKind());
         return new State(field, robotPos, childPos,true);
     }
 }
