@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2572ffed-2cd9-40a8-bcde-eb9c765ad732" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/kindSmall.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/location.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/locationSmall.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resourcesPicturesAndSoundsVidoes/roboterSmall.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modell/ZielFeld.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controlls/LoadAndSaveCode.java" afterPath="$PROJECT_DIR$/src/controlls/LoadAndSaveCode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modell/Territorium.java" afterPath="$PROJECT_DIR$/src/modell/Territorium.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/MessageBundle.properties" afterPath="$PROJECT_DIR$/src/resources/MessageBundle.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/MessageBundle_en.properties" afterPath="$PROJECT_DIR$/src/resources/MessageBundle_en.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/Oberflaeche.java" afterPath="$PROJECT_DIR$/src/views/Oberflaeche.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/TerritoriumPanel.java" afterPath="$PROJECT_DIR$/src/views/TerritoriumPanel.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -218,7 +207,6 @@
       <find>show All</find>
       <find>show Al</find>
       <find>show A</find>
-      <find>show</find>
       <find>show</find>
       <find>sho</find>
       <find>s</find>
@@ -547,6 +535,13 @@
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/Controller.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controlls/RandomChildController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controlls/RobotController.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/graph/Graph.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/graph/Main.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/graph/Move.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/graph/State.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/graph/Transition.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -554,8 +549,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controlls/RandomChildController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controlls/RobotController.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -563,8 +556,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="true" />
           <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controlls/RandomChildMovement.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controlls/RobotMovement.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Restored" />
@@ -1108,7 +1099,7 @@
       <workItem from="1515075717555" duration="1331000" />
       <workItem from="1515077233899" duration="8816000" />
       <workItem from="1515160285575" duration="3732000" />
-      <workItem from="1515244512656" duration="7299000" />
+      <workItem from="1515244512656" duration="7354000" />
     </task>
     <task id="LOCAL-00001" summary="RandomChildMovement dummy">
       <created>1515076638098</created>
@@ -1201,15 +1192,21 @@
       <option name="project" value="LOCAL" />
       <updated>1515246810321</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="geht so okay">
+      <created>1515251882045</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1515251882045</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21564000" />
+    <option name="totallyTimeSpent" value="21619000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="2182" height="1402" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1220,8 +1217,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932073" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32846087" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32932073" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32846087" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1259,7 +1256,8 @@
     <MESSAGE value="der roboter kann jetzt sinnig bewegt werden" />
     <MESSAGE value="bewegungen gehen und die methoden dafür sind verbessert" />
     <MESSAGE value="zeugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="zeugs" />
+    <MESSAGE value="geht so okay" />
+    <option name="LAST_COMMIT_MESSAGE" value="geht so okay" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
