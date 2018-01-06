@@ -31,7 +31,7 @@ public class Roboter extends Thread {
 	public void run() {
 		try {
 			setRunning(true);
-			getTerritorium().getUboot().getClass().getMethod("main", null).invoke(territorium.getUboot());
+			getTerritorium().getRoboter().getClass().getMethod("main", null).invoke(territorium.getRoboter());
 		} catch (InvocationTargetException | ThreadStopException t) {
 		} catch (IllegalAccessException | IllegalArgumentException | NoSuchMethodException | SecurityException e) {
 			e.printStackTrace();
@@ -56,7 +56,7 @@ public class Roboter extends Thread {
 	 * Methode. Hier wird auch Pause und Stop des Threads angegangen und
 	 * weitergeleitet im Falle von Stop
 	 */
-	private  void checkRunning(String name) throws ThreadStopException {
+	private  void checkRunning(Territorium.Richtung name) throws ThreadStopException {
 		if (isRunning) {
 			if (stopped) {
 				throw new ThreadStopException();
@@ -68,7 +68,7 @@ public class Roboter extends Thread {
 			 * Sollte die Endlosschlaeife einen gr��eren Rahmen umfassen, so
 			 * wird nicht abgebrochen. Dieses ist aber sehr unwahrscheinlich.
 			 */
-			getAbbruchArray()[getCountAbbruch()] = name;
+			getAbbruchArray()[getCountAbbruch()] = name.toString();
 			setCountAbbruch(getCountAbbruch() + 1);
 			if (getAbbruchArray()[RunCodeController.endlossAbbruchKriterium - 1] != null && !getAbbruchArray()[RunCodeController.endlossAbbruchKriterium - 1].equals("")) {
 				ArrayList<String> abbruch = new ArrayList<String>();
@@ -116,50 +116,9 @@ public class Roboter extends Thread {
 		}
 	}
 
-	public  void vorFahren() throws FelsenDaException, ThreadStopException {
-		getTerritorium().vorBewegen();
-		checkRunning("vorFahren");
-	}
-
-	public  void rueckFahren() throws FelsenDaException, ThreadStopException {
-		getTerritorium().rueckBewegen();
-		checkRunning("rueckFahren");
-	}
-
-	public  void linksBewegen() throws FelsenDaException, ThreadStopException {
-		getTerritorium().linksBewegen();
-		checkRunning("linksDrehen");
-	}
-
-	public  void rechtsBewegen() throws FelsenDaException, ThreadStopException {
-		getTerritorium().rechtsBewegen();
-		checkRunning("rechtsDrehen");
-	}
-
-	/*
-	 * Diese Methode gibt an, ob ein Fels oder das Feldende vor dem Bug ist in
-	 * Fahrtrichtung! Aber Achtung, nicht sichbare Felsen werden nicht erfasst!
-	 * 
-	 * @return true: wenn Feldende/Felsen vor einem liegt (non-Javadoc)
-	 * 
-	 * @see
-	 * Territorium#felsenDaOderSpielfeldEndeAbfrage(int,
-	 * int)
-	 */
-	public  boolean felsenDaOderSpielfeldEndeAbfrageVor() {
-		return getTerritorium().felsenDaOderSpielfeldEndeAbfrageVor();
-	}
-
-	public  boolean felsenDaOderSpielfeldEndeAbfrageRueck() {
-		return getTerritorium().felsenDaOderSpielfeldEndeAbfrageRueck();
-	}
-
-	public  boolean felsenDaOderSpielfeldEndeAbfrageLinks() {
-		return getTerritorium().felsenDaOderSpielfeldEndeAbfrageLinks();
-	}
-
-	public  boolean felsenDaOderSpielfeldEndeAbfrageRechts() {
-		return getTerritorium().felsenDaOderSpielfeldEndeAbfrageRechts();
+	public  void bewege(Territorium.Richtung richtung) throws FelsenDaException, ThreadStopException {
+		getTerritorium().bewege(richtung, true);
+		checkRunning(richtung);
 	}
 
 	public  boolean batterieDa() {

@@ -5,7 +5,6 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.Properties;
 import java.util.ResourceBundle;
-import java.util.Timer;
 
 import javax.swing.JComponent;
 
@@ -25,11 +24,6 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.ArcTo;
-import javafx.scene.shape.FillRule;
-import javafx.scene.shape.HLineTo;
-import javafx.scene.shape.MoveTo;
-import javafx.scene.shape.Path;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
@@ -38,44 +32,26 @@ public class TerritoriumPanel extends Region implements Observer {
 	private final Image felsenSmall = new Image(
 			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/felsenSmall.png"));
 
-	private final Image leuchtFelsenSmall = new Image(
-			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/leuchtFelsenSmall.png"));
+	private final Image ort1 = new Image(
+			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/ort1.jpg"));
 
 	private final Image batterieSmall = new Image(
 			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/batterieSmall.png"));
 
-	private final Image haiSmall = new Image(
-			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/haiSmall.png"));
+	private final Image ort2 = new Image(
+			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/ort2.jpg"));
 
-	private final Image exit_FeldSmall = new Image(
-			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/Exit-FeldSmall.png"));
+	private final Image ort3 = new Image(
+			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/ort3.jpg"));
 
 	private final Image deleteSmall = new Image(
 			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/deleteSmall.png"));
 
 	private final Image submarineBugNordSmall = new Image(
-			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/submarineBugNordSmall.png"));
-
-	private final Image submarineBugOstSmall = new Image(
-			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/submarineBugOstSmall.png"));
-
-	private final Image submarineBugSuedSmall = new Image(
-			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/submarineBugSüdSmall.png"));
-
-	private final Image submarineBugWestSmall = new Image(
-			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/submarineBugWestSmall.png"));
+			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/Roboter.png"));
 
 	private final Image submarineHeckNordSmall = new Image(
-			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/submarineHeckNordSmall.png"));
-
-	private final Image submarineHeckOstSmall = new Image(
-			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/submarineHeckOstSmall.png"));
-
-	private final Image submarineHeckSuedSmall = new Image(
-			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/submarineHeckSüdSmall.png"));
-
-	private final Image submarineHeckWestSmall = new Image(
-			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/submarineHeckWestSmall.png"));
+			getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/Kind.png"));
 
 	Canvas canvas = new Canvas();
 	Group root = new Group();
@@ -245,26 +221,6 @@ public class TerritoriumPanel extends Region implements Observer {
 		int resetX = x;
 		gc = canvas.getGraphicsContext2D();
 		boolean picture = false;
-		try {
-			String s;
-			if ((s = rb.getString((Territorium.OBJ_WIDTH * t.getFeldBreite() + 2 * Oberflaeche.CANVAS_RAND_ABSTAND)
-					+ "x"
-					+ (Territorium.OBJ_WIDTH * t.getFeldHoehe() + 2 * Oberflaeche.CANVAS_RAND_ABSTAND))) != null) {
-				if (!s.equals(backgroundString)) {
-					backgroundString = s;
-					imageBackground = new Image(
-							getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/" + s));
-				}
-				gc.drawImage(imageBackground, x - Oberflaeche.CANVAS_RAND_ABSTAND, y - Oberflaeche.CANVAS_RAND_ABSTAND,
-						(Territorium.OBJ_WIDTH * t.getFeldBreite() + 2 * Oberflaeche.CANVAS_RAND_ABSTAND)
-								* objectwidthpercent,
-						(Territorium.OBJ_WIDTH * t.getFeldHoehe() + 2 * Oberflaeche.CANVAS_RAND_ABSTAND)
-								* objectheigthpercent);
-				picture = true;
-			}
-		} catch (Exception e) {
-
-		}
 		for (int i = 0; i < t.getFeldHoehe(); i++) {
 			for (int j = 0; j < t.getFeldBreite(); j++) {
 				gc.setStroke(Color.BLACK);
@@ -280,17 +236,17 @@ public class TerritoriumPanel extends Region implements Observer {
 						case Felsen:
 							image = felsenSmall;
 							break;
-						case LeuchtFelsen:
-							image = leuchtFelsenSmall;
+						case Ort1:
+							image = ort1;
 							break;
 						case Batterie:
 							image = batterieSmall;
 							break;
-						case Hai:
-							image = haiSmall;
+						case Ort2:
+							image = ort2;
 							break;
-						case ZielFeld:
-							image = exit_FeldSmall;
+						case Ort3:
+							image = ort3;
 							break;
 						default:
 							image = deleteSmall;

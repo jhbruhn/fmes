@@ -73,16 +73,16 @@ public class SubmarineEvents {
 		Territorium t = getTerritorium();
 		switch (c) {
 		case 'v':
-			t.vorBewegen();
+			t.bewege(Territorium.Richtung.UP, true);
 			break;
 		case 'b':
-			t.rueckBewegen();
+			t.bewege(Territorium.Richtung.DOWN, true);
 			break;
 		case 'l':
-			t.linksBewegen();
+			t.bewege(Territorium.Richtung.LEFT, true);
 			break;
 		case 'r':
-			t.rechtsBewegen();
+			t.bewege(Territorium.Richtung.RIGHT, true);
 			break;
 		default:
 			break;
@@ -157,7 +157,7 @@ public class SubmarineEvents {
 			primary.close();
 		});
 		if (o.isTextChanged()) {
-			saveCode(primary, text, primary.getTitle(), rb, getTerritorium().getUboot(), close);
+			saveCode(primary, text, primary.getTitle(), rb, getTerritorium().getRoboter(), close);
 		} else {
 			close.set(true);
 		}

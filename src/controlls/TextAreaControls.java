@@ -94,7 +94,7 @@ public class TextAreaControls {
                     final ContextMenu contextMenu = new ContextMenu();
                     TextField textField = new TextField();
                     int count = 0;
-                    for (java.lang.reflect.Method m : territorium.getUboot().getClass().getMethods()) {
+                    for (java.lang.reflect.Method m : territorium.getRoboter().getClass().getMethods()) {
                         boolean hinzufuegen = true;
                         if (!m.getName().startsWith(getTextArea().getText(getTextArea().getAnchor() - zaehler,
                                 getTextArea().getAnchor()))) {

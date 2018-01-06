@@ -74,7 +74,7 @@ public class SubmarineMouseHandler {
 					// javafx alles l�sen m�chte (wenn irgendwie m�glich)
 					TextField textField = new TextField();
 					
-					for (java.lang.reflect.Method m : territorium.getUboot().getClass().getMethods()) {
+					for (java.lang.reflect.Method m : territorium.getRoboter().getClass().getMethods()) {
 						
 						boolean hinzufuegen = true;
 						Invisible inv = m.getAnnotation(Invisible.class);
@@ -106,7 +106,7 @@ public class SubmarineMouseHandler {
 							if (m.getParameterCount() > 0 || !m.getReturnType().equals(Void.TYPE)) {
 								item.setDisable(true);
 							}
-							if(getTerritorium().getUboot().isAlive() || getTerritorium().getUboot().isRunning()){
+							if(getTerritorium().getRoboter().isAlive() || getTerritorium().getRoboter().isRunning()){
 								item.setDisable(true);
 							}
 							item.setOnAction(new EventHandler<ActionEvent>() {
@@ -115,7 +115,7 @@ public class SubmarineMouseHandler {
 
 									try {
 										territorium.setNotify(false);
-										m.invoke(territorium.getUboot());
+										m.invoke(territorium.getRoboter());
 										territorium.setNotify(true);
 									} catch (IllegalAccessException e) {
 										e.printStackTrace();
