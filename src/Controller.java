@@ -20,7 +20,7 @@ public class Controller {
         this.territorium = territorium;
         this.child = territorium.getChild();
         this.robot = territorium.getRoboter();
-        //randomChildController = new RandomChildController(child, territorium.getChildMoves());
+        //randomChildController = new RandomChildController(child, territorium.chi);
         //robotController = new RobotController(null, territorium.getChildMoves());
         //goals = territorium.getGoals();
     }

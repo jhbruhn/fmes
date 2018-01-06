@@ -1,4 +1,5 @@
 package controlls;
+import Util.ListToArrayList;
 import graph.*;
 import modell.Territorium;
 
@@ -7,27 +8,28 @@ import java.util.List;
 
 public class RobotController {
     Graph graph;
-    ArrayList<ArrayList<Territorium.Richtung>> robotMoves;
+    ArrayList<Territorium.Richtung> robotMove;
     Territorium territorium;
 
-    public RobotController(Territorium territorium,Graph graph, ArrayList<ArrayList<Territorium.Richtung>> robotMoves) {
+    public RobotController(Territorium territorium,Graph graph) {
         this.graph = graph;
-        this.robotMoves = robotMoves;
         this.territorium=territorium;
     }
 
     //Move the robot to the best possible position
     public void doNextMove() {
-        robotMoves = getConvertedMoves(getMovesFromGraph());
+        robotMove = ListToArrayList.convert(graph.getNextRobotMove(getState()));
+        for(int i = 0;i< robotMove.size();i++){
 
+            doNextStep(robotMove.get(i));
+        }
     }
     public void doNextStep(Territorium.Richtung richtung) {
-        //todo
-
+        territorium.getRoboter().bewege(richtung);
     }
     //there is a chance to reach the goal
     public boolean isSolvable() {
-        //todo
+        //graph.(getState());
         return true;
     }
     // All goals from 1-k are reached.
@@ -49,12 +51,8 @@ public class RobotController {
         this.graph = graph;
     }
 
-    public ArrayList<ArrayList<Territorium.Richtung>> getConvertedMoves(List<Move> moves) {
-        //todo
 
-        return robotMoves;
-    }
-    public List<Move> getMovesFromGraph(){
+    public State getState(){
         boolean[][] walls = new boolean[territorium.getFeldHoehe()][territorium.getFeldBreite()];
         for (int y=0;y<walls.length;y++){
             for (int x =0;x<walls[y].length;x++){
@@ -64,7 +62,6 @@ public class RobotController {
         Field field = new Field(walls);
         Vector2 robotPos = new Vector2(territorium.getFeldSpalteRoboter(),territorium.getFeldReiheRoboter());
         Vector2 childPos = new Vector2(territorium.getFeldSpalteKind(),territorium.getFeldSpalteKind());
-        State state=new State(field, robotPos, childPos,true);
-        return graph.getNextMove(state);
+        return new State(field, robotPos, childPos,true);
     }
 }
