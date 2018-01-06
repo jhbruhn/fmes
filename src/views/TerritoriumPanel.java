@@ -261,7 +261,10 @@ public class TerritoriumPanel extends Region implements Observer {
 
                         if(territorium.getNextGoalField().getReihe() == i &&
                                 territorium.getNextGoalField().getSpalte() == j){
-
+                            gc.setStroke(Color.LIGHTGREEN);
+                            gc.setLineWidth(objectwidth * 0.1);
+                            gc.strokeRect( x + objectwidth * 0.1, y + objectheigth * 0.1,
+                                    objectwidth - objectwidth * 0.2, objectheigth - objectheigth * 0.2);
                         }
                     }
                 }

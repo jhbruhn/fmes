@@ -8,6 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 import dbZugriffe.SelectStatements;
+import javafx.scene.control.Alert;
 import javafx.scene.media.AudioClip;
 
 @XmlRootElement(name = "territorium")
@@ -225,13 +226,31 @@ public class Territorium extends Observable implements java.io.Serializable {
             ZielFeld z = new ZielFeld(reihe, spalte);
             zielFelder.add(z);
             getFeld()[reihe][spalte] = f;
-            if(nextGoalField == null){
+            if (nextGoalField == null) {
                 nextGoalField = z;
             }
         }
-        if (f == FeldEigenschaft.Leer ||
-                f == FeldEigenschaft.Batterie && (!(feldReiheRoboter == reihe && feldSpalteRoboter == spalte))) {
+        if (f == FeldEigenschaft.Batterie && (!(feldReiheRoboter == reihe && feldSpalteRoboter == spalte))) {
             getFeld()[reihe][spalte] = f;
+        }
+
+        if (f == FeldEigenschaft.Leer) {
+            getFeld()[reihe][spalte] = f;
+            for (int k = 0; k < getZielFelder().size(); k++) {
+                if (getZielFelder().get(k).getReihe() == reihe
+                        && getZielFelder().get(k).getSpalte() == spalte) {
+
+                    if (getNextGoalField().getReihe() == reihe &&
+                            getNextGoalField().getSpalte() == spalte) {
+                        if (getZielFelder().size() > 1) {
+                            setNextGoalField(getZielFelder().get((k + 1) % getZielFelder().size()));
+                        } else {
+                            setNextGoalField(null);
+                        }
+                    }
+                    getZielFelder().remove(getZielFelder().get(k));
+                }
+            }
         }
 
         if (f == FeldEigenschaft.Felsen) {
@@ -247,6 +266,7 @@ public class Territorium extends Observable implements java.io.Serializable {
      * erstellt ein neues Teritorium, mit der gew�hlten Spalten- und
      * Reihenanzahl
      */
+
     public void changeSize(int reihen, int spalten) {
         feldHoehe = reihen;
         feldBreite = spalten;
@@ -347,6 +367,13 @@ public class Territorium extends Observable implements java.io.Serializable {
                     default:
                         break;
                 }
+                getRoboter().setTankFuellung(getRoboter().getTankFuellung() - 1);
+                if(childNearby()){
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Kind ist nah");
+                    alert.setHeaderText("Zu nah ans Kind gekommen");
+                    alert.showAndWait();
+                }
             } else {
                 switch (richtung) {
                     case UP:
@@ -383,6 +410,21 @@ public class Territorium extends Observable implements java.io.Serializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private boolean childNearby(){
+        if ((feldReiheRoboter == feldReiheKind && feldSpalteRoboter == feldSpalteKind) ||
+                (feldReiheRoboter +1 == feldReiheKind && feldSpalteRoboter == feldSpalteKind) ||
+                (feldReiheRoboter == feldReiheKind && feldSpalteRoboter +1 == feldSpalteKind) ||
+                (feldReiheRoboter -1 == feldReiheKind && feldSpalteRoboter == feldSpalteKind) ||
+                (feldReiheRoboter == feldReiheKind && feldSpalteRoboter -1 == feldSpalteKind) ||
+                (feldReiheRoboter +1 == feldReiheKind && feldSpalteRoboter +1 == feldSpalteKind) ||
+                (feldReiheRoboter -1 == feldReiheKind && feldSpalteRoboter -1 == feldSpalteKind) ||
+                (feldReiheRoboter +1 == feldReiheKind && feldSpalteRoboter -1 == feldSpalteKind) ||
+                (feldReiheRoboter -1 == feldReiheKind && feldSpalteRoboter +1 == feldSpalteKind) ){
+            return true;
+        }
+        return false;
     }
 
     /*
