@@ -14,15 +14,13 @@ public class Controller {
     RandomChildController randomChildController;
     RobotController robotController;
     //ArrayList<Goal> goals;
-    ArrayList<ArrayList<Territorium.Richtung>> childMoves;
-    ArrayList<ArrayList<Territorium.Richtung>> robotMoves;
 
-    public Controller(Territorium territorium, ArrayList<ArrayList<Territorium.Richtung>> childMoves, ArrayList<ArrayList<Territorium.Richtung>> robotMoves) {
+    public Controller(Territorium territorium) {
         this.territorium = territorium;
         this.child = territorium.getChild();
         this.robot = territorium.getRoboter();
-        randomChildController = new RandomChildController(child, childMoves);
-        robotController = new RobotController(null, robotMoves);
+        //randomChildController = new RandomChildController(child, territorium.getChildMoves());
+        //robotController = new RobotController(null, territorium.getChildMoves());
         //goals = territorium.getGoals();
     }
 
