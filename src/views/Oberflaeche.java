@@ -72,7 +72,7 @@ public class Oberflaeche {
     // ToggleGroup f�r die folgenden RadioMenuItems erstellen, welche die
     // Auswahl im Menu sp�ter managed
     private ToggleGroup toggleBearbeitenSpielfeld;
-    private RadioMenuItem submarine;
+    private RadioMenuItem roboterMenuItem;
     private RadioMenuItem felsen;
     private RadioMenuItem child;
     private RadioMenuItem batterie;
@@ -247,7 +247,7 @@ public class Oberflaeche {
         groeßeAendernMenuItem = new MenuItem();
         resizeableMenuItem = new MenuItem();
         toggleBearbeitenSpielfeld = new ToggleGroup();
-        submarine = new RadioMenuItem();
+        roboterMenuItem = new RadioMenuItem();
         felsen = new RadioMenuItem();
         child = new RadioMenuItem();
         batterie = new RadioMenuItem();
@@ -296,7 +296,7 @@ public class Oberflaeche {
         border = new BorderPane();
         innerborder = new BorderPane();
         al = new ArrayList<RadioMenuItem>();
-        al.add(submarine);
+        al.add(roboterMenuItem);
         al.add(felsen);
         al.add(child);
         al.add(batterie);
@@ -309,10 +309,10 @@ public class Oberflaeche {
         scMousehandler = new SubmarineMouseHandler(getTerritorium(), sbEvents, international.getRb(),
                 getPrimaryStage());
         RadioMenuItem[] m = new RadioMenuItem[7];
-        m[0] = submarine;
-        m[1] = felsen;
-        m[2] = batterie;
-        m[3] = child;
+        m[0] = roboterMenuItem;
+        m[1] = child;
+        m[2] = felsen;
+        m[3] = batterie;
         m[4] = location;
         m[5] = deleteBefehl;
         animation = new AnimationController(m, comboboxButtonBearbeitenAuswahl, labelBottom, getInternationalitaet().getRb());
@@ -490,7 +490,7 @@ public class Oberflaeche {
         setImagesOnMenuItems();
 
         // toggleGroup zuweisen
-        submarine.setToggleGroup(toggleBearbeitenSpielfeld);
+        roboterMenuItem.setToggleGroup(toggleBearbeitenSpielfeld);
         felsen.setToggleGroup(toggleBearbeitenSpielfeld);
         child.setToggleGroup(toggleBearbeitenSpielfeld);
         batterie.setToggleGroup(toggleBearbeitenSpielfeld);
@@ -515,8 +515,8 @@ public class Oberflaeche {
         fileMenu.getItems().addAll(newProjektMenuItem, openProjectMenuItem, new SeparatorMenuItem(),
                 druckenCodeMenuItem, spracheMenuItem, new SeparatorMenuItem(), quitMenuItem);
         bearbeitenMenu.getItems().addAll(subMenuSave, subMenuLoad, subMenuPicture, druckenSpielMenuItem,
-                groeßeAendernMenuItem, new SeparatorMenuItem(), resizeableMenuItem, new SeparatorMenuItem(), submarine,
-                felsen, child, batterie, location, deleteBefehl, new SeparatorMenuItem());
+                groeßeAendernMenuItem, new SeparatorMenuItem(), resizeableMenuItem, new SeparatorMenuItem(), roboterMenuItem,
+                child, felsen, batterie, location, deleteBefehl);
         roboter.getItems().addAll(vorMenuItem, rueckMenuItem, linksMenuItem, rechtsMenuItem);
         simulationsMenu.getItems().addAll(startMenuItem, pauseMenuItem, stopMenuItem);
         exampleMenu.getItems().addAll(speichernBeispiel, ladenBeispiel);
@@ -699,8 +699,8 @@ public class Oberflaeche {
                 .addListener((observable, oldValue, newValue) -> {
                     switch (comboboxButtonBearbeitenAuswahl.getSelectionModel().getSelectedIndex()) {
                         case 0:
-                            submarine.setSelected(true);
-                            submarine.fire();
+                            roboterMenuItem.setSelected(true);
+                            roboterMenuItem.fire();
                             break;
                         case 1:
                             felsen.setSelected(true);
@@ -732,7 +732,7 @@ public class Oberflaeche {
                             if (event.getClickCount() == 2) {
                                 switch (comboboxButtonBearbeitenAuswahl.getSelectionModel().getSelectedIndex()) {
                                     case 0:
-                                        submarine.setSelected(false);
+                                        roboterMenuItem.setSelected(false);
                                         break;
                                     case 1:
                                         felsen.setSelected(false);
@@ -759,7 +759,7 @@ public class Oberflaeche {
                 });
 
         // Unterpunkt "Submarine"
-        sbEvents.setzeObjektEventCode(null, territoriumPanel, submarine, 0, comboboxButtonBearbeitenAuswahl);
+        sbEvents.setzeObjektEventCode(null, territoriumPanel, roboterMenuItem, 0, comboboxButtonBearbeitenAuswahl);
 
         // Unterpunkt "Felsen"
         sbEvents.setzeObjektEventCode(FeldEigenschaft.Felsen, territoriumPanel, felsen, 1,
@@ -882,7 +882,7 @@ public class Oberflaeche {
         groeßeAendernMenuItem.setGraphic(new ImageView(
                 new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/sizeVerySmall.png"))));
         rezisableImageCheck();
-        submarine.setGraphic(new ImageView(new Image(
+        roboterMenuItem.setGraphic(new ImageView(new Image(
                 getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/roboterSmall.png"))));
         felsen.setGraphic(new ImageView(
                 new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/felsenVerySmall.png"))));
@@ -952,7 +952,7 @@ public class Oberflaeche {
         druckenSpielMenuItem.setText(international.getRb().getString("druckenSpielMenuItem"));
         groeßeAendernMenuItem.setText(international.getRb().getString("groeßeAendernMenuItem"));
         resizeableMenuItem.setText(international.getRb().getString("resizeableMenuItem"));
-        submarine.setText(international.getRb().getString("submarine"));
+        roboterMenuItem.setText(international.getRb().getString("roboter"));
         felsen.setText(international.getRb().getString("felsen"));
         child.setText(international.getRb().getString("child"));
         batterie.setText(international.getRb().getString("batterie"));
