@@ -1,4 +1,4 @@
-import controlls.RandomChildMovement;
+/*import controlls.RandomChildController;
 import controlls.RobotMovement;
 import graph.*;
 import modell.Kind;
@@ -9,14 +9,13 @@ public class Controller {
     Territorium territorium;
     Kind child;
     Roboter robot;
-    RandomChildMovement randomChildMovement;
-    RobotMovement robotMovement;
+    RandomChildController randomChildController;
 
     public Controller(Territorium territorium, RobotMoves robotMoves, ChildMoves childMoves) {
         this.territorium = territorium;
         this.child = territorium.getChild();
         this.robot = territorium.getRoboter();
-        randomChildMovement = new RandomChildMovement(kind);
+        randomChildController = new RandomChildController(child, childMoves);
     }
 
     public void run() {
@@ -42,4 +41,4 @@ public class Controller {
 
     }*/
 
-}
+//}

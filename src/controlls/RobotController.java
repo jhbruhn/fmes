@@ -1,9 +1,9 @@
-package controlls;
+/*package controlls;
 
 
 import graph.Graph;
 
-public class RobotMovement {
+public class RobotController {
     Enum lastStep;
     Graph graph;
 
@@ -46,4 +46,4 @@ public class RobotMovement {
     public void setLastStep(Enum lastStep) {
         this.lastStep = lastStep;
     }
-}
+}*/
