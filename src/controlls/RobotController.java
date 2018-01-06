@@ -18,7 +18,7 @@ public class RobotController {
 
     //Move the robot to the best possible position
     public void doNextMove() {
-        robotMove = ListToArrayList.convert(graph.getNextRobotMove(getState()));
+        robotMove = ListToArrayList.convert(graph.getNextRobotMove(graph.findStateForPositions(getRobotPosition(),getChildPosition())));
         for(int i = 0;i< robotMove.size();i++){
 
             doNextStep(robotMove.get(i));
@@ -29,15 +29,15 @@ public class RobotController {
     }
     //there is a chance to reach the goal
     public boolean isSolvable() {
-        //graph.(getState());
+        graph.findStateForPositions(getRobotPosition(),getChildPosition()).isSolvableFromHere();
         return true;
     }
-    // All goals from 1-k are reached.
+    /* All goals from 1-k are reached.
     // Start a new run.
     public boolean isTerminated() {
         //todo
         return false;
-    }
+    }*/
 
     //todo
     public boolean enoughEnergy(){
@@ -60,8 +60,12 @@ public class RobotController {
             }
         }
         Field field = new Field(walls);
-        Vector2 robotPos = new Vector2(territorium.getFeldReiheRoboter(),territorium.getFeldSpalteRoboter());
-        Vector2 childPos = new Vector2(territorium.getFeldReiheKind(),territorium.getFeldSpalteKind());
-        return new State(field, robotPos, childPos,true);
+        return new State(field, getRobotPosition(), getChildPosition(),true);
+    }
+    public Vector2 getRobotPosition(){
+        return new Vector2(territorium.getFeldSpalteRoboter(),territorium.getFeldReiheRoboter());
+    }
+    public Vector2 getChildPosition(){
+        return new Vector2(territorium.getFeldSpalteKind(),territorium.getFeldReiheKind());
     }
 }
