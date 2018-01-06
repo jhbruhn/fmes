@@ -79,6 +79,8 @@ public class Territorium extends Observable implements java.io.Serializable {
 
     private boolean trankfuellungBeachten = false;
 
+    private int startTankfuellung = 100;
+
     /*
      * bastelt das Teritorium, nach den default werten
      */
@@ -369,7 +371,9 @@ public class Territorium extends Observable implements java.io.Serializable {
                     default:
                         break;
                 }
-                getRoboter().setTankFuellung(getRoboter().getTankFuellung() - 1);
+                if (isTrankfuellungBeachten()) {
+                    getRoboter().setTankFuellung(getRoboter().getTankFuellung() - 1);
+                }
                 if (childNearby()) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Kind ist nah");
@@ -691,4 +695,11 @@ public class Territorium extends Observable implements java.io.Serializable {
         this.trankfuellungBeachten = trankfuellungBeachten;
     }
 
+    public int getStartTankfuellung() {
+        return startTankfuellung;
+    }
+
+    public void setStartTankfuellung(int startTankfuellung) {
+        this.startTankfuellung = startTankfuellung;
+    }
 }

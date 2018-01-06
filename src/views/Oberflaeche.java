@@ -68,6 +68,7 @@ public class Oberflaeche {
     private MenuItem druckenSpielMenuItem;
     private MenuItem groeßeAendernMenuItem;
     private MenuItem resizeableMenuItem;
+    private MenuItem tankStelleBenoetigtMenuItem;
 
     // ToggleGroup f�r die folgenden RadioMenuItems erstellen, welche die
     // Auswahl im Menu sp�ter managed
@@ -246,6 +247,7 @@ public class Oberflaeche {
         druckenSpielMenuItem = new MenuItem();
         groeßeAendernMenuItem = new MenuItem();
         resizeableMenuItem = new MenuItem();
+        tankStelleBenoetigtMenuItem = new MenuItem();
         toggleBearbeitenSpielfeld = new ToggleGroup();
         roboterMenuItem = new RadioMenuItem();
         felsen = new RadioMenuItem();
@@ -515,7 +517,7 @@ public class Oberflaeche {
         fileMenu.getItems().addAll(newProjektMenuItem, openProjectMenuItem, new SeparatorMenuItem(),
                 druckenCodeMenuItem, spracheMenuItem, new SeparatorMenuItem(), quitMenuItem);
         bearbeitenMenu.getItems().addAll(subMenuSave, subMenuLoad, subMenuPicture, druckenSpielMenuItem,
-                groeßeAendernMenuItem, new SeparatorMenuItem(), resizeableMenuItem, new SeparatorMenuItem(), roboterMenuItem,
+                groeßeAendernMenuItem, new SeparatorMenuItem(), resizeableMenuItem, tankStelleBenoetigtMenuItem, new SeparatorMenuItem(), roboterMenuItem,
                 child, felsen, batterie, location, deleteBefehl);
         roboter.getItems().addAll(vorMenuItem, rueckMenuItem, linksMenuItem, rechtsMenuItem);
         simulationsMenu.getItems().addAll(startMenuItem, pauseMenuItem, stopMenuItem);
@@ -690,6 +692,12 @@ public class Oberflaeche {
         resizeableMenuItem.setOnAction(e -> {
             getTerritorium().setResizeable(!getTerritorium().isResizeable());
             rezisableImageCheck();
+        });
+
+        tankStelleBenoetigtMenuItem.setOnAction(e -> {
+            getTerritorium().setTrankfuellungBeachten(!getTerritorium().isTrankfuellungBeachten());
+            tankstellenImageCheck();
+            getTerritorium().checkIfChanged();
         });
 
 		/*
@@ -884,6 +892,7 @@ public class Oberflaeche {
         groeßeAendernMenuItem.setGraphic(new ImageView(
                 new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/sizeVerySmall.png"))));
         rezisableImageCheck();
+        tankstellenImageCheck();
         roboterMenuItem.setGraphic(new ImageView(new Image(
                 getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/roboterSmall.png"))));
         felsen.setGraphic(new ImageView(
@@ -954,6 +963,7 @@ public class Oberflaeche {
         druckenSpielMenuItem.setText(international.getRb().getString("druckenSpielMenuItem"));
         groeßeAendernMenuItem.setText(international.getRb().getString("groeßeAendernMenuItem"));
         resizeableMenuItem.setText(international.getRb().getString("resizeableMenuItem"));
+        tankStelleBenoetigtMenuItem.setText(international.getRb().getString("tankfuellung"));
         roboterMenuItem.setText(international.getRb().getString("roboter"));
         felsen.setText(international.getRb().getString("felsen"));
         child.setText(international.getRb().getString("child"));
@@ -1033,6 +1043,16 @@ public class Oberflaeche {
                     getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/startVerySmall.png"))));
         } else {
             resizeableMenuItem.setGraphic(new ImageView(new Image(
+                    getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/stopVerySmall.png"))));
+        }
+    }
+
+    public void tankstellenImageCheck(){
+        if (getTerritorium().isTrankfuellungBeachten()) {
+            tankStelleBenoetigtMenuItem.setGraphic(new ImageView(new Image(
+                    getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/tankstelleSmall.png"))));
+        } else {
+            tankStelleBenoetigtMenuItem.setGraphic(new ImageView(new Image(
                     getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/stopVerySmall.png"))));
         }
     }

@@ -250,7 +250,7 @@ public class TerritoriumPanel extends Region implements Observer {
                     if (territorium.getZielFelder().get(k).getReihe() == i
                             && territorium.getZielFelder().get(k).getSpalte() == j) {
                         Integer h = k + 1;
-                        gc.setFont(new Font(objectwidth));
+                        gc.setFont(new Font(objectwidth * 0.9));
                         gc.setFill(Color.BLACK);
                         double addX = objectwidth * 0.2;
                         double addY = (objectheigth * -0.1) + objectheigth;
@@ -267,6 +267,14 @@ public class TerritoriumPanel extends Region implements Observer {
                                     objectwidth - objectwidth * 0.2, objectheigth - objectheigth * 0.2);
                         }
                     }
+                }
+                if(i == 0 && j == territorium.getFeldBreite()-1 && territorium.isTrankfuellungBeachten()){
+                    Integer h = territorium.getRoboter().getTankFuellung();
+                    gc.setFont(new Font(objectwidth * 0.5));
+                    gc.setFill(Color.GREEN);
+                    double addX = objectwidth * 0.15;
+                    double addY = (objectheigth * -0.25) + objectheigth;
+                    gc.fillText(h.toString(), x + addX, y + addY);
                 }
                 if (i == t.feldReiheRoboter && j == t.feldSpalteRoboter) {
                     Image image = submarineBugNordSmall;
