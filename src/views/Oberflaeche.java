@@ -93,10 +93,9 @@ public class Oberflaeche {
     private ToggleGroup toggleBearbeitenSpielfeld;
     private RadioMenuItem submarine;
     private RadioMenuItem felsen;
-    private RadioMenuItem ort1;
+    private RadioMenuItem child;
     private RadioMenuItem batterie;
-    private RadioMenuItem ort2;
-    private RadioMenuItem ort3;
+    private RadioMenuItem location;
     private RadioMenuItem deleteBefehl;
 
     // MenuUnterpunkte im Menu "U-Boot"
@@ -271,10 +270,9 @@ public class Oberflaeche {
         toggleBearbeitenSpielfeld = new ToggleGroup();
         submarine = new RadioMenuItem();
         felsen = new RadioMenuItem();
-        ort1 = new RadioMenuItem();
+        child = new RadioMenuItem();
         batterie = new RadioMenuItem();
-        ort2 = new RadioMenuItem();
-        ort3 = new RadioMenuItem();
+        location = new RadioMenuItem();
         deleteBefehl = new RadioMenuItem();
         vorMenuItem = new MenuItem();
         rueckMenuItem = new MenuItem();
@@ -322,10 +320,9 @@ public class Oberflaeche {
         al = new ArrayList<RadioMenuItem>();
         al.add(submarine);
         al.add(felsen);
-        al.add(ort1);
+        al.add(child);
         al.add(batterie);
-        al.add(ort2);
-        al.add(ort3);
+        al.add(location);
         al.add(deleteBefehl);
         scWidth = new ScAchse();
         scHeigth = new ScAchse();
@@ -337,10 +334,9 @@ public class Oberflaeche {
         m[0] = submarine;
         m[1] = felsen;
         m[2] = batterie;
-        m[3] = ort1;
-        m[4] = ort2;
-        m[5] = ort3;
-        m[6] = deleteBefehl;
+        m[3] = child;
+        m[4] = location;
+        m[5] = deleteBefehl;
         animation = new AnimationController(m, comboboxButtonBearbeitenAuswahl, labelBottom, getInternationalitaet().getRb());
         territoriumPanel = new TerritoriumPanel(getTerritorium(), scWidth, scHeigth, animation);
         borderPaneForCodeField = new BorderPane();
@@ -480,11 +476,9 @@ public class Oberflaeche {
                 new ImageView(new Image(
                         getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/batterieSmall.png"))),
                 new ImageView(new Image(
-                        getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/ort1.jpg"))),
+                        getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/kind.png"))),
                 new ImageView(
-                        new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/ort2.jpg"))),
-                new ImageView(new Image(
-                        getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/ort3.jpg"))),
+                        new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/location.png"))),
                 new ImageView(new Image(
                         getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/deleteSmall.png"))));
 
@@ -516,10 +510,9 @@ public class Oberflaeche {
         // toggleGroup zuweisen
         submarine.setToggleGroup(toggleBearbeitenSpielfeld);
         felsen.setToggleGroup(toggleBearbeitenSpielfeld);
-        ort1.setToggleGroup(toggleBearbeitenSpielfeld);
+        child.setToggleGroup(toggleBearbeitenSpielfeld);
         batterie.setToggleGroup(toggleBearbeitenSpielfeld);
-        ort2.setToggleGroup(toggleBearbeitenSpielfeld);
-        ort3.setToggleGroup(toggleBearbeitenSpielfeld);
+        location.setToggleGroup(toggleBearbeitenSpielfeld);
         deleteBefehl.setToggleGroup(toggleBearbeitenSpielfeld);
 
         deutschSprache.setToggleGroup(toggleSprache);
@@ -541,7 +534,7 @@ public class Oberflaeche {
                 druckenCodeMenuItem, spracheMenuItem, new SeparatorMenuItem(), quitMenuItem);
         bearbeitenMenu.getItems().addAll(subMenuSave, subMenuLoad, subMenuPicture, druckenSpielMenuItem,
                 groeßeAendernMenuItem, new SeparatorMenuItem(), resizeableMenuItem, new SeparatorMenuItem(), submarine,
-                felsen, ort1, batterie, ort2, ort3, deleteBefehl, new SeparatorMenuItem());
+                felsen, child, batterie, location, deleteBefehl, new SeparatorMenuItem());
         roboter.getItems().addAll(vorMenuItem, rueckMenuItem, linksMenuItem, rechtsMenuItem);
         simulationsMenu.getItems().addAll(startMenuItem, pauseMenuItem, stopMenuItem);
         exampleMenu.getItems().addAll(speichernBeispiel, ladenBeispiel);
@@ -744,22 +737,18 @@ public class Oberflaeche {
                             felsen.fire();
                             break;
                         case 2:
-                            ort1.setSelected(true);
-                            ort1.fire();
+                            child.setSelected(true);
+                            child.fire();
                             break;
                         case 3:
                             batterie.setSelected(true);
                             batterie.fire();
                             break;
                         case 4:
-                            ort2.setSelected(true);
-                            ort2.fire();
+                            location.setSelected(true);
+                            location.fire();
                             break;
                         case 5:
-                            ort3.setSelected(true);
-                            ort3.fire();
-                            break;
-                        case 6:
                             deleteBefehl.setSelected(true);
                             deleteBefehl.fire();
                             break;
@@ -779,18 +768,15 @@ public class Oberflaeche {
                                         felsen.setSelected(false);
                                         break;
                                     case 2:
-                                        ort1.setSelected(false);
+                                        child.setSelected(false);
                                         break;
                                     case 3:
                                         batterie.setSelected(false);
                                         break;
                                     case 4:
-                                        ort2.setSelected(false);
+                                        location.setSelected(false);
                                         break;
                                     case 5:
-                                        ort3.setSelected(false);
-                                        break;
-                                    case 6:
                                         deleteBefehl.setSelected(false);
                                         break;
                                     default:
@@ -814,18 +800,14 @@ public class Oberflaeche {
                 comboboxButtonBearbeitenAuswahl);
 
         // Unterpunkt "Leucht-Felsen"
-        sbEvents.setzeObjektEventCode(FeldEigenschaft.Ort1, territoriumPanel, ort1, 3,
+        sbEvents.setzeObjektEventCode(null, territoriumPanel, child, 3,
                 comboboxButtonBearbeitenAuswahl);
 
         // Unterpunkt "Hai-Fisch"
-        sbEvents.setzeObjektEventCode(FeldEigenschaft.Ort2, territoriumPanel, ort2, 4, comboboxButtonBearbeitenAuswahl);
-
-        // Unterpunkt "Zielfeld"
-        sbEvents.setzeObjektEventCode(FeldEigenschaft.Ort3, territoriumPanel, ort3, 5,
-                comboboxButtonBearbeitenAuswahl);
+        sbEvents.setzeObjektEventCode(FeldEigenschaft.Location, territoriumPanel, location, 4, comboboxButtonBearbeitenAuswahl);
 
         // Unterpunkt "Delete"
-        sbEvents.setzeObjektEventCode(FeldEigenschaft.Leer, territoriumPanel, deleteBefehl, 6,
+        sbEvents.setzeObjektEventCode(FeldEigenschaft.Leer, territoriumPanel, deleteBefehl, 5,
                 comboboxButtonBearbeitenAuswahl);
 
         // Aktionen im Menu "U-Boot"
@@ -931,17 +913,15 @@ public class Oberflaeche {
                 new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/sizeVerySmall.png"))));
         rezisableImageCheck();
         submarine.setGraphic(new ImageView(new Image(
-                getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/roboter.png"))));
+                getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/roboterSmall.png"))));
         felsen.setGraphic(new ImageView(
                 new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/felsenVerySmall.png"))));
-        ort1.setGraphic(new ImageView(new Image(
-                getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/leuchtFelsenVerySmall.png"))));
+        child.setGraphic(new ImageView(new Image(
+                getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/kindSmall.png"))));
         batterie.setGraphic(new ImageView(new Image(
                 getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/batterieVerySmall.png"))));
-        ort2.setGraphic(new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/haiVerySmall.png"))));
-        ort3.setGraphic(new ImageView(new Image(
-                getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/Exit-FeldVerySmall.png"))));
+        location.setGraphic(new ImageView(
+                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/locationSmall.png"))));
         deleteBefehl.setGraphic(new ImageView(
                 new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/deleteVerySmall.png"))));
 
@@ -1004,10 +984,9 @@ public class Oberflaeche {
         resizeableMenuItem.setText(international.getRb().getString("resizeableMenuItem"));
         submarine.setText(international.getRb().getString("submarine"));
         felsen.setText(international.getRb().getString("felsen"));
-        ort1.setText(international.getRb().getString("leuchtFelsen"));
+        child.setText(international.getRb().getString("child"));
         batterie.setText(international.getRb().getString("batterie"));
-        ort2.setText(international.getRb().getString("hai"));
-        ort3.setText(international.getRb().getString("zielFeld"));
+        location.setText(international.getRb().getString("location"));
         deleteBefehl.setText(international.getRb().getString("deleteBefehl"));
         vorMenuItem.setText(international.getRb().getString("vorMenuItem"));
         rueckMenuItem.setText(international.getRb().getString("rueckMenuItem"));
