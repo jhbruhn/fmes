@@ -44,9 +44,7 @@ public class MovementInputController {
             }
             moves.add(moveThing);
         }
-
-        System.out.println(moves.size());
-
+        
         return moves;
     }
 }
