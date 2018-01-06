@@ -267,11 +267,9 @@ public class Territorium extends Observable implements java.io.Serializable {
     }
 
     /*
-     * Gibt an ob auf dem Spalten- und ReihenIndex ein Felsen ist. Beachte:
-     * Leuchtfelsen erbt von Felsen! Und es wird ber�cksichtigt ob es dunkel
-     * ist!
+     * Gibt an ob auf dem Spalten- und ReihenIndex ein Felsen ist oder das Spielfeld ueberschritten wurde.
      */
-    public boolean felsenDa(int reihe, int spalte) {
+    public boolean istNichtBesuchbar(int reihe, int spalte) {
         if (reihe >= getFeld().length - 1 || reihe < 0 || spalte >= getFeld()[0].length - 1
                 || spalte < 0 || (getFeld()[reihe][spalte] == FeldEigenschaft.Felsen)) {
             return true;
@@ -301,22 +299,22 @@ public class Territorium extends Observable implements java.io.Serializable {
             if (roboter) {
                 switch (richtung) {
                     case UP:
-                        if (felsen = (!felsenDa(feldReiheRoboter - 1, feldSpalteRoboter))) {
+                        if (felsen = (!istNichtBesuchbar(feldReiheRoboter - 1, feldSpalteRoboter))) {
                             feldReiheRoboter = feldReiheRoboter - 1;
                         }
                         break;
                     case DOWN:
-                        if (felsen = (!felsenDa(feldReiheRoboter + 1, feldSpalteRoboter))) {
+                        if (felsen = (!istNichtBesuchbar(feldReiheRoboter + 1, feldSpalteRoboter))) {
                             feldReiheRoboter = feldReiheRoboter + 1;
                         }
                         break;
                     case LEFT:
-                        if (felsen = (!felsenDa(feldReiheRoboter, feldSpalteRoboter - 1))) {
+                        if (felsen = (!istNichtBesuchbar(feldReiheRoboter, feldSpalteRoboter - 1))) {
                             feldSpalteRoboter = feldSpalteRoboter - 1;
                         }
                         break;
                     case RIGHT:
-                        if (felsen = (!felsenDa(feldReiheRoboter, feldSpalteRoboter + 1))) {
+                        if (felsen = (!istNichtBesuchbar(feldReiheRoboter, feldSpalteRoboter + 1))) {
                             feldSpalteRoboter = feldSpalteRoboter + 1;
                         }
                         break;
@@ -326,22 +324,22 @@ public class Territorium extends Observable implements java.io.Serializable {
             } else {
                 switch (richtung) {
                     case UP:
-                        if (felsen = (!felsenDa(feldReiheKind - 1, feldSpalteKind))) {
+                        if (felsen = (!istNichtBesuchbar(feldReiheKind - 1, feldSpalteKind))) {
                             feldReiheKind = feldReiheKind - 1;
                         }
                         break;
                     case DOWN:
-                        if (felsen = (!felsenDa(feldReiheKind + 1, feldSpalteKind))) {
+                        if (felsen = (!istNichtBesuchbar(feldReiheKind + 1, feldSpalteKind))) {
                             feldReiheKind = feldReiheKind + 1;
                         }
                         break;
                     case LEFT:
-                        if (felsen = (!felsenDa(feldReiheKind, feldSpalteKind - 1))) {
+                        if (felsen = (!istNichtBesuchbar(feldReiheKind, feldSpalteKind - 1))) {
                             feldSpalteKind = feldSpalteKind - 1;
                         }
                         break;
                     case RIGHT:
-                        if (felsen = (!felsenDa(feldReiheKind, feldSpalteKind + 1))) {
+                        if (felsen = (!istNichtBesuchbar(feldReiheKind, feldSpalteKind + 1))) {
                             feldSpalteKind = feldSpalteKind + 1;
                         }
                         break;

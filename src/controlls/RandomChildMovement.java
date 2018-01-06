@@ -17,28 +17,27 @@ public class RandomChildMovement {
         boolean success=false;
         while (!success) {
             switch (zufallszahl) {
-                //todo Kind gegen Spielfeldende
-                case 0:
-                    if (territorium.felsenDa(territorium.getFeldReiheKind(),territorium.getFeldSpalteKind()-1 )){
+                case 0://Ein Schritt nach links.
+                    if (!territorium.istNichtBesuchbar(territorium.getFeldReiheKind(),territorium.getFeldSpalteKind()-1 )){
                     kind.bewege(Territorium.Richtung.LEFT);
                     success = true;
                 }
-                case 1:
-                    if (true){
+                case 1://Ein Schritt nach rechts.
+                    if (!territorium.istNichtBesuchbar(territorium.getFeldReiheKind(),territorium.getFeldSpalteKind()+1 )){
                         kind.bewege(Territorium.Richtung.RIGHT);
                         success = true;
                     }
-                case 2:
-                    if (territorium.felsenDa(territorium.getFeldReiheKind()-1,territorium.getFeldSpalteKind())){
+                case 2://Ein Schritt nach oben.
+                    if (!territorium.istNichtBesuchbar(territorium.getFeldReiheKind()-1,territorium.getFeldSpalteKind() )){
                         kind.bewege(Territorium.Richtung.UP);
                         success = true;
                 }
-                case 3:
-                    if (territorium.felsenDa(territorium.getFeldReiheKind()+1,territorium.getFeldSpalteKind())){
+                case 3://Ein Schritt nach unten.
+                    if (!territorium.istNichtBesuchbar(territorium.getFeldReiheKind()+1,territorium.getFeldSpalteKind())){
                         kind.bewege(Territorium.Richtung.DOWN);
                         success = true;
                 }
-                case 4:
+                case 4://Auf der Stelle stehen.
                     success = true;
             }
         }
