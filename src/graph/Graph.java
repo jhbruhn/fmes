@@ -135,6 +135,7 @@ public class Graph implements Cloneable {
     }
 
     public List<Move> getNextMove(State state) {
+        if(!state.isRobotState) throw new RuntimeException("You cannot do a move from a childstate.");
         List<Transition> viableMoves = getViableTransitionsFromState(state);
         viableMoves.sort(Comparator.comparingInt(o -> o.to.enforceValue));
         if(viableMoves.size() == 0) return null;
