@@ -1,6 +1,7 @@
 import controlls.RandomChildController;
 import controlls.RobotController;
 import graph.*;
+import javafx.scene.control.Alert;
 import modell.Kind;
 import modell.Roboter;
 import modell.Territorium;
@@ -25,9 +26,18 @@ public class Controller {
     }
 
     public void run() {
-        //todo
-        while (true) {
-            randomChildController.doNextStep();
+        if(robotController.isSolvable()) {
+            //todo
+            while (true) {
+                randomChildController.doNextStep();
+            }
+        } else{
+            //todo
+            Alert alert=new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("ErrorHeader");
+            alert.setContentText("ErrorText");
+            alert.showAndWait();
         }
     }
 }

@@ -17,6 +17,7 @@ public class RandomChildController {
     }
 
     public void doNextStep() {
+        //todo
         int zufallszahl = (int) ((4 * Math.random()) % 4);
         boolean success = false;
         while (!success) {
