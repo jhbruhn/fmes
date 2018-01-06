@@ -1,23 +1,30 @@
-/*package controlls;
+package controlls;
 
 
 import graph.Graph;
+import modell.Territorium;
+
+import java.util.ArrayList;
 
 public class RobotController {
-    Enum lastStep;
     Graph graph;
+    ArrayList<ArrayList<Territorium.Richtung>> robotMoves;
 
-    public RobotMovement(Graph graph) {
+    public RobotController(Graph graph, ArrayList<ArrayList<Territorium.Richtung>> robotMoves) {
         this.graph = graph;
+        this.robotMoves=robotMoves;
     }
 
     //Move the robot to the best possible position
     public void doNextStep() {
-        runStep(nextStep());
+        //todo
+        //run:
+        nextStep();
     }
 
     //there is a chance to reach the goal
     public boolean isNotTerminated() {
+        //todo
         return true;
     }
 
@@ -29,21 +36,11 @@ public class RobotController {
         this.graph = graph;
     }
 
-    //calculates the next step
-    public Enum nextStep() {
-        lastStep = null;
+
+    //calculate the next step
+    public ArrayList<Territorium.Richtung>  nextStep() {
+        //todo
         return null;
     }
 
-    //execute the next step
-    public void runStep(Enum nextstep) {
-    }
-
-    public Enum getLastStep() {
-        return lastStep;
-    }
-
-    public void setLastStep(Enum lastStep) {
-        this.lastStep = lastStep;
-    }
-}*/
+}
