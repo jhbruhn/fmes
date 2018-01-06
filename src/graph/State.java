@@ -126,4 +126,8 @@ public class State implements Cloneable {
     public State clone() {
         return new State(this.field, this.robot, this.child, this.isRobotState);
     }
+
+    public boolean isSolveableStartState() {
+        return enforceValue >= 0;
+    }
 }

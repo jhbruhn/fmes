@@ -21,6 +21,7 @@ public class Roboter extends Thread {
 	private String[] abbruchArray = new String[RunCodeController.endlossAbbruchKriterium];
 	private int countAbbruch = 0;
 	private SimpleDoubleProperty speed = new SimpleDoubleProperty();
+	private int tankFuellung;
 
 	/*
 	 * I'll survive (non-Javadoc)
@@ -211,5 +212,13 @@ public class Roboter extends Thread {
 	@Invisible
 	public  void setSpeed(SimpleDoubleProperty speed) {
 		this.speed = speed;
+	}
+
+	public int getTankFuellung() {
+		return tankFuellung;
+	}
+
+	public void setTankFuellung(int tankFuellung) {
+		this.tankFuellung = tankFuellung;
 	}
 }
