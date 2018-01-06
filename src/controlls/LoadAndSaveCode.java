@@ -432,14 +432,8 @@ public class LoadAndSaveCode {
 				case "Felsen":
 					feld[reihe][spalte] = FeldEigenschaft.Felsen;
 					break;
-				case "Ort1":
-					feld[reihe][spalte] = FeldEigenschaft.Ort1;
-					break;
-				case "Ort2":
-					feld[reihe][spalte] = FeldEigenschaft.Ort2;
-					break;
-				case "Ort3":
-					feld[reihe][spalte] = FeldEigenschaft.Ort3;
+				case "Location":
+					feld[reihe][spalte] = FeldEigenschaft.Location;
 					break;
 				default:
 					feld[reihe][spalte] = FeldEigenschaft.Leer;

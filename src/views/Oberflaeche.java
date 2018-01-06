@@ -93,10 +93,9 @@ public class Oberflaeche {
     private ToggleGroup toggleBearbeitenSpielfeld;
     private RadioMenuItem submarine;
     private RadioMenuItem felsen;
-    private RadioMenuItem ort1;
+    private RadioMenuItem child;
     private RadioMenuItem batterie;
-    private RadioMenuItem ort2;
-    private RadioMenuItem ort3;
+    private RadioMenuItem location;
     private RadioMenuItem deleteBefehl;
 
     // MenuUnterpunkte im Menu "U-Boot"
@@ -170,9 +169,6 @@ public class Oberflaeche {
     // fette UBOOT!!"
     private Territorium territorium;
 
-    // Code-Text-Feld
-    private TextArea code;
-
     // Wave Dateien
     // Audioclip f�r die Hilfe-Leiste
     private AudioClip clip;
@@ -217,9 +213,6 @@ public class Oberflaeche {
 
     // Kommen der Code und der TextFlow f�r den Linecount rein
     private BorderPane borderPaneForCodeField;
-
-    // H�lle f�r den TextFlow zum Linecount
-    private ScrollPane scrollPaneLineCount;
 
     // Ist nur f�r das sch�ne aussehen da..
     private StackPane root;
@@ -271,10 +264,9 @@ public class Oberflaeche {
         toggleBearbeitenSpielfeld = new ToggleGroup();
         submarine = new RadioMenuItem();
         felsen = new RadioMenuItem();
-        ort1 = new RadioMenuItem();
+        child = new RadioMenuItem();
         batterie = new RadioMenuItem();
-        ort2 = new RadioMenuItem();
-        ort3 = new RadioMenuItem();
+        location = new RadioMenuItem();
         deleteBefehl = new RadioMenuItem();
         vorMenuItem = new MenuItem();
         rueckMenuItem = new MenuItem();
@@ -314,7 +306,6 @@ public class Oberflaeche {
         slider = new Slider();
         labelBottom = new Label();
         split = new SplitPane();
-        code = new TextArea();
         clip = new AudioClip(
                 getClass().getResource("../resourcesPicturesAndSoundsVidoes/BabyCryingSounds.wav").toString());
         border = new BorderPane();
@@ -322,10 +313,9 @@ public class Oberflaeche {
         al = new ArrayList<RadioMenuItem>();
         al.add(submarine);
         al.add(felsen);
-        al.add(ort1);
+        al.add(child);
         al.add(batterie);
-        al.add(ort2);
-        al.add(ort3);
+        al.add(location);
         al.add(deleteBefehl);
         scWidth = new ScAchse();
         scHeigth = new ScAchse();
@@ -337,17 +327,14 @@ public class Oberflaeche {
         m[0] = submarine;
         m[1] = felsen;
         m[2] = batterie;
-        m[3] = ort1;
-        m[4] = ort2;
-        m[5] = ort3;
-        m[6] = deleteBefehl;
+        m[3] = child;
+        m[4] = location;
+        m[5] = deleteBefehl;
         animation = new AnimationController(m, comboboxButtonBearbeitenAuswahl, labelBottom, getInternationalitaet().getRb());
         territoriumPanel = new TerritoriumPanel(getTerritorium(), scWidth, scHeigth, animation);
         borderPaneForCodeField = new BorderPane();
-        scrollPaneLineCount = new ScrollPane(flow);
         root = new StackPane();
         zuBeachtendeButtonsUndMenuItems();
-        textAreaControls = new TextAreaControls(getTerritorium(), getTextArea(), this, flow);
     }
 
     /*
@@ -380,12 +367,8 @@ public class Oberflaeche {
 
         sc = new ScrollPane(territoriumPanel.getScrollPane());
 
-        borderPaneForCodeField.setCenter(code);
-        borderPaneForCodeField.setRight(scrollPaneLineCount);
-        // nervige Scrollbars ausblenden, da diese im sp�teren Verlauf nicht
-        // mehr n�tig sind.
-        scrollPaneLineCount.setHbarPolicy(ScrollBarPolicy.NEVER);
-        scrollPaneLineCount.setVbarPolicy(ScrollBarPolicy.NEVER);
+        //TODO: ADD input controls for robot and child here.
+        //borderPaneForCodeField.setRight();
         // Die folgenden Zahlen sind nur nach pers�nlichem Empfinden gesetzt
         borderPaneForCodeField.setMinWidth(175);
         borderPaneForCodeField.setMaxWidth(300);
@@ -405,7 +388,6 @@ public class Oberflaeche {
 
         root.getChildren().add(border);
 
-        // scrollPaneLineCount.Property
         // Hier noch mal die explizieten Sch�nheits�nderungen, welche nicht alle
         // gleich in der "CSS"-Datei sind
         territoriumPanel.getScrollPane().setStyle("-fx-background: #6680e6; -fx-background-color: #6680e6;");
@@ -414,9 +396,6 @@ public class Oberflaeche {
         // Hat keinen gr�en Effekt au�er, dass sie nicht transparent wird.
         // Sollte man sich jedoch entscheiden, den "Disable" raus zu nehmen, ist
         // die Farbe wieder "sch�n" gew�hlt.
-        scrollPaneLineCount.setStyle("-fx-background: #ffff99;");
-        scrollPaneLineCount.setDisable(true);
-        // scrollPaneLineCount.
 
         Scene scene = new Scene(root, 1250, 750);
         scene.getStylesheets().add(Oberflaeche.class.getResource("../resources/Style.txt").toExternalForm());
@@ -480,11 +459,9 @@ public class Oberflaeche {
                 new ImageView(new Image(
                         getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/batterieSmall.png"))),
                 new ImageView(new Image(
-                        getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/ort1.jpg"))),
+                        getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/kind.png"))),
                 new ImageView(
-                        new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/ort2.jpg"))),
-                new ImageView(new Image(
-                        getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/ort3.jpg"))),
+                        new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/location.png"))),
                 new ImageView(new Image(
                         getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/deleteSmall.png"))));
 
@@ -516,10 +493,9 @@ public class Oberflaeche {
         // toggleGroup zuweisen
         submarine.setToggleGroup(toggleBearbeitenSpielfeld);
         felsen.setToggleGroup(toggleBearbeitenSpielfeld);
-        ort1.setToggleGroup(toggleBearbeitenSpielfeld);
+        child.setToggleGroup(toggleBearbeitenSpielfeld);
         batterie.setToggleGroup(toggleBearbeitenSpielfeld);
-        ort2.setToggleGroup(toggleBearbeitenSpielfeld);
-        ort3.setToggleGroup(toggleBearbeitenSpielfeld);
+        location.setToggleGroup(toggleBearbeitenSpielfeld);
         deleteBefehl.setToggleGroup(toggleBearbeitenSpielfeld);
 
         deutschSprache.setToggleGroup(toggleSprache);
@@ -541,7 +517,7 @@ public class Oberflaeche {
                 druckenCodeMenuItem, spracheMenuItem, new SeparatorMenuItem(), quitMenuItem);
         bearbeitenMenu.getItems().addAll(subMenuSave, subMenuLoad, subMenuPicture, druckenSpielMenuItem,
                 groeßeAendernMenuItem, new SeparatorMenuItem(), resizeableMenuItem, new SeparatorMenuItem(), submarine,
-                felsen, ort1, batterie, ort2, ort3, deleteBefehl, new SeparatorMenuItem());
+                felsen, child, batterie, location, deleteBefehl, new SeparatorMenuItem());
         roboter.getItems().addAll(vorMenuItem, rueckMenuItem, linksMenuItem, rechtsMenuItem);
         simulationsMenu.getItems().addAll(startMenuItem, pauseMenuItem, stopMenuItem);
         exampleMenu.getItems().addAll(speichernBeispiel, ladenBeispiel);
@@ -601,15 +577,6 @@ public class Oberflaeche {
         // kompliziert werden soll und ich das ganze vielleicht noch mal
         // erkl�ren mus..
         // Hier ist 17 der Wert f�r die SChriftgr��e (14) + Zeilenabst�nde
-        code.scrollTopProperty().addListener(l -> {
-            if (code.scrollTopProperty().getValue() > 0) {
-                String s[] = getTextArea().getText().split("\n");
-                double berechnung = s.length * 17 - (code.heightProperty().get() - (2 * 17));
-                scrollPaneLineCount.vvalueProperty().setValue(code.scrollTopProperty().getValue() / berechnung);
-            } else {
-                scrollPaneLineCount.vvalueProperty().setValue(0);
-            }
-        });
 
         // Erm�glicht durch das binding, dass das Spiel immer in die Mitte
         // gesetzt wird.
@@ -631,7 +598,6 @@ public class Oberflaeche {
 		 * 
 		 * Siehe textAreaControls f�r mehr Infos
 		 */
-        textAreaControls.setzeEventsZurTextArea();
 
         // MouseHandler f�r das Draggen und Dropen hinzuf�gen
         scMousehandler.handlerSetzen(territoriumPanel.getCanvas());
@@ -643,18 +609,16 @@ public class Oberflaeche {
 
         // Unterpunkt "�ffnen"
         openProjectMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.CONTROL_DOWN));
-        openProjectMenuItem.setOnAction(e -> {
-            sbEvents.ladeCode(code, getPrimaryStage());
-        });
+
         buttonOeffneDokument.setOnAction(e -> openProjectMenuItem.fire());
 
         // Button Speichern
-        sbEvents.speichernEvent(buttonSpeichernDokument, code, getPrimaryStage(), international.getRb(),
+        sbEvents.speichernEvent(buttonSpeichernDokument, null, getPrimaryStage(), international.getRb(),
                 getTerritorium().getRoboter());
 
         // Unterpunkt "Drucken"
         druckenCodeMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.P, KeyCombination.CONTROL_DOWN));
-        druckenCodeMenuItem.setOnAction(e -> sbEvents.print(getTextArea()));
+        druckenCodeMenuItem.setOnAction(e -> sbEvents.print(null));
 
         // Untermenu Sprache:
         // Unterpunkt Deutsch:
@@ -679,11 +643,11 @@ public class Oberflaeche {
         quitMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.Q, KeyCombination.CONTROL_DOWN));
         quitMenuItem.setOnAction(e -> {
             stopMenuItem.fire();
-            sbEvents.closeEvent(getPrimaryStage(), getTextArea(), international.getRb(), this);
+            sbEvents.closeEvent(getPrimaryStage(), null, international.getRb(), this);
         });
         getPrimaryStage().setOnCloseRequest(event -> {
             stopMenuItem.fire();
-            sbEvents.closeEvent(getPrimaryStage(), getTextArea(), international.getRb(), this);
+            sbEvents.closeEvent(getPrimaryStage(), null, international.getRb(), this);
             event.consume();
         });
 
@@ -744,22 +708,18 @@ public class Oberflaeche {
                             felsen.fire();
                             break;
                         case 2:
-                            ort1.setSelected(true);
-                            ort1.fire();
+                            child.setSelected(true);
+                            child.fire();
                             break;
                         case 3:
                             batterie.setSelected(true);
                             batterie.fire();
                             break;
                         case 4:
-                            ort2.setSelected(true);
-                            ort2.fire();
+                            location.setSelected(true);
+                            location.fire();
                             break;
                         case 5:
-                            ort3.setSelected(true);
-                            ort3.fire();
-                            break;
-                        case 6:
                             deleteBefehl.setSelected(true);
                             deleteBefehl.fire();
                             break;
@@ -779,18 +739,15 @@ public class Oberflaeche {
                                         felsen.setSelected(false);
                                         break;
                                     case 2:
-                                        ort1.setSelected(false);
+                                        child.setSelected(false);
                                         break;
                                     case 3:
                                         batterie.setSelected(false);
                                         break;
                                     case 4:
-                                        ort2.setSelected(false);
+                                        location.setSelected(false);
                                         break;
                                     case 5:
-                                        ort3.setSelected(false);
-                                        break;
-                                    case 6:
                                         deleteBefehl.setSelected(false);
                                         break;
                                     default:
@@ -814,18 +771,14 @@ public class Oberflaeche {
                 comboboxButtonBearbeitenAuswahl);
 
         // Unterpunkt "Leucht-Felsen"
-        sbEvents.setzeObjektEventCode(FeldEigenschaft.Ort1, territoriumPanel, ort1, 3,
+        sbEvents.setzeObjektEventCode(null, territoriumPanel, child, 3,
                 comboboxButtonBearbeitenAuswahl);
 
         // Unterpunkt "Hai-Fisch"
-        sbEvents.setzeObjektEventCode(FeldEigenschaft.Ort2, territoriumPanel, ort2, 4, comboboxButtonBearbeitenAuswahl);
-
-        // Unterpunkt "Zielfeld"
-        sbEvents.setzeObjektEventCode(FeldEigenschaft.Ort3, territoriumPanel, ort3, 5,
-                comboboxButtonBearbeitenAuswahl);
+        sbEvents.setzeObjektEventCode(FeldEigenschaft.Location, territoriumPanel, location, 4, comboboxButtonBearbeitenAuswahl);
 
         // Unterpunkt "Delete"
-        sbEvents.setzeObjektEventCode(FeldEigenschaft.Leer, territoriumPanel, deleteBefehl, 6,
+        sbEvents.setzeObjektEventCode(FeldEigenschaft.Leer, territoriumPanel, deleteBefehl, 5,
                 comboboxButtonBearbeitenAuswahl);
 
         // Aktionen im Menu "U-Boot"
@@ -860,10 +813,10 @@ public class Oberflaeche {
         // Aktionen im Menu "Beispiele"
         // Unterpunkt "speichernBeispiel"
         speichernBeispiel.setOnAction(e -> sbEvents.saveExample(getInternationalitaet().getRb(), getTerritorium(),
-                getTextArea(), getPrimaryStage().getTitle()));
+                null, getPrimaryStage().getTitle()));
 
         // Unterpunkt "ladenBeispiel"
-        ladenBeispiel.setOnAction(e -> sbEvents.loadExample(getInternationalitaet().getRb(), getTextArea()));
+        ladenBeispiel.setOnAction(e -> sbEvents.loadExample(getInternationalitaet().getRb(), null));
 
         // Aktionen im Menu "Hilfe"
         // Unterpunkt "Hinweis"
@@ -931,17 +884,15 @@ public class Oberflaeche {
                 new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/sizeVerySmall.png"))));
         rezisableImageCheck();
         submarine.setGraphic(new ImageView(new Image(
-                getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/roboter.png"))));
+                getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/roboterSmall.png"))));
         felsen.setGraphic(new ImageView(
                 new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/felsenVerySmall.png"))));
-        ort1.setGraphic(new ImageView(new Image(
-                getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/leuchtFelsenVerySmall.png"))));
+        child.setGraphic(new ImageView(new Image(
+                getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/kindSmall.png"))));
         batterie.setGraphic(new ImageView(new Image(
                 getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/batterieVerySmall.png"))));
-        ort2.setGraphic(new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/haiVerySmall.png"))));
-        ort3.setGraphic(new ImageView(new Image(
-                getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/Exit-FeldVerySmall.png"))));
+        location.setGraphic(new ImageView(
+                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/locationSmall.png"))));
         deleteBefehl.setGraphic(new ImageView(
                 new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/deleteVerySmall.png"))));
 
@@ -1004,10 +955,9 @@ public class Oberflaeche {
         resizeableMenuItem.setText(international.getRb().getString("resizeableMenuItem"));
         submarine.setText(international.getRb().getString("submarine"));
         felsen.setText(international.getRb().getString("felsen"));
-        ort1.setText(international.getRb().getString("leuchtFelsen"));
+        child.setText(international.getRb().getString("child"));
         batterie.setText(international.getRb().getString("batterie"));
-        ort2.setText(international.getRb().getString("hai"));
-        ort3.setText(international.getRb().getString("zielFeld"));
+        location.setText(international.getRb().getString("location"));
         deleteBefehl.setText(international.getRb().getString("deleteBefehl"));
         vorMenuItem.setText(international.getRb().getString("vorMenuItem"));
         rueckMenuItem.setText(international.getRb().getString("rueckMenuItem"));
@@ -1058,14 +1008,6 @@ public class Oberflaeche {
 
     public void setInternationalitaet(Internationalitaet s) {
         international = s;
-    }
-
-    public TextArea getTextArea() {
-        return code;
-    }
-
-    public void setTextArea(TextArea a) {
-        code = a;
     }
 
     public boolean isTextChanged() {

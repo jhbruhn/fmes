@@ -25,7 +25,7 @@ public class Territorium extends Observable implements java.io.Serializable {
     public static final int OBJ_MIN_WIDTH = 30;
 
     public static enum FeldEigenschaft implements java.io.Serializable {
-        Leer, Batterie, Felsen, Ort1, Ort2, Ort3
+        Leer, Batterie, Felsen, Location
     }
 
     public static enum Richtung implements java.io.Serializable {
@@ -72,6 +72,10 @@ public class Territorium extends Observable implements java.io.Serializable {
 
     private boolean death = false;
 
+    private ZielFeld nextGoalField;
+
+    private ArrayList<ZielFeld> zielFelder = new ArrayList<ZielFeld>();
+
     /*
      * bastelt das Teritorium, nach den default werten
      */
@@ -92,9 +96,18 @@ public class Territorium extends Observable implements java.io.Serializable {
     private void erstelleBeispielFeld() {
         setzeObjektAufsFeld(3, 3, FeldEigenschaft.Felsen);
         setzeObjektAufsFeld(3, 4, FeldEigenschaft.Batterie);
-        setzeObjektAufsFeld(3, 5, FeldEigenschaft.Ort1);
-        setzeObjektAufsFeld(3, 6, FeldEigenschaft.Ort2);
-        setzeObjektAufsFeld(9, 9, FeldEigenschaft.Ort3);
+        setzeObjektAufsFeld(3, 5, FeldEigenschaft.Location);
+        setzeObjektAufsFeld(3, 6, FeldEigenschaft.Location);
+        setzeObjektAufsFeld(3, 7, FeldEigenschaft.Location);
+        setzeObjektAufsFeld(3, 8, FeldEigenschaft.Location);
+        setzeObjektAufsFeld(3, 9, FeldEigenschaft.Location);
+        setzeObjektAufsFeld(5, 1, FeldEigenschaft.Location);
+        setzeObjektAufsFeld(5, 2, FeldEigenschaft.Location);
+        setzeObjektAufsFeld(5, 3, FeldEigenschaft.Location);
+        setzeObjektAufsFeld(5, 4, FeldEigenschaft.Location);
+        setzeObjektAufsFeld(5, 5, FeldEigenschaft.Location);
+
+
     }
 
     /*
@@ -208,8 +221,15 @@ public class Territorium extends Observable implements java.io.Serializable {
         if (reihe < 0 || reihe >= feldHoehe || spalte < 0 || spalte >= feldBreite) {
             throw new IndexOutOfBoundsException();
         }
-        if (f == FeldEigenschaft.Ort1 || f == FeldEigenschaft.Ort2
-                || f == FeldEigenschaft.Ort3 ||
+        if (f == FeldEigenschaft.Location) {
+            ZielFeld z = new ZielFeld(reihe, spalte);
+            zielFelder.add(z);
+            getFeld()[reihe][spalte] = f;
+            if(nextGoalField == null){
+                nextGoalField = z;
+            }
+        }
+        if (f == FeldEigenschaft.Leer ||
                 f == FeldEigenschaft.Batterie && (!(feldReiheRoboter == reihe && feldSpalteRoboter == spalte))) {
             getFeld()[reihe][spalte] = f;
         }
@@ -356,7 +376,6 @@ public class Territorium extends Observable implements java.io.Serializable {
             if (!felsen) {
                 throw new FelsenDaException();
             }
-            zielFeldErreicht();
             checkIfChanged();
         } catch (FelsenDaException e) {
             e.play();
@@ -389,31 +408,6 @@ public class Territorium extends Observable implements java.io.Serializable {
         feldSpalteRoboter = startSpalteRoboter;
         feldSpalteKind = startSpalteKind;
         checkUBoot();
-    }
-
-    /*
-     * gibt an ob der Bug das Zielfeld erreicht hat.
-     */
-    public void zielFeldErreicht() {
-        if (getFeld()[feldReiheRoboter][feldSpalteRoboter] == FeldEigenschaft.Ort3) {
-            if (getRoboter().isRunning()) {
-                getRoboter().setStopped(true);
-            } else {
-                String s = "../resourcesPicturesAndSoundsVidoes/FinishWave" + getTerritoriumSpecialFinishNummer()
-                        + ".wav";
-                try {
-                    if (getClass().getResource(s) == null) {
-                        s = "../resourcesPicturesAndSoundsVidoes/FinishWave0.wav";
-                    }
-                } catch (Exception e) {
-                    s = "../resourcesPicturesAndSoundsVidoes/FinishWave0.wav";
-                }
-                AudioClip clipFinish = new AudioClip(getClass().getResource(s).toString());
-                clipFinish.play(1.0);
-            }
-            setLevelGeschaft(true);
-            aufAnfang();
-        }
     }
 
 
@@ -627,4 +621,22 @@ public class Territorium extends Observable implements java.io.Serializable {
     public void setDeath(boolean death) {
         this.death = death;
     }
+
+
+    public ArrayList<ZielFeld> getZielFelder() {
+        return zielFelder;
+    }
+
+    public void setZielFelder(ArrayList<ZielFeld> zielFelder) {
+        this.zielFelder = zielFelder;
+    }
+
+    public ZielFeld getNextGoalField() {
+        return nextGoalField;
+    }
+
+    public void setNextGoalField(ZielFeld nextGoalField) {
+        this.nextGoalField = nextGoalField;
+    }
+
 }

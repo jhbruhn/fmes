@@ -24,7 +24,7 @@ public class Graph implements Cloneable {
             s.append("\" -> \"");
             s.append(t.to);
             s.append("\" [ label=\"");
-            for(Move m : t.moves)
+            for (Move m : t.moves)
                 s.append(m.encodedString);
             s.append("\"]\n");
         }
@@ -125,8 +125,8 @@ public class Graph implements Cloneable {
         List<Transition> viableMoves = new ArrayList<>();
         List<Transition> transitions = getTransitionsFrom(state);
 
-        for(Transition t : transitions) {
-            if(t.to.enforceValue < state.enforceValue) {
+        for (Transition t : transitions) {
+            if (t.to.enforceValue < state.enforceValue) {
                 viableMoves.add(t);
             }
         }
@@ -134,11 +134,24 @@ public class Graph implements Cloneable {
         return viableMoves;
     }
 
-    public List<Move> getNextMove(State state) {
-        if(!state.isRobotState) throw new RuntimeException("You cannot do a move from a childstate.");
+    public List<List<Move>> getNextChildMoves(State state) {
+        if (state.isRobotState) throw new RuntimeException("You cannot do always do all moves from a robotstate.");
+        List<List<Move>> moves = new ArrayList<>();
+
+        List<Transition> transitions = getTransitionsFrom(state);
+
+        for (Transition t : transitions) {
+            moves.add(t.moves);
+        }
+
+        return moves;
+    }
+
+    public List<Move> getNextRobotMove(State state) {
+        if (!state.isRobotState) throw new RuntimeException("You cannot do a move from a childstate.");
         List<Transition> viableMoves = getViableTransitionsFromState(state);
         viableMoves.sort(Comparator.comparingInt(o -> o.to.enforceValue));
-        if(viableMoves.size() == 0) return null;
+        if (viableMoves.size() == 0) return null;
         return viableMoves.get(0).moves;
     }
 
@@ -147,14 +160,14 @@ public class Graph implements Cloneable {
         Graph g = new Graph();
         g.states = new ArrayList<>();
         g.transitions = new ArrayList<>();
-        for(State s : this.states)
+        for (State s : this.states)
             g.states.add(s.clone());
-        for(Transition t : this.transitions) {
+        for (Transition t : this.transitions) {
             State from = null, to = null;
-            for(State s : g.states) {
-                if(s.equals(t.from))
+            for (State s : g.states) {
+                if (s.equals(t.from))
                     from = s;
-                if(s.equals(t.to))
+                if (s.equals(t.to))
                     to = s;
             }
             Transition tNew = new Transition(from, t.moves, to);
