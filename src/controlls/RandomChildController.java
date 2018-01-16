@@ -16,7 +16,7 @@ public class RandomChildController {
         this.childMoves = childMoves;
     }
 
-    public void doNextStep() {
+    public void doNextSteps() {
         //todo
         int zufallszahl = (int) ((4 * Math.random()) % 4);
         boolean success = false;

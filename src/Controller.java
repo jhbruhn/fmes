@@ -21,7 +21,7 @@ public class Controller {
         this.territorium = territorium;
         this.child = territorium.getChild();
         this.robot = territorium.getRoboter();
-        randomChildController = new RandomChildController(child, territorium.chi);//todo
+        randomChildController = new RandomChildController(child, territorium.childMoves);
         this.goalfield = territorium.getZielFelder();
 
         Graph graph = null;//todo
@@ -33,7 +33,7 @@ public class Controller {
         if(robotController.isSolvable()) {
             //todo
             while (true) {
-                randomChildController.doNextStep();
+                randomChildController.doNextSteps();
             }
         } else{
             //todo
