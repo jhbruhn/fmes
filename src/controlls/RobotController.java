@@ -27,6 +27,7 @@ public class RobotController {
 
     public void doNextStep(Territorium.Richtung richtung) {
         territorium.getRoboter().bewege(richtung);
+        System.out.println("Move bitch");
     }
 
     //there is a chance to reach the goal
@@ -74,4 +75,11 @@ public class RobotController {
         this.graph = graph;
     }
 
+    public boolean isTerminated(int y, int x) {
+        if(territorium.feldReiheRoboter==y&&territorium.feldSpalteRoboter==x){
+            return true;
+        }
+        System.out.println("not terminated");
+        return false;
+    }
 }

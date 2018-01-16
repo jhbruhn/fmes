@@ -51,6 +51,7 @@ public class Graph implements Cloneable {
     }
 
     public State findStateForPositions(Vector2 robotPosition, Vector2 childPosition) {
+        System.out.println(robotPosition + "; " + childPosition);
         for (State state : states) {
             if (state.robot.equals(robotPosition) && state.child.equals(childPosition))
                 return state;
@@ -80,6 +81,7 @@ public class Graph implements Cloneable {
         }
 
         List<State> targetStates = g.findStatesForRobotPosition(robotTarget);
+        System.out.println(robotTarget);
 
         // Set enforce value to 0 for targetstates.
         for (State s : targetStates)

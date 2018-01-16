@@ -27,7 +27,7 @@ public class Controller {
         randomChildController = new RandomChildController(child, territorium.childMoves);
         this.goalfield = territorium.getZielFelder();
         Field f = new Field(getWalls(territorium));
-        State initial = new State(f, new Vector2(territorium.feldReiheRoboter, territorium.feldSpalteRoboter), new Vector2(territorium.getFeldReiheKind(), territorium.getFeldSpalteKind()), true);
+        State initial = new State(f, new Vector2(territorium.feldSpalteRoboter, territorium.feldReiheRoboter), new Vector2(territorium.getFeldSpalteKind(), territorium.getFeldReiheKind()), true);
         List<List<Move>> robotMoves = ArrayListListToListList.convert(territorium.robotMoves);
         List<List<Move>> childMoves = ArrayListListToListList.convert(territorium.childMoves);
         graph = Graph.generateGraph(initial, robotMoves, childMoves);
@@ -36,11 +36,12 @@ public class Controller {
     }
 
     public void run() {
+        System.out.println(graph.toDotString());
         for (ZielFeld ziel : goalfield) {
-            Graph enforcedGraph = graph.calculateEnforcedGraph(new Vector2(ziel.getReihe(), ziel.getSpalte()));
+            Graph enforcedGraph = graph.calculateEnforcedGraph(new Vector2(ziel.getSpalte(), ziel.getReihe()));
             robotController.setGraph(enforcedGraph);
             randomChildController.setGraph(enforcedGraph);
-            while (robotController.isSolvable()) {
+            while (robotController.isSolvable()&&!robotController.isTerminated(ziel.getReihe(),ziel.getSpalte())) {
                 robotController.doNextMove();
                 randomChildController.doNextSteps();
 

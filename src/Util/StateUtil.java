@@ -18,10 +18,10 @@ public class StateUtil {
     }
 
     public static Vector2 getRobotPosition(Territorium territorium) {
-        return new Vector2(territorium.getFeldReiheRoboter(), territorium.getFeldSpalteRoboter());
+        return new Vector2(territorium.getFeldSpalteRoboter(), territorium.getFeldReiheRoboter());
     }
 
     public static Vector2 getChildPosition(Territorium territorium) {
-        return new Vector2(territorium.getFeldReiheKind(), territorium.getFeldSpalteKind());
+        return new Vector2(territorium.getFeldSpalteKind(), territorium.getFeldReiheKind());
     }
 }
