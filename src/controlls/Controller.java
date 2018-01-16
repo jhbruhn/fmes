@@ -9,6 +9,7 @@ import modell.Territorium;
 import modell.ZielFeld;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Controller {
     Territorium territorium;
@@ -26,21 +27,32 @@ public class Controller {
         randomChildController = new RandomChildController(child, territorium.childMoves);
         this.goalfield = territorium.getZielFelder();
         Field f = new Field(getWalls(territorium));
-        State initial = new State(f, new Vector2(territorium.feldSpalteRoboter, territorium.getFeldReiheRoboter()), new Vector2(territorium.getFeldSpalteKind(), territorium.getFeldReiheKind()), true);
-        graph = Graph.generateGraph(initial, ArrayListListToListList.convert(territorium.robotMoves), ArrayListListToListList.convert(territorium.childMoves));
+        State initial = new State(f, new Vector2(territorium.feldReiheRoboter, territorium.feldSpalteRoboter), new Vector2(territorium.getFeldReiheKind(), territorium.getFeldSpalteKind()), true);
+        List<List<Move>> robotMoves = ArrayListListToListList.convert(territorium.robotMoves);
+        List<List<Move>> childMoves = ArrayListListToListList.convert(territorium.childMoves);
+        System.out.println(robotMoves.size());
+        graph = Graph.generateGraph(initial, robotMoves, childMoves);
+        System.out.println(graph.toDotString());
         this.robotController = new RobotController(territorium);
         this.goalfield = territorium.getZielFelder();
     }
 
     public void run() {
-        for(ZielFeld ziel:goalfield) {
-            robotController.setGraph(graph.calculateEnforcedGraph(new Vector2(ziel.getReihe(),ziel.getSpalte())));
+        for (ZielFeld ziel : goalfield) {
+            Graph enforcedGraph = graph.calculateEnforcedGraph(new Vector2(ziel.getReihe(), ziel.getSpalte()));
+            robotController.setGraph(enforcedGraph);
+            randomChildController.setGraph(enforcedGraph);
             while (robotController.isSolvable()) {
                 robotController.doNextMove();
                 randomChildController.doNextSteps();
 
             }
         }
+        /*Graph enforcedGraph=graph.calculateEnforcedGraph(new Vector2(0,0));
+        randomChildController.setGraph(enforcedGraph);
+        while (true){
+            randomChildController.doNextSteps();
+        }*/
 
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Finished");
@@ -51,10 +63,15 @@ public class Controller {
 
 
     public boolean[][] getWalls(Territorium territorium) {
-        final boolean[][] WALLS = new boolean[territorium.getFeldHoehe()][territorium.getFeldBreite()];
-        for (int hoehe = 0; hoehe < territorium.getFeldHoehe(); hoehe++) {
-            for (int breite = 0; breite < territorium.getFeldBreite(); breite++) {
-                WALLS[hoehe][breite] = territorium.istNichtBesuchbar(hoehe, breite);
+        final boolean[][] WALLS = new boolean[territorium.getFeldHoehe() + 2][territorium.getFeldBreite() + 2];
+        for (int hoehe = 0; hoehe < territorium.getFeldHoehe() + 2; hoehe++) {
+            for (int breite = 0; breite < territorium.getFeldBreite() + 2; breite++) {
+                if (hoehe == 0 || breite == 0 || hoehe == territorium.getFeldHoehe() + 1 || breite == territorium.getFeldBreite() + 1)
+                    WALLS[hoehe][breite] = true;
+                else
+                    WALLS[hoehe][breite] = territorium.istNichtBesuchbar(hoehe, breite);
+                if (WALLS[hoehe][breite])
+                    System.out.println("wand");
             }
         }
         return WALLS;

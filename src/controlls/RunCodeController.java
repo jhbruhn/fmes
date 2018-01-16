@@ -51,9 +51,9 @@ public class RunCodeController {
 				endlos = new EndlosschleifenThread(o.territoriumPanel, runcode, menuItems, buttons, stopMenuItem, stop,
 						pauseMenuItem, pause, startMenuItem, start);
 				getTerritorium().getRoboter().getSpeed().bind(getSlider().valueProperty());
-				runcode.setStopped(false);
-				runcode.start();
-				endlos.start();
+				//runcode.setStopped(false);
+				//runcode.start();
+				//endlos.start();
 				stopMenuItem.setDisable(false);
 				stop.setDisable(false);
 				Controller controller = new Controller(getTerritorium());

@@ -48,8 +48,8 @@ public class Territorium extends Observable implements java.io.Serializable {
 
     public int feldReiheRoboter = 4;
     public int feldSpalteRoboter = 4;
-    public int feldReiheKind = 4;
-    public int feldSpalteKind = 3;
+    public int feldReiheKind = 6;
+    public int feldSpalteKind = 8;
 
     private int territoriumSpecialFinishNummer;
 
