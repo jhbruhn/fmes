@@ -12,13 +12,12 @@ import java.util.List;
 public class ListListToArrayListList {
     public static ArrayList<ArrayList<Territorium.Richtung>> convert(List<List<Move>> moveFromGraph) {
         ArrayList<ArrayList<Territorium.Richtung>> moves = new ArrayList<>();
-        ArrayList<Territorium.Richtung> move = new ArrayList<>();
         for (List<Move> list:moveFromGraph) {
+            ArrayList<Territorium.Richtung> move = new ArrayList<>();
             for(Move graphMove:list){
                 move.add(Territorium.Richtung.values()[graphMove.ordinal()]);
             }
             moves.add(move);
-            move.clear();
         }
         return moves;
     }

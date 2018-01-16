@@ -35,6 +35,7 @@ public class State implements Cloneable {
             if(!valid) {
                 continue;
             }
+
             State s = startState;
             Transition t = new Transition(this, sequence, s);
             transitions.add(t);
@@ -57,12 +58,9 @@ public class State implements Cloneable {
                     startState = new State(startState.field, startState.robot, startState.child.add(m.directionVector), true);
                 } else {
                     valid = false;
-                    System.out.println("impossible move");
-                    break;
                 }
             }
             if(!valid) continue;
-            System.out.println("Found followup state");
 
             State s = startState;
             Transition t = new Transition(this, sequence, s);

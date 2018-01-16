@@ -9,13 +9,12 @@ import java.util.List;
 public class ArrayListListToListList {
     public static List<List<Move>> convert(ArrayList<ArrayList<Territorium.Richtung>> childMoves) {
         List<List<Move>> list = new ArrayList<>();
-        List<Move> move = new ArrayList<>();
-        for(int y =0;y<childMoves.size();y++){
-            for(int x=0;x<childMoves.get(y).size();x++){
+        for (int y = 0; y < childMoves.size(); y++) {
+            List<Move> move = new ArrayList<>();
+            for (int x = 0; x < childMoves.get(y).size(); x++) {
                 move.add(Move.values()[childMoves.get(y).get(x).ordinal()]);
             }
             list.add(move);
-            move.clear();
         }
         return list;
     }

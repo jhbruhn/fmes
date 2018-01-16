@@ -30,9 +30,7 @@ public class Controller {
         State initial = new State(f, new Vector2(territorium.feldReiheRoboter, territorium.feldSpalteRoboter), new Vector2(territorium.getFeldReiheKind(), territorium.getFeldSpalteKind()), true);
         List<List<Move>> robotMoves = ArrayListListToListList.convert(territorium.robotMoves);
         List<List<Move>> childMoves = ArrayListListToListList.convert(territorium.childMoves);
-        System.out.println(robotMoves.size());
         graph = Graph.generateGraph(initial, robotMoves, childMoves);
-        System.out.println(graph.toDotString());
         this.robotController = new RobotController(territorium);
         this.goalfield = territorium.getZielFelder();
     }
@@ -70,8 +68,6 @@ public class Controller {
                     WALLS[hoehe][breite] = true;
                 else
                     WALLS[hoehe][breite] = territorium.istNichtBesuchbar(hoehe, breite);
-                if (WALLS[hoehe][breite])
-                    System.out.println("wand");
             }
         }
         return WALLS;
