@@ -1,5 +1,9 @@
 package controlls;
 
+import Util.ListListToArrayListList;
+import Util.ListToArrayList;
+import Util.StateUtil;
+import graph.Graph;
 import modell.Territorium;
 import modell.Kind;
 
@@ -11,6 +15,7 @@ public class RandomChildController {
     Territorium territorium;
     ArrayList<ArrayList<Territorium.Richtung>> childMoves;
     private Random randomGenerator;
+    Graph graph;
 
     public RandomChildController(Kind kind, ArrayList<ArrayList<Territorium.Richtung>> childMoves) {
         this.kind = kind;
@@ -23,42 +28,25 @@ public class RandomChildController {
         int index;
         boolean success = false;
         while (!success) {
-            index = randomGenerator.nextInt(childMoves.size());
-            if(isPossibleMoves(childMoves.get(index))){
-                move(childMoves.get(index));
-                success=true;
-            }
+            ArrayList<ArrayList<Territorium.Richtung>> nextMoves = ListListToArrayListList.convert(graph.getNextChildMoves(graph.findStateForPositions(StateUtil.getRobotPosition(territorium), StateUtil.getChildPosition(territorium))));
+            index = randomGenerator.nextInt(nextMoves.size());
+            move(nextMoves.get(index));
+            success = true;
+
         }
     }
 
-    private  void move(ArrayList<Territorium.Richtung> richtungen) {
-        for(Territorium.Richtung richtung:richtungen){
+    private void move(ArrayList<Territorium.Richtung> richtungen) {
+        for (Territorium.Richtung richtung : richtungen) {
             territorium.getChild().bewege(richtung);
         }
     }
 
-    private boolean isPossibleMoves(ArrayList<Territorium.Richtung> moves) {
-        int x=territorium.getFeldSpalteKind();
-        int y=territorium.getFeldReiheKind();
-        for (Territorium.Richtung richtung:moves) {
-            switch (richtung) {
-                case UP:
-                    y-=1;
-                case DOWN:
-                    y+=1;
-                    break;
-                case LEFT:
-                    x-=1;
-                case RIGHT:
-                    x+=1;
-                    break;
-                case EPSILON:
-                    break;
-            }
-            if(territorium.istNichtBesuchbar(y,x)) return false;
-        }
-
-        return true;
+    public Graph getGraph() {
+        return graph;
     }
 
+    public void setGraph(Graph graph) {
+        this.graph = graph;
+    }
 }

@@ -1,8 +1,6 @@
 package controlls;
 
-import Util.ArrayListToList;
-import controlls.RandomChildController;
-import controlls.RobotController;
+import Util.ArrayListListToListList;
 import graph.*;
 import javafx.scene.control.Alert;
 import modell.Kind;
@@ -29,7 +27,7 @@ public class Controller {
         this.goalfield = territorium.getZielFelder();
         Field f = new Field(getWalls(territorium));
         State initial = new State(f, new Vector2(territorium.feldSpalteRoboter, territorium.getFeldReiheRoboter()), new Vector2(territorium.getFeldSpalteKind(), territorium.getFeldReiheKind()), true);
-        graph = Graph.generateGraph(initial, ArrayListToList.convert(territorium.robotMoves), ArrayListToList.convert(territorium.childMoves));
+        graph = Graph.generateGraph(initial, ArrayListListToListList.convert(territorium.robotMoves), ArrayListListToListList.convert(territorium.childMoves));
         this.robotController = new RobotController(territorium);
         this.goalfield = territorium.getZielFelder();
     }

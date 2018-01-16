@@ -6,7 +6,7 @@ import modell.Territorium;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArrayListToList {
+public class ArrayListListToListList {
     public static List<List<Move>> convert(ArrayList<ArrayList<Territorium.Richtung>> childMoves) {
         List<List<Move>> list = new ArrayList<>();
         List<Move> move = new ArrayList<>();
@@ -15,6 +15,7 @@ public class ArrayListToList {
                 move.add(Move.values()[childMoves.get(y).get(x).ordinal()]);
             }
             list.add(move);
+            move.clear();
         }
         return list;
     }

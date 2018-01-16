@@ -28,7 +28,26 @@ public class RobotController {
     }
     //there is a chance to reach the goal
     public boolean isSolvable() {
-        graph.findStateForPositions(StateUtil.getRobotPosition(territorium),StateUtil.getChildPosition(territorium)).isSolvableFromHere();
+        if(territorium==null){
+            System.out.println("debug: territorium is null");
+            return false;
+        }
+        if(graph==null){
+            System.out.println("debug: graph is null");
+            return false;
+        }
+        if(StateUtil.getRobotPosition(territorium)==null){
+            System.out.println("debug: robotposition is null");
+            return false;
+        }
+        if(graph.findStateForPositions(StateUtil.getRobotPosition(territorium),StateUtil.getChildPosition(territorium))==null){
+            System.out.println("debug: findState=null");
+            return false;
+        }
+        if(!graph.findStateForPositions(StateUtil.getRobotPosition(territorium),StateUtil.getChildPosition(territorium)).isSolvableFromHere()){
+            System.out.println("debug: not solvable");
+            return false;
+        }
         return true;
     }
     /* All goals from 1-k are reached.

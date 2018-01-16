@@ -56,6 +56,8 @@ public class RunCodeController {
 				endlos.start();
 				stopMenuItem.setDisable(false);
 				stop.setDisable(false);
+				Controller controller = new Controller(getTerritorium());
+				controller.run();
 			} else {
 				runcode.setPause(false);
 			}
