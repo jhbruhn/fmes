@@ -205,7 +205,7 @@ public class Oberflaeche {
     // Controlliert alle TextArea-Ereignisse
     private TextAreaControls textAreaControls;
 
-    // Controller f�r die Aninamtionen wird hier selber nicht gebraucht in
+    // controlls.Controller f�r die Aninamtionen wird hier selber nicht gebraucht in
     // Oberflaeche, ist nur zum Initialieseren hier
     private AnimationController animation;
 

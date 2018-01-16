@@ -30,6 +30,7 @@ public class Start extends Application {
 		erstelleNeuesFenster(oberflaeche, primaryStage, territorium);
 
 		oberflaeche.setTextChanged(false);
+
 	}
 
 	/*

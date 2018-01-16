@@ -4,48 +4,61 @@ import modell.Territorium;
 import modell.Kind;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class RandomChildController {
     Kind kind;
     Territorium territorium;
     ArrayList<ArrayList<Territorium.Richtung>> childMoves;
+    private Random randomGenerator;
 
     public RandomChildController(Kind kind, ArrayList<ArrayList<Territorium.Richtung>> childMoves) {
         this.kind = kind;
         this.territorium = kind.getTerritorium();
         this.childMoves = childMoves;
+        randomGenerator = new Random();
     }
 
     public void doNextSteps() {
-        //todo
-        int zufallszahl = (int) ((4 * Math.random()) % 4);
+        int index;
         boolean success = false;
         while (!success) {
-            switch (zufallszahl) {
-                case 0://Ein Schritt nach links.
-                    if (!territorium.istNichtBesuchbar(territorium.getFeldReiheKind(), territorium.getFeldSpalteKind() - 1)) {
-                        kind.bewege(Territorium.Richtung.LEFT);
-                        success = true;
-                    }
-                case 1://Ein Schritt nach rechts.
-                    if (!territorium.istNichtBesuchbar(territorium.getFeldReiheKind(), territorium.getFeldSpalteKind() + 1)) {
-                        kind.bewege(Territorium.Richtung.RIGHT);
-                        success = true;
-                    }
-                case 2://Ein Schritt nach oben.
-                    if (!territorium.istNichtBesuchbar(territorium.getFeldReiheKind() - 1, territorium.getFeldSpalteKind())) {
-                        kind.bewege(Territorium.Richtung.UP);
-                        success = true;
-                    }
-                case 3://Ein Schritt nach unten.
-                    if (!territorium.istNichtBesuchbar(territorium.getFeldReiheKind() + 1, territorium.getFeldSpalteKind())) {
-                        kind.bewege(Territorium.Richtung.DOWN);
-                        success = true;
-                    }
-                case 4://Auf der Stelle stehen.
-                    success = true;
+            index = randomGenerator.nextInt(childMoves.size());
+            if(isPossibleMoves(childMoves.get(index))){
+                move(childMoves.get(index));
+                success=true;
             }
         }
+    }
+
+    private  void move(ArrayList<Territorium.Richtung> richtungen) {
+        for(Territorium.Richtung richtung:richtungen){
+            territorium.getChild().bewege(richtung);
+        }
+    }
+
+    private boolean isPossibleMoves(ArrayList<Territorium.Richtung> moves) {
+        int x=territorium.getFeldSpalteKind();
+        int y=territorium.getFeldReiheKind();
+        for (Territorium.Richtung richtung:moves) {
+            switch (richtung) {
+                case UP:
+                    y-=1;
+                case DOWN:
+                    y+=1;
+                    break;
+                case LEFT:
+                    x-=1;
+                case RIGHT:
+                    x+=1;
+                    break;
+                case EPSILON:
+                    break;
+            }
+            if(territorium.istNichtBesuchbar(y,x)) return false;
+        }
+
+        return true;
     }
 
 }
