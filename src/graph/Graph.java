@@ -50,10 +50,10 @@ public class Graph implements Cloneable {
         return ts;
     }
 
-    public State findStateForPositions(Vector2 robotPosition, Vector2 childPosition) {
+    public State findStateForPositions(Vector2 robotPosition, Vector2 childPosition, boolean isRobotState) {
         System.out.println(robotPosition + "; " + childPosition);
         for (State state : states) {
-            if (state.robot.equals(robotPosition) && state.child.equals(childPosition))
+            if (state.robot.equals(robotPosition) && state.child.equals(childPosition) && state.isRobotState == isRobotState)
                 return state;
         }
         return null;

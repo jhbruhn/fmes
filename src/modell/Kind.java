@@ -21,6 +21,7 @@ public class Kind extends Thread {
 	private String[] abbruchArray = new String[RunCodeController.endlossAbbruchKriterium];
 	private int countAbbruch = 0;
 	private SimpleDoubleProperty speed = new SimpleDoubleProperty();
+	private boolean sleeping;
 
 	/*
 	 * I'll survive (non-Javadoc)
@@ -100,6 +101,7 @@ public class Kind extends Thread {
 
 			}
 			// end EndlosschleifenPr�fung
+			sleeping = true;
 			try {
 				sleep((long) (50 * (101.0 - getSpeed().getValue())));
 				while (isPause()) {
@@ -107,9 +109,11 @@ public class Kind extends Thread {
 //					this.wait();
 				}
 			} catch (InterruptedException e) {
+				sleeping = false;
 				System.out.println("this is the end, hold your hands and count to 10, feel the earth move an then");
 				throw new ThreadStopException();
 			}
+			sleeping = false;
 			if (stopped) {
 				throw new ThreadStopException();
 			}
@@ -212,5 +216,9 @@ public class Kind extends Thread {
 	@Invisible
 	public  void setSpeed(SimpleDoubleProperty speed) {
 		this.speed = speed;
+	}
+
+	public synchronized boolean isSleeping() {
+		return sleeping;
 	}
 }

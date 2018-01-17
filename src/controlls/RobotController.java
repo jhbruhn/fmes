@@ -3,30 +3,33 @@ package controlls;
 import Util.ListToArrayList;
 import Util.StateUtil;
 import graph.*;
+import modell.Roboter;
 import modell.Territorium;
 
 import java.util.ArrayList;
 
 public class RobotController {
+    private final Roboter roboter;
     Graph graph;
     ArrayList<Territorium.Richtung> robotMove;
     Territorium territorium;
 
-    public RobotController(Territorium territorium) {
+    public RobotController(Roboter roboter, Territorium territorium) {
+        this.roboter = roboter;
         this.territorium = territorium;
     }
 
     //Move the robot to the best possible position
     public void doNextMove() {
-        robotMove = ListToArrayList.convert(graph.getNextRobotMove(graph.findStateForPositions(StateUtil.getRobotPosition(territorium), StateUtil.getChildPosition(territorium))));
+        robotMove = ListToArrayList.convert(graph.getNextRobotMove(graph.findStateForPositions(StateUtil.getRobotPosition(territorium), StateUtil.getChildPosition(territorium), true)));
         for (int i = 0; i < robotMove.size(); i++) {
-
             doNextStep(robotMove.get(i));
         }
     }
 
     public void doNextStep(Territorium.Richtung richtung) {
-        territorium.getRoboter().bewege(richtung);
+        while(roboter.isSleeping());
+        roboter.bewege(richtung);
         System.out.println("Move bitch");
     }
 
@@ -45,11 +48,11 @@ public class RobotController {
             System.out.println("debug: robotposition is null");
             return false;
         }
-        if (graph.findStateForPositions(StateUtil.getRobotPosition(territorium), StateUtil.getChildPosition(territorium)) == null) {
+        if (graph.findStateForPositions(StateUtil.getRobotPosition(territorium), StateUtil.getChildPosition(territorium), true) == null) {
             System.out.println("debug: findState=null");
             return false;
         }
-        if (!graph.findStateForPositions(StateUtil.getRobotPosition(territorium), StateUtil.getChildPosition(territorium)).isSolvableFromHere()) {
+        if (!graph.findStateForPositions(StateUtil.getRobotPosition(territorium), StateUtil.getChildPosition(territorium), true).isSolvableFromHere()) {
             System.out.println("debug: not solvable");
             return false;
         }

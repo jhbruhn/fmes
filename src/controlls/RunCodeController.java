@@ -15,7 +15,7 @@ public class RunCodeController {
 	private Roboter runcode;
 	private EndlosschleifenThread endlos;
 	public static final int endlossAbbruchKriterium = 200;
-
+	Controller controller;
 	public RunCodeController(Territorium t, Slider s, Button start, Button stop, Button pause, MenuItem startMenuItem,
 			MenuItem stopMenuItem, MenuItem pauseMenuItem, Oberflaeche o, ArrayList<Button> buttons,
 			ArrayList<MenuItem> menuItems) {
@@ -28,17 +28,18 @@ public class RunCodeController {
 		pause.setDisable(true);
 
 		stopMenuItem.setOnAction(e -> {
-			if (runcode != null && runcode.isAlive()) {
+			if (runcode != null /*&& runcode.isAlive()*/) {
 				stopMenuItem.setDisable(true);
 				stop.setDisable(true);
 				pauseMenuItem.setDisable(true);
 				pause.setDisable(true);
-				startMenuItem.setDisable(true);
-				start.setDisable(true);
+				//startMenuItem.setDisable(true);
+				//start.setDisable(true);
 				runcode.setStopped(true);
 				if (runcode.isPause()) {
 					runcode.setPause(false);
 				}
+				controller.setStopped(true);
 			}
 		});
 		stop.setOnAction(e -> stopMenuItem.fire());
@@ -51,13 +52,13 @@ public class RunCodeController {
 				endlos = new EndlosschleifenThread(o.territoriumPanel, runcode, menuItems, buttons, stopMenuItem, stop,
 						pauseMenuItem, pause, startMenuItem, start);
 				getTerritorium().getRoboter().getSpeed().bind(getSlider().valueProperty());
-				//runcode.setStopped(false);
-				//runcode.start();
+				runcode.setStopped(false);
+				runcode.start();
 				//endlos.start();
 				stopMenuItem.setDisable(false);
 				stop.setDisable(false);
-				Controller controller = new Controller(getTerritorium());
-				controller.run();
+				controller = new Controller(runcode, getTerritorium());
+				controller.start();
 			} else {
 				runcode.setPause(false);
 			}

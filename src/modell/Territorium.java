@@ -339,7 +339,7 @@ public class Territorium extends Observable implements java.io.Serializable {
             if (start) {
                 startWerteSpeichern();
             }
-            boolean felsen = false;
+            boolean felsen = true;
             if (roboter) {
                 if (getRoboter().getTankFuellung() <= 0 && trankfuellungBeachten) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -438,7 +438,7 @@ public class Territorium extends Observable implements java.io.Serializable {
      */
     public void verlorenFelsenGerammt() {
         if (!getRoboter().isRunning() && !getRoboter().isAlive()) {
-            setDeath(true);
+            //setDeath(true);
         }
         aufAnfang();
     }

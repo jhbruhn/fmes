@@ -28,7 +28,7 @@ public class RandomChildController {
         int index;
         boolean success = false;
         while (!success) {
-            ArrayList<ArrayList<Territorium.Richtung>> nextMoves = ListListToArrayListList.convert(graph.getNextChildMoves(graph.findStateForPositions(StateUtil.getRobotPosition(territorium), StateUtil.getChildPosition(territorium))));
+            ArrayList<ArrayList<Territorium.Richtung>> nextMoves = ListListToArrayListList.convert(graph.getNextChildMoves(graph.findStateForPositions(StateUtil.getRobotPosition(territorium), StateUtil.getChildPosition(territorium), false)));
             index = randomGenerator.nextInt(nextMoves.size());
             move(nextMoves.get(index));
             success = true;
@@ -38,6 +38,7 @@ public class RandomChildController {
 
     private void move(ArrayList<Territorium.Richtung> richtungen) {
         for (Territorium.Richtung richtung : richtungen) {
+            while(territorium.getChild().isSleeping());
             territorium.getChild().bewege(richtung);
         }
     }

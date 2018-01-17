@@ -1,11 +1,10 @@
 package modell;
 
-import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-
 import controlls.RunCodeController;
-import resources.Invisible;
 import javafx.beans.property.SimpleDoubleProperty;
+import resources.Invisible;
+
+import java.util.ArrayList;
 
 public class Roboter extends Thread {
 
@@ -22,6 +21,7 @@ public class Roboter extends Thread {
     private int countAbbruch = 0;
     private SimpleDoubleProperty speed = new SimpleDoubleProperty();
     private int tankFuellung;
+    private boolean sleeping;
 
     /*
      * I'll survive (non-Javadoc)
@@ -32,10 +32,7 @@ public class Roboter extends Thread {
     public void run() {
         try {
             setRunning(true);
-            getTerritorium().getRoboter().getClass().getMethod("main", null).invoke(territorium.getRoboter());
-        } catch (InvocationTargetException | ThreadStopException t) {
-        } catch (IllegalAccessException | IllegalArgumentException | NoSuchMethodException | SecurityException e) {
-            e.printStackTrace();
+            //getTerritorium().getRoboter().getClass().getMethod("main", null).invoke(territorium.getRoboter());
         } finally {
             resetAbbruch();
             setRunning(false);
@@ -64,12 +61,12 @@ public class Roboter extends Thread {
                 throw new ThreadStopException();
             }
 
-			/*
+            /*
              * Der folgende Teil pr�ft auf eine Endlosschleife von maxmialer
-			 * Gr��e von RunCodeController.endlossAbbruchKriterium ab / 2.
-			 * Sollte die Endlosschlaeife einen gr��eren Rahmen umfassen, so
-			 * wird nicht abgebrochen. Dieses ist aber sehr unwahrscheinlich.
-			 */
+             * Gr��e von RunCodeController.endlossAbbruchKriterium ab / 2.
+             * Sollte die Endlosschlaeife einen gr��eren Rahmen umfassen, so
+             * wird nicht abgebrochen. Dieses ist aber sehr unwahrscheinlich.
+             */
             getAbbruchArray()[getCountAbbruch()] = name.toString();
             setCountAbbruch(getCountAbbruch() + 1);
             if (getAbbruchArray()[RunCodeController.endlossAbbruchKriterium - 1] != null && !getAbbruchArray()[RunCodeController.endlossAbbruchKriterium - 1].equals("")) {
@@ -82,10 +79,10 @@ public class Roboter extends Thread {
                     count = count - 1;
                 }
                 int zaehler = RunCodeController.endlossAbbruchKriterium - count;
-				/*
-				 * wenn zaehler gr��er als das halbe Abbruchkriterium, dann ist
-				 * ein Vergleich sinnlos..
-				 */
+                /*
+                 * wenn zaehler gr��er als das halbe Abbruchkriterium, dann ist
+                 * ein Vergleich sinnlos..
+                 */
                 if (zaehler <= RunCodeController.endlossAbbruchKriterium / 2) {
                     int zaehlerImArray = 0;
                     while (count >= 0) {
@@ -101,6 +98,7 @@ public class Roboter extends Thread {
                 }
 
             }
+            sleeping = true;
             // end EndlosschleifenPr�fung
             try {
                 sleep((long) (50 * (101.0 - getSpeed().getValue())));
@@ -109,9 +107,11 @@ public class Roboter extends Thread {
 //					this.wait();
                 }
             } catch (InterruptedException e) {
+                sleeping = false;
                 System.out.println("this is the end, hold your hands and count to 10, feel the earth move an then");
                 throw new ThreadStopException();
             }
+            sleeping = false;
             if (stopped) {
                 throw new ThreadStopException();
             }
@@ -221,5 +221,9 @@ public class Roboter extends Thread {
 
     public void setTankFuellung(int tankFuellung) {
         this.tankFuellung = tankFuellung;
+    }
+
+    public synchronized boolean isSleeping() {
+        return sleeping;
     }
 }
