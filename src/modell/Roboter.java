@@ -34,8 +34,8 @@ public class Roboter extends Thread {
             setRunning(true);
             //getTerritorium().getRoboter().getClass().getMethod("main", null).invoke(territorium.getRoboter());
         } finally {
-            resetAbbruch();
-            setRunning(false);
+            //resetAbbruch();
+            //setRunning(false);
 
         }
     }
@@ -56,6 +56,7 @@ public class Roboter extends Thread {
      * weitergeleitet im Falle von Stop
      */
     private void checkRunning(Territorium.Richtung name) throws ThreadStopException {
+        System.out.println(isRunning);
         if (isRunning) {
             if (stopped) {
                 throw new ThreadStopException();
@@ -100,7 +101,9 @@ public class Roboter extends Thread {
             }
             sleeping = true;
             // end EndlosschleifenPr�fung
+            System.out.println("tschüss");
             try {
+                System.out.println((long) (50 * (101.0 - getSpeed().getValue())));
                 sleep((long) (50 * (101.0 - getSpeed().getValue())));
                 while (isPause()) {
                     sleep((long) (50 * (101.0 - getSpeed().getValue())));
@@ -111,6 +114,7 @@ public class Roboter extends Thread {
                 System.out.println("this is the end, hold your hands and count to 10, feel the earth move an then");
                 throw new ThreadStopException();
             }
+            System.out.println("moin");
             sleeping = false;
             if (stopped) {
                 throw new ThreadStopException();
@@ -120,6 +124,7 @@ public class Roboter extends Thread {
 
     public void bewege(Territorium.Richtung richtung) throws FelsenDaException, ThreadStopException {
         getTerritorium().bewege(richtung, true);
+        System.out.println("check");
         checkRunning(richtung);
     }
 

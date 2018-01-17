@@ -42,18 +42,22 @@ public class Controller extends Thread {
 
     @Override
     public void run() {
-        System.out.println(graph.toDotString());
-        for (ZielFeld ziel : goalfield) {
-            territorium.setNextGoalField(ziel);
-            Graph enforcedGraph = graph.calculateEnforcedGraph(new Vector2(ziel.getSpalte(), ziel.getReihe()));
-            robotController.setGraph(enforcedGraph);
-            randomChildController.setGraph(enforcedGraph);
-            while (robotController.isSolvable() && !robotController.isTerminated(ziel.getReihe(), ziel.getSpalte())) {
-                robotController.doNextMove();
+        //System.out.println(graph.toDotString());
+        while(true) {
+            for (ZielFeld ziel : goalfield) {
+                territorium.setNextGoalField(ziel);
+                Graph enforcedGraph = graph.calculateEnforcedGraph(new Vector2(ziel.getSpalte(), ziel.getReihe()));
+                robotController.setGraph(enforcedGraph);
+                randomChildController.setGraph(enforcedGraph);
+                while (robotController.isSolvable() && !robotController.isTerminated(ziel.getReihe(), ziel.getSpalte())) {
+                    robotController.doNextMove();
 
-                randomChildController.doNextSteps();
+                    randomChildController.doNextSteps();
+                }
+                if(!robotController.isSolvable()) break;
+                if (stopped) return;
             }
-            if(stopped) return;
+            if(!robotController.isSolvable()) break;
         }
         /*Graph enforcedGraph=graph.calculateEnforcedGraph(new Vector2(0,0));
         randomChildController.setGraph(enforcedGraph);

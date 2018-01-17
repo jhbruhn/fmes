@@ -13,7 +13,7 @@ public class Field {
     }
 
     public boolean isWallAt(Vector2 pos) {
-        if (pos.y < 0 || pos.x < 0 || pos.x > walls[0].length || pos.y > walls.length)
+        if (pos.y < 0 || pos.x < 0 || pos.x >= walls[0].length || pos.y >= walls.length)
             return true;
         return walls[pos.y][pos.x];
 

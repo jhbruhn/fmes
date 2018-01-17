@@ -8,10 +8,8 @@
       <change beforePath="$PROJECT_DIR$/src/controlls/RobotController.java" afterPath="$PROJECT_DIR$/src/controlls/RobotController.java" />
       <change beforePath="$PROJECT_DIR$/src/controlls/RunCodeController.java" afterPath="$PROJECT_DIR$/src/controlls/RunCodeController.java" />
       <change beforePath="$PROJECT_DIR$/src/graph/Field.java" afterPath="$PROJECT_DIR$/src/graph/Field.java" />
-      <change beforePath="$PROJECT_DIR$/src/graph/Graph.java" afterPath="$PROJECT_DIR$/src/graph/Graph.java" />
       <change beforePath="$PROJECT_DIR$/src/modell/Kind.java" afterPath="$PROJECT_DIR$/src/modell/Kind.java" />
       <change beforePath="$PROJECT_DIR$/src/modell/Roboter.java" afterPath="$PROJECT_DIR$/src/modell/Roboter.java" />
-      <change beforePath="$PROJECT_DIR$/src/modell/Territorium.java" afterPath="$PROJECT_DIR$/src/modell/Territorium.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,12 +24,22 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controlls/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="55" column="16" lean-forward="false" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="16" />
+            <state relative-caret-position="202">
+              <caret line="52" column="39" lean-forward="true" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
               <folding>
-                <element signature="e#3549#3550#0" expanded="true" />
-                <element signature="e#3587#3588#0" expanded="true" />
+                <element signature="e#3738#3739#0" expanded="true" />
+                <element signature="e#3776#3777#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RandomChildController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/controlls/RandomChildController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="219">
+              <caret line="39" column="13" lean-forward="false" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -39,8 +47,18 @@
       <file leaf-file-name="Field.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/graph/Field.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="17" column="8" lean-forward="false" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+            <state relative-caret-position="180">
+              <caret line="15" column="46" lean-forward="false" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RobotController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controlls/RobotController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="30" column="8" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -56,58 +74,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RunCodeController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/controlls/RunCodeController.java">
+      <file leaf-file-name="Kind.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modell/Kind.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="36" column="18" lean-forward="false" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+            <state relative-caret-position="59">
+              <caret line="101" column="18" lean-forward="false" selection-start-line="101" selection-start-column="18" selection-end-line="101" selection-end-column="18" />
               <folding>
-                <element signature="e#2610#2611#0" expanded="true" />
-                <element signature="e#2635#2636#0" expanded="true" />
-                <element signature="e#2691#2692#0" expanded="true" />
-                <element signature="e#2728#2729#0" expanded="true" />
-                <element signature="e#2758#2759#0" expanded="true" />
-                <element signature="e#2778#2779#0" expanded="true" />
-                <element signature="e#2819#2820#0" expanded="true" />
-                <element signature="e#2846#2847#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RobotController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controlls/RobotController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="647">
-              <caret line="54" column="127" lean-forward="false" selection-start-line="54" selection-start-column="127" selection-end-line="54" selection-end-column="127" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Territorium.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modell/Territorium.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-795">
-              <caret line="341" column="26" lean-forward="false" selection-start-line="341" selection-start-column="20" selection-end-line="341" selection-end-column="26" />
-              <folding>
-                <element signature="e#21458#21459#0" expanded="true" />
-                <element signature="e#21488#21489#0" expanded="true" />
-                <element signature="e#22527#22528#0" expanded="true" />
-                <element signature="e#22555#22556#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Roboter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modell/Roboter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="225" column="24" lean-forward="false" selection-start-line="225" selection-start-column="24" selection-end-line="225" selection-end-column="24" />
-              <folding>
-                <element signature="e#6678#6679#0" expanded="true" />
-                <element signature="e#6709#6710#0" expanded="true" />
+                <element signature="e#5373#5374#0" expanded="true" />
+                <element signature="e#5395#5396#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -125,11 +99,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sh</find>
-      <find>show All</find>
-      <find>show Al</find>
-      <find>show A</find>
-      <find>show</find>
       <find>sho</find>
       <find>s</find>
       <find>allert.sh</find>
@@ -155,6 +124,11 @@
       <find>terminated</find>
       <find>new Vector</find>
       <find>find</find>
+      <find>tschüss</find>
+      <find>moin</find>
+      <find>check</find>
+      <find>setRunning</find>
+      <find>running</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -196,15 +170,15 @@
         <option value="$PROJECT_DIR$/src/Util/ListListToArrayListList.java" />
         <option value="$PROJECT_DIR$/src/graph/State.java" />
         <option value="$PROJECT_DIR$/src/Util/StateUtil.java" />
+        <option value="$PROJECT_DIR$/src/modell/Territorium.java" />
+        <option value="$PROJECT_DIR$/src/graph/Graph.java" />
+        <option value="$PROJECT_DIR$/src/graph/Field.java" />
         <option value="$PROJECT_DIR$/src/modell/Roboter.java" />
         <option value="$PROJECT_DIR$/src/modell/Kind.java" />
-        <option value="$PROJECT_DIR$/src/modell/Territorium.java" />
-        <option value="$PROJECT_DIR$/src/controlls/RandomChildController.java" />
-        <option value="$PROJECT_DIR$/src/graph/Graph.java" />
-        <option value="$PROJECT_DIR$/src/controlls/RobotController.java" />
-        <option value="$PROJECT_DIR$/src/controlls/Controller.java" />
-        <option value="$PROJECT_DIR$/src/graph/Field.java" />
         <option value="$PROJECT_DIR$/src/controlls/RunCodeController.java" />
+        <option value="$PROJECT_DIR$/src/controlls/Controller.java" />
+        <option value="$PROJECT_DIR$/src/controlls/RobotController.java" />
+        <option value="$PROJECT_DIR$/src/controlls/RandomChildController.java" />
       </list>
     </option>
   </component>
@@ -214,11 +188,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-11" />
-    <option name="y" value="-11" />
-    <option name="width" value="1946" />
-    <option name="height" value="1106" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1280" />
+    <option name="height" value="749" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -336,6 +309,7 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -1095,14 +1069,21 @@
       <option name="project" value="LOCAL" />
       <updated>1516103779367</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Commit changes">
+      <created>1516192423366</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1516192423366</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39749000" />
+    <option name="totallyTimeSpent" value="42469000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="749" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="749" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1211,7 +1192,8 @@
     <MESSAGE value="Controller maybe done the 2nd" />
     <MESSAGE value="Update things" />
     <MESSAGE value="Graph works as expected, remove some debbug statemeents, add some more." />
-    <option name="LAST_COMMIT_MESSAGE" value="Graph works as expected, remove some debbug statemeents, add some more." />
+    <MESSAGE value="Commit changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1222,7 +1204,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Move.java" />
     <entry file="file://$PROJECT_DIR$/src/Main.java" />
     <entry file="file://$PROJECT_DIR$/src/Field.java" />
     <entry file="file://$PROJECT_DIR$/src/Vector2.java" />
@@ -1368,8 +1349,8 @@
         <state relative-caret-position="9050">
           <caret line="415" column="36" lean-forward="false" selection-start-line="415" selection-start-column="36" selection-end-line="415" selection-end-column="36" />
           <folding>
-            <element signature="e#25218#25219#0" expanded="true" />
-            <element signature="e#25246#25247#0" expanded="true" />
+            <element signature="e#25218#25219#0" expanded="false" />
+            <element signature="e#25246#25247#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1403,8 +1384,8 @@
         <state relative-caret-position="302">
           <caret line="14" column="15" lean-forward="false" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
           <folding>
-            <element signature="e#279#280#0" expanded="true" />
-            <element signature="e#307#308#0" expanded="true" />
+            <element signature="e#279#280#0" expanded="false" />
+            <element signature="e#307#308#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1444,17 +1425,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modell/Roboter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="225" column="24" lean-forward="false" selection-start-line="225" selection-start-column="24" selection-end-line="225" selection-end-column="24" />
-          <folding>
-            <element signature="e#6678#6679#0" expanded="true" />
-            <element signature="e#6709#6710#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controlls/AnimationController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1484,30 +1454,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modell/Kind.java">
+    <entry file="file://$PROJECT_DIR$/src/modell/Roboter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="115" column="29" lean-forward="false" selection-start-line="115" selection-start-column="29" selection-end-line="115" selection-end-column="29" />
+        <state relative-caret-position="87">
+          <caret line="108" column="36" lean-forward="true" selection-start-line="108" selection-start-column="36" selection-end-line="108" selection-end-column="36" />
           <folding>
-            <element signature="e#5564#5565#0" expanded="true" />
-            <element signature="e#5586#5587#0" expanded="true" />
+            <element signature="e#5358#5359#0" expanded="true" />
+            <element signature="e#5400#5401#0" expanded="true" />
+            <element signature="e#6924#6925#0" expanded="true" />
+            <element signature="e#6955#6956#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controlls/RandomChildController.java">
+    <entry file="file://$PROJECT_DIR$/src/graph/Field.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="30" column="133" lean-forward="false" selection-start-line="30" selection-start-column="129" selection-end-line="30" selection-end-column="133" />
+        <state relative-caret-position="180">
+          <caret line="15" column="46" lean-forward="false" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controlls/RobotController.java">
+    <entry file="file://$PROJECT_DIR$/src/modell/Kind.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="647">
-          <caret line="54" column="127" lean-forward="false" selection-start-line="54" selection-start-column="127" selection-end-line="54" selection-end-column="127" />
-          <folding />
+        <state relative-caret-position="59">
+          <caret line="101" column="18" lean-forward="false" selection-start-line="101" selection-start-column="18" selection-end-line="101" selection-end-column="18" />
+          <folding>
+            <element signature="e#5373#5374#0" expanded="true" />
+            <element signature="e#5395#5396#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1519,39 +1494,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/Field.java">
+    <entry file="file://$PROJECT_DIR$/src/resources/Invisible.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="17" column="8" lean-forward="false" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+        <state relative-caret-position="75">
+          <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controlls/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="55" column="16" lean-forward="false" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="16" />
-          <folding>
-            <element signature="e#3549#3550#0" expanded="true" />
-            <element signature="e#3587#3588#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controlls/RunCodeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="36" column="18" lean-forward="false" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+        <state relative-caret-position="254">
+          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding>
-            <element signature="e#2610#2611#0" expanded="true" />
-            <element signature="e#2635#2636#0" expanded="true" />
-            <element signature="e#2691#2692#0" expanded="true" />
-            <element signature="e#2728#2729#0" expanded="true" />
-            <element signature="e#2758#2759#0" expanded="true" />
-            <element signature="e#2778#2779#0" expanded="true" />
-            <element signature="e#2819#2820#0" expanded="true" />
-            <element signature="e#2846#2847#0" expanded="true" />
+            <element signature="e#2912#2913#0" expanded="true" />
+            <element signature="e#2937#2938#0" expanded="true" />
+            <element signature="e#2993#2994#0" expanded="true" />
+            <element signature="e#3030#3031#0" expanded="true" />
+            <element signature="e#3060#3061#0" expanded="true" />
+            <element signature="e#3080#3081#0" expanded="true" />
+            <element signature="e#3121#3122#0" expanded="true" />
+            <element signature="e#3148#3149#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controlls/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="52" column="39" lean-forward="true" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
+          <folding>
+            <element signature="e#3738#3739#0" expanded="true" />
+            <element signature="e#3776#3777#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controlls/RobotController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="30" column="8" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controlls/RandomChildController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="39" column="13" lean-forward="false" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
