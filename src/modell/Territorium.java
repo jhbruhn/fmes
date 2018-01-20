@@ -2,6 +2,7 @@ package modell;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Observable;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -416,6 +417,11 @@ public class Territorium extends Observable implements java.io.Serializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public List<ZielFeld> getBatterienAufDemFeld(){
+
+        return null;
     }
 
     private boolean childNearby() {
