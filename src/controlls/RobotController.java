@@ -15,10 +15,12 @@ public class RobotController {
     ArrayList<Territorium.Richtung> robotMove;
     Territorium territorium;
     List<Graph> enforcedBatteryGraphs;
+    int energyLevel;
 
     public RobotController(Roboter roboter, Territorium territorium) {
         this.roboter = roboter;
         this.territorium = territorium;
+        this.energyLevel=territorium.getStartTankfuellung();
     }
 
     //Move the robot to the best possible position
@@ -32,6 +34,9 @@ public class RobotController {
     public void doNextStep(Territorium.Richtung richtung) {
         while(roboter.isSleeping()) Thread.yield();
         roboter.bewege(richtung);
+        if(!(richtung == Territorium.Richtung.EPSILON)) {
+            energyLevel -= 1;
+        }
     }
 
     //there is a chance to reach the goal
@@ -75,5 +80,9 @@ public class RobotController {
         }
         System.out.println("not terminated");
         return false;
+    }
+
+    public int getEnergyLevel() {
+        return energyLevel;
     }
 }
