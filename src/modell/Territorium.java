@@ -8,7 +8,6 @@ import java.util.Observable;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-import dbZugriffe.SelectStatements;
 import javafx.scene.control.Alert;
 import javafx.scene.media.AudioClip;
 
@@ -116,17 +115,6 @@ public class Territorium extends Observable implements java.io.Serializable {
         feldSpalteRoboter = spalteUboot;
         feldReiheKind = reiheUboot;
         feldSpalteKind = spalteUboot - 1;
-    }
-
-    /*
-     * Soll sp�ter mal, wenn das Spiel zu ende ist, ein folgelevel laden, falls
-     * dieses angegeben wurde
-     */
-    private void ladeTerritoriumDurchNachFolgelevel(int nachfolgeLevelNachDiesem) {
-        if (getRoboter().isRunning()) {
-            getRoboter().setStopped(true);
-        }
-        SelectStatements.getSpecialFinishTerritorium(nachfolgeLevelNachDiesem, this);
     }
 
     /*

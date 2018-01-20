@@ -20,17 +20,17 @@ import javafx.stage.Stage;
 
 public class SubmarineMouseHandler {
 	private Territorium territorium;
-	private SubmarineEvents compileSubmarineEvents;
+	private RobotEvents compileRobotEvents;
 	private Stage primaryStage;
 	private ResourceBundle rb;
 
 	/*
 	 * Construktor welcher die Propertys mit dieser Klasse verbindet
 	 */
-	public SubmarineMouseHandler(Territorium t, SubmarineEvents comp, ResourceBundle rb,
-			Stage stage) {
+	public SubmarineMouseHandler(Territorium t, RobotEvents comp, ResourceBundle rb,
+                                 Stage stage) {
 		setTerritorium(t);
-		setCompileSubmarineEvents(comp);
+		setCompileRobotEvents(comp);
 		setRb(rb);
 		setPrimaryStage(stage);
 	}
@@ -212,12 +212,12 @@ public class SubmarineMouseHandler {
 		this.rb = rb;
 	}
 
-	public SubmarineEvents getCompileSubmarineEvents() {
-		return compileSubmarineEvents;
+	public RobotEvents getCompileRobotEvents() {
+		return compileRobotEvents;
 	}
 
-	public void setCompileSubmarineEvents(SubmarineEvents compileSubmarineEvents) {
-		this.compileSubmarineEvents = compileSubmarineEvents;
+	public void setCompileRobotEvents(RobotEvents compileRobotEvents) {
+		this.compileRobotEvents = compileRobotEvents;
 	}
 
 }

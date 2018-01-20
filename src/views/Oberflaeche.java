@@ -3,7 +3,6 @@ package views;
 import java.util.ArrayList;
 
 import controlls.*;
-import controlls.LoadAndSaveCode.Picture;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import modell.ImageCombo;
@@ -14,7 +13,6 @@ import modell.Territorium.FeldEigenschaft;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -24,7 +22,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.media.AudioClip;
-import javafx.scene.paint.Color;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
@@ -35,37 +32,16 @@ public class Oberflaeche {
     // ObermenuPunkte erstellen
     private Menu fileMenu;
     private Menu bearbeitenMenu;
-    private Menu roboter;
     private Menu simulationsMenu;
-    private Menu exampleMenu;
     private Menu helpMenu;
 
     // MenuUnterpunkte im Menu "Datei"
-    private MenuItem newProjektMenuItem;
-    private MenuItem openProjectMenuItem;
-    private MenuItem druckenCodeMenuItem;
     private Menu spracheMenuItem;
     private ToggleGroup toggleSprache;
     private RadioMenuItem englishSprache;
     private RadioMenuItem deutschSprache;
     private MenuItem quitMenuItem;
 
-    // MenuUnterpunkte im Menu "Bearbeiten"
-    private Menu subMenuSave;
-    private MenuItem xmlSave;
-    private MenuItem jaxbSave;
-    private MenuItem serialisierenSave;
-
-    private Menu subMenuLoad;
-    private MenuItem xmlLoad;
-    private MenuItem jaxbLoad;
-    private MenuItem deserialisierenLoad;
-
-    private Menu subMenuPicture;
-    private MenuItem pngSaveAs;
-    private MenuItem jpgSaveAs;
-
-    private MenuItem druckenSpielMenuItem;
     private MenuItem groeßeAendernMenuItem;
     private MenuItem resizeableMenuItem;
     private MenuItem tankStelleBenoetigtMenuItem;
@@ -85,24 +61,11 @@ public class Oberflaeche {
     private MenuItem pauseMenuItem;
     private MenuItem stopMenuItem;
 
-    // MenuUnterpunkte im MenuPunkt "Beispiele"
-    private MenuItem speichernBeispiel;
-    private MenuItem ladenBeispiel;
-
     // MenuUnterpunkte im Menupunkt "Hilfe"
     private MenuItem hinweisMenuItem;
     private Button buttonHinweis;
 
     // Button deklarationen etc.
-    // Button neues Dokument
-    private Button buttonNeuesDokument;
-
-    // Button �ffne Dokument
-    private Button buttonOeffneDokument;
-
-    // Button speichern
-    private Button buttonSpeichernDokument;
-
     // Button Start
     private Button buttonStart;
 
@@ -141,7 +104,7 @@ public class Oberflaeche {
     private Internationalitaet international;
 
     // Eventh�ndler f�r alle Aktionen die gemacht werden
-    private SubmarineEvents sbEvents;
+    private RobotEvents robotEvents;
 
     // Label zum Anzeigen der Systemnachrichten
     private Label labelBottom;
@@ -184,9 +147,6 @@ public class Oberflaeche {
     // Controlliert alle TextArea-Ereignisse
     private TextAreaControls textAreaControls;
 
-    // controlls.Controller fuer die Aninamtionen wird hier selber nicht gebraucht in
-    // Oberflaeche, ist nur zum Initialieseren hier
-    private AnimationController animation;
 
     private MovementInputController movement;
     private TextField robotInput;
@@ -197,13 +157,9 @@ public class Oberflaeche {
      */
     public void initialisieren() {
         international = new Internationalitaet(null);
-        sbEvents = new SubmarineEvents(getTerritorium());
+        robotEvents = new RobotEvents(getTerritorium());
         fileMenu = new Menu();
         bearbeitenMenu = new Menu();
-        exampleMenu = new Menu();
-        newProjektMenuItem = new MenuItem();
-        openProjectMenuItem = new MenuItem();
-        druckenCodeMenuItem = new MenuItem();
         spracheMenuItem = new Menu();
         toggleSprache = new ToggleGroup();
         englishSprache = new RadioMenuItem();
@@ -211,18 +167,6 @@ public class Oberflaeche {
         quitMenuItem = new MenuItem();
         simulationsMenu = new Menu();
         helpMenu = new Menu();
-        subMenuSave = new Menu();
-        xmlSave = new MenuItem();
-        jaxbSave = new MenuItem();
-        serialisierenSave = new MenuItem();
-        subMenuLoad = new Menu();
-        xmlLoad = new MenuItem();
-        jaxbLoad = new MenuItem();
-        deserialisierenLoad = new MenuItem();
-        subMenuPicture = new Menu();
-        pngSaveAs = new MenuItem();
-        jpgSaveAs = new MenuItem();
-        druckenSpielMenuItem = new MenuItem();
         groeßeAendernMenuItem = new MenuItem();
         resizeableMenuItem = new MenuItem();
         tankStelleBenoetigtMenuItem = new MenuItem();
@@ -236,17 +180,9 @@ public class Oberflaeche {
         startMenuItem = new MenuItem();
         pauseMenuItem = new MenuItem();
         stopMenuItem = new MenuItem();
-        speichernBeispiel = new MenuItem();
-        ladenBeispiel = new MenuItem();
         hinweisMenuItem = new MenuItem();
         buttonHinweis = new Button();
         toggleBearbeitenSpielfeld = new ToggleGroup();
-        buttonNeuesDokument = new Button("", new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/new_fileSmall.png"))));
-        buttonOeffneDokument = new Button("", new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/openSmall.png"))));
-        buttonSpeichernDokument = new Button("", new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/saveSmall.png"))));
         buttonStart = new Button("", new ImageView(
                 new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/startSmall.png"))));
         buttonPause = new Button("", new ImageView(
@@ -272,7 +208,7 @@ public class Oberflaeche {
         scHeigth = new ScAchse();
         setTextChanged(false);
         flow = new TextFlow();
-        scMousehandler = new SubmarineMouseHandler(getTerritorium(), sbEvents, international.getRb(),
+        scMousehandler = new SubmarineMouseHandler(getTerritorium(), robotEvents, international.getRb(),
                 getPrimaryStage());
         RadioMenuItem[] m = new RadioMenuItem[7];
         m[0] = roboterMenuItem;
@@ -281,8 +217,7 @@ public class Oberflaeche {
         m[3] = batterie;
         m[4] = location;
         m[5] = deleteBefehl;
-        animation = new AnimationController(m, comboboxButtonBearbeitenAuswahl, labelBottom, getInternationalitaet().getRb());
-        territoriumPanel = new TerritoriumPanel(getTerritorium(), scWidth, scHeigth, animation);
+        territoriumPanel = new TerritoriumPanel(getTerritorium(), scWidth, scHeigth);
         borderPaneForCodeField = new BorderPane();
         root = new StackPane();
 
@@ -299,19 +234,8 @@ public class Oberflaeche {
      * Speichert die sp�ter zu beachtenden MenuItems und Buttons beim Thread
      */
     private void zuBeachtendeButtonsUndMenuItems() {
-        ArrayList<Button> b = new ArrayList<Button>();
-        b.add(buttonOeffneDokument);
-        ArrayList<MenuItem> m = new ArrayList<MenuItem>();
-        m.add(ladenBeispiel);
-        m.add(xmlLoad);
-        m.add(jaxbLoad);
-        m.add(deserialisierenLoad);
-        m.add(pngSaveAs);
-        m.add(jpgSaveAs);
-        m.add(ladenBeispiel);
-        m.add(openProjectMenuItem);
         setRuncode(new RunCodeController(territorium, slider, buttonStart, buttonStop, buttonPause, startMenuItem,
-                stopMenuItem, pauseMenuItem, this, b, m));
+                stopMenuItem, pauseMenuItem, this));
     }
 
     /*
@@ -385,8 +309,6 @@ public class Oberflaeche {
         buttonStart.setPrefSize(Territorium.OBJ_WIDTH, Territorium.OBJ_WIDTH);
         buttonPause.setPrefSize(Territorium.OBJ_WIDTH, Territorium.OBJ_WIDTH);
         buttonStop.setPrefSize(Territorium.OBJ_WIDTH, Territorium.OBJ_WIDTH);
-        buttonSpeichernDokument.setPrefSize(Territorium.OBJ_WIDTH, Territorium.OBJ_WIDTH);
-        buttonNeuesDokument.setPrefSize(Territorium.OBJ_WIDTH, Territorium.OBJ_WIDTH);
 
         // Erstellt eine ComboBox f�r nicht so h�ufig ben�tigte Buttons
         bearbeiteComboBoxFuerDieButtons();
@@ -396,8 +318,7 @@ public class Oberflaeche {
 
         // toolbar.getChildren().addAll(buttonSubmarine, buttonFelsen,
         // buttonBatterie, buttonExitFeld, buttonDelete);
-        toolBar.getItems().addAll(buttonNeuesDokument, buttonOeffneDokument, buttonSpeichernDokument, new Separator(),
-                comboboxButtonBearbeitenAuswahl, new Separator(), buttonStart, buttonPause, buttonStop,
+        toolBar.getItems().addAll(comboboxButtonBearbeitenAuswahl, new Separator(), buttonStart, buttonPause, buttonStop,
                 new Separator(), slider);
 
         return toolBar;
@@ -477,22 +398,17 @@ public class Oberflaeche {
 
         // SubMenus zusammenstellen
         spracheMenuItem.getItems().addAll(englishSprache, deutschSprache);
-        subMenuSave.getItems().addAll(xmlSave, jaxbSave, serialisierenSave);
-        subMenuLoad.getItems().addAll(xmlLoad, jaxbLoad, deserialisierenLoad);
-        subMenuPicture.getItems().addAll(pngSaveAs, jpgSaveAs);
 
         // Hinzuf�gen der MenuUnterpunkte zum MenuPunkt
-        fileMenu.getItems().addAll(newProjektMenuItem, openProjectMenuItem, new SeparatorMenuItem(),
-                druckenCodeMenuItem, spracheMenuItem, new SeparatorMenuItem(), quitMenuItem);
-        bearbeitenMenu.getItems().addAll(subMenuSave, subMenuLoad, subMenuPicture, druckenSpielMenuItem,
-                groeßeAendernMenuItem, new SeparatorMenuItem(), resizeableMenuItem, tankStelleBenoetigtMenuItem, new SeparatorMenuItem(), roboterMenuItem,
+        fileMenu.getItems().addAll(spracheMenuItem, new SeparatorMenuItem(), quitMenuItem);
+        bearbeitenMenu.getItems().addAll(groeßeAendernMenuItem, new SeparatorMenuItem(),
+                resizeableMenuItem, tankStelleBenoetigtMenuItem, new SeparatorMenuItem(), roboterMenuItem,
                 child, felsen, batterie, location, deleteBefehl);
         simulationsMenu.getItems().addAll(startMenuItem, pauseMenuItem, stopMenuItem);
-        exampleMenu.getItems().addAll(speichernBeispiel, ladenBeispiel);
         helpMenu.getItems().addAll(hinweisMenuItem);
 
         // Hinzuf�gen der MenuPunkte zur MenuBar
-        menu.getMenus().addAll(fileMenu, bearbeitenMenu, simulationsMenu, exampleMenu, helpMenu);
+        menu.getMenus().addAll(fileMenu, bearbeitenMenu, simulationsMenu, helpMenu);
 
         return menu;
     }
@@ -518,51 +434,20 @@ public class Oberflaeche {
         scWidth.valueProperty().addListener(c -> getTerritorium().checkIfChanged());
         scHeigth.valueProperty().addListener(c -> getTerritorium().checkIfChanged());
 
-		/*
-         * Macht das ich keinen Gehirnschaden mehr beim Coden, folglich werden
-		 * auf jede ge�ffnete Klammer auch eine geschlossene gesetzt. ( -> ) {
-		 * -> } " -> " Erg�nzungen durchs Programm, welche einem vieles
-		 * erleichtern.. Sollte dieses einmal nicht hinhauen, befindet sich dann
-		 * ein # im Code
-		 * 
-		 * Weiterhin werden alle Controlls gesetzt, welche einfach alles
-		 * vereinfachen..
-		 * 
-		 * Siehe textAreaControls f�r mehr Infos
-		 */
-
         // MouseHandler f�r das Draggen und Dropen hinzuf�gen
         scMousehandler.handlerSetzen(territoriumPanel.getCanvas());
-
-        // Aktionen im Men� "Datei"
-        // Unterpunkt "Neu"
-        newProjektMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.N, KeyCombination.CONTROL_DOWN));
-        sbEvents.neuesFensterOeffnen(newProjektMenuItem, buttonNeuesDokument, getInternationalitaet().getRb());
-
-        // Unterpunkt "�ffnen"
-        openProjectMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.CONTROL_DOWN));
-
-        buttonOeffneDokument.setOnAction(e -> openProjectMenuItem.fire());
-
-        // Button Speichern
-        sbEvents.speichernEvent(buttonSpeichernDokument, null, getPrimaryStage(), international.getRb(),
-                getTerritorium().getRoboter());
-
-        // Unterpunkt "Drucken"
-        druckenCodeMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.P, KeyCombination.CONTROL_DOWN));
-        druckenCodeMenuItem.setOnAction(e -> sbEvents.print(null));
 
         // Untermenu Sprache:
         // Unterpunkt Deutsch:
         deutschSprache.setOnAction(e -> {
-            if (sbEvents.spracheAendern("de", international)) {
+            if (robotEvents.spracheAendern("de", international)) {
                 setTooltipAndTexts();
             }
         });
 
         // Unterpunkt Englisch
         englishSprache.setOnAction(e -> {
-            if (sbEvents.spracheAendern("en", international)) {
+            if (robotEvents.spracheAendern("en", international)) {
                 setTooltipAndTexts();
             }
         });
@@ -575,49 +460,15 @@ public class Oberflaeche {
         quitMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.Q, KeyCombination.CONTROL_DOWN));
         quitMenuItem.setOnAction(e -> {
             stopMenuItem.fire();
-            sbEvents.closeEvent(getPrimaryStage(), null, international.getRb(), this);
+            getPrimaryStage().close();
         });
         getPrimaryStage().setOnCloseRequest(event -> {
             stopMenuItem.fire();
-            sbEvents.closeEvent(getPrimaryStage(), null, international.getRb(), this);
-            event.consume();
+            getPrimaryStage().close();
         });
 
-        // Aktionen im Menu "Bearbeiten"
-        // Unterpunkt "Speichern"
-        // Submenu "XML"
-        xmlSave.setOnAction(e -> LoadAndSaveCode.xmlSpeichern(getTerritorium(), getPrimaryStage().getTitle()));
-
-        // Submenu "JAXB"
-        jaxbSave.setOnAction(e -> LoadAndSaveCode.jaxbSpeichern(getTerritorium(), getPrimaryStage().getTitle()));
-
-        // Submenu "Serialisieren"
-        serialisierenSave
-                .setOnAction(e -> LoadAndSaveCode.serialisieren(getTerritorium(), getPrimaryStage().getTitle()));
-
-        // Unterpunkt "Laden"
-        // Submenu "XML"
-        xmlLoad.setOnAction(e -> LoadAndSaveCode.xmlLaden(getTerritorium()));
-
-        // Submenu "JAXB"
-        jaxbLoad.setOnAction(e -> LoadAndSaveCode.ladeJaxbDatei(getTerritorium(), this));
-
-        // Submenu "Deserialisieren"
-        deserialisierenLoad.setOnAction(e -> LoadAndSaveCode.deserialisieren(getTerritorium(), this));
-
-        // Unterpunkt "Als Bild Speichern"
-        // Submenu "PNG"
-        sbEvents.speichereAlsBild(pngSaveAs, territoriumPanel, getPrimaryStage().getTitle(), Picture.png);
-
-        // Submenu "JPG"
-        sbEvents.speichereAlsBild(jpgSaveAs, territoriumPanel, getPrimaryStage().getTitle(), Picture.jpg);
-
-        // Unterpunkt "Spiel drucken"
-        druckenSpielMenuItem.setOnAction(
-                e -> sbEvents.print(getTerritorium(), scWidth, scHeigth, territoriumPanel.getCanvas(), animation));
-
         // Unterpunkt "Gr��e �ndern"
-        groeßeAendernMenuItem.setOnAction(e -> sbEvents.changeSizeEventHandler(international.getRb()));
+        groeßeAendernMenuItem.setOnAction(e -> robotEvents.changeSizeEventHandler(international.getRb()));
 
         // Unterpunkt "Gr��e Anpassen an/aus"
         resizeableMenuItem.setOnAction(e -> {
@@ -698,27 +549,27 @@ public class Oberflaeche {
                 });
 
         // Unterpunkt "Submarine"
-        sbEvents.setzeObjektEventCode(null, territoriumPanel, roboterMenuItem, 0,
+        robotEvents.setzeObjektEventCode(null, territoriumPanel, roboterMenuItem, 0,
                 comboboxButtonBearbeitenAuswahl, false);
 
         // Unterpunkt "Leucht-Felsen"
-        sbEvents.setzeObjektEventCode(null, territoriumPanel, child, 1,
+        robotEvents.setzeObjektEventCode(null, territoriumPanel, child, 1,
                 comboboxButtonBearbeitenAuswahl, true);
 
         // Unterpunkt "Felsen"
-        sbEvents.setzeObjektEventCode(FeldEigenschaft.Felsen, territoriumPanel, felsen, 2,
+        robotEvents.setzeObjektEventCode(FeldEigenschaft.Felsen, territoriumPanel, felsen, 2,
                 comboboxButtonBearbeitenAuswahl, false);
 
         // Unterpunkt "Batterie"
-        sbEvents.setzeObjektEventCode(FeldEigenschaft.Batterie, territoriumPanel, batterie, 3,
+        robotEvents.setzeObjektEventCode(FeldEigenschaft.Batterie, territoriumPanel, batterie, 3,
                 comboboxButtonBearbeitenAuswahl, false);
 
         // Unterpunkt "Hai-Fisch"
-        sbEvents.setzeObjektEventCode(FeldEigenschaft.Location, territoriumPanel, location, 4,
+        robotEvents.setzeObjektEventCode(FeldEigenschaft.Location, territoriumPanel, location, 4,
                 comboboxButtonBearbeitenAuswahl, false);
 
         // Unterpunkt "Delete"
-        sbEvents.setzeObjektEventCode(FeldEigenschaft.Leer, territoriumPanel, deleteBefehl, 5,
+        robotEvents.setzeObjektEventCode(FeldEigenschaft.Leer, territoriumPanel, deleteBefehl, 5,
                 comboboxButtonBearbeitenAuswahl, false);
 
         // Aktionen im Menu "Simulation"
@@ -733,18 +584,10 @@ public class Oberflaeche {
 		 * Pause, Start und Stop werden in RunCodeController selbst bearbeitet
 		 */
 
-        // Aktionen im Menu "Beispiele"
-        // Unterpunkt "speichernBeispiel"
-        speichernBeispiel.setOnAction(e -> sbEvents.saveExample(getInternationalitaet().getRb(), getTerritorium(),
-                null, getPrimaryStage().getTitle()));
-
-        // Unterpunkt "ladenBeispiel"
-        ladenBeispiel.setOnAction(e -> sbEvents.loadExample(getInternationalitaet().getRb(), null));
-
         // Aktionen im Menu "Hilfe"
         // Unterpunkt "Hinweis"
         hinweisMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.H, KeyCombination.CONTROL_DOWN));
-        hinweisMenuItem.setOnAction(e -> sbEvents.oeffneHilfeFenster(international.getRb()));
+        hinweisMenuItem.setOnAction(e -> robotEvents.oeffneHilfeFenster(international.getRb()));
         buttonHinweis.setOnAction(e -> hinweisMenuItem.fire());
     }
 
@@ -759,12 +602,6 @@ public class Oberflaeche {
         // Images in die MenuLeiste einf�gen
 
         // Datei-Images
-        newProjektMenuItem.setGraphic(new ImageView(new Image(
-                getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/new_fileVerySmall.png"))));
-        openProjectMenuItem.setGraphic(new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/openVerySmall.png"))));
-        druckenCodeMenuItem.setGraphic(new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/printerVerySmall.png"))));
         spracheMenuItem.setGraphic(new ImageView(new Image(
                 getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/languageVerySmall.png"))));
         deutschSprache.setGraphic(new ImageView(
@@ -774,31 +611,6 @@ public class Oberflaeche {
         quitMenuItem.setGraphic(new ImageView(
                 new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/cancel.png"))));
 
-        // Bearbeiten-Images
-        subMenuSave.setGraphic(new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/saveVerySmall.png"))));
-        xmlSave.setGraphic(new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/xmlVerySmall.png"))));
-        jaxbSave.setGraphic(new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/jaxbVerySmall.png"))));
-        serialisierenSave.setGraphic(new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/serialVerySmall.png"))));
-        subMenuLoad.setGraphic(new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/openVerySmall.png"))));
-        xmlLoad.setGraphic(new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/xmlVerySmall.png"))));
-        jaxbLoad.setGraphic(new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/jaxbVerySmall.png"))));
-        deserialisierenLoad.setGraphic(new ImageView(new Image(
-                getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/deserialVerySmall.png"))));
-        subMenuPicture.setGraphic(new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/pictureVerySmall.png"))));
-        pngSaveAs.setGraphic(new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/pngVerySmall.png"))));
-        jpgSaveAs.setGraphic(new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/jpgVerySmall.png"))));
-        druckenSpielMenuItem.setGraphic(new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/printerVerySmall.png"))));
         groeßeAendernMenuItem.setGraphic(new ImageView(
                 new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/sizeVerySmall.png"))));
         rezisableImageCheck();
@@ -836,28 +648,12 @@ public class Oberflaeche {
     private void setTooltipAndTexts() {
         fileMenu.setText(international.getRb().getString("fileMenu"));
         bearbeitenMenu.setText(international.getRb().getString("bearbeitenMenu"));
-        newProjektMenuItem.setText(international.getRb().getString("newProjektMenuItem"));
-        openProjectMenuItem.setText(international.getRb().getString("openProjectMenuItem"));
-        druckenCodeMenuItem.setText(international.getRb().getString("druckenCodeMenuItem"));
         spracheMenuItem.setText(international.getRb().getString("spracheMenuItem"));
         englishSprache.setText(international.getRb().getString("englishSprache"));
         deutschSprache.setText(international.getRb().getString("deutschSprache"));
         quitMenuItem.setText(international.getRb().getString("quitMenuItem"));
         simulationsMenu.setText(international.getRb().getString("simulationsMenu"));
-        exampleMenu.setText(international.getRb().getString("exampleMenu"));
         helpMenu.setText(international.getRb().getString("helpMenu"));
-        subMenuSave.setText(international.getRb().getString("subMenuSave"));
-        xmlSave.setText(international.getRb().getString("xmlSave"));
-        jaxbSave.setText(international.getRb().getString("jaxbSave"));
-        serialisierenSave.setText(international.getRb().getString("serialisierenSave"));
-        subMenuLoad.setText(international.getRb().getString("subMenuLoad"));
-        xmlLoad.setText(international.getRb().getString("xmlLoad"));
-        jaxbLoad.setText(international.getRb().getString("jaxbLoad"));
-        deserialisierenLoad.setText(international.getRb().getString("deserialisierenLoad"));
-        subMenuPicture.setText(international.getRb().getString("subMenuPicture"));
-        pngSaveAs.setText(international.getRb().getString("pngSaveAs"));
-        jpgSaveAs.setText(international.getRb().getString("jpgSaveAs"));
-        druckenSpielMenuItem.setText(international.getRb().getString("druckenSpielMenuItem"));
         groeßeAendernMenuItem.setText(international.getRb().getString("groeßeAendernMenuItem"));
         resizeableMenuItem.setText(international.getRb().getString("resizeableMenuItem"));
         tankStelleBenoetigtMenuItem.setText(international.getRb().getString("tankfuellung"));
@@ -870,12 +666,7 @@ public class Oberflaeche {
         startMenuItem.setText(international.getRb().getString("startMenuItem"));
         pauseMenuItem.setText(international.getRb().getString("pauseMenuItem"));
         stopMenuItem.setText(international.getRb().getString("stopMenuItem"));
-        speichernBeispiel.setText(international.getRb().getString("exampleSave"));
-        ladenBeispiel.setText(international.getRb().getString("exampleLoad"));
         hinweisMenuItem.setText(international.getRb().getString("hinweisMenuItem"));
-        buttonNeuesDokument.setTooltip(new Tooltip(international.getRb().getString("buttonNeuesDokument")));
-        buttonOeffneDokument.setTooltip(new Tooltip(international.getRb().getString("buttonOeffneDokument")));
-        buttonSpeichernDokument.setTooltip(new Tooltip(international.getRb().getString("buttonSpeichernDokument")));
 
         buttonStart.setTooltip(new Tooltip(international.getRb().getString("buttonStart")));
         buttonStop.setTooltip(new Tooltip(international.getRb().getString("buttonStop")));
@@ -884,12 +675,12 @@ public class Oberflaeche {
         buttonHinweis.setTooltip(new Tooltip(international.getRb().getString("buttonHinweis")));
     }
 
-    public SubmarineEvents getSubmarineEvents() {
-        return sbEvents;
+    public RobotEvents getSubmarineEvents() {
+        return robotEvents;
     }
 
-    public void setSubmarineEvents(SubmarineEvents s) {
-        sbEvents = s;
+    public void setSubmarineEvents(RobotEvents s) {
+        robotEvents = s;
     }
 
     public Stage getPrimaryStage() {
