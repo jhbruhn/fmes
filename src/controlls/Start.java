@@ -9,11 +9,8 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 public class Start extends Application {
-	static HashMap<String, Oberflaeche> hashOberflaeche = new HashMap<String, Oberflaeche>();
 
-//	public static void main(String[] args){
-//		launch(args);
-//	}
+	public static final String defaultName = "Roboter";
 
 	/*
 	 * (non-Javadoc)
@@ -24,7 +21,6 @@ public class Start extends Application {
 	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		LoadAndSaveCode.verzeichnissCheck();
 		Territorium territorium = new Territorium();
 		Oberflaeche oberflaeche = new Oberflaeche(primaryStage, territorium);
 		erstelleNeuesFenster(oberflaeche, primaryStage, territorium);
@@ -43,39 +39,9 @@ public class Start extends Application {
 		// territorium.setUboot(uboot);
 		oberflaeche.getSubmarineEvents().setStart(this);
 		if (primaryStage.getTitle() == null || primaryStage.getTitle().equals("")) {
-			primaryStage.setTitle(LoadAndSaveCode.defaultName);
+			primaryStage.setTitle(defaultName);
 		}
-		hashOberflaeche.put(primaryStage.getTitle(), oberflaeche);
+
 		primaryStage.show();
-	}
-
-	/*
-	 * Eine Liste welche immer aktuell gehalten wird, dar�ber welche Fenster
-	 * schon offen sind
-	 */
-	public void replaceStringKey(String oldName, String newName) {
-		Oberflaeche o = hashOberflaeche.get(oldName);
-		hashOberflaeche.remove(oldName);
-		hashOberflaeche.put(newName, o);
-	}
-
-	public boolean isOberflaecheVorhanden(String name){
-		return hashOberflaeche.containsKey(name);
-	}
-
-	public Oberflaeche getOberflaecheByKey(String name){
-		return hashOberflaeche.get(name);
-	}
-
-	/*
-	 * schaut nach ob das geschlossene Fenster auch in der Liste war und l�scht
-	 * es dann
-	 */
-	public void onClose(Oberflaeche o) {
-		if (hashOberflaeche.containsKey(o.getPrimaryStage().getTitle())) {
-			hashOberflaeche.remove(o.getPrimaryStage().getTitle());
-		} else {
-			// Fehler werfen oder sowas..
-		}
 	}
 }
