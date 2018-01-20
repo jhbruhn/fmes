@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2572ffed-2cd9-40a8-bcde-eb9c765ad732" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/controlls/Controller.java" afterPath="$PROJECT_DIR$/src/controlls/Controller.java" />
-      <change beforePath="$PROJECT_DIR$/src/controlls/RandomChildController.java" afterPath="$PROJECT_DIR$/src/controlls/RandomChildController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controlls/RobotController.java" afterPath="$PROJECT_DIR$/src/controlls/RobotController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controlls/RunCodeController.java" afterPath="$PROJECT_DIR$/src/controlls/RunCodeController.java" />
-      <change beforePath="$PROJECT_DIR$/src/graph/Field.java" afterPath="$PROJECT_DIR$/src/graph/Field.java" />
-      <change beforePath="$PROJECT_DIR$/src/modell/Kind.java" afterPath="$PROJECT_DIR$/src/modell/Kind.java" />
-      <change beforePath="$PROJECT_DIR$/src/modell/Roboter.java" afterPath="$PROJECT_DIR$/src/modell/Roboter.java" />
+      <change beforePath="$PROJECT_DIR$/src/graph/Graph.java" afterPath="$PROJECT_DIR$/src/graph/Graph.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,68 +15,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controlls/Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="52" column="39" lean-forward="true" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
-              <folding>
-                <element signature="e#3738#3739#0" expanded="true" />
-                <element signature="e#3776#3777#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RandomChildController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/controlls/RandomChildController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="39" column="13" lean-forward="false" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Field.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/graph/Field.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="15" column="46" lean-forward="false" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RobotController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controlls/RobotController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="30" column="8" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Graph.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Graph.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/graph/Graph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="55" column="124" lean-forward="false" selection-start-line="55" selection-start-column="124" selection-end-line="55" selection-end-column="124" />
+            <state relative-caret-position="375">
+              <caret line="162" column="17" lean-forward="false" selection-start-line="162" selection-start-column="17" selection-end-line="162" selection-end-column="17" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Kind.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modell/Kind.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="101" column="18" lean-forward="false" selection-start-line="101" selection-start-column="18" selection-end-line="101" selection-end-column="18" />
-              <folding>
-                <element signature="e#5373#5374#0" expanded="true" />
-                <element signature="e#5395#5396#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -171,7 +109,6 @@
         <option value="$PROJECT_DIR$/src/graph/State.java" />
         <option value="$PROJECT_DIR$/src/Util/StateUtil.java" />
         <option value="$PROJECT_DIR$/src/modell/Territorium.java" />
-        <option value="$PROJECT_DIR$/src/graph/Graph.java" />
         <option value="$PROJECT_DIR$/src/graph/Field.java" />
         <option value="$PROJECT_DIR$/src/modell/Roboter.java" />
         <option value="$PROJECT_DIR$/src/modell/Kind.java" />
@@ -179,6 +116,7 @@
         <option value="$PROJECT_DIR$/src/controlls/Controller.java" />
         <option value="$PROJECT_DIR$/src/controlls/RobotController.java" />
         <option value="$PROJECT_DIR$/src/controlls/RandomChildController.java" />
+        <option value="$PROJECT_DIR$/src/graph/Graph.java" />
       </list>
     </option>
   </component>
@@ -1076,11 +1014,18 @@
       <option name="project" value="LOCAL" />
       <updated>1516192423366</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Magic algorithm works">
+      <created>1516195537139</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1516195537139</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42469000" />
+    <option name="totallyTimeSpent" value="43009000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="749" extended-state="0" />
@@ -1193,7 +1138,8 @@
     <MESSAGE value="Update things" />
     <MESSAGE value="Graph works as expected, remove some debbug statemeents, add some more." />
     <MESSAGE value="Commit changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit changes" />
+    <MESSAGE value="Magic algorithm works" />
+    <option name="LAST_COMMIT_MESSAGE" value="Magic algorithm works" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1486,14 +1432,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/Graph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="55" column="124" lean-forward="false" selection-start-line="55" selection-start-column="124" selection-end-line="55" selection-end-column="124" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/Invisible.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1542,6 +1480,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
           <caret line="39" column="13" lean-forward="false" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graph/Graph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="162" column="17" lean-forward="false" selection-start-line="162" selection-start-column="17" selection-end-line="162" selection-end-column="17" />
           <folding />
         </state>
       </provider>

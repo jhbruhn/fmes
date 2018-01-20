@@ -157,6 +157,12 @@ public class Graph implements Cloneable {
         return viableMoves.get(0).moves;
     }
 
+    public int getLongestPathToTarget(State from) {
+        if(from.enforceValue == -1) throw new RuntimeException("You cannot calculate a path on an unenforced graph");
+
+        return 3;
+    }
+
 
     public Graph clone() {
         Graph g = new Graph();
