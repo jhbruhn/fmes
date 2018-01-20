@@ -8,6 +8,7 @@ import java.util.Observable;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.media.AudioClip;
 
@@ -339,10 +340,13 @@ public class Territorium extends Observable implements java.io.Serializable {
             boolean felsen = true;
             if (roboter) {
                 if (getRoboter().getTankFuellung() <= 0 && trankfuellungBeachten) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Tank leer");
-                    alert.setHeaderText("der Tank ist leer");
-                    alert.showAndWait();
+                    Platform.runLater(() -> {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Tank leer");
+                        alert.setHeaderText("der Tank ist leer");
+                        alert.showAndWait();
+                    });
+                    return;
                 }
                 switch (richtung) {
                     case UP:
@@ -372,10 +376,12 @@ public class Territorium extends Observable implements java.io.Serializable {
                     getRoboter().setTankFuellung(getRoboter().getTankFuellung() - 1);
                 }
                 if (childNearby()) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Kind ist nah");
-                    alert.setHeaderText("Zu nah ans Kind gekommen");
-                    alert.showAndWait();
+                    Platform.runLater(() -> {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Kind ist nah");
+                        alert.setHeaderText("Zu nah ans Kind gekommen");
+                        alert.showAndWait();
+                    });
                 }
             } else {
                 switch (richtung) {
