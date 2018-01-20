@@ -836,7 +836,6 @@ public class Oberflaeche {
     private void setTooltipAndTexts() {
         fileMenu.setText(international.getRb().getString("fileMenu"));
         bearbeitenMenu.setText(international.getRb().getString("bearbeitenMenu"));
-        roboter.setText(international.getRb().getString("roboter"));
         newProjektMenuItem.setText(international.getRb().getString("newProjektMenuItem"));
         openProjectMenuItem.setText(international.getRb().getString("openProjectMenuItem"));
         druckenCodeMenuItem.setText(international.getRb().getString("druckenCodeMenuItem"));

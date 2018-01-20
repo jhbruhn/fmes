@@ -78,6 +78,8 @@ public class Territorium extends Observable implements java.io.Serializable {
 
     private ArrayList<ZielFeld> zielFelder = new ArrayList<ZielFeld>();
 
+    private ArrayList<ZielFeld> batterieFelder = new ArrayList<ZielFeld>();
+
     private boolean trankfuellungBeachten = false;
 
     private int startTankfuellung = 100;
@@ -230,6 +232,8 @@ public class Territorium extends Observable implements java.io.Serializable {
             }
             if (f == FeldEigenschaft.Batterie && (!(feldReiheRoboter == reihe && feldSpalteRoboter == spalte))) {
                 getFeld()[reihe][spalte] = f;
+                ZielFeld z = new ZielFeld(reihe, spalte);
+                batterieFelder.add(z);
             }
 
             if (f == FeldEigenschaft.Leer) {
@@ -247,6 +251,10 @@ public class Territorium extends Observable implements java.io.Serializable {
                             }
                         }
                         getZielFelder().remove(getZielFelder().get(k));
+                    }
+                    if (getBatterieFelder().get(k).getReihe() == reihe
+                            && getBatterieFelder().get(k).getSpalte() == spalte) {
+                        getBatterieFelder().remove(getBatterieFelder().get(k));
                     }
                 }
             }
@@ -417,11 +425,6 @@ public class Territorium extends Observable implements java.io.Serializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public List<ZielFeld> getBatterienAufDemFeld(){
-
-        return null;
     }
 
     private boolean childNearby() {
@@ -707,5 +710,13 @@ public class Territorium extends Observable implements java.io.Serializable {
 
     public void setStartTankfuellung(int startTankfuellung) {
         this.startTankfuellung = startTankfuellung;
+    }
+
+    public ArrayList<ZielFeld> getBatterieFelder() {
+        return batterieFelder;
+    }
+
+    public void setBatterieFelder(ArrayList<ZielFeld> batterieFelder) {
+        this.batterieFelder = batterieFelder;
     }
 }

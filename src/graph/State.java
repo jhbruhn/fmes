@@ -79,7 +79,8 @@ public class State implements Cloneable {
 
 
         // Check whether the child and robot would be too close to each other
-        Vector2 posA, posB;
+        Vector2 posA;
+        Vector2 posB;
         if(isRobot) {
             posA = robot.add(move.directionVector);
             posB = child;
