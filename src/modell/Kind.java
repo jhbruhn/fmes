@@ -32,13 +32,11 @@ public class Kind extends Thread {
 	public void run() {
 		try {
 			setRunning(true);
-			getTerritorium().getRoboter().getClass().getMethod("main", null).invoke(territorium.getRoboter());
-		} catch (InvocationTargetException | ThreadStopException t) {
-		} catch (IllegalAccessException | IllegalArgumentException | NoSuchMethodException | SecurityException e) {
-			e.printStackTrace();
+			//getTerritorium().getRoboter().getClass().getMethod("main", null).invoke(territorium.getRoboter());
+
 		} finally {
-			resetAbbruch();
-			setRunning(false);
+			//resetAbbruch();
+			//setRunning(false);
 
 		}
 	}

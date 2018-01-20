@@ -28,7 +28,7 @@ public class RobotController {
     }
 
     public void doNextStep(Territorium.Richtung richtung) {
-        while(roboter.isSleeping());
+        while(roboter.isSleeping()) Thread.yield();
         roboter.bewege(richtung);
     }
 

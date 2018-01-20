@@ -1,11 +1,10 @@
 package controlls;
 
 import Util.ListListToArrayListList;
-import Util.ListToArrayList;
 import Util.StateUtil;
 import graph.Graph;
-import modell.Territorium;
 import modell.Kind;
+import modell.Territorium;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -38,7 +37,7 @@ public class RandomChildController {
 
     private void move(ArrayList<Territorium.Richtung> richtungen) {
         for (Territorium.Richtung richtung : richtungen) {
-            while(territorium.getChild().isSleeping());
+            while (territorium.getChild().isSleeping()) Thread.yield();
             territorium.getChild().bewege(richtung);
         }
     }

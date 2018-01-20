@@ -2,6 +2,7 @@ package controlls;
 
 import java.util.ArrayList;
 
+import modell.Kind;
 import modell.Territorium;
 import modell.Roboter;
 import views.Oberflaeche;
@@ -33,8 +34,8 @@ public class RunCodeController {
 				stop.setDisable(true);
 				pauseMenuItem.setDisable(true);
 				pause.setDisable(true);
-				//startMenuItem.setDisable(true);
-				//start.setDisable(true);
+				startMenuItem.setDisable(false);
+				start.setDisable(false);
 				runcode.setStopped(true);
 				if (runcode.isPause()) {
 					runcode.setPause(false);
@@ -48,12 +49,21 @@ public class RunCodeController {
 			if (runcode == null || !runcode.isAlive()) {
 				runcode = null;
 				endlos = null;
+				Roboter ralf = new Roboter(getTerritorium());
+				getTerritorium().setRoboter(ralf);
+				Kind hammerhuepfer = new Kind(getTerritorium());
+				getTerritorium().setChild(hammerhuepfer);
 				runcode = getTerritorium().getRoboter();
 				endlos = new EndlosschleifenThread(o.territoriumPanel, runcode, menuItems, buttons, stopMenuItem, stop,
 						pauseMenuItem, pause, startMenuItem, start);
 				getTerritorium().getRoboter().getSpeed().bind(getSlider().valueProperty());
 				runcode.setStopped(false);
 				runcode.start();
+				runcode.setRunning(true);
+
+				hammerhuepfer.start();
+				hammerhuepfer.setStopped(false);
+
 				//endlos.start();
 				stopMenuItem.setDisable(false);
 				stop.setDisable(false);
