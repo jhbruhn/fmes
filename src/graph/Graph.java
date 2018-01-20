@@ -88,8 +88,7 @@ public class Graph implements Cloneable {
             s.enforceValue = 0;
 
         // Go from here and calculate more enforce values for 1-acceptance
-        Stack<State> calcStack = new Stack<>();
-        calcStack.addAll(targetStates);
+        Deque<State> calcStack = new ArrayDeque<>(targetStates);
 
         while (!calcStack.isEmpty()) {
             State enfI = calcStack.pop();
@@ -153,7 +152,7 @@ public class Graph implements Cloneable {
         if (!state.isRobotState) throw new RuntimeException("You cannot do a move from a childstate.");
         List<Transition> viableMoves = getViableTransitionsFromState(state);
         viableMoves.sort(Comparator.comparingInt(o -> o.to.enforceValue));
-        if (viableMoves.isEmpty()) return null;
+        if (viableMoves.isEmpty()) return Collections.emptyList();
         return viableMoves.get(0).moves;
     }
 
