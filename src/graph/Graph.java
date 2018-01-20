@@ -153,14 +153,40 @@ public class Graph implements Cloneable {
         if (!state.isRobotState) throw new RuntimeException("You cannot do a move from a childstate.");
         List<Transition> viableMoves = getViableTransitionsFromState(state);
         viableMoves.sort(Comparator.comparingInt(o -> o.to.enforceValue));
-        if (viableMoves.size() == 0) return null;
+        if (viableMoves.isEmpty()) return null;
         return viableMoves.get(0).moves;
     }
 
     public int getLongestPathToTarget(State from) {
-        if(from.enforceValue == -1) throw new RuntimeException("You cannot calculate a path on an unenforced graph");
+        if (from == null) return -1;
+        if (from.enforceValue == -1) throw new RuntimeException("You cannot calculate a path on an unenforced graph");
 
-        return 3;
+        int pathLength = 0;
+        State state = from;
+        while (state.enforceValue != 0) {
+            List<Transition> transitions = getTransitionsFrom(state);
+            if (transitions.isEmpty()) {
+                return -1;
+            }
+
+            State newState = null;
+
+            for (Transition t : transitions) {
+                if (t.to.enforceValue < state.enforceValue)
+                    if (newState == null)
+                        newState = t.to;
+                    else if (t.to.enforceValue > newState.enforceValue)
+                        newState = t.to;
+            }
+
+            state = newState;
+            if (state == null) return -1;
+
+            pathLength++;
+        }
+
+
+        return pathLength;
     }
 
 
