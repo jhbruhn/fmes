@@ -80,12 +80,6 @@ public class Oberflaeche {
     private RadioMenuItem location;
     private RadioMenuItem deleteBefehl;
 
-    // MenuUnterpunkte im Menu "U-Boot"
-    private MenuItem vorMenuItem;
-    private MenuItem rueckMenuItem;
-    private MenuItem linksMenuItem;
-    private MenuItem rechtsMenuItem;
-
     // MenuUnterpunkte im Menupunkt "Simulation"
     private MenuItem startMenuItem;
     private MenuItem pauseMenuItem;
@@ -97,7 +91,7 @@ public class Oberflaeche {
 
     // MenuUnterpunkte im Menupunkt "Hilfe"
     private MenuItem hinweisMenuItem;
-    private MenuItem hilfeMenuItem;
+    private Button buttonHinweis;
 
     // Button deklarationen etc.
     // Button neues Dokument
@@ -109,18 +103,6 @@ public class Oberflaeche {
     // Button speichern
     private Button buttonSpeichernDokument;
 
-    // Button Vor
-    private Button buttonUp;
-
-    // Button Links
-    private Button buttonLeft;
-
-    // Button Rueck
-    private Button buttonDown;
-
-    // Button Rechts
-    private Button buttonRight;
-
     // Button Start
     private Button buttonStart;
 
@@ -130,18 +112,12 @@ public class Oberflaeche {
     // Button stoppen
     private Button buttonStop;
 
-    // Button Hinweis
-    private Button buttonHinweis;
-
     // ComboBox f�r die sonst recht un�bersichtlichen und oft �berfl�ssigen
     // Buttons
     private ComboBox<ImageView> comboboxButtonBearbeitenAuswahl;
 
     // Slider f�r die Toolbar
     private Slider slider;
-
-    // Label f�r unten
-    private Label labelBottom;
 
     // die SplitPane in welcher nachher der Code-Bereich und das Spiel liegen
     private SplitPane split;
@@ -167,36 +143,39 @@ public class Oberflaeche {
     // Eventh�ndler f�r alle Aktionen die gemacht werden
     private SubmarineEvents sbEvents;
 
-    // ScrollPane f�r das Game
+    // Label zum Anzeigen der Systemnachrichten
+    private Label labelBottom;
+
+    // ScrollPane fuer das Game
     public ScrollPane sc;
 
-    // Achsen f�r die ScrollPane!
+    // Achsen fuer die ScrollPane!
     public ScAchse scWidth;
     public ScAchse scHeigth;
 
-    // TerritoriumPanel f�r das Game
+    // TerritoriumPanel fuer das Game
     public TerritoriumPanel territoriumPanel;
 
-    // ArrayList um alle RadioMenuItems zu deselecten wenn n�tig
+    // ArrayList um alle RadioMenuItems zu deselecten wenn noetig
     public ArrayList<RadioMenuItem> al;
 
-    // F�r die Dragg and Drop Aktionen der Maus in sc
+    // Fuer die Dragg and Drop Aktionen der Maus in sc
     public SubmarineMouseHandler scMousehandler;
 
-    // Speicherte die Stage mit der das hier ge�ffnet wird, um sie beim
-    // schlie�en aufrufen zu k�nnen
+    // Speicherte die Stage mit der das hier geoeffnet wird, um sie beim
+    // schliessen aufrufen zu koennen
     private Stage primaryStage;
 
-    // boolean welcher das Speichern vor dem schlie�en abpr�ft
+    // boolean welcher das Speichern vor dem schliessen abprueft
     private boolean textChanged;
 
-    // als Feld zum aufz�hlen der geschriebenen Codezeilen
+    // als Feld zum aufzaehlen der geschriebenen Codezeilen
     private TextFlow flow;
 
-    // Kommen der Code und der TextFlow f�r den Linecount rein
+    // Kommen der Code und der TextFlow fuer den Linecount rein
     private BorderPane borderPaneForCodeField;
 
-    // Ist nur f�r das sch�ne aussehen da..
+    // Ist nur fuer das schoene aussehen da..
     private StackPane root;
 
     // Um den Code zum laufen zu bringen
@@ -205,7 +184,7 @@ public class Oberflaeche {
     // Controlliert alle TextArea-Ereignisse
     private TextAreaControls textAreaControls;
 
-    // controlls.Controller f�r die Aninamtionen wird hier selber nicht gebraucht in
+    // controlls.Controller fuer die Aninamtionen wird hier selber nicht gebraucht in
     // Oberflaeche, ist nur zum Initialieseren hier
     private AnimationController animation;
 
@@ -221,7 +200,6 @@ public class Oberflaeche {
         sbEvents = new SubmarineEvents(getTerritorium());
         fileMenu = new Menu();
         bearbeitenMenu = new Menu();
-        roboter = new Menu();
         exampleMenu = new Menu();
         newProjektMenuItem = new MenuItem();
         openProjectMenuItem = new MenuItem();
@@ -255,17 +233,13 @@ public class Oberflaeche {
         batterie = new RadioMenuItem();
         location = new RadioMenuItem();
         deleteBefehl = new RadioMenuItem();
-        vorMenuItem = new MenuItem();
-        rueckMenuItem = new MenuItem();
-        linksMenuItem = new MenuItem();
-        rechtsMenuItem = new MenuItem();
         startMenuItem = new MenuItem();
         pauseMenuItem = new MenuItem();
         stopMenuItem = new MenuItem();
         speichernBeispiel = new MenuItem();
         ladenBeispiel = new MenuItem();
         hinweisMenuItem = new MenuItem();
-        hilfeMenuItem = new MenuItem();
+        buttonHinweis = new Button();
         toggleBearbeitenSpielfeld = new ToggleGroup();
         buttonNeuesDokument = new Button("", new ImageView(
                 new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/new_fileSmall.png"))));
@@ -273,22 +247,12 @@ public class Oberflaeche {
                 new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/openSmall.png"))));
         buttonSpeichernDokument = new Button("", new ImageView(
                 new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/saveSmall.png"))));
-        buttonUp = new Button("", new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/arrowsUpSmall.png"))));
-        buttonLeft = new Button("", new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/arrowsLeftSmall.png"))));
-        buttonDown = new Button("", new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/arrowsDownSmall.png"))));
-        buttonRight = new Button("", new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/arrowsRightSmall.png"))));
         buttonStart = new Button("", new ImageView(
                 new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/startSmall.png"))));
         buttonPause = new Button("", new ImageView(
                 new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/pauseSmall.png"))));
         buttonStop = new Button("", new ImageView(
                 new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/stopSmall.png"))));
-        buttonHinweis = new Button("", new ImageView(new Image(
-                getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/fragezeichenSmall.png"))));
         comboboxButtonBearbeitenAuswahl = new ComboBox<ImageView>();
         slider = new Slider();
         labelBottom = new Label();
@@ -377,11 +341,11 @@ public class Oberflaeche {
         split.getItems().addAll(borderPaneForCodeField, sc);
         split.setDividerPosition(0, 0.3);
 
-        // Hinzuf�gen der Komponenten des inneren Borders
+        // Hinzufuegen der Komponenten des inneren Borders
         innerborder.setCenter(split);
         innerborder.setTop(addToolBar());
 
-        // Hinzuf�gen des Menus, des Labels und des inneren Borders zum
+        // Hinzufuegen des Menus, des Labels und des inneren Borders zum
         // main-Border
         border.setTop(addMenuBar());
         border.setBottom(addLabel());
@@ -433,9 +397,8 @@ public class Oberflaeche {
         // toolbar.getChildren().addAll(buttonSubmarine, buttonFelsen,
         // buttonBatterie, buttonExitFeld, buttonDelete);
         toolBar.getItems().addAll(buttonNeuesDokument, buttonOeffneDokument, buttonSpeichernDokument, new Separator(),
-                comboboxButtonBearbeitenAuswahl, new Separator(), buttonUp, buttonDown, buttonLeft,
-                buttonRight, new Separator(), buttonStart, buttonPause, buttonStop,
-                new Separator(), slider, new Separator(), buttonHinweis);
+                comboboxButtonBearbeitenAuswahl, new Separator(), buttonStart, buttonPause, buttonStop,
+                new Separator(), slider);
 
         return toolBar;
     }
@@ -470,6 +433,11 @@ public class Oberflaeche {
 
         comboboxButtonBearbeitenAuswahl.setMinWidth(Territorium.OBJ_WIDTH * 2.5);
         comboboxButtonBearbeitenAuswahl.setPrefSize(Territorium.OBJ_WIDTH * 2.5, Territorium.OBJ_WIDTH * 1.5);
+    }
+
+    public Label addLabel(){
+        labelBottom.setText("Roboter-Programm");
+        return labelBottom;
     }
 
     /*
@@ -519,53 +487,16 @@ public class Oberflaeche {
         bearbeitenMenu.getItems().addAll(subMenuSave, subMenuLoad, subMenuPicture, druckenSpielMenuItem,
                 groeßeAendernMenuItem, new SeparatorMenuItem(), resizeableMenuItem, tankStelleBenoetigtMenuItem, new SeparatorMenuItem(), roboterMenuItem,
                 child, felsen, batterie, location, deleteBefehl);
-        roboter.getItems().addAll(vorMenuItem, rueckMenuItem, linksMenuItem, rechtsMenuItem);
         simulationsMenu.getItems().addAll(startMenuItem, pauseMenuItem, stopMenuItem);
         exampleMenu.getItems().addAll(speichernBeispiel, ladenBeispiel);
-        helpMenu.getItems().addAll(hinweisMenuItem, hilfeMenuItem);
+        helpMenu.getItems().addAll(hinweisMenuItem);
 
         // Hinzuf�gen der MenuPunkte zur MenuBar
-        menu.getMenus().addAll(fileMenu, bearbeitenMenu, roboter, simulationsMenu, exampleMenu, helpMenu);
+        menu.getMenus().addAll(fileMenu, bearbeitenMenu, simulationsMenu, exampleMenu, helpMenu);
 
         return menu;
     }
 
-    /*
-     * Eine einigerma�en zuf�llige Nachricht im Label
-     *
-     * @return label, gibt momentane Dankes-Gedanken des Autors wieder
-     */
-    private Label addLabel() {
-        String s = "Ich danke ";
-        int i = (int) (Math.random() * 100);
-        // Schwere Auswahl eines Dankestextes, deswegen w�hle ich zuf�llig
-        if (i < 10) {
-            s += "meiner Mutter";
-        } else if (i < 20) {
-            s += "meinem Vater";
-        } else if (i < 30) {
-            s += "meiner Awesomeness";
-        } else if (i < 40) {
-            s += "meinen Omas";
-        } else if (i < 50) {
-            s = "Don*t go Trump";
-        } else if (i < 60) {
-            s += "dem Weihnachtsmann";
-        } else if (i < 70) {
-            s += "meinen Freunden, the real MVP";
-        } else if (i < 80) {
-            s += "Keksen, wie ich sie liebe";
-        } else if (i < 90) {
-            s += "daf�r das ich nicht schwanger werden kann, thx Jesus";
-        } else if (i < 98) {
-            s += "das es Animes gibt";
-        } else {
-            s += "the *appening, daf�r meine Inspiration f�r alles zu sein";
-        }
-        labelBottom.setText(s);
-        labelBottom.setTextFill(Color.WHITE);
-        return labelBottom;
-    }
 
     /*
      * Setzt alle Aktions die passieren k�nnen wenn ein Button oder ein MenuItem
@@ -790,23 +721,6 @@ public class Oberflaeche {
         sbEvents.setzeObjektEventCode(FeldEigenschaft.Leer, territoriumPanel, deleteBefehl, 5,
                 comboboxButtonBearbeitenAuswahl, false);
 
-        // Aktionen im Menu "U-Boot"
-        // Unterpunkt "Vor"
-        vorMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.W, KeyCombination.CONTROL_DOWN));
-        sbEvents.menuItemsButtonsFuerSubmarineAktions(vorMenuItem, buttonUp, 'v');
-
-        // Unterpunkt "Rueck"
-        rueckMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.S, KeyCombination.CONTROL_DOWN));
-        sbEvents.menuItemsButtonsFuerSubmarineAktions(rueckMenuItem, buttonDown, 'b');
-
-        // Unterpunkt "Links"
-        linksMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.A, KeyCombination.CONTROL_DOWN));
-        sbEvents.menuItemsButtonsFuerSubmarineAktions(linksMenuItem, buttonLeft, 'l');
-
-        // Unterpunkt "Rechts"
-        rechtsMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.D, KeyCombination.CONTROL_DOWN));
-        sbEvents.menuItemsButtonsFuerSubmarineAktions(rechtsMenuItem, buttonRight, 'r');
-
         // Aktionen im Menu "Simulation"
         // Unterpunkt "start"
         startMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.F11, KeyCombination.CONTROL_DOWN));
@@ -832,10 +746,6 @@ public class Oberflaeche {
         hinweisMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.H, KeyCombination.CONTROL_DOWN));
         hinweisMenuItem.setOnAction(e -> sbEvents.oeffneHilfeFenster(international.getRb()));
         buttonHinweis.setOnAction(e -> hinweisMenuItem.fire());
-
-        // Unterpunkt "Hilfe"
-        hilfeMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.I, KeyCombination.CONTROL_DOWN));
-        hilfeMenuItem.setOnAction(e -> clip.play(1.0));
     }
 
     /*
@@ -906,16 +816,6 @@ public class Oberflaeche {
         deleteBefehl.setGraphic(new ImageView(
                 new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/deleteVerySmall.png"))));
 
-        // U-Boot-Images
-        vorMenuItem.setGraphic(new ImageView(new Image(
-                getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/arrowsUpVerySmall.png"))));
-        linksMenuItem.setGraphic(new ImageView(new Image(
-                getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/arrowsLeftVerySmall.png"))));
-        rechtsMenuItem.setGraphic(new ImageView(new Image(
-                getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/arrowsDownVerySmall.png"))));
-        rueckMenuItem.setGraphic(new ImageView(new Image(
-                getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/arrowsRightVerySmall.png"))));
-
         // Simulation-Images
         startMenuItem.setGraphic(new ImageView(
                 new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/startVerySmall.png"))));
@@ -927,8 +827,6 @@ public class Oberflaeche {
         // Hilfe-Images
         hinweisMenuItem.setGraphic(new ImageView(new Image(
                 getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/fragezeichenVerySmall.png"))));
-        hilfeMenuItem.setGraphic(new ImageView(new Image(
-                getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/ausrufezeichenVerySmall.png"))));
     }
 
     /*
@@ -970,25 +868,15 @@ public class Oberflaeche {
         batterie.setText(international.getRb().getString("batterie"));
         location.setText(international.getRb().getString("location"));
         deleteBefehl.setText(international.getRb().getString("deleteBefehl"));
-        vorMenuItem.setText(international.getRb().getString("vorMenuItem"));
-        rueckMenuItem.setText(international.getRb().getString("rueckMenuItem"));
-        linksMenuItem.setText(international.getRb().getString("linksMenuItem"));
-        rechtsMenuItem.setText(international.getRb().getString("rechtsMenuItem"));
         startMenuItem.setText(international.getRb().getString("startMenuItem"));
         pauseMenuItem.setText(international.getRb().getString("pauseMenuItem"));
         stopMenuItem.setText(international.getRb().getString("stopMenuItem"));
         speichernBeispiel.setText(international.getRb().getString("exampleSave"));
         ladenBeispiel.setText(international.getRb().getString("exampleLoad"));
         hinweisMenuItem.setText(international.getRb().getString("hinweisMenuItem"));
-        hilfeMenuItem.setText(international.getRb().getString("hilfeMenuItem"));
         buttonNeuesDokument.setTooltip(new Tooltip(international.getRb().getString("buttonNeuesDokument")));
         buttonOeffneDokument.setTooltip(new Tooltip(international.getRb().getString("buttonOeffneDokument")));
         buttonSpeichernDokument.setTooltip(new Tooltip(international.getRb().getString("buttonSpeichernDokument")));
-
-        buttonUp.setTooltip(new Tooltip(international.getRb().getString("buttonUp")));
-        buttonRight.setTooltip(new Tooltip(international.getRb().getString("buttonRight")));
-        buttonLeft.setTooltip(new Tooltip(international.getRb().getString("buttonLeft")));
-        buttonDown.setTooltip(new Tooltip(international.getRb().getString("buttonDown")));
 
         buttonStart.setTooltip(new Tooltip(international.getRb().getString("buttonStart")));
         buttonStop.setTooltip(new Tooltip(international.getRb().getString("buttonStop")));
