@@ -62,60 +62,17 @@ public class Roboter extends Thread {
                 throw new ThreadStopException();
             }
 
-            /*
-             * Der folgende Teil pr�ft auf eine Endlosschleife von maxmialer
-             * Gr��e von RunCodeController.endlossAbbruchKriterium ab / 2.
-             * Sollte die Endlosschlaeife einen gr��eren Rahmen umfassen, so
-             * wird nicht abgebrochen. Dieses ist aber sehr unwahrscheinlich.
-             */
-            getAbbruchArray()[getCountAbbruch()] = name.toString();
-            setCountAbbruch(getCountAbbruch() + 1);
-            if (getAbbruchArray()[RunCodeController.endlossAbbruchKriterium - 1] != null && !getAbbruchArray()[RunCodeController.endlossAbbruchKriterium - 1].equals("")) {
-                ArrayList<String> abbruch = new ArrayList<String>();
-                String anfangsString = getAbbruchArray()[RunCodeController.endlossAbbruchKriterium - 1];
-                abbruch.add(anfangsString);
-                int count = RunCodeController.endlossAbbruchKriterium - 2;
-                while (count >= 0 && !getAbbruchArray()[count].equals(anfangsString)) {
-                    abbruch.add(getAbbruchArray()[count]);
-                    count = count - 1;
-                }
-                int zaehler = RunCodeController.endlossAbbruchKriterium - count;
-                /*
-                 * wenn zaehler gr��er als das halbe Abbruchkriterium, dann ist
-                 * ein Vergleich sinnlos..
-                 */
-                if (zaehler <= RunCodeController.endlossAbbruchKriterium / 2) {
-                    int zaehlerImArray = 0;
-                    while (count >= 0) {
-                        if (!abbruch.get(zaehlerImArray).equals(getAbbruchArray()[count])) {
-                            break;
-                        }
-                        count = count - 1;
-                        zaehlerImArray = (zaehlerImArray + 1) % zaehler;
-                    }
-                    if (count == 0) {
-                        throw new ThreadStopException();
-                    }
-                }
 
-            }
-            sleeping = true;
-            // end EndlosschleifenPr�fung
-            System.out.println("tschüss");
             try {
-                System.out.println((long) (50 * (101.0 - getSpeed().getValue())));
-                sleep((long) (50 * (101.0 - getSpeed().getValue())));
+                sleep((long) (40 * (101.0 - getSpeed().getValue())));
                 while (isPause()) {
-                    sleep((long) (50 * (101.0 - getSpeed().getValue())));
-//					this.wait();
+                    sleep((long) (40 * (101.0 - getSpeed().getValue())));
                 }
             } catch (InterruptedException e) {
                 sleeping = false;
                 System.out.println("this is the end, hold your hands and count to 10, feel the earth move an then");
                 throw new ThreadStopException();
             }
-            System.out.println("moin");
-            sleeping = false;
             if (stopped) {
                 throw new ThreadStopException();
             }

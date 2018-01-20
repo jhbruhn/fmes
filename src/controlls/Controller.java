@@ -88,7 +88,7 @@ public class Controller extends Thread {
 
     private List<Graph> generateEnforcedBatteryGraphs(Graph graph, graph.State initial, List<List<Move>> robotMoves, List<List<Move>> childMoves) {
         List<Graph> enforcedBatteryGraphs = new ArrayList<>();
-        for (ZielFeld battery : territorium.getBatterienAufDemFeld()) {
+        for (ZielFeld battery : territorium.getBatterieFelder()) {
             enforcedBatteryGraphs.add(graph.calculateEnforcedGraph(new Vector2(battery.getSpalte(), battery.getReihe())));
         }
         return enforcedBatteryGraphs;

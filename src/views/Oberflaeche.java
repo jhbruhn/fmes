@@ -147,9 +147,6 @@ public class Oberflaeche {
     // Controlliert alle TextArea-Ereignisse
     private TextAreaControls textAreaControls;
 
-    // controlls.Controller fuer die Aninamtionen wird hier selber nicht gebraucht in
-    // Oberflaeche, ist nur zum Initialieseren hier
-    private AnimationController animation;
 
     private MovementInputController movement;
     private TextField robotInput;
@@ -220,8 +217,7 @@ public class Oberflaeche {
         m[3] = batterie;
         m[4] = location;
         m[5] = deleteBefehl;
-        animation = new AnimationController(m, comboboxButtonBearbeitenAuswahl, labelBottom, getInternationalitaet().getRb());
-        territoriumPanel = new TerritoriumPanel(getTerritorium(), scWidth, scHeigth, animation);
+        territoriumPanel = new TerritoriumPanel(getTerritorium(), scWidth, scHeigth);
         borderPaneForCodeField = new BorderPane();
         root = new StackPane();
 
