@@ -1,10 +1,7 @@
 package controlls;
 
 import Util.ArrayListListToListList;
-import graph.Field;
-import graph.Graph;
-import graph.Move;
-import graph.Vector2;
+import graph.*;
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import modell.Kind;
@@ -22,11 +19,13 @@ public class Controller extends Thread {
     RandomChildController randomChildController;
     RobotController robotController;
     ArrayList<ZielFeld> goalfield;
+    //List<> batteryFields;
     Graph graph;
     private boolean stopped = false;
 
     public Controller(Roboter r, Territorium territorium) {
         this.territorium = territorium;
+        this.territorium.setTrankfuellungBeachten(true);
         this.child = territorium.getChild();
         this.robot = r;
         randomChildController = new RandomChildController(child, territorium.childMoves);
@@ -36,6 +35,7 @@ public class Controller extends Thread {
         List<List<Move>> robotMoves = ArrayListListToListList.convert(territorium.robotMoves);
         List<List<Move>> childMoves = ArrayListListToListList.convert(territorium.childMoves);
         graph = Graph.generateGraph(initial, robotMoves, childMoves);
+        List<Graph> batteryGraphs= generateBatteryGraphs(initial, robotMoves, childMoves);
         this.robotController = new RobotController(r, territorium);
         this.goalfield = territorium.getZielFelder();
     }
@@ -47,6 +47,7 @@ public class Controller extends Thread {
             for (ZielFeld ziel : goalfield) {
                 territorium.setNextGoalField(ziel);
                 Graph enforcedGraph = graph.calculateEnforcedGraph(new Vector2(ziel.getSpalte(), ziel.getReihe()));
+
                 robotController.setGraph(enforcedGraph);
                 randomChildController.setGraph(enforcedGraph);
                 while (robotController.isSolvable() && !robotController.isTerminated(ziel.getReihe(), ziel.getSpalte())) {
@@ -85,6 +86,10 @@ public class Controller extends Thread {
             }
         }
         return walls;
+    }
+
+    private List<Graph> generateBatteryGraphs(graph.State initial, List<List<Move>> robotMoves, List<List<Move>> childMoves) {
+        return null;
     }
 
     public synchronized void setStopped(boolean stopped) {
