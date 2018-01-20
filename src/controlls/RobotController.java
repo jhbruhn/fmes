@@ -7,12 +7,14 @@ import modell.Roboter;
 import modell.Territorium;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RobotController {
     private final Roboter roboter;
     Graph graph;
     ArrayList<Territorium.Richtung> robotMove;
     Territorium territorium;
+    List<Graph> enforcedBatteryGraphs;
 
     public RobotController(Roboter roboter, Territorium territorium) {
         this.roboter = roboter;
@@ -57,17 +59,7 @@ public class RobotController {
         }
         return true;
     }
-    /* All goals from 1-k are reached.
-    // Start a new run.
-    public boolean isTerminated() {
-        //todo
-        return false;
-    }*/
 
-    //todo
-    public boolean enoughEnergy() {
-        return true;
-    }
 
     public Graph getGraph() {
         return graph;
