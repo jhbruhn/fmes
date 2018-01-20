@@ -30,7 +30,6 @@ public class RobotController {
     public void doNextStep(Territorium.Richtung richtung) {
         while(roboter.isSleeping()) Thread.yield();
         roboter.bewege(richtung);
-        System.out.println("Move bitch");
     }
 
     //there is a chance to reach the goal
