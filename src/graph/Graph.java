@@ -159,7 +159,7 @@ public class Graph implements Cloneable {
     public int getLongestPathToTarget(State from) {
         if (from == null) return -1;
         if (from.enforceValue == -1) throw new RuntimeException("You cannot calculate a path on an unenforced graph");
-
+        System.out.println("Calculating cost");
         int cost = 0;
         State state = from;
         while (state.enforceValue != 0) {
@@ -172,27 +172,26 @@ public class Graph implements Cloneable {
             Transition transition = null;
 
             for (Transition t : transitions) {
-                if(state.isRobotState) {
-                    if (t.to.enforceValue < state.enforceValue)
-                        if (newState == null || t.to.enforceValue > newState.enforceValue) {
-                            newState = t.to;
-                            transition = t;
-                        }
-                } else {
-                    if(newState == null || newState.enforceValue < t.to.enforceValue)
-                        newState = t.to;
+                if (newState == null || t.to.enforceValue < newState.enforceValue) {
+                    transition = t;
+                    newState = t.to;
                 }
             }
 
             state = newState;
             if (state == null) return -1;
 
-            if(state.isRobotState && transition != null) {
-                for(Move move : transition.moves) {
+            if (!state.isRobotState) {
+                System.out.println(transition.moves);
+
+                for (Move move : transition.moves) {
+                    System.out.println(move.energyUse);
                     cost += move.energyUse;
                 }
             }
         }
+
+        System.out.println("Calculated cost: " + cost);
 
 
         return cost;

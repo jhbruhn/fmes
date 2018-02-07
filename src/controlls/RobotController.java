@@ -15,12 +15,10 @@ public class RobotController {
     ArrayList<Territorium.Richtung> robotMove;
     Territorium territorium;
     List<Graph> enforcedBatteryGraphs;
-    int energyLevel;
 
     public RobotController(Roboter roboter, Territorium territorium) {
         this.roboter = roboter;
         this.territorium = territorium;
-        this.energyLevel=territorium.getStartTankfuellung();
     }
 
     //Move the robot to the best possible position
@@ -34,8 +32,8 @@ public class RobotController {
     public void doNextStep(Territorium.Richtung richtung) {
         while(roboter.isSleeping()) Thread.yield();
         roboter.bewege(richtung);
-        if(!(richtung == Territorium.Richtung.EPSILON)) {
-            energyLevel -= 1;
+        if(richtung != Territorium.Richtung.EPSILON) {
+            roboter.setTankFuellung(roboter.getTankFuellung() - 1);
         }
     }
 
@@ -82,6 +80,6 @@ public class RobotController {
     }
 
     public int getEnergyLevel() {
-        return energyLevel;
+        return roboter.getTankFuellung();
     }
 }
