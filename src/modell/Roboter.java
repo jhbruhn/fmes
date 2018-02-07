@@ -64,9 +64,9 @@ public class Roboter extends Thread {
 
 
             try {
-                sleep((long) (40 * (101.0 - getSpeed().getValue())));
+                sleep((long) (10 * (101.0 - getSpeed().getValue())));
                 while (isPause()) {
-                    sleep((long) (40 * (101.0 - getSpeed().getValue())));
+                    sleep((long) (10 * (101.0 - getSpeed().getValue())));
                 }
             } catch (InterruptedException e) {
                 sleeping = false;
