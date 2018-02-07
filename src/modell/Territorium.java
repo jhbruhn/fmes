@@ -339,6 +339,8 @@ public class Territorium extends Observable implements java.io.Serializable {
             }
             boolean felsen = true;
             if (roboter) {
+                if(batterieDa())
+                    getRoboter().setTankFuellung(getStartTankfuellung());
                 if (getRoboter().getTankFuellung() <= 0 && trankfuellungBeachten) {
                     Platform.runLater(() -> {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
