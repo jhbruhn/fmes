@@ -124,9 +124,9 @@ public class Graph implements Cloneable {
 
     public List<Transition> getViableTransitionsFromState(State state) {
         List<Transition> viableMoves = new ArrayList<>();
-        List<Transition> transitions = getTransitionsFrom(state);
+        List<Transition> transitionsFrom = getTransitionsFrom(state);
 
-        for (Transition t : transitions) {
+        for (Transition t : transitionsFrom) {
             if (t.to.enforceValue < state.enforceValue) {
                 viableMoves.add(t);
             }
@@ -139,9 +139,9 @@ public class Graph implements Cloneable {
         if (state.isRobotState) throw new RuntimeException("You cannot do always do all moves from a robotstate.");
         List<List<Move>> moves = new ArrayList<>();
 
-        List<Transition> transitions = getTransitionsFrom(state);
+        List<Transition> transitionsFrom = getTransitionsFrom(state);
 
-        for (Transition t : transitions) {
+        for (Transition t : transitionsFrom) {
             moves.add(t.moves);
         }
 
@@ -156,7 +156,7 @@ public class Graph implements Cloneable {
         return viableMoves.get(0).moves;
     }
 
-    public int getLongestPathToTarget(State from) {
+    public int getCostToTarget(State from) {
         if (from == null) return -1;
         if (from.enforceValue == -1) throw new RuntimeException("You cannot calculate a path on an unenforced graph");
         System.out.println("Calculating cost");
@@ -165,7 +165,7 @@ public class Graph implements Cloneable {
         while (state.enforceValue != 0) {
             List<Transition> transitions = getTransitionsFrom(state);
             if (transitions.isEmpty()) {
-                return -1;
+                return Integer.MAX_VALUE;
             }
 
             State newState = null;
@@ -179,7 +179,7 @@ public class Graph implements Cloneable {
             }
 
             state = newState;
-            if (state == null) return -1;
+            if (state == null) return Integer.MAX_VALUE;
 
             if (!state.isRobotState) {
                 System.out.println(transition.moves);
@@ -225,10 +225,10 @@ public class Graph implements Cloneable {
         g.initialState = initial;
         g.states.add(initial);
 
-        Stack<State> statesToGenerate = new Stack<>();
+        Deque<State> statesToGenerate = new ArrayDeque<>();
         statesToGenerate.add(initial);
 
-        while (!statesToGenerate.empty()) {
+        while (!statesToGenerate.isEmpty()) {
             State currentState = statesToGenerate.pop();
 
             List<Transition> transitions = currentState.generateNextStates(currentState.isRobotState ? robotMoves : childMoves);

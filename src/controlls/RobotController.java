@@ -2,7 +2,7 @@ package controlls;
 
 import Util.ListToArrayList;
 import Util.StateUtil;
-import graph.*;
+import graph.Graph;
 import modell.Roboter;
 import modell.Territorium;
 
@@ -24,17 +24,14 @@ public class RobotController {
     //Move the robot to the best possible position
     public void doNextMove() {
         robotMove = ListToArrayList.convert(graph.getNextRobotMove(graph.findStateForPositions(StateUtil.getRobotPosition(territorium), StateUtil.getChildPosition(territorium), true)));
-        for (int i = 0; i < robotMove.size(); i++) {
-            doNextStep(robotMove.get(i));
+        for (Territorium.Richtung aRobotMove : robotMove) {
+            doNextStep(aRobotMove);
         }
     }
 
     public void doNextStep(Territorium.Richtung richtung) {
-        while(roboter.isSleeping()) Thread.yield();
+        while (roboter.isSleeping()) Thread.yield();
         roboter.bewege(richtung);
-        if(richtung != Territorium.Richtung.EPSILON) {
-            roboter.setTankFuellung(roboter.getTankFuellung() - 1);
-        }
     }
 
     //there is a chance to reach the goal
@@ -72,7 +69,7 @@ public class RobotController {
     }
 
     public boolean isTerminated(int y, int x) {
-        if(territorium.feldReiheRoboter==y&&territorium.feldSpalteRoboter==x){
+        if (territorium.feldReiheRoboter == y && territorium.feldSpalteRoboter == x) {
             return true;
         }
         System.out.println("not terminated");

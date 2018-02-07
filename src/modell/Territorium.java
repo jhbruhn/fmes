@@ -238,6 +238,9 @@ public class Territorium extends Observable implements java.io.Serializable {
                         }
                         getZielFelder().remove(getZielFelder().get(k));
                     }
+
+                }
+                for(int k = 0; k < getBatterieFelder().size(); k++) {
                     if (getBatterieFelder().get(k).getReihe() == reihe
                             && getBatterieFelder().get(k).getSpalte() == spalte) {
                         getBatterieFelder().remove(getBatterieFelder().get(k));
@@ -296,7 +299,7 @@ public class Territorium extends Observable implements java.io.Serializable {
             for (int y = -1; y < 2; y++) {
                 int reihe = feldReiheRoboter + x;
                 int spalte = feldSpalteRoboter + y;
-                if (reihe >= 0 && spalte >= 0 && !batterieDa)
+                if (reihe >= 0 && spalte >= 0 && reihe < getFeld().length && spalte < getFeld()[0].length && !batterieDa)
                     batterieDa = getFeld()[reihe][spalte] == FeldEigenschaft.Batterie;
             }
         }
