@@ -4,10 +4,7 @@ import Util.ArrayListListToListList;
 import graph.*;
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
-import modell.Kind;
-import modell.Roboter;
-import modell.Territorium;
-import modell.ZielFeld;
+import modell.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -102,14 +99,12 @@ public class Controller extends Thread {
         return walls;
     }
 
-    private List<List<Graph>> generateEnforcedBatteryGraphs(Graph graph, graph.State initial, List<List<Move>> robotMoves, List<List<Move>> childMoves) {
-        List<List<Graph>> enforcedBatteryGraphs = new ArrayList<>();
+    private List<Battery> generateEnforcedBatteryGraphs(Graph graph, graph.State initial, List<List<Move>> robotMoves, List<List<Move>> childMoves) {
+        List<Battery> batteryList = new ArrayList<>();
         for (ZielFeld battery : territorium.getBatterieFelder()) {
-            List<Graph> list= new ArrayList<>();
-            list.add(0,battery);
-
+            batteryList.add(new Battery(battery,graph.calculateEnforcedGraph(new Vector2(battery.getReihe(),battery.getSpalte()))));
         }
-        return enforcedBatteryGraphs;
+        return batteryList;
     }
 
     public synchronized void setStopped(boolean stopped) {
