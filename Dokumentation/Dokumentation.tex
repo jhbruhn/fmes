@@ -1,10 +1,40 @@
-\documentclass[10pt,a4paper]{article}
-\usepackage[latin1]{inputenc}
+\documentclass[a4paper,titlepage]{scrartcl}
+\usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage[english,ngerman]{babel}
+\usepackage{hyperref}
+\usepackage{tabularx, booktabs}
+\newcolumntype{?}{!{\vrule width 2pt}}
+\usepackage{float}
+\usepackage[autostyle]{csquotes}
+\usepackage{listings}
+\lstset{%
+	basicstyle=\ttfamily,%\small,
+	numbers=left,
+	breaklines=true,
+	prebreak=\mbox{$\hookleftarrow$}
+}
+\usepackage[headsepline]{scrlayer-scrpage}
+\automark[section]{section}
+\makeatletter
+\def\hlinewd#1{%
+	\noalign{\ifnum0=`}\fi\hrule \@height #1 %
+	\futurelet\reserved@a\@xhline}
+\makeatother
 \begin{document}
-	dummy
-	\input{testOrdner/test}
+	
+	\title{Dokumentation}
+	\author{Fabian, Jan-Henrik Bruhn, Sven Mehlhop} 
+	\date{\today} 
+	\maketitle
+	\tableofcontents
+	\include{Einleitung/Einleitung}
+	\include{Hauptteil/Programmuebersicht}
+	\include{Hauptteil/Algorithmen}
+	\include{Ende/Ergebnisse}
+	\include{Anhang/Arbeitsverteilung}
+	\include{Anhang/Erklaerung}
 \end{document}

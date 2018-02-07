@@ -1,0 +1,8 @@
+\select@language {ngerman}
+\contentsline {section}{\numberline {1}Einleitung}{3}{section.1}
+\contentsline {section}{\numberline {2}Programm\IeC {\"u}bersicht}{4}{section.2}
+\contentsline {section}{\numberline {3}Algorithmen}{5}{section.3}
+\contentsline {subsection}{\numberline {3.1}Spielgraph}{5}{subsection.3.1}
+\contentsline {section}{\numberline {4}Ergebnisse}{6}{section.4}
+\contentsline {section}{\numberline {5}Arbeitsverteilung}{7}{section.5}
+\contentsline {section}{\numberline {6}Erkl\IeC {\"a}rung}{8}{section.6}

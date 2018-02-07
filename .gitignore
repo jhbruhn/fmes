@@ -1,4 +1,7 @@
 .idea/
 *.iml
 workspace.xml
+*.log
+*.gz
+*.aux
 out/
