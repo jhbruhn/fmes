@@ -1,16 +1,13 @@
 package modell;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Observable;
+import javafx.application.Platform;
+import javafx.scene.control.Alert;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
-
-import javafx.application.Platform;
-import javafx.scene.control.Alert;
-import javafx.scene.media.AudioClip;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Observable;
 
 @XmlRootElement(name = "territorium")
 public class Territorium extends Observable implements java.io.Serializable {
@@ -294,18 +291,17 @@ public class Territorium extends Observable implements java.io.Serializable {
      * gibt an ob eine Batterie unter dem U-Boot ist
      */
     public boolean batterieDa() {
-        if (getFeld()[feldReiheRoboter][feldSpalteRoboter] == FeldEigenschaft.Batterie
-                || getFeld()[feldReiheRoboter + 1][feldSpalteRoboter] == FeldEigenschaft.Batterie
-                || getFeld()[feldReiheRoboter][feldSpalteRoboter + 1] == FeldEigenschaft.Batterie
-                || getFeld()[feldReiheRoboter - 1][feldSpalteRoboter] == FeldEigenschaft.Batterie
-                || getFeld()[feldReiheRoboter][feldSpalteRoboter - 1] == FeldEigenschaft.Batterie
-                || getFeld()[feldReiheRoboter + 1][feldSpalteRoboter + 1] == FeldEigenschaft.Batterie
-                || getFeld()[feldReiheRoboter - 1][feldSpalteRoboter - 1] == FeldEigenschaft.Batterie
-                || getFeld()[feldReiheRoboter + 1][feldSpalteRoboter - 1] == FeldEigenschaft.Batterie
-                || getFeld()[feldReiheRoboter - 1][feldSpalteRoboter + 1] == FeldEigenschaft.Batterie) {
-            return true;
+        boolean batterieDa = false;
+        for (int x = -1; x < 2; x++) {
+            for (int y = -1; y < 2; y++) {
+                int reihe = feldReiheRoboter + x;
+                int spalte = feldSpalteRoboter + y;
+                if (reihe >= 0 && spalte >= 0 && !batterieDa)
+                    batterieDa = getFeld()[reihe][spalte] == FeldEigenschaft.Batterie;
+            }
         }
-        return false;
+
+        return batterieDa;
     }
 
     /*
@@ -339,7 +335,7 @@ public class Territorium extends Observable implements java.io.Serializable {
             }
             boolean felsen = true;
             if (roboter) {
-                if(batterieDa())
+                if (batterieDa())
                     getRoboter().setTankFuellung(getStartTankfuellung());
                 if (getRoboter().getTankFuellung() <= 0 && trankfuellungBeachten) {
                     Platform.runLater(() -> {
