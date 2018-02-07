@@ -14,12 +14,10 @@ public class RunCodeController {
 	private Territorium territorium;
 	private Slider slider;
 	private Roboter runcode;
-	private EndlosschleifenThread endlos;
 	public static final int endlossAbbruchKriterium = 200;
 	Controller controller;
 	public RunCodeController(Territorium t, Slider s, Button start, Button stop, Button pause, MenuItem startMenuItem,
-			MenuItem stopMenuItem, MenuItem pauseMenuItem, Oberflaeche o, ArrayList<Button> buttons,
-			ArrayList<MenuItem> menuItems) {
+			MenuItem stopMenuItem, MenuItem pauseMenuItem, Oberflaeche o) {
 		setTerritorium(t);
 		setSlider(s);
 
@@ -48,14 +46,11 @@ public class RunCodeController {
 		startMenuItem.setOnAction(e -> {
 			if (runcode == null || !runcode.isAlive()) {
 				runcode = null;
-				endlos = null;
 				Roboter ralf = new Roboter(getTerritorium());
 				getTerritorium().setRoboter(ralf);
 				Kind hammerhuepfer = new Kind(getTerritorium());
 				getTerritorium().setChild(hammerhuepfer);
 				runcode = getTerritorium().getRoboter();
-				endlos = new EndlosschleifenThread(o.territoriumPanel, runcode, menuItems, buttons, stopMenuItem, stop,
-						pauseMenuItem, pause, startMenuItem, start);
 				getTerritorium().getRoboter().getSpeed().bind(getSlider().valueProperty());
 				runcode.setStopped(false);
 				runcode.start();

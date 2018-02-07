@@ -8,7 +8,6 @@ import java.util.ResourceBundle;
 
 import javax.swing.JComponent;
 
-import controlls.AnimationController;
 import javafx.scene.text.Font;
 import modell.ScAchse;
 import modell.Territorium;
@@ -39,12 +38,6 @@ public class TerritoriumPanel extends Region implements Observer {
     private final Image batterieSmall = new Image(
             getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/batterieSmall.png"));
 
-    private final Image ort2 = new Image(
-            getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/ort2.jpg"));
-
-    private final Image ort3 = new Image(
-            getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/ort3.jpg"));
-
     private final Image deleteSmall = new Image(
             getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/deleteSmall.png"));
 
@@ -69,9 +62,6 @@ public class TerritoriumPanel extends Region implements Observer {
     static ResourceBundle rb;
     static Locale locale;
 
-    Image imageBackground = null;
-    String backgroundString = "";
-
     Pane pane;
     Rectangle rectangleForDeath;
 
@@ -83,10 +73,8 @@ public class TerritoriumPanel extends Region implements Observer {
     private double groeßeX;
     private double groeßeY;
 
-    private AnimationController animation;
-
     /*
-     * Gibt dem UBoot beim Tod durch den Spieler eine TodesAnimation
+     * Gibt dem Roboter beim Tod durch den Spieler eine TodesAnimation
      */
     private void deathAnimation(Territorium t) {
         pane = new Pane();
@@ -110,8 +98,6 @@ public class TerritoriumPanel extends Region implements Observer {
         }));
         timeline.play();
 
-        getAnimation().paneControll(timeDeath, pane, root);
-
         root.getChildren().add(pane);
     }
 
@@ -132,7 +118,7 @@ public class TerritoriumPanel extends Region implements Observer {
                 TerritoriumPanel.locale);
     }
 
-    public TerritoriumPanel(Territorium t, ScAchse sx, ScAchse sy, AnimationController a) {
+    public TerritoriumPanel(Territorium t, ScAchse sx, ScAchse sy) {
         setTerritorium(t);
         setPictureBundle();
         drawField(t);
@@ -140,7 +126,6 @@ public class TerritoriumPanel extends Region implements Observer {
         scrollPane = new ScrollPane(root);
         scWidth = sx;
         scHeigth = sy;
-        setAnimation(a);
     }
 
     /*
@@ -353,11 +338,4 @@ public class TerritoriumPanel extends Region implements Observer {
         this.changed = changed;
     }
 
-    public AnimationController getAnimation() {
-        return animation;
-    }
-
-    public void setAnimation(AnimationController animation) {
-        this.animation = animation;
-    }
 }

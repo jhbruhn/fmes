@@ -41,7 +41,6 @@ public class RobotController {
 
     //there is a chance to reach the goal
     public boolean isSolvable() {
-        System.out.println(graph.toDotString());
         if (territorium == null) {
             System.out.println("debug: territorium is null");
             return false;

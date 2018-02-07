@@ -160,7 +160,7 @@ public class Graph implements Cloneable {
         if (from == null) return -1;
         if (from.enforceValue == -1) throw new RuntimeException("You cannot calculate a path on an unenforced graph");
 
-        int pathLength = 0;
+        int cost = 0;
         State state = from;
         while (state.enforceValue != 0) {
             List<Transition> transitions = getTransitionsFrom(state);
@@ -169,23 +169,33 @@ public class Graph implements Cloneable {
             }
 
             State newState = null;
+            Transition transition = null;
 
             for (Transition t : transitions) {
-                if (t.to.enforceValue < state.enforceValue)
-                    if (newState == null)
+                if(state.isRobotState) {
+                    if (t.to.enforceValue < state.enforceValue)
+                        if (newState == null || t.to.enforceValue > newState.enforceValue) {
+                            newState = t.to;
+                            transition = t;
+                        }
+                } else {
+                    if(newState == null || newState.enforceValue < t.to.enforceValue)
                         newState = t.to;
-                    else if (t.to.enforceValue > newState.enforceValue)
-                        newState = t.to;
+                }
             }
 
             state = newState;
             if (state == null) return -1;
 
-            pathLength++;
+            if(state.isRobotState && transition != null) {
+                for(Move move : transition.moves) {
+                    cost += move.energyUse;
+                }
+            }
         }
 
 
-        return pathLength;
+        return cost;
     }
 
 
