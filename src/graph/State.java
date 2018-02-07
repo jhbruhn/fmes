@@ -7,7 +7,7 @@ public class State implements Cloneable {
     public Vector2 robot;
     public Vector2 child;
     Field field;
-    boolean isRobotState; // True if it is the robots turn, false when not
+    public boolean isRobotState; // True if it is the robots turn, false when not
     public int enforceValue = -1;
 
     public State(Field field, Vector2 robot, Vector2 child, boolean isRobotState) {
@@ -22,11 +22,11 @@ public class State implements Cloneable {
 
         List<Transition> transitions = new ArrayList<>();
         for (List<Move> sequence : movePossibilities) {
-            State startState = this;
+            State state = this;
             boolean valid = true;
             for(Move m : sequence) {
-                if (startState.isMovePossible(m, true)) {
-                    startState = new State(startState.field, startState.robot.add(m.directionVector), startState.child, false);
+                if (state.isMovePossible(m, true)) {
+                    state = new State(state.field, state.robot.add(m.directionVector), state.child, false);
                 } else {
                     valid = false;
                     break;
@@ -36,8 +36,7 @@ public class State implements Cloneable {
                 continue;
             }
 
-            State s = startState;
-            Transition t = new Transition(this, sequence, s);
+            Transition t = new Transition(this, sequence, state);
             transitions.add(t);
         }
 
@@ -51,19 +50,18 @@ public class State implements Cloneable {
 
         List<Transition> transitions = new ArrayList<>();
         for (List<Move> sequence : movePossibilities) {
-            State startState = this;
+            State state = this;
             boolean valid = true;
             for(Move m : sequence) {
-                if (startState.isMovePossible(m, false)) {
-                    startState = new State(startState.field, startState.robot, startState.child.add(m.directionVector), true);
+                if (state.isMovePossible(m, false)) {
+                    state = new State(state.field, state.robot, state.child.add(m.directionVector), true);
                 } else {
                     valid = false;
                 }
             }
             if(!valid) continue;
 
-            State s = startState;
-            Transition t = new Transition(this, sequence, s);
+            Transition t = new Transition(this, sequence, state);
             transitions.add(t);
         }
         return transitions;

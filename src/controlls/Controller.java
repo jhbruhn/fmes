@@ -1,6 +1,7 @@
 package controlls;
 
 import Util.ArrayListListToListList;
+import Util.StateUtil;
 import graph.Field;
 import graph.Graph;
 import graph.Move;
@@ -21,7 +22,6 @@ public class Controller extends Thread {
     RandomChildController randomChildController;
     RobotController robotController;
     ArrayList<ZielFeld> goalfields;
-    Battery nextBattery;
     List<Battery> batteries;
     Graph graph;
     private boolean stopped = false;
@@ -39,12 +39,15 @@ public class Controller extends Thread {
 
         this.robotController = new RobotController(r, territorium);
         this.goalfields = territorium.getZielFelder();
+        Platform.runLater(() -> {
+            this.dialog = WaitingDialog.getWaitingDialog();
+        });
+
     }
 
     @Override
     public void run() {
         Platform.runLater(() -> {
-            this.dialog = WaitingDialog.getWaitingDialog();
             this.dialog.show();
         });
 
@@ -54,8 +57,11 @@ public class Controller extends Thread {
         graph = Graph.generateGraph(initial, robotMoves, childMoves);
         this.batteries = generateEnforcedBatteryGraphs(graph);
 
-
-        Platform.runLater(dialog::hide);
+        try {
+            Platform.runLater(dialog::hide);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         while (true) {
             for (ZielFeld ziel : goalfields) {
                 System.out.println("New Target calculating graph!");
@@ -64,21 +70,7 @@ public class Controller extends Thread {
                 randomChildController.setGraph(enforcedGraph);
                 robotController.setGraph(enforcedGraph);
                 while (robotController.isSolvable() && !robotController.isTerminated(ziel.getReihe(), ziel.getSpalte())) {
-
-                    System.out.println("Calculating Energy needs");
-                    if (!enoughEnergy(enforcedGraph)) {
-                        if (nextBattery != null) {
-                            System.out.println("Going to Battery");
-                            //Graph enforcedBatteryGraph = graph.calculateEnforcedGraph(new Vector2(nextBattery.getSpalte(), nextBattery.getReihe()));
-                            robotController.setGraph(nextBattery.getEnforcedGraph());
-                        } else {
-                            System.out.println("Not Battery in reach!");
-                            showNoTargetError();
-                        }
-                    } else {
-                        System.out.println("Going to Target");
-                        robotController.setGraph(enforcedGraph);
-                    }
+                    calculateEnergyDemands(enforcedGraph, new Vector2(ziel.getSpalte(), ziel.getReihe()));
 
                     System.out.println("Doing Robot Move");
                     robotController.doNextMove();
@@ -123,7 +115,7 @@ public class Controller extends Thread {
     private List<Battery> generateEnforcedBatteryGraphs(Graph graph) {
         List<Battery> batteryList = new ArrayList<>();
         for (ZielFeld battery : territorium.getBatterieFelder()) {
-            batteryList.add(new Battery(battery, graph.calculateEnforcedGraph(new Vector2(battery.getSpalte(), battery.getReihe()))));
+            batteryList.add(new Battery(battery, graph.calculateEnforcedGraph(new Vector2(battery.getSpalte(), battery.getReihe())), new Vector2(battery.getSpalte(), battery.getReihe())));
         }
         return batteryList;
     }
@@ -132,34 +124,82 @@ public class Controller extends Thread {
         this.stopped = stopped;
     }
 
-    public boolean enoughEnergy(Graph targetGraph) {
-        graph.State state = batteries.get(0).getEnforcedGraph().findStateForPositions(new Vector2(territorium.feldSpalteRoboter, territorium.feldReiheRoboter), new Vector2(territorium.getFeldSpalteKind(), territorium.getFeldReiheKind()), true);
-        int bestWorstEnergyPath = batteries.get(0).getEnforcedGraph().getLongestPathToTarget(state);
+    public void calculateEnergyDemands(Graph targetGraph, Vector2 targetLocation) {
+        graph.State state = targetGraph.findStateForPositions(StateUtil.getRobotPosition(territorium), StateUtil.getChildPosition(territorium), true);
+
+        // robot - > target
+        int longestPathToTarget = targetGraph.getCostToTarget(state);
+
+
+        state = batteries.get(0).getEnforcedGraph().findStateForPositions(targetLocation, StateUtil.getChildPosition(territorium), true);
+
+        // Will be: target -> battery
+        int bestWorstEnergyPath = batteries.get(0).getEnforcedGraph().getCostToTarget(state);
         Battery next = batteries.get(0);
 
-        for (int i = 1; i < batteries.size(); i++) {
-            state = batteries.get(i).getEnforcedGraph().findStateForPositions(new Vector2(territorium.feldSpalteRoboter, territorium.feldReiheRoboter), new Vector2(territorium.getFeldSpalteKind(), territorium.getFeldReiheKind()), true);
-            int cost = batteries.get(i).getEnforcedGraph().getLongestPathToTarget(state);
-            if (bestWorstEnergyPath > cost) {
-                next = batteries.get(i);
-                bestWorstEnergyPath = cost;
+
+        for (Battery bat : batteries) {
+            List<graph.State> states = bat.getEnforcedGraph().findStatesForRobotPosition(targetLocation);
+            for (graph.State s : states) {
+                if (s.isRobotState) {
+                    int cost = bat.getEnforcedGraph().getCostToTarget(s);
+
+                    if (bestWorstEnergyPath > cost) {
+                        next = bat;
+                        bestWorstEnergyPath = cost;
+                    }
+                }
             }
         }
 
-        nextBattery = next;
-
-        state = targetGraph.findStateForPositions(new Vector2(nextBattery.getBattery().getSpalte(), nextBattery.getBattery().getReihe()), new Vector2(territorium.getFeldSpalteKind(), territorium.getFeldReiheKind()), true);
-
-        int longestPathToTarget = targetGraph.getLongestPathToTarget(state);
         System.out.println("BestWorstEnergyPath: " + bestWorstEnergyPath);
         System.out.println("LongestPathToTarget: " + longestPathToTarget);
         System.out.println("Sum: " + (bestWorstEnergyPath + longestPathToTarget));
 
-        if (bestWorstEnergyPath + longestPathToTarget <= robotController.getEnergyLevel()) {
-            return true;
+        // robot -> target -> battery <= energy
+        boolean canGoToTarget = bestWorstEnergyPath + longestPathToTarget <= robotController.getEnergyLevel();
+
+        if (canGoToTarget) {
+            System.out.println("Going to Target");
+            robotController.setGraph(targetGraph);
         } else {
-            System.out.println("Not enough energy! Going to battery");
-            return false;
+            // We cannot go to the target and then to a battery, so we go to the closest battery
+
+            // Get all batteries we can reach
+            List<Battery> reachableBatteries = new ArrayList<>();
+
+            for (Battery bat : batteries) {
+                graph.State bState = bat.getEnforcedGraph().findStateForPositions(StateUtil.getRobotPosition(territorium), StateUtil.getChildPosition(territorium), true);
+                int cost = bat.getEnforcedGraph().getCostToTarget(bState);
+                if(cost <= robotController.getEnergyLevel()) {
+                    reachableBatteries.add(bat);
+                }
+            }
+
+            // Now choose the battery which is closest to the target
+            Battery closestBat = null;
+            int closestCost = 0;
+            for(Battery bat : reachableBatteries) {
+
+                List<graph.State> bStates = targetGraph.findStatesForRobotPosition(bat.position);
+                for(graph.State bState : bStates) {
+                    int cost = targetGraph.getCostToTarget(bState);
+                    if (closestBat == null || closestCost > cost) {
+                        closestBat = bat;
+                        closestCost = cost;
+                    }
+                }
+
+            }
+
+            if(closestBat == null) {
+                System.out.println("No Battery found!");
+                showNoTargetError();
+            } else {
+
+                System.out.println("Going to Battery");
+                robotController.setGraph(closestBat.getEnforcedGraph());
+            }
         }
-    }//todo nextBattery
+    }
 }

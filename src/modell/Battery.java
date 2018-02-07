@@ -2,15 +2,18 @@ package modell;
 
 
 import graph.Graph;
+import graph.Vector2;
 
 public class Battery {
+    public final Vector2 position;
     ZielFeld battery;
     Graph enforcedGraph;
     int longestEnergyPath;
 
-    public Battery(ZielFeld battery, Graph enforcedGraph) {
+    public Battery(ZielFeld battery, Graph enforcedGraph, Vector2 vector2) {
         this.battery = battery;
         this.enforcedGraph = enforcedGraph;
+        this.position = vector2;
 
     }
 
