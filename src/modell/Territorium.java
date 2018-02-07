@@ -82,7 +82,7 @@ public class Territorium extends Observable implements java.io.Serializable {
 
     private boolean trankfuellungBeachten = false;
 
-    private int startTankfuellung = 100;
+    private int startTankfuellung = 15;
 
     /*
      * bastelt das Teritorium, nach den default werten
