@@ -27,6 +27,7 @@ public class RobotController {
         for (Territorium.Richtung aRobotMove : robotMove) {
             doNextStep(aRobotMove);
         }
+        System.out.println(robotMove.size());
     }
 
     public void doNextStep(Territorium.Richtung richtung) {
