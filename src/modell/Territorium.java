@@ -77,7 +77,7 @@ public class Territorium extends Observable implements java.io.Serializable {
 
     private ArrayList<ZielFeld> batterieFelder = new ArrayList<ZielFeld>();
 
-    private boolean trankfuellungBeachten = false;
+    private boolean trankfuellungBeachten = true;
 
     private int startTankfuellung = 25;
 

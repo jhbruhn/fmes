@@ -16,22 +16,18 @@ public class RunCodeController {
 	private Roboter runcode;
 	public static final int endlossAbbruchKriterium = 200;
 	Controller controller;
-	public RunCodeController(Territorium t, Slider s, Button start, Button stop, Button pause, MenuItem startMenuItem,
-			MenuItem stopMenuItem, MenuItem pauseMenuItem, Oberflaeche o) {
+	public RunCodeController(Territorium t, Slider s, Button start, Button stop, MenuItem startMenuItem,
+			MenuItem stopMenuItem, Oberflaeche o) {
 		setTerritorium(t);
 		setSlider(s);
 
 		stopMenuItem.setDisable(true);
 		stop.setDisable(true);
-		pauseMenuItem.setDisable(true);
-		pause.setDisable(true);
 
 		stopMenuItem.setOnAction(e -> {
 			if (runcode != null /*&& runcode.isAlive()*/) {
 				stopMenuItem.setDisable(true);
 				stop.setDisable(true);
-				pauseMenuItem.setDisable(true);
-				pause.setDisable(true);
 				startMenuItem.setDisable(false);
 				start.setDisable(false);
 				runcode.setStopped(true);
@@ -67,27 +63,10 @@ public class RunCodeController {
 			} else {
 				runcode.setPause(false);
 			}
-			pauseMenuItem.setDisable(false);
-			pause.setDisable(false);
 			startMenuItem.setDisable(true);
 			start.setDisable(true);
 		});
 		start.setOnAction(e -> startMenuItem.fire());
-
-		pauseMenuItem.setOnAction(e -> {
-			if (runcode != null && runcode.isAlive()) {
-				try {
-					runcode.setPause(true);
-					pauseMenuItem.setDisable(true);
-					pause.setDisable(true);
-					startMenuItem.setDisable(false);
-					start.setDisable(false);
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
-			}
-		});
-		pause.setOnAction(e -> pauseMenuItem.fire());
 	}
 
 	public Territorium getTerritorium() {

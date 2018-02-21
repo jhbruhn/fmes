@@ -29,7 +29,6 @@ public class Controller extends Thread {
 
     public Controller(Roboter r, Territorium territorium) {
         this.territorium = territorium;
-        this.territorium.setTrankfuellungBeachten(true);
         this.child = territorium.getChild();
         this.robot = r;
         randomChildController = new RandomChildController(child, territorium.childMoves);

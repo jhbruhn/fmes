@@ -58,7 +58,6 @@ public class Oberflaeche {
 
     // MenuUnterpunkte im Menupunkt "Simulation"
     private MenuItem startMenuItem;
-    private MenuItem pauseMenuItem;
     private MenuItem stopMenuItem;
 
     // MenuUnterpunkte im Menupunkt "Hilfe"
@@ -69,8 +68,6 @@ public class Oberflaeche {
     // Button Start
     private Button buttonStart;
 
-    // Button pausieren
-    private Button buttonPause;
 
     // Button stoppen
     private Button buttonStop;
@@ -178,16 +175,13 @@ public class Oberflaeche {
         location = new RadioMenuItem();
         deleteBefehl = new RadioMenuItem();
         startMenuItem = new MenuItem();
-        pauseMenuItem = new MenuItem();
         stopMenuItem = new MenuItem();
         hinweisMenuItem = new MenuItem();
         buttonHinweis = new Button();
         toggleBearbeitenSpielfeld = new ToggleGroup();
         buttonStart = new Button("", new ImageView(
                 new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/startSmall.png"))));
-        buttonPause = new Button("", new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/pauseSmall.png"))));
-        buttonStop = new Button("", new ImageView(
+       buttonStop = new Button("", new ImageView(
                 new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/stopSmall.png"))));
         comboboxButtonBearbeitenAuswahl = new ComboBox<ImageView>();
         slider = new Slider();
@@ -234,8 +228,8 @@ public class Oberflaeche {
      * Speichert die sp�ter zu beachtenden MenuItems und Buttons beim Thread
      */
     private void zuBeachtendeButtonsUndMenuItems() {
-        setRuncode(new RunCodeController(territorium, slider, buttonStart, buttonStop, buttonPause, startMenuItem,
-                stopMenuItem, pauseMenuItem, this));
+        setRuncode(new RunCodeController(territorium, slider, buttonStart, buttonStop, startMenuItem,
+                stopMenuItem, this));
     }
 
     /*
@@ -307,7 +301,6 @@ public class Oberflaeche {
 
         // Gr��en festlegen, der Buttons
         buttonStart.setPrefSize(Territorium.OBJ_WIDTH, Territorium.OBJ_WIDTH);
-        buttonPause.setPrefSize(Territorium.OBJ_WIDTH, Territorium.OBJ_WIDTH);
         buttonStop.setPrefSize(Territorium.OBJ_WIDTH, Territorium.OBJ_WIDTH);
 
         // Erstellt eine ComboBox f�r nicht so h�ufig ben�tigte Buttons
@@ -318,7 +311,7 @@ public class Oberflaeche {
 
         // toolbar.getChildren().addAll(buttonSubmarine, buttonFelsen,
         // buttonBatterie, buttonExitFeld, buttonDelete);
-        toolBar.getItems().addAll(comboboxButtonBearbeitenAuswahl, new Separator(), buttonStart, buttonPause, buttonStop,
+        toolBar.getItems().addAll(comboboxButtonBearbeitenAuswahl, new Separator(), buttonStart, buttonStop,
                 new Separator(), slider);
 
         return toolBar;
@@ -404,7 +397,7 @@ public class Oberflaeche {
         bearbeitenMenu.getItems().addAll(groeßeAendernMenuItem, new SeparatorMenuItem(),
                 resizeableMenuItem, tankStelleBenoetigtMenuItem, new SeparatorMenuItem(), roboterMenuItem,
                 child, felsen, batterie, location, deleteBefehl);
-        simulationsMenu.getItems().addAll(startMenuItem, pauseMenuItem, stopMenuItem);
+        simulationsMenu.getItems().addAll(startMenuItem, stopMenuItem);
         helpMenu.getItems().addAll(hinweisMenuItem);
 
         // Hinzuf�gen der MenuPunkte zur MenuBar
@@ -579,10 +572,6 @@ public class Oberflaeche {
         // Unterpunkt "stop"
         stopMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.F12, KeyCombination.CONTROL_DOWN));
 
-        // Unterpunkt "Pause"
-		/*
-		 * Pause, Start und Stop werden in RunCodeController selbst bearbeitet
-		 */
 
         // Aktionen im Menu "Hilfe"
         // Unterpunkt "Hinweis"
@@ -631,8 +620,6 @@ public class Oberflaeche {
         // Simulation-Images
         startMenuItem.setGraphic(new ImageView(
                 new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/startVerySmall.png"))));
-        pauseMenuItem.setGraphic(new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/pauseVerySmall.png"))));
         stopMenuItem.setGraphic(new ImageView(
                 new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/stopVerySmall.png"))));
 
@@ -664,13 +651,12 @@ public class Oberflaeche {
         location.setText(international.getRb().getString("location"));
         deleteBefehl.setText(international.getRb().getString("deleteBefehl"));
         startMenuItem.setText(international.getRb().getString("startMenuItem"));
-        pauseMenuItem.setText(international.getRb().getString("pauseMenuItem"));
         stopMenuItem.setText(international.getRb().getString("stopMenuItem"));
         hinweisMenuItem.setText(international.getRb().getString("hinweisMenuItem"));
 
         buttonStart.setTooltip(new Tooltip(international.getRb().getString("buttonStart")));
         buttonStop.setTooltip(new Tooltip(international.getRb().getString("buttonStop")));
-        buttonPause.setTooltip(new Tooltip(international.getRb().getString("buttonPause")));
+
 
         buttonHinweis.setTooltip(new Tooltip(international.getRb().getString("buttonHinweis")));
     }
@@ -729,9 +715,11 @@ public class Oberflaeche {
         if (getTerritorium().isTrankfuellungBeachten()) {
             tankStelleBenoetigtMenuItem.setGraphic(new ImageView(new Image(
                     getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/tankstelleSmall.png"))));
+            tankStelleBenoetigtMenuItem.setText(international.getRb().getString("tankfuellung"));
         } else {
             tankStelleBenoetigtMenuItem.setGraphic(new ImageView(new Image(
                     getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/stopVerySmall.png"))));
+            tankStelleBenoetigtMenuItem.setText(international.getRb().getString("kTankfuellung"));
         }
     }
 
