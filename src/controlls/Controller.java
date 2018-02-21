@@ -34,6 +34,8 @@ public class Controller extends Thread {
         randomChildController = new RandomChildController(child, territorium.childMoves);
         this.goalfields = territorium.getZielFelder();
         this.field = new Field(getWalls(territorium));
+        for (ZielFeld feld : territorium.getBatterieFelder())
+            this.field.loadingStations.add(new Vector2(feld.getSpalte(), feld.getReihe()));
 
 
         this.robotController = new RobotController(r, territorium);
@@ -139,21 +141,19 @@ public class Controller extends Thread {
         int longestPathToTarget = targetGraph.getCostToTarget(state);
 
 
-        state = batteries.get(0).getEnforcedGraph().findStateForPositions(targetLocation, StateUtil.getChildPosition(territorium), true);
+        //state = batteries.get(0).getEnforcedGraph().findStateForPositions(targetLocation, StateUtil.getChildPosition(territorium), true);
 
         // Will be: target -> battery
-        int bestWorstEnergyPath = batteries.get(0).getEnforcedGraph().getCostToTarget(state);
-        Battery next = batteries.get(0);
+        int bestWorstEnergyPath = Integer.MAX_VALUE;
 
 
         for (Battery bat : batteries) {
             List<graph.State> states = bat.getEnforcedGraph().findStatesForRobotPosition(targetLocation);
             for (graph.State s : states) {
-                if (s.isRobotState) {
+                if (s.enforceValue != -1 && s.isRobotState) { // Ignore bad enforce values.
                     int cost = bat.getEnforcedGraph().getCostToTarget(s);
 
                     if (bestWorstEnergyPath > cost) {
-                        next = bat;
                         bestWorstEnergyPath = cost;
                     }
                 }
@@ -178,9 +178,11 @@ public class Controller extends Thread {
 
             for (Battery bat : batteries) {
                 graph.State bState = bat.getEnforcedGraph().findStateForPositions(StateUtil.getRobotPosition(territorium), StateUtil.getChildPosition(territorium), true);
-                int cost = bat.getEnforcedGraph().getCostToTarget(bState);
-                if (cost <= robotController.getEnergyLevel()) {
-                    reachableBatteries.add(bat);
+                if (bState.enforceValue != -1) {
+                    int cost = bat.getEnforcedGraph().getCostToTarget(bState);
+                    if (cost <= robotController.getEnergyLevel()) {
+                        reachableBatteries.add(bat);
+                    }
                 }
             }
 
@@ -191,10 +193,12 @@ public class Controller extends Thread {
 
                 List<graph.State> bStates = targetGraph.findStatesForRobotPosition(bat.position);
                 for (graph.State bState : bStates) {
-                    int cost = targetGraph.getCostToTarget(bState);
-                    if (closestBat == null || closestCost > cost) {
-                        closestBat = bat;
-                        closestCost = cost;
+                    if (bState.enforceValue != -1) {
+                        int cost = targetGraph.getCostToTarget(bState);
+                        if (closestBat == null || closestCost > cost) {
+                            closestBat = bat;
+                            closestCost = cost;
+                        }
                     }
                 }
 

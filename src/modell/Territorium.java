@@ -338,8 +338,6 @@ public class Territorium extends Observable implements java.io.Serializable {
             }
             boolean felsen = true;
             if (roboter) {
-                if (batterieDa())
-                    getRoboter().setTankFuellung(getStartTankfuellung());
                 if (getRoboter().getTankFuellung() <= 0 && trankfuellungBeachten) {
                     Platform.runLater(() -> {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -413,6 +411,9 @@ public class Territorium extends Observable implements java.io.Serializable {
             if (!felsen) {
                 throw new FelsenDaException();
             }
+            if (batterieDa())
+                getRoboter().setTankFuellung(getStartTankfuellung());
+
             checkIfChanged();
         } catch (FelsenDaException e) {
             e.play();
