@@ -115,7 +115,28 @@ public class Controller extends Thread {
     private List<Battery> generateEnforcedBatteryGraphs(Graph graph) {
         List<Battery> batteryList = new ArrayList<>();
         for (ZielFeld battery : territorium.getBatterieFelder()) {
-            batteryList.add(new Battery(battery, graph.calculateEnforcedGraph(new Vector2(battery.getSpalte(), battery.getReihe())), new Vector2(battery.getSpalte(), battery.getReihe())));
+            Vector2 pos = new Vector2(battery.getSpalte(), battery.getReihe());
+
+            if (pos.x > 0) {
+                if (pos.y > 0)
+                    batteryList.add(new Battery(battery, graph.calculateEnforcedGraph(pos.add(-1, -1)), pos.add(-1, -1)));
+                batteryList.add(new Battery(battery, graph.calculateEnforcedGraph(pos.add(-1, 0)), pos.add(-1, 0)));
+                if (pos.y < territorium.getFeldBreite() - 1)
+                    batteryList.add(new Battery(battery, graph.calculateEnforcedGraph(pos.add(-1, 1)), pos.add(-1, 1)));
+            }
+
+            if (pos.y > 0)
+                batteryList.add(new Battery(battery, graph.calculateEnforcedGraph(pos.add(0, -1)), pos.add(0, -1)));
+            if (pos.y < territorium.getFeldBreite() - 1)
+                batteryList.add(new Battery(battery, graph.calculateEnforcedGraph(pos.add(0, 1)), pos.add(0, 1)));
+
+            if (pos.x < territorium.getFeldHoehe() - 1) {
+                if (pos.y > 0)
+                    batteryList.add(new Battery(battery, graph.calculateEnforcedGraph(pos.add(1, -1)), pos.add(1, -1)));
+                batteryList.add(new Battery(battery, graph.calculateEnforcedGraph(pos.add(1, 0)), pos.add(1, 0)));
+                if (pos.y < territorium.getFeldBreite() - 1)
+                    batteryList.add(new Battery(battery, graph.calculateEnforcedGraph(pos.add(1, 1)), pos.add(1, 1)));
+            }
         }
         return batteryList;
     }
@@ -171,7 +192,7 @@ public class Controller extends Thread {
             for (Battery bat : batteries) {
                 graph.State bState = bat.getEnforcedGraph().findStateForPositions(StateUtil.getRobotPosition(territorium), StateUtil.getChildPosition(territorium), true);
                 int cost = bat.getEnforcedGraph().getCostToTarget(bState);
-                if(cost <= robotController.getEnergyLevel()) {
+                if (cost <= robotController.getEnergyLevel()) {
                     reachableBatteries.add(bat);
                 }
             }
@@ -179,10 +200,10 @@ public class Controller extends Thread {
             // Now choose the battery which is closest to the target
             Battery closestBat = null;
             int closestCost = 0;
-            for(Battery bat : reachableBatteries) {
+            for (Battery bat : reachableBatteries) {
 
                 List<graph.State> bStates = targetGraph.findStatesForRobotPosition(bat.position);
-                for(graph.State bState : bStates) {
+                for (graph.State bState : bStates) {
                     int cost = targetGraph.getCostToTarget(bState);
                     if (closestBat == null || closestCost > cost) {
                         closestBat = bat;
@@ -192,7 +213,7 @@ public class Controller extends Thread {
 
             }
 
-            if(closestBat == null) {
+            if (closestBat == null) {
                 System.out.println("No Battery found!");
                 showNoTargetError();
             } else {
