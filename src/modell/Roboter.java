@@ -15,7 +15,6 @@ public class Roboter extends Thread {
     private static final long serialVersionUID = 1L;
     private Territorium territorium;
     private boolean isRunning = false;
-    private boolean pause = false;
     private boolean stopped = false;
     private String[] abbruchArray = new String[RunCodeController.endlossAbbruchKriterium];
     private int countAbbruch = 0;
@@ -52,7 +51,7 @@ public class Roboter extends Thread {
 
     /*
      * l�sst den Thread schlafen nach jeder Ausf�hrung einer Canvas ver�ndernden
-     * Methode. Hier wird auch Pause und Stop des Threads angegangen und
+     * Methode. Hier wird Stop des Threads angegangen und
      * weitergeleitet im Falle von Stop
      */
     private void checkRunning(Territorium.Richtung name) throws ThreadStopException {
@@ -65,9 +64,6 @@ public class Roboter extends Thread {
 
             try {
                 sleep((long) (10 * (101.0 - getSpeed().getValue())));
-                while (isPause()) {
-                    sleep((long) (10 * (101.0 - getSpeed().getValue())));
-                }
             } catch (InterruptedException e) {
                 sleeping = false;
                 System.out.println("this is the end, hold your hands and count to 10, feel the earth move an then");
@@ -111,20 +107,6 @@ public class Roboter extends Thread {
     @Invisible
     public synchronized void setRunning(boolean isRunning) {
         this.isRunning = isRunning;
-    }
-
-
-    @Invisible
-    public boolean isPause() {
-        return pause;
-    }
-
-    @Invisible
-    public synchronized void setPause(boolean pause) {
-        this.pause = pause;
-//		if(!pause){
-//			notifyAll();
-//		}
     }
 
     @Invisible

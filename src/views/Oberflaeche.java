@@ -229,7 +229,7 @@ public class Oberflaeche {
      */
     private void zuBeachtendeButtonsUndMenuItems() {
         setRuncode(new RunCodeController(territorium, slider, buttonStart, buttonStop, startMenuItem,
-                stopMenuItem, this));
+                stopMenuItem, this, comboboxButtonBearbeitenAuswahl, child, roboterMenuItem, batterie, felsen, deleteBefehl, location));
     }
 
     /*
