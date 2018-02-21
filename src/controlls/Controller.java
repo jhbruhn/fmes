@@ -111,31 +111,19 @@ public class Controller extends Thread {
         return walls;
     }
 
+    private boolean isVisitable(Vector2 pos) {
+        return !territorium.istNichtBesuchbar(pos.y, pos.x);
+    }
+
     private List<Battery> generateEnforcedBatteryGraphs(Graph graph) {
         List<Battery> batteryList = new ArrayList<>();
         for (ZielFeld battery : territorium.getBatterieFelder()) {
             Vector2 pos = new Vector2(battery.getSpalte(), battery.getReihe());
-
-            if (pos.x > 0) {
-                if (pos.y > 0)
-                    batteryList.add(new Battery(battery, graph.calculateEnforcedGraph(pos.add(-1, -1)), pos.add(-1, -1)));
-                batteryList.add(new Battery(battery, graph.calculateEnforcedGraph(pos.add(-1, 0)), pos.add(-1, 0)));
-                if (pos.y < territorium.getFeldBreite() - 1)
-                    batteryList.add(new Battery(battery, graph.calculateEnforcedGraph(pos.add(-1, 1)), pos.add(-1, 1)));
-            }
-
-            if (pos.y > 0)
-                batteryList.add(new Battery(battery, graph.calculateEnforcedGraph(pos.add(0, -1)), pos.add(0, -1)));
-            if (pos.y < territorium.getFeldBreite() - 1)
-                batteryList.add(new Battery(battery, graph.calculateEnforcedGraph(pos.add(0, 1)), pos.add(0, 1)));
-
-            if (pos.x < territorium.getFeldHoehe() - 1) {
-                if (pos.y > 0)
-                    batteryList.add(new Battery(battery, graph.calculateEnforcedGraph(pos.add(1, -1)), pos.add(1, -1)));
-                batteryList.add(new Battery(battery, graph.calculateEnforcedGraph(pos.add(1, 0)), pos.add(1, 0)));
-                if (pos.y < territorium.getFeldBreite() - 1)
-                    batteryList.add(new Battery(battery, graph.calculateEnforcedGraph(pos.add(1, 1)), pos.add(1, 1)));
-            }
+            Vector2 posT;
+            for (int x = -1; x <= 1; x++)
+                for (int y = -1; y <= 1; y++)
+                    if (isVisitable(posT = pos.add(x, y)))
+                        batteryList.add(new Battery(battery, graph.calculateEnforcedGraph(posT), posT));
         }
         return batteryList;
     }

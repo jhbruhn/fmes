@@ -69,7 +69,7 @@ public class Graph implements Cloneable {
     }
 
     public Graph calculateEnforcedGraph(Vector2 robotTarget) {
-        // We create a copy of this graph to apply the EnforcePlus Algorithm
+        // We create a copy of this graph to apply the Enforce Algorithm
         // We first set all target states (states where the robot is at the desired position)
         // to a Enforced value of 0. We then "recursively" apply the enforce values to the
         // states leading to the last calculated state with a value one higher than the current value.
@@ -92,20 +92,40 @@ public class Graph implements Cloneable {
 
         while (!calcStack.isEmpty()) {
             State enfI = calcStack.pop();
+            if (enfI.equals(initialState)) continue;
 
             List<Transition> transitionsTo = g.getTransitionsTo(enfI);
             for (Transition t : transitionsTo) {
                 State enfIP1 = t.from;
-                if (enfIP1.enforceValue == -1) {
-                    enfIP1.enforceValue = enfI.enforceValue + 1;
-                    calcStack.push(enfIP1);
+                if (enfIP1.isRobotState) {
+                    // At least one transition is enough for this
+                    if (enfIP1.enforceValue == -1) {
+                        enfIP1.enforceValue = enfI.enforceValue + 1;
+                        calcStack.push(enfIP1);
+                    }
+                } else {
+                    List<Transition> fromTransitions = g.getTransitionsFrom(enfIP1);
+                    // All transitions from this eumel have to lead into a lower value enforce.
+                    int enforceValue = enfI.enforceValue + 1;
+                    boolean enforceable = true;
+                    for (Transition trans : fromTransitions) {
+                        if (trans.to.enforceValue == -1 || trans.to.enforceValue >= enforceValue)
+                            enforceable = false;
+                    }
+
+                    if (enforceable && enfIP1.enforceValue == -1) {
+                        enfIP1.enforceValue = enforceValue;
+                        calcStack.push(enfIP1);
+                    }
                 }
             }
+
+
         }
 
         // Eliminate Transitions for Buechi-Acceptance
 
-        List<State> unreachableStates = new ArrayList<>();
+        /*List<State> unreachableStates = new ArrayList<>();
 
         // Remove all states with an enforce value of -1, as the cannot be reached
         Iterator<State> it = g.states.iterator();
@@ -117,7 +137,7 @@ public class Graph implements Cloneable {
             }
         }
 
-        g.transitions.removeIf(t -> unreachableStates.contains(t.from) || unreachableStates.contains(t.to));
+        g.transitions.removeIf(t -> unreachableStates.contains(t.from) || unreachableStates.contains(t.to));*/
 
         return g;
     }
@@ -127,9 +147,10 @@ public class Graph implements Cloneable {
         List<Transition> transitionsFrom = getTransitionsFrom(state);
 
         for (Transition t : transitionsFrom) {
-            if (t.to.enforceValue < state.enforceValue) {
+            if (t.to.enforceValue != -1 && t.to.enforceValue < state.enforceValue) {
                 viableMoves.add(t);
             }
+            System.out.printf("%d < %d%n", t.to.enforceValue, state.enforceValue);
         }
 
         return viableMoves;
@@ -176,10 +197,18 @@ public class Graph implements Cloneable {
             int enforceTemp = 0;
 
             for (Transition t : transitions) {
-                if (t.to.enforceValue < state.enforceValue && t.to.enforceValue >= enforceTemp) {
-                    transition = t;
-                    newState = t.to;
-                    enforceTemp = t.to.enforceValue;
+                if (state.isRobotState) {
+                    if ((newState == null && t.to.enforceValue < state.enforceValue && t.to.enforceValue != -1) || (newState != null && t.to.enforceValue < newState.enforceValue && t.to.enforceValue != -1)) {
+                        transition = t;
+                        newState = t.to;
+                        enforceTemp = t.to.enforceValue;
+                    }
+                } else {
+                    if (enforceTemp < t.to.enforceValue) {
+                        transition = t;
+                        newState = t.to;
+                        enforceTemp = t.to.enforceValue;
+                    }
                 }
             }
 
@@ -189,10 +218,7 @@ public class Graph implements Cloneable {
                 return Integer.MAX_VALUE;
             }
             if (!state.isRobotState) {
-                System.out.println(transition.moves);
-
                 for (Move move : transition.moves) {
-                    System.out.println(move.energyUse);
                     cost += move.energyUse;
                 }
             }
