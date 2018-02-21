@@ -157,30 +157,37 @@ public class Graph implements Cloneable {
     }
 
     public int getCostToTarget(State from) {
-        if (from == null) return -1;
+        if (from == null) return Integer.MAX_VALUE;
         if (from.enforceValue == -1) throw new RuntimeException("You cannot calculate a path on an unenforced graph");
         System.out.println("Calculating cost");
+
         int cost = 0;
         State state = from;
+
         while (state.enforceValue != 0) {
             List<Transition> transitions = getTransitionsFrom(state);
-            if (transitions.isEmpty()) {
+            if (transitions.isEmpty()) { // Should not happen because we have a Enforce+ Graph, but let's make sure.
+                System.out.println("No Transitions");
                 return Integer.MAX_VALUE;
             }
 
             State newState = null;
             Transition transition = null;
+            int enforceTemp = 0;
 
             for (Transition t : transitions) {
-                if (newState == null || t.to.enforceValue < newState.enforceValue) {
+                if (t.to.enforceValue < state.enforceValue && t.to.enforceValue >= enforceTemp) {
                     transition = t;
                     newState = t.to;
+                    enforceTemp = t.to.enforceValue;
                 }
             }
 
             state = newState;
-            if (state == null) return Integer.MAX_VALUE;
-
+            if (state == null) {
+                System.out.println("State is null!");
+                return Integer.MAX_VALUE;
+            }
             if (!state.isRobotState) {
                 System.out.println(transition.moves);
 

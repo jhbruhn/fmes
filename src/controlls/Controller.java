@@ -163,7 +163,7 @@ public class Controller extends Thread {
             System.out.println("Going to Target");
             robotController.setGraph(targetGraph);
         } else {
-            // We cannot go to the target and then to a battery, so we go to the closest battery
+            // We cannot go to the target and then to a battery, so we go to the battery closest to the target
 
             // Get all batteries we can reach
             List<Battery> reachableBatteries = new ArrayList<>();

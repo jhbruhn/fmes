@@ -2,3 +2,11 @@
 In diesem Kapitel werden die verwendeten Algorithmen beschrieben.
 \subsection{Spielgraph}
 Wir%usw...
+
+\subsection{Controller mit Batterziel}
+Es folgen Notizen.
+
+Um zu bestimmen ob ein bestimmtes Ziel (Zielfläche oder Batterie) erreicht werden kann, wird eine Metrik benötigt,
+die die Distanz angibt. Je nachdem, ob der Controller optimistisch oder pessimistisch handeln soll kann dies der kürzeste
+Pfad durch den Graphen sein (der Enforce-Wert wird mit jeder Transition so stark verringert wir möglich)
+, oder der längste Pfad, bei dem der Enforce-Wert jedoch mit jeder Transition um mindestens 1 sinkt.
