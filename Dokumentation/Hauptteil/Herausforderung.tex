@@ -1,0 +1,16 @@
+\section{System}
+\subsection{Umgebungsvariablen}
+Roboter vs Kind Bewegungsmuster
+Spielfeld um Begrenzung und Mauern erweitert
+\subsection{Anforderungen}
+1-Akzeptanz
+Buechi-Akzeptanz
+Batterie/Ladestation
+\subsection{GUI}
+
+Die Benutzeroberfläche zur Visualisierung des Problems und dem anschließenden Lösungsweg, wurde so gewählt das der Nutzer zu jedem Zeitpunkt die Schritte das Programmes nachvollziehen kann. Dazu wurde die GUI von der Logik getrennt und besteht als eigenständiger Teil im Projekt. Die GUI bezieht von einem Spielfeld wo sich die Objekte befinden. Dieses Spielfeld wird von der Prozesslogik verändert und von jener ausgelesen. Nach jeder Veränderung wird das Feld als Benutzeroberfläche neu gezeichnet. \\
+Dem Benutzer ist es zu aller erst möglich das Spielfeld durch das Platzieren von Objekten zu gestalten. Dabei stehen dem Benutzer Wände, Roboter, Kind, Ladestationen und Zielfelder zur Verfügung. Der Roboter beschreibt das Feld auf dem der Roboter auf dem gekachelten Spielfeld startet. Dem entsprechend verhält sich das Kind zu seiner Figur. Die Batterien stellen Ladestationen für den Roboter da, welche er in einem Spielmodus besuchen muss, um seine Energie/Ladung wieder aufzufüllen. Die Zielfelder beschreiben die Felder die der Roboter in chronologischer Reihenfolge abarbeiten muss. Dabei wird das als nächstes angestrebte Feld grün markiert. \\
+Ist das Spielfeld erstellt kann der Benutzer im folgenden die Bewegungsmöglichkeiten von Kind und Roboter frei wählen. Dabei sind auch Variationen möglich mit welchen der Roboter sein Ziel nicht erreichen kann, da die GUI mit Rückmeldungen an den Benutzer ausgestattet ist, welche dieses zur Laufzeit wiedergeben. \\
+Um das Programm zu starten ist der Start-Button zu drücken. Dieser ermöglicht es dem Benutzer nach dem Laden der Logik das Programm zu Beschleunigen oder gänzlich zu stoppen. Für das Beschleunigen steht ein Regler zur Verfügung, welcher die Dauer zwischen den Schritten beschränkt oder verlängert. Das Stoppen wird durch einen gleichnamigen Button realisiert, welcher das Programm wieder in den Bearbeitungszustand setzt. \\
+In den Menüreitern können weitere Einstellungen getroffen werden, wie Sprache, oder ob die Tankfüllung beachtet werden soll. Im Programm werden dann dynamisch die Sprache angepasst und die Tankfüllung angezeigt (oben rechts im Feld). \\
+Sollten Fragen zum Spiel aufkommen können diese jederzeit mit dem Hilfefenster versucht geklärt zu werden. Weiterhin ist es noch möglich die Spielfeldgröße zu verändern. \\
