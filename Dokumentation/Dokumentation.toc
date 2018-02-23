@@ -4,15 +4,13 @@
 \contentsline {subsection}{\numberline {2.1}Umgebungsvariablen}{5}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Anforderungen}{5}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}GUI}{5}{subsection.2.3}
-\contentsline {section}{\numberline {3}Programm\IeC {\"u}bersicht}{6}{section.3}
-\contentsline {subsection}{\numberline {3.1}GUI}{6}{subsection.3.1}
-\contentsline {section}{\numberline {4}Algorithmen}{7}{section.4}
-\contentsline {subsection}{\numberline {4.1}Spielgraph}{7}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Enforce}{7}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Controller}{7}{subsection.4.3}
-\contentsline {section}{\numberline {5}Ende}{8}{section.5}
-\contentsline {subsection}{\numberline {5.1}Optimierung}{8}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Fehler}{8}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Ergebnisse}{8}{subsection.5.3}
-\contentsline {section}{\numberline {6}Arbeitsverteilung}{9}{section.6}
-\contentsline {section}{\numberline {7}Erkl\IeC {\"a}rung}{10}{section.7}
+\contentsline {section}{\numberline {3}Algorithmen}{6}{section.3}
+\contentsline {subsection}{\numberline {3.1}Spielgraph}{6}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Enforce}{6}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Controller}{6}{subsection.3.3}
+\contentsline {section}{\numberline {4}Buzzword}{7}{section.4}
+\contentsline {subsection}{\numberline {4.1}Optimierung}{7}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Fehler}{7}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Ergebnisse}{7}{subsection.4.3}
+\contentsline {section}{\numberline {5}Arbeitsverteilung}{8}{section.5}
+\contentsline {section}{\numberline {6}Erkl\IeC {\"a}rung}{9}{section.6}
