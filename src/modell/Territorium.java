@@ -42,7 +42,7 @@ public class Territorium extends Observable implements java.io.Serializable {
     private boolean levelGeschafft = false;
 
     private int feldHoehe = 10;
-    private int feldBreite = 19;
+    private int feldBreite = 10;
 
     public int feldReiheRoboter = 4;
     public int feldSpalteRoboter = 4;

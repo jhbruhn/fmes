@@ -39,6 +39,6 @@ public class Main {
         Graph g = Graph.generateGraph(initial, robotMoves, childMoves);
         //System.out.println(g.toDotString());
         g = g.calculateEnforcedGraph(new Vector2(4, 4));
-        System.out.println(g.toDotString());
+        //System.out.println(g.toDotString());
     }
 }
