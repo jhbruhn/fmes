@@ -1,6 +1,7 @@
 package graph;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class State implements Cloneable {
@@ -17,14 +18,14 @@ public class State implements Cloneable {
         this.isRobotState = isRobotState;
     }
 
-    public List<Transition> generateRobotMoves(List<List<Move>> movePossibilities) {
+    public List<Transition> generateRobotMoves(List<List<Move>> movePossibilities, List<List<Move>> childMovePossibilities) {
         if (!isRobotState) throw new RuntimeException("Cannot create robot moves from nonrobotstate");
 
         List<Transition> transitions = new ArrayList<>();
         for (List<Move> sequence : movePossibilities) {
             State state = this;
             boolean valid = true;
-            for(Move m : sequence) {
+            for (Move m : sequence) {
                 if (state.isMovePossible(m, true)) {
                     state = new State(state.field, state.robot.add(m.directionVector), state.child, false);
                 } else {
@@ -32,12 +33,29 @@ public class State implements Cloneable {
                     break;
                 }
             }
-            if(!valid) {
+            if (!valid) {
                 continue;
             }
 
             Transition t = new Transition(this, sequence, state);
             transitions.add(t);
+        }
+
+        // Now generate the followup child moves and check whether the child will collide in any followups. If yes, remove those states.
+        Iterator<Transition> tI = transitions.iterator();
+        while (tI.hasNext()) {
+            boolean invalid = false;
+            List<Transition> childTransitions = tI.next().to.generateChildMoves(childMovePossibilities);
+            for (Transition childT : childTransitions) {
+                for (int x = -1; x <= 1; x++)
+                    for (int y = -1; y <= 1; y++)
+                        if (childT.to.robot.add(x, y).equals(childT.to.child))
+                            invalid = true;
+
+            }
+
+            if (invalid)
+                tI.remove();
         }
 
 
@@ -52,14 +70,14 @@ public class State implements Cloneable {
         for (List<Move> sequence : movePossibilities) {
             State state = this;
             boolean valid = true;
-            for(Move m : sequence) {
+            for (Move m : sequence) {
                 if (state.isMovePossible(m, false)) {
                     state = new State(state.field, state.robot, state.child.add(m.directionVector), true);
                 } else {
                     valid = false;
                 }
             }
-            if(!valid) continue;
+            if (!valid) continue;
 
             Transition t = new Transition(this, sequence, state);
             transitions.add(t);
@@ -72,28 +90,28 @@ public class State implements Cloneable {
         // Check whether the new position will be in a wall
         Vector2 position = isRobot ? robot : child;
         Vector2 newPos = position.add(move.directionVector);
-        if(field.isWallAt(newPos))
+        if (field.isWallAt(newPos))
             return false;
 
 
         // Check whether the child and robot would be too close to each other
-        Vector2 posA;
-        Vector2 posB;
-        if(isRobot) {
+        if (isRobot) {
+            Vector2 posA;
+            Vector2 posB;
             posA = robot.add(move.directionVector);
             posB = child;
-        } else {
-            posA = robot;
-            posB = child.add(move.directionVector);
+
+            double distance = posA.sub(posB).abs();
+            if (distance <= 1) return false;
         }
-        double distance = posA.sub(posB).abs();
-        if(distance <= 1) return false;
 
         // Check whether the child would be too close to a charging station
-        if(!isRobot) {
-            for(Vector2 station : field.loadingStations) {
-                distance = child.add(move.directionVector).sub(station).abs();
-                if(distance <= 1) return false;
+        if (!isRobot) {
+            for (Vector2 station : field.loadingStations) {
+                for (int x = -1; x <= 1; x++)
+                    for (int y = -1; y <= 1; y++)
+                        if (station.add(x, y).equals(child.add(move.directionVector)))
+                            return false;
             }
         }
 
@@ -114,11 +132,11 @@ public class State implements Cloneable {
         return robot + "; " + child + " " + "\\n" + enforceValue;
     }
 
-    public List<Transition> generateNextStates(List<List<Move>> movePossibilities) {
-        if(isRobotState) {
-            return generateRobotMoves(movePossibilities);
+    public List<Transition> generateNextStates(List<List<Move>> robotMoves, List<List<Move>> childMoves) {
+        if (isRobotState) {
+            return generateRobotMoves(robotMoves, childMoves);
         } else {
-            return generateChildMoves(movePossibilities);
+            return generateChildMoves(childMoves);
         }
     }
 
@@ -127,6 +145,6 @@ public class State implements Cloneable {
     }
 
     public boolean isSolvableFromHere() {
-        return enforceValue >= 0;
+        return enforceValue != -1;
     }
 }

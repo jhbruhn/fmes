@@ -3,6 +3,7 @@ package controlls;
 import Util.ListToArrayList;
 import Util.StateUtil;
 import graph.Graph;
+import graph.State;
 import modell.Roboter;
 import modell.Territorium;
 
@@ -49,12 +50,15 @@ public class RobotController {
             System.out.println("debug: robotposition is null");
             return false;
         }
-        if (graph.findStateForPositions(StateUtil.getRobotPosition(territorium), StateUtil.getChildPosition(territorium), true) == null) {
+
+        State s = graph.findStateForPositions(StateUtil.getRobotPosition(territorium), StateUtil.getChildPosition(territorium), true);
+
+        if (s == null) {
             System.out.println("debug: findState=null");
             return false;
         }
-        if (!graph.findStateForPositions(StateUtil.getRobotPosition(territorium), StateUtil.getChildPosition(territorium), true).isSolvableFromHere()) {
-            System.out.println("debug: not solvable");
+        if (!s.isSolvableFromHere()) {
+            System.out.println("debug: not solvable. Enforce=" + s.enforceValue);
             return false;
         }
         return true;

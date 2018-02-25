@@ -264,7 +264,7 @@ public class Graph implements Cloneable {
         while (!statesToGenerate.isEmpty()) {
             State currentState = statesToGenerate.pop();
 
-            List<Transition> transitions = currentState.generateNextStates(currentState.isRobotState ? robotMoves : childMoves);
+            List<Transition> transitions = currentState.generateNextStates(robotMoves, childMoves);
 
             // Check whether we already have that state in our set.
             for (Transition t : transitions) {
