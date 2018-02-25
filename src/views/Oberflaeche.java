@@ -3,12 +3,11 @@ package views;
 import java.util.ArrayList;
 
 import controlls.*;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
-import modell.ImageCombo;
-import modell.Internationalitaet;
-import modell.ScAchse;
-import modell.Territorium;
+import modell.*;
 import modell.Territorium.FeldEigenschaft;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -148,6 +147,7 @@ public class Oberflaeche {
     private MovementInputController movement;
     private TextField robotInput;
     private TextField childInput;
+    private TextField startTank;
 
     /*
      * initialisiert alle Werte/Variablen/Atribute
@@ -221,6 +221,15 @@ public class Oberflaeche {
         childInput.setText("ldru,lrlr,ld,rd");
         movement = new MovementInputController(territorium, robotInput, childInput);
 
+        startTank = new TextField("25");
+        startTank.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                startTank.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+            int val = Integer.valueOf(startTank.getText());
+            getTerritorium().setStartTankfuellung(val);
+        });
+
         zuBeachtendeButtonsUndMenuItems();
     }
 
@@ -250,6 +259,8 @@ public class Oberflaeche {
 
         box.getChildren().add(new Label("Child Moves:"));
         box.getChildren().add(this.childInput);
+        box.getChildren().add(new Label("Start Tank:"));
+        box.getChildren().add(this.startTank);
         borderPaneForCodeField.setCenter(box);
         //borderPaneForCodeField.setRight();
         // Die folgenden Zahlen sind nur nach pers�nlichem Empfinden gesetzt
