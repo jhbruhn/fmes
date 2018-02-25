@@ -1,6 +1,9 @@
 package graph;
 
+import com.sun.jmx.remote.internal.ArrayQueue;
+
 import java.util.*;
+import java.util.concurrent.LinkedBlockingQueue;
 
 public class Graph implements Cloneable {
     public State initialState;
@@ -88,10 +91,10 @@ public class Graph implements Cloneable {
             s.enforceValue = 0;
 
         // Go from here and calculate more enforce values for 1-acceptance
-        Deque<State> calcStack = new ArrayDeque<>(targetStates);
+        Queue<State> calcStack = new LinkedBlockingQueue<>(targetStates);
 
         while (!calcStack.isEmpty()) {
-            State enfI = calcStack.pop();
+            State enfI = calcStack.remove();
             if (enfI.equals(initialState)) continue;
 
             List<Transition> transitionsTo = g.getTransitionsTo(enfI);
@@ -101,7 +104,7 @@ public class Graph implements Cloneable {
                     // At least one transition is enough for this
                     if (enfIP1.enforceValue == -1) {
                         enfIP1.enforceValue = enfI.enforceValue + 1;
-                        calcStack.push(enfIP1);
+                        calcStack.add(enfIP1);
                     }
                 } else {
                     List<Transition> fromTransitions = g.getTransitionsFrom(enfIP1);
@@ -115,7 +118,7 @@ public class Graph implements Cloneable {
 
                     if (enforceable && enfIP1.enforceValue == -1) {
                         enfIP1.enforceValue = enforceValue;
-                        calcStack.push(enfIP1);
+                        calcStack.add(enfIP1);
                     }
                 }
             }
@@ -258,11 +261,11 @@ public class Graph implements Cloneable {
         g.initialState = initial;
         g.states.add(initial);
 
-        Deque<State> statesToGenerate = new ArrayDeque<>();
+        Queue<State> statesToGenerate = new LinkedBlockingQueue<>();
         statesToGenerate.add(initial);
 
         while (!statesToGenerate.isEmpty()) {
-            State currentState = statesToGenerate.pop();
+            State currentState = statesToGenerate.remove();
 
             List<Transition> transitions = currentState.generateNextStates(robotMoves, childMoves);
 
@@ -279,7 +282,7 @@ public class Graph implements Cloneable {
                 }
                 if (newState) {
                     g.states.add(t.to);
-                    statesToGenerate.push(t.to);
+                    statesToGenerate.add(t.to);
                 }
 
                 if (!g.transitions.contains(t)) {
