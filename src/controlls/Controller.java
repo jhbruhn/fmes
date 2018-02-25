@@ -70,7 +70,7 @@ public class Controller extends Thread {
                 Graph enforcedGraph = graph.calculateEnforcedGraph(new Vector2(ziel.getSpalte(), ziel.getReihe()));
                 randomChildController.setGraph(enforcedGraph);
                 robotController.setGraph(enforcedGraph);
-                while (robotController.isSolvable() && !robotController.isTerminated(ziel.getReihe(), ziel.getSpalte())) {
+                while (!stopped && robotController.isSolvable() && !robotController.isTerminated(ziel.getReihe(), ziel.getSpalte())) {
                     calculateEnergyDemands(enforcedGraph, new Vector2(ziel.getSpalte(), ziel.getReihe()));
 
                     System.out.println("Doing Robot Move");
@@ -79,8 +79,8 @@ public class Controller extends Thread {
                     randomChildController.doNextSteps();
                 }
                 if (!robotController.isSolvable()) break;
-                if (stopped) return;
             }
+            if(stopped) return;
             if (!robotController.isSolvable()) break;
         }
         Platform.runLater(() -> {

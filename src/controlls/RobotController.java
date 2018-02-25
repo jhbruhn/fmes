@@ -58,6 +58,8 @@ public class RobotController {
             return false;
         }
         if (!s.isSolvableFromHere()) {
+            System.out.println(graph.toDotString(s));
+
             System.out.println("debug: not solvable. Enforce=" + s.enforceValue);
             return false;
         }

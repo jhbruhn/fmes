@@ -4,13 +4,14 @@ import com.sun.jmx.remote.internal.ArrayQueue;
 
 import java.util.*;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.stream.Collectors;
 
 public class Graph implements Cloneable {
     public State initialState;
     public List<State> states = new ArrayList<>();
     public List<Transition> transitions = new ArrayList<>();
 
-    public String toDotString() {
+    public String toDotString(State highlight) {
         StringBuilder s = new StringBuilder("digraph G {\n");
 
         for (State state : states) {
@@ -31,6 +32,8 @@ public class Graph implements Cloneable {
                 s.append(m.encodedString);
             s.append("\"]\n");
         }
+
+        s.append(highlight + "[color = 'blue']\n");
         s.append("}");
         return s.toString();
     }
@@ -94,8 +97,8 @@ public class Graph implements Cloneable {
         Queue<State> calcStack = new LinkedBlockingQueue<>(targetStates);
 
         while (!calcStack.isEmpty()) {
-            State enfI = calcStack.remove();
-            if (enfI.equals(initialState)) continue;
+            State enfI = calcStack.poll();
+            //if (enfI.equals(initialState)) continue;
 
             List<Transition> transitionsTo = g.getTransitionsTo(enfI);
             for (Transition t : transitionsTo) {
@@ -122,8 +125,31 @@ public class Graph implements Cloneable {
                     }
                 }
             }
+        }
 
 
+        // Now let's calculate Enforce+
+        for (State s : g.states.stream().filter(s -> s.enforceValue == -1).collect(Collectors.toList())) {
+            // Find the states from which we can enforce a step to Enforce in 1
+            if (s.isRobotState) {
+                // We need at least one Transitions which leads into enforce. We will then choose the lowest of it.
+                List<Transition> transitions = g.getTransitionsFrom(s);
+                Optional<Transition> cheapestTransition = transitions.stream().filter(t -> t.to.enforceValue != -1).min(Comparator.comparingInt(o -> o.to.enforceValue));
+                if (cheapestTransition.isPresent()) {
+                    // We found a way into enforce. We can now set an enforce value on this!
+                    System.out.println("Renf+");
+                    s.enforceValue = cheapestTransition.get().to.enforceValue + 1;
+                }
+            } else {
+                // All the transitions coming from this have to lead into enforce. Let's check.
+                List<Transition> transitions = g.getTransitionsFrom(s);
+                boolean leadsToEnforce = transitions.stream().noneMatch(t -> t.to.enforceValue == -1);
+                if(leadsToEnforce) {
+                    System.out.println("Cenf+");
+                    Optional<Integer> newEnforce = transitions.stream().map((transition) -> transition.to.enforceValue).max(Comparator.comparingInt(o -> o));
+                    newEnforce.ifPresent(integer -> s.enforceValue = integer);
+                }
+            }
         }
 
         // Eliminate Transitions for Buechi-Acceptance
