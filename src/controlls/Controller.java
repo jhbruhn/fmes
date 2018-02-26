@@ -64,7 +64,7 @@ public class Controller extends Thread {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        while (true) {
+        while (territorium.endlessLoop) {
             for (ZielFeld ziel : goalfields) {
                 System.out.println("New Target calculating graph!");
                 territorium.setNextGoalField(ziel);

@@ -22,6 +22,11 @@ public class Territorium extends Observable implements java.io.Serializable {
     public static final int MAX_HEIGTH = 64;
     public static final int OBJ_WIDTH = 50;
     public static final int OBJ_MIN_WIDTH = 30;
+    public boolean endlessLoop;
+
+    public void setEndlessLoop(Boolean endlessLoop) {
+        this.endlessLoop = endlessLoop;
+    }
 
     public static enum FeldEigenschaft implements java.io.Serializable {
         Leer, Batterie, Felsen, Location
