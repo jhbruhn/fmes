@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2572ffed-2cd9-40a8-bcde-eb9c765ad732" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Dokumentation/Anhang/UnterschriftFabian.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dokumentation/Dokumentation.pdf" afterPath="$PROJECT_DIR$/Dokumentation/Dokumentation.pdf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dokumentation/Anhang/Erklaerung.tex" afterPath="$PROJECT_DIR$/Dokumentation/Anhang/Erklaerung.tex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dokumentation/Dokumentation.out" afterPath="$PROJECT_DIR$/Dokumentation/Dokumentation.out" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dokumentation/Dokumentation.tex" afterPath="$PROJECT_DIR$/Dokumentation/Dokumentation.tex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dokumentation/Dokumentation.toc" afterPath="$PROJECT_DIR$/Dokumentation/Dokumentation.toc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dokumentation/Ende/Ergebnisse.tex" afterPath="$PROJECT_DIR$/Dokumentation/Ende/Ergebnisse.tex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dokumentation/Hauptteil/Algorithmen.tex" afterPath="$PROJECT_DIR$/Dokumentation/Hauptteil/Algorithmen.tex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dokumentation/aufteilung.tex" afterPath="$PROJECT_DIR$/Dokumentation/aufteilung.tex" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -27,7 +25,7 @@
         <entry file="file://$PROJECT_DIR$/Dokumentation/aufteilung.tex">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="126">
-              <caret line="6" column="13" lean-forward="true" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+              <caret line="6" column="84" lean-forward="false" selection-start-line="6" selection-start-column="84" selection-end-line="6" selection-end-column="84" />
               <folding />
             </state>
           </provider>
@@ -1238,7 +1236,7 @@
       <workItem from="1519291077549" duration="5728000" />
       <workItem from="1519571295066" duration="269000" />
       <workItem from="1519588506425" duration="262000" />
-      <workItem from="1519646901785" duration="2528000" />
+      <workItem from="1519646901785" duration="3181000" />
     </task>
     <task id="LOCAL-00001" summary="RandomChildMovement dummy">
       <created>1515076638098</created>
@@ -1450,11 +1448,18 @@
       <option name="project" value="LOCAL" />
       <updated>1519647806907</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="weiter doku">
+      <created>1519649786383</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1519649786383</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50418000" />
+    <option name="totallyTimeSpent" value="51071000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="2182" height="1402" extended-state="6" />
@@ -1498,7 +1503,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="RandomChildMovement dummy" />
     <MESSAGE value="no author" />
     <MESSAGE value="Well played so far" />
     <MESSAGE value="videos udn einige hd bilder rausgenommen" />
@@ -1523,7 +1527,8 @@
     <MESSAGE value="Doku-Gui" />
     <MESSAGE value="doku" />
     <MESSAGE value="es kann während des spiels nichts mehr gesetzt werden" />
-    <option name="LAST_COMMIT_MESSAGE" value="es kann während des spiels nichts mehr gesetzt werden" />
+    <MESSAGE value="weiter doku" />
+    <option name="LAST_COMMIT_MESSAGE" value="weiter doku" />
   </component>
   <component name="WindowStateProjectService">
     <state width="259" height="644" key="Git.Branch.Popup" />
@@ -1927,7 +1932,7 @@
     <entry file="file://$PROJECT_DIR$/Dokumentation/aufteilung.tex">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
-          <caret line="6" column="13" lean-forward="true" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <caret line="6" column="84" lean-forward="false" selection-start-line="6" selection-start-column="84" selection-end-line="6" selection-end-column="84" />
           <folding />
         </state>
       </provider>
