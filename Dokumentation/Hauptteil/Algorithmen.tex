@@ -44,7 +44,65 @@ Somit kann Enforce+ den gesamten begehbaren Raum abdecken und sicher stellen, da
 \subsection{Controller}
 Es folgen Notizen.
 \subsection{Controller}\textcolor{red}{To review!}\\
-Der Controller ist für die Schnittstelle zwischen dem Graphen, inklusive des Enforce-Graphen und der GUI zuständig. Er bezieht aus der GUI die Positionierungen des Kindes und des Roboters, sowie die Standorte der Mauern, Zielfelder und Batterien. Er wird mit Start des Programms aus der GUI-Umgebung gestartet. Daraufhin initialisiert er den Graphen und berechnet mit hinzunahme der aktuellen Position des Kindes sowie des Roboters,den Enforce-Graphen. Sollte festgestellt werden, dass es keine Lösung für das Problem gibt, terminiert das Programm. Sollte dies nicht der Fall sein wird der Enforce-Graph für den ersten und die fortlaufenden Schritte des Roboters genutzt. Die Schritte des Kindes wird auch aus diesem Graphen bezogen, dabei bekommt der Controller die möglichen Moves aus dem Graphen und wählt zufällig einen. Mit der Hinzunahme des Energie-Problems wird der Controller um die Aufgabe erweitert das Energie-Level zu überprüfen. Sollte der Worst Case Pfad zum nächsten Zielfeld, zuzüglich des Weges zum nächstbesten Energiefeld, größer als das Energie Level des Roboter sein, bewegt sich der Roboter zum nächsten Batteriefeld. Sollte auch dies nicht möglich sein terminiert das Programm. Der Weg zum nächstbesten Batteriefeld, ist der geringste Weg mit dem geringsten Aufwand aus den Worst Case Pfaden aller Batteriefeld. Als Energiefeld gelten die Felder um die Batterie.
+Der Controller ist die Schnittstelle zwischen dem Graphen, inklusive der Enforce-Werte und der GUI. Er bezieht aus der GUI die Position des Kindes und des Roboters, sowie die Standorte der Mauern, Zielfelder und Batterien. Er wird mit Start des Programms aus der GUI-Umgebung aufgerufen. Daraufhin initialisiert er den Graphen und berechnet mit hinzunahme der aktuellen Position des Kindes sowie des Roboters, den enforceten Graphen, abhängig vom aktuellen Ziel. Sollte festgestellt werden, dass es keine Lösung für das Problem gibt, terminiert das Programm. Sollte dies nicht der Fall sein wird der Enforce-Graph für den ersten und die fortlaufenden Schritte des Roboters genutzt. Die Schritte des Kindes wird auch aus diesem Graphen bezogen, dabei bekommt der Controller die möglichen Moves aus dem Graphen und wählt zufällig einen. Mit der Hinzunahme des Energie-Problems wird der Controller um die Aufgabe erweitert, das Energie-Level zu überprüfen. Sollte der Worst-Case-Pfad zum nächsten Zielfeld, zuzüglich des Weges zum nächstbesten Energiefeld, größer als das Energie Level des Roboter sein, bewegt sich der Roboter zum nächsten Batteriefeld. Sollte auch dies nicht möglich sein terminiert das Programm. Der Weg zum nächstbesten Batteriefeld, ist der geringste Weg mit dem geringsten Aufwand aus den Worst-Case-Pfaden aller Batteriefeld. Als Energiefeld gelten die Felder um die Batterie.
+
+Zur Berechnung der Pfade wird also die WorstCasePath Metrik festgelegt. Diese berechnet sich aus der Summe der Anzahl von Bewegungen die entstehen, wenn der Roboter von seinem aktuellen Zustand in den Zielzustand navigiert. Dabei nimmt der Roboter immer den Weg der zum geringsten Enforce-Wert führt. Das Kind nimmt auf diesem Pfad allerdings immer die Transitionen, die zu dem Zustand mit dem höchsten Enforce-Wert führen. Die Summe der Anzahlen der Bewegungen, die der Roboter auf diesem Pfad macht, ist dann der WorstCasePath ($WCPath(target)$).
+
+Der Ablauf des Controllers ist in Listing~\autoref{controllerPseudo} vereinfacht dargestellt.
+
+\begin{algorithm}[t]
+	\caption{Pseudocode des Controllers}\label{controllerPseudo}
+	\begin{algorithmic}[1]
+		\Procedure{findClosestBattery}{$graphs, position$}
+		
+		\Return Feld um Batterien, das am nächsten an der gegebenen Position ist
+		\EndProcedure
+		\\
+		\Procedure{findReachableBatteries}{$robotPosition, childPosition$}
+		
+		\Return Batterien, die vom Roboter erreichbar sind
+		\EndProcedure
+		\\
+		\Procedure{isSolveable}{$graph, robotPosition, childPosition$}
+			\State $state \gets graph.findState(robotPosition, childPosition)$
+			
+			\Return $state.enforceValue != -1$
+		\EndProcedure
+		\\
+		
+		\Procedure{Controller}{$gameField, targetFields, batteryFields$}
+			\State $graph \gets generateGraph(gameField)$
+			\Comment{Spielgraphen generieren}
+			\State $batteryGraphs \gets enforceGraphs(graph, batteryFields)$
+			\Comment{Graphen für 9 Felder um die Batterien enforcen, um diese als Ziel zu berechnen/verwenden}
+			\\
+			\While{true}
+				\ForAll{targetField $in$ targetFields}
+					\State $enforcedGraph \gets enforceGraph(graph, targetField.position)$ 
+					
+					\Comment{Spielgraph auf aktuelles Ziel enforcen}
+					\State $activeGraph \gets enforcedGraph$
+					\\
+					\While{$targetField.position \neq robot.position \land isSolveable(enforcedGraph, robot.position, child.position)$}
+					
+					\State $robotToTargetCost \gets enforcedGraph.WCPath(robot.position, child.position)$
+					\State $targetToBatteryCost \gets findClosestBattery(targetField.position, batteryGraphs)$
+					\\
+					\If{$(targetToBatteryCost + robotToTargetCost) > robot.energy$}
+						\State $reachableBatteries \gets findReachableBatteries(robot.position, child.position)$
+						\State $targetBattery \gets findClosestBattery(reachableBatteries, targetField.position)$
+						\State $activeGraph \gets targetBattery.graph$
+					\EndIf
+					\\
+					\State $robot.makeMove(activeGraph.getBestRobotMove(robot.position, child.position))$
+					\State $child.makeMove(activeGraph.getRandomChildMove(robot.position, child.position))$
+					
+					\EndWhile
+				\EndFor
+			\EndWhile
+		\EndProcedure
+	\end{algorithmic}
+\end{algorithm}
 
 
 %Es folgen Notizen.

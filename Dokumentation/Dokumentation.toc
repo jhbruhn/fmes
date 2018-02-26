@@ -6,10 +6,11 @@
 \contentsline {section}{\numberline {3}Algorithmen}{6}{section.3}
 \contentsline {subsection}{\numberline {3.1}Spielgraph}{6}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Enforce}{7}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Controller}{7}{subsection.3.3}
-\contentsline {section}{\numberline {4}Buzzword}{8}{section.4}
-\contentsline {subsection}{\numberline {4.1}Optimierung}{8}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Fehler}{8}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Ergebnisse}{8}{subsection.4.3}
-\contentsline {section}{\numberline {5}Arbeitsverteilung}{9}{section.5}
-\contentsline {section}{\numberline {6}Erkl\IeC {\"a}rung}{10}{section.6}
+\contentsline {subsection}{\numberline {3.3}Controller}{8}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Controller}{8}{subsection.3.4}
+\contentsline {section}{\numberline {4}Buzzword}{11}{section.4}
+\contentsline {subsection}{\numberline {4.1}Optimierung}{11}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Fehler}{11}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Ergebnisse}{11}{subsection.4.3}
+\contentsline {section}{\numberline {5}Arbeitsverteilung}{12}{section.5}
+\contentsline {section}{\numberline {6}Erkl\IeC {\"a}rung}{13}{section.6}
