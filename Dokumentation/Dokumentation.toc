@@ -1,16 +1,16 @@
-\babel@toc {ngerman}{}
+\select@language {ngerman}
 \contentsline {section}{\numberline {1}Einleitung}{3}{section.1}
-\contentsline {section}{\numberline {2}System}{4}{section.2}
-\contentsline {subsection}{\numberline {2.1}Umgebungsvariablen}{4}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}GUI}{5}{subsection.2.2}
-\contentsline {section}{\numberline {3}Logik}{7}{section.3}
-\contentsline {subsection}{\numberline {3.1}Spielgraph}{7}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Enforce}{8}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Controller}{9}{subsection.3.3}
+\contentsline {section}{\numberline {2}System}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Umgebungsvariablen}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}GUI}{4}{subsection.2.2}
+\contentsline {section}{\numberline {3}Logik}{5}{section.3}
+\contentsline {subsection}{\numberline {3.1}Spielgraph}{5}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Enforce}{6}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Controller}{8}{subsection.3.3}
 \contentsline {subsection}{\numberline {3.4}Optimierung}{10}{subsection.3.4}
-\contentsline {section}{\numberline {4}Abschluss}{12}{section.4}
-\contentsline {subsection}{\numberline {4.1}Ausblick-Muller}{12}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Aufgetretene Fehler}{12}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Ergebnisse}{12}{subsection.4.3}
-\contentsline {section}{\numberline {5}Arbeitsverteilung}{13}{section.5}
-\contentsline {section}{\numberline {6}Erkl\IeC {\"a}rung}{14}{section.6}
+\contentsline {section}{\numberline {4}Abschluss}{10}{section.4}
+\contentsline {subsection}{\numberline {4.1}Ausblick-Muller}{10}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Aufgetretene Fehler}{11}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Ergebnisse}{11}{subsection.4.3}
+\contentsline {section}{\numberline {5}Arbeitsverteilung}{12}{section.5}
+\contentsline {section}{\numberline {6}Erkl\IeC {\"a}rung}{13}{section.6}
