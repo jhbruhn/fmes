@@ -44,6 +44,7 @@ public class RunCodeController {
                 start.setDisable(false);
                 runcode.setStopped(true);
                 controller.setStopped(true);
+                territorium.setNoSetOnField(false);
             }
             enableOrDisablePlacing(false);
         });
@@ -62,6 +63,7 @@ public class RunCodeController {
                 runcode.setStopped(false);
                 runcode.start();
                 runcode.setRunning(true);
+                territorium.setNoSetOnField(true);
 
                 hammerhuepfer.start();
                 hammerhuepfer.setStopped(false);

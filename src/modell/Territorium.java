@@ -12,6 +12,9 @@ import java.util.Observable;
 @XmlRootElement(name = "territorium")
 public class Territorium extends Observable implements java.io.Serializable {
 
+    // bestimmt ob etwas auf das Feld gesetzt werden darf oder nicht
+    private boolean noSetOnField = false;
+
     /**
      *
      */
@@ -204,54 +207,56 @@ public class Territorium extends Observable implements java.io.Serializable {
         if (reihe < 0 || reihe >= feldHoehe || spalte < 0 || spalte >= feldBreite) {
             throw new IndexOutOfBoundsException();
         }
-        if (child) {
-            feldReiheKind = reihe;
-            feldSpalteKind = spalte;
-        } else {
-            if (f == FeldEigenschaft.Location) {
-                ZielFeld z = new ZielFeld(reihe, spalte);
-                zielFelder.add(z);
-                getFeld()[reihe][spalte] = f;
-                if (nextGoalField == null) {
-                    nextGoalField = z;
-                }
-            }
-            if (f == FeldEigenschaft.Batterie && (!(feldReiheRoboter == reihe && feldSpalteRoboter == spalte))) {
-                getFeld()[reihe][spalte] = f;
-                ZielFeld z = new ZielFeld(reihe, spalte);
-                batterieFelder.add(z);
-            }
-
-            if (f == FeldEigenschaft.Leer) {
-                getFeld()[reihe][spalte] = f;
-                for (int k = 0; k < getZielFelder().size(); k++) {
-                    if (getZielFelder().get(k).getReihe() == reihe
-                            && getZielFelder().get(k).getSpalte() == spalte) {
-
-                        if (getNextGoalField().getReihe() == reihe &&
-                                getNextGoalField().getSpalte() == spalte) {
-                            if (getZielFelder().size() > 1) {
-                                setNextGoalField(getZielFelder().get((k + 1) % getZielFelder().size()));
-                            } else {
-                                setNextGoalField(null);
-                            }
-                        }
-                        getZielFelder().remove(getZielFelder().get(k));
-                    }
-
-                }
-                for(int k = 0; k < getBatterieFelder().size(); k++) {
-                    if (getBatterieFelder().get(k).getReihe() == reihe
-                            && getBatterieFelder().get(k).getSpalte() == spalte) {
-                        getBatterieFelder().remove(getBatterieFelder().get(k));
-                    }
-                }
-            }
-
-            if (f == FeldEigenschaft.Felsen) {
-                if (!((feldReiheRoboter == reihe && feldSpalteRoboter == spalte)
-                        || (feldReiheKind == reihe && feldSpalteKind == spalte))) {
+        if (!noSetOnField) {
+            if (child) {
+                feldReiheKind = reihe;
+                feldSpalteKind = spalte;
+            } else {
+                if (f == FeldEigenschaft.Location) {
+                    ZielFeld z = new ZielFeld(reihe, spalte);
+                    zielFelder.add(z);
                     getFeld()[reihe][spalte] = f;
+                    if (nextGoalField == null) {
+                        nextGoalField = z;
+                    }
+                }
+                if (f == FeldEigenschaft.Batterie && (!(feldReiheRoboter == reihe && feldSpalteRoboter == spalte))) {
+                    getFeld()[reihe][spalte] = f;
+                    ZielFeld z = new ZielFeld(reihe, spalte);
+                    batterieFelder.add(z);
+                }
+
+                if (f == FeldEigenschaft.Leer) {
+                    getFeld()[reihe][spalte] = f;
+                    for (int k = 0; k < getZielFelder().size(); k++) {
+                        if (getZielFelder().get(k).getReihe() == reihe
+                                && getZielFelder().get(k).getSpalte() == spalte) {
+
+                            if (getNextGoalField().getReihe() == reihe &&
+                                    getNextGoalField().getSpalte() == spalte) {
+                                if (getZielFelder().size() > 1) {
+                                    setNextGoalField(getZielFelder().get((k + 1) % getZielFelder().size()));
+                                } else {
+                                    setNextGoalField(null);
+                                }
+                            }
+                            getZielFelder().remove(getZielFelder().get(k));
+                        }
+
+                    }
+                    for (int k = 0; k < getBatterieFelder().size(); k++) {
+                        if (getBatterieFelder().get(k).getReihe() == reihe
+                                && getBatterieFelder().get(k).getSpalte() == spalte) {
+                            getBatterieFelder().remove(getBatterieFelder().get(k));
+                        }
+                    }
+                }
+
+                if (f == FeldEigenschaft.Felsen) {
+                    if (!((feldReiheRoboter == reihe && feldSpalteRoboter == spalte)
+                            || (feldReiheKind == reihe && feldSpalteKind == spalte))) {
+                        getFeld()[reihe][spalte] = f;
+                    }
                 }
             }
         }
@@ -714,5 +719,13 @@ public class Territorium extends Observable implements java.io.Serializable {
 
     public void setBatterieFelder(ArrayList<ZielFeld> batterieFelder) {
         this.batterieFelder = batterieFelder;
+    }
+
+    public boolean isNoSetOnField() {
+        return noSetOnField;
+    }
+
+    public void setNoSetOnField(boolean noSetOnField) {
+        this.noSetOnField = noSetOnField;
     }
 }
