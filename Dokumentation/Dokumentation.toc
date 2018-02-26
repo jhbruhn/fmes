@@ -1,15 +1,15 @@
 \select@language {ngerman}
-\contentsline {section}{\numberline {1}Einleitung}{4}{section.1}
-\contentsline {section}{\numberline {2}System}{5}{section.2}
-\contentsline {subsection}{\numberline {2.1}Umgebungsvariablen}{5}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}GUI}{5}{subsection.2.2}
-\contentsline {section}{\numberline {3}Algorithmen}{6}{section.3}
-\contentsline {subsection}{\numberline {3.1}Spielgraph}{6}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Enforce}{7}{subsection.3.2}
+\contentsline {section}{\numberline {1}Einleitung}{3}{section.1}
+\contentsline {section}{\numberline {2}System}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}Umgebungsvariablen}{4}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}GUI}{4}{subsection.2.2}
+\contentsline {section}{\numberline {3}Logik}{5}{section.3}
+\contentsline {subsection}{\numberline {3.1}Spielgraph}{5}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Enforce}{6}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}Controller}{7}{subsection.3.3}
-\contentsline {section}{\numberline {4}Buzzword}{8}{section.4}
-\contentsline {subsection}{\numberline {4.1}Optimierung}{8}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Fehler}{8}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Ergebnisse}{8}{subsection.4.3}
-\contentsline {section}{\numberline {5}Arbeitsverteilung}{9}{section.5}
-\contentsline {section}{\numberline {6}Erkl\IeC {\"a}rung}{10}{section.6}
+\contentsline {subsection}{\numberline {3.4}Optimierung}{8}{subsection.3.4}
+\contentsline {section}{\numberline {4}Abschluss}{9}{section.4}
+\contentsline {subsection}{\numberline {4.1}Aufgetretene Fehler}{9}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Ergebnisse}{9}{subsection.4.2}
+\contentsline {section}{\numberline {5}Arbeitsverteilung}{10}{section.5}
+\contentsline {section}{\numberline {6}Erkl\IeC {\"a}rung}{11}{section.6}
