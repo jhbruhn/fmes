@@ -129,27 +129,38 @@ public class Graph implements Cloneable {
 
 
         // Now let's calculate Enforce+
-        for (State s : g.states.stream().filter(s -> s.enforceValue == -1).collect(Collectors.toList())) {
-            // Find the states from which we can enforce a step to Enforce in 1
-            if (s.isRobotState) {
-                // We need at least one Transitions which leads into enforce. We will then choose the lowest of it.
-                List<Transition> transitions = g.getTransitionsFrom(s);
-                Optional<Transition> cheapestTransition = transitions.stream().filter(t -> t.to.enforceValue != -1).min(Comparator.comparingInt(o -> o.to.enforceValue));
-                if (cheapestTransition.isPresent()) {
-                    // We found a way into enforce. We can now set an enforce value on this!
-                    System.out.println("Renf+");
-                    s.enforceValue = cheapestTransition.get().to.enforceValue + 1;
-                }
-            } else {
-                // All the transitions coming from this have to lead into enforce. Let's check.
-                List<Transition> transitions = g.getTransitionsFrom(s);
-                boolean leadsToEnforce = transitions.stream().noneMatch(t -> t.to.enforceValue == -1);
-                if(leadsToEnforce) {
-                    System.out.println("Cenf+");
-                    Optional<Integer> newEnforce = transitions.stream().map((transition) -> transition.to.enforceValue).max(Comparator.comparingInt(o -> o));
-                    newEnforce.ifPresent(integer -> s.enforceValue = integer);
+        boolean statesChanged = true;
+        while (statesChanged) {
+            statesChanged = false;
+
+            for (State s : g.states.stream().filter(s -> s.enforceValue == -1).collect(Collectors.toList())) {
+                // Find the states from which we can enforce a step to Enforce in 1
+                if (s.isRobotState) {
+                    // We need at least one Transitions which leads into enforce. We will then choose the lowest of it.
+                    List<Transition> transitions = g.getTransitionsFrom(s);
+                    Optional<Transition> cheapestTransition = transitions.stream().filter(t -> t.to.enforceValue != -1).min(Comparator.comparingInt(o -> o.to.enforceValue));
+                    if (cheapestTransition.isPresent()) {
+                        // We found a way into enforce. We can now set an enforce value on this!
+                        System.out.println("Renf+");
+                        statesChanged = true;
+                        s.enforceValue = cheapestTransition.get().to.enforceValue + 1;
+                    }
+                } else {
+                    // All the transitions coming from this have to lead into enforce. Let's check.
+                    List<Transition> transitions = g.getTransitionsFrom(s);
+                    boolean leadsToEnforce = transitions.stream().noneMatch(t -> t.to.enforceValue == -1);
+                    if (leadsToEnforce) {
+
+                        Optional<Integer> newEnforce = transitions.stream().map((transition) -> transition.to.enforceValue).max(Comparator.comparingInt(o -> o));
+                        if(newEnforce.isPresent()) {
+                            s.enforceValue = newEnforce.get() + 1;
+                            System.out.println("Cenf+");
+                            statesChanged = true;
+                        }
+                    }
                 }
             }
+
         }
 
         // Eliminate Transitions for Buechi-Acceptance
@@ -209,7 +220,7 @@ public class Graph implements Cloneable {
     public int getCostToTarget(State from) {
         if (from == null) return Integer.MAX_VALUE;
         if (from.enforceValue == -1) throw new RuntimeException("You cannot calculate a path on an unenforced graph");
-        System.out.println("Calculating cost");
+        //System.out.println("Calculating cost");
 
         int cost = 0;
         State state = from;
@@ -253,7 +264,7 @@ public class Graph implements Cloneable {
             }
         }
 
-        System.out.println("Calculated cost: " + cost);
+        //System.out.println("Calculated cost: " + cost);
 
 
         return cost;

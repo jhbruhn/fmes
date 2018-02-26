@@ -60,6 +60,7 @@ public class Controller extends Thread {
 
         try {
             Platform.runLater(dialog::hide);
+            Platform.runLater(dialog::hide);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -170,6 +171,7 @@ public class Controller extends Thread {
         if (canGoToTarget) {
             System.out.println("Going to Target");
             robotController.setGraph(targetGraph);
+            randomChildController.setGraph(targetGraph); // Should not make a difference, but lets keep it consistent
         } else {
             // We cannot go to the target and then to a battery, so we go to the battery closest to the target
 
@@ -211,6 +213,7 @@ public class Controller extends Thread {
 
                 System.out.println("Going to Battery");
                 robotController.setGraph(closestBat.getEnforcedGraph());
+                randomChildController.setGraph(closestBat.getEnforcedGraph()); // Should not make a difference, but let's keep it consistent.
             }
         }
     }

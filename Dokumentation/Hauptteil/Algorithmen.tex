@@ -2,6 +2,36 @@
 probleme übersicht roboter
 probleme übersicht gruppe
 \subsection{Spielgraph}
+\textcolor{red}{To review!}\\
+Da der Roboter seine Entscheidungen basierend auf den Enforce-Algorithmen treffen soll, müssen wir einen endlichen
+Spielgraphen erstellen. Ein solcher Graph besteht aus Zuständen, in denen der Spieler (in diesem Fall der Roboter)
+und Zuständen in denen die Umgebung (in diesem Fall das Kind) einen Zug macht. Ein Zug wird dabei von einer Kante im Graphen
+dargestellt.\par
+
+In unserem Fall sind die möglichen Züge die jeweiligen Bewegungsmuster, die den Spielern mitgegeben werden.
+Demnach besteht unser Spielgraph $G = (Q, I, Q_0, Q_1, A_0, A_1, \Omega)$, orientiert an den Vorlesungsunterlagen, aus diesen Elementen:
+\begin{itemize}
+	\item $Q$: Menge aller Zustände
+	\item $I \subseteq Q_0$: Menge aller Startzustände
+	\item $Q_0  \text{ und }  Q_1$: Teilmengen von $Q$
+	\begin{itemize}
+		\item $Q_0$: Zustände in denen der Roboter am Zug ist
+		\item $Q_1$: Zustände in denen das Kind am Zug ist
+	\end{itemize}
+	\item $A_0$: Züge des Roboters
+	\item $A_1$: Züge des Kindes
+	\item $\Omega \subseteq Q$: Zustände, in denen der Roboter auf dem Ziel steht
+\end{itemize}
+
+Die Zustände enthalten dabei die Positionsinformation des Roboters und des Kindes, und welcher Spieler am Zug ist.
+
+Um einen Spielgraphen für unser Spielfeld zu erhalten generieren wir also, ausgehend von einem Initialzustand $Q0$, alle möglichen darauf folgenden Transitionen, abhängig davon, ob der daraus entstehende Folgezustand valide ist. Es werden dabei jeweils entweder die Bewegungesmuster des Kindes oder die des Roboters gewählt. Die daraus folgenden Zustände werden in die Datenstruktur mit aufgenommen. Wenn jene zuvor noch nicht bekannt waren, werden auch von diesen Zuständen die Folgezustände generiert, bis keine neuen Zustände mehr generiert werden. 
+
+Da schon der Spielgraph illegale Zustände vermeiden muss, wird hier bereits beachtet, ob der Roboter mit dem Kind kollidiert oder nicht. Die offensichtliche, einfache Lösung, unabhängig davon wer am Zug ist illegale Folgezustände zu verbieten entspräche natürlich nicht der Aufgabenstellung, weil dann auch das Kind dem Roboter aktiv ausweichen würde. Es soll aber der Roboter dem Kind ausweichen, also ggf. auch vorhersehen ob er mit dem Kind kollidiert. Diese Funktionalität wird umgesetzt, indem für alle generierten Folgezustände des Roboters zusätzlich die darauf folgenden Möglichen Züge des Kindes berechnet werden. Enthält diese zweite Menge einen Zustand, in dem das Kind in den Roboter hineinspringt, wird der aktuelle Roboterzustand verworfen, da er zu einem illegalen Zug führen kann.
+
+Wird die Graphengenerierung so umgesetzt erhalten wir bereits einen Roboter, der dem Kind aktiv ausweichen kann, egal welchen Zug das Kind macht. Dies gilt natürlich nur unter der Voraussetzung, dass die angegebenen Bewegungsmuster dies Zulassen. Kann das Kind bspw. sich frei bewegen ($A_1 = {u,d,l,r}$), der Roboter jedoch gar nicht ($A_0 = {e}$), so kann der Roboter offensichtlich auch keine Kollision vermeiden.
+
+
 \subsection{Enforce}
 Auf dem Graphen wird der Enforce-Wert für die Bewegungen des Roboters und des Kindes berechnet. Dabei treten die Aktionen der beiden Beteiligten immer in abwechselnder Reihenfolge ein. Zu erst kommt immer die Bewegung des Roboters, dann die des Kindes. Dieses wiederholt sich, bis der Roboter sein Ziel erreicht hat, oder dieses nicht mehr erreichbar ist, durch einen Fehlerzustand. Letzterer ist zu vermeiden und durch den Enforce-Wert möglichst zu vermeiden. \\
 Für die Berechnung wird in zwei verschiedene Algorithmen unterschieden, zum einen Enforce und zum Anderen Enforce+ . Die beiden Algorithmen und ihre Umsetzung werden im folgenden diskutiert. \\
