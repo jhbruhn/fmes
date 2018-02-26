@@ -27,6 +27,8 @@ public class RandomChildController {
         int index;
         boolean success = false;
         while (!success) {
+            System.out.println(graph.findStateForPositions(StateUtil.getRobotPosition(territorium), StateUtil.getChildPosition(territorium), false));
+            System.out.println(graph.findStateForPositions(StateUtil.getRobotPosition(territorium), StateUtil.getChildPosition(territorium), true));
             ArrayList<ArrayList<Territorium.Richtung>> nextMoves = ListListToArrayListList.convert(graph.getNextChildMoves(graph.findStateForPositions(StateUtil.getRobotPosition(territorium), StateUtil.getChildPosition(territorium), false)));
             if(!nextMoves.isEmpty()) {
                 index = randomGenerator.nextInt(nextMoves.size());
