@@ -46,10 +46,10 @@ Der Controller ist die Schnittstelle zwischen dem Graphen, inklusive der Enforce
 
 Zur Berechnung der Pfade wird also die WorstCasePath Metrik festgelegt. Diese berechnet sich aus der Summe der Anzahl von Bewegungen die entstehen, wenn der Roboter von seinem aktuellen Zustand in den Zielzustand navigiert. Dabei nimmt der Roboter immer den Weg der zum geringsten Enforce-Wert führt. Das Kind nimmt auf diesem Pfad allerdings immer die Transitionen, die zu dem Zustand mit dem höchsten Enforce-Wert führen. Die Summe der Anzahlen der Bewegungen, die der Roboter auf diesem Pfad macht, ist dann der WorstCasePath ($WCPath(target)$).
 
-Der Ablauf des Controllers ist in Listing~\autoref{controllerPseudo} vereinfacht dargestellt.
+Der Ablauf des Controllers ist in Algorithmus~\autoref{alg:controllerPseudo} vereinfacht dargestellt.
 
 \begin{algorithm}[t]
-	\caption{Pseudocode des Controllers}\label{controllerPseudo}
+	\caption{Pseudocode des Controllers}\label{alg:controllerPseudo}
 	\begin{algorithmic}[1]
 		\Procedure{findClosestBattery}{$graphs, position$}
 		
