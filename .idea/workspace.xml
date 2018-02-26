@@ -4,9 +4,7 @@
     <list default="true" id="2572ffed-2cd9-40a8-bcde-eb9c765ad732" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Dokumentation/Dokumentation.pdf" afterPath="$PROJECT_DIR$/Dokumentation/Dokumentation.pdf" />
-      <change beforePath="$PROJECT_DIR$/Dokumentation/Dokumentation.toc" afterPath="$PROJECT_DIR$/Dokumentation/Dokumentation.toc" />
-      <change beforePath="$PROJECT_DIR$/Dokumentation/Ende/Ergebnisse.tex" afterPath="$PROJECT_DIR$/Dokumentation/Ende/Ergebnisse.tex" />
-      <change beforePath="$PROJECT_DIR$/Dokumentation/Hauptteil/Algorithmen.tex" afterPath="$PROJECT_DIR$/Dokumentation/Hauptteil/Algorithmen.tex" />
+      <change beforePath="$PROJECT_DIR$/Dokumentation/Einleitung/Einleitung.tex" afterPath="$PROJECT_DIR$/Dokumentation/Einleitung/Einleitung.tex" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,7 +19,7 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controlls/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
+            <state relative-caret-position="381">
               <caret line="77" column="38" lean-forward="false" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -1805,11 +1803,18 @@
       <option name="project" value="LOCAL" />
       <updated>1519649786383</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="adds some funny words to the results">
+      <created>1519654311633</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1519654311633</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51786000" />
+    <option name="totallyTimeSpent" value="52584000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="705" extended-state="6" />
@@ -1902,7 +1907,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="no author" />
     <MESSAGE value="Well played so far" />
     <MESSAGE value="videos udn einige hd bilder rausgenommen" />
     <MESSAGE value="Wieder weiter falschen Code entfernt" />
@@ -1927,7 +1931,8 @@
     <MESSAGE value="doku" />
     <MESSAGE value="es kann während des spiels nichts mehr gesetzt werden" />
     <MESSAGE value="weiter doku" />
-    <option name="LAST_COMMIT_MESSAGE" value="weiter doku" />
+    <MESSAGE value="adds some funny words to the results" />
+    <option name="LAST_COMMIT_MESSAGE" value="adds some funny words to the results" />
   </component>
   <component name="WindowStateProjectService">
     <state width="259" height="644" key="Git.Branch.Popup" />
@@ -2136,6 +2141,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2160,7 +2166,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controlls/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
+        <state relative-caret-position="381">
           <caret line="77" column="38" lean-forward="false" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
