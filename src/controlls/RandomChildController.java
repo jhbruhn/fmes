@@ -3,6 +3,8 @@ package controlls;
 import Util.ListListToArrayListList;
 import Util.StateUtil;
 import graph.Graph;
+import javafx.application.Platform;
+import javafx.scene.control.Alert;
 import modell.Kind;
 import modell.Territorium;
 
@@ -25,18 +27,19 @@ public class RandomChildController {
 
     public void doNextSteps() {
         int index;
-        boolean success = false;
-        while (!success) {
-            System.out.println(graph.findStateForPositions(StateUtil.getRobotPosition(territorium), StateUtil.getChildPosition(territorium), false));
-            System.out.println(graph.findStateForPositions(StateUtil.getRobotPosition(territorium), StateUtil.getChildPosition(territorium), true));
-            ArrayList<ArrayList<Territorium.Richtung>> nextMoves = ListListToArrayListList.convert(graph.getNextChildMoves(graph.findStateForPositions(StateUtil.getRobotPosition(territorium), StateUtil.getChildPosition(territorium), false)));
-            if(!nextMoves.isEmpty()) {
-                index = randomGenerator.nextInt(nextMoves.size());
-                move(nextMoves.get(index));
-            }
-            success = true;
+        ArrayList<ArrayList<Territorium.Richtung>> nextMoves = ListListToArrayListList.convert(graph.getNextChildMoves(graph.findStateForPositions(StateUtil.getRobotPosition(territorium), StateUtil.getChildPosition(territorium), false)));
+        if(!nextMoves.isEmpty()) {
+            index = randomGenerator.nextInt(nextMoves.size());
+            move(nextMoves.get(index));
+        } else{
+            Platform.runLater(() -> {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Finished");
+                alert.setHeaderText("Finished");
+                alert.setContentText("The child can't move anymore");
+                alert.showAndWait();
+            });}
 
-        }
     }
 
     private void move(ArrayList<Territorium.Richtung> richtungen) {
