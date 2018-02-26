@@ -148,6 +148,7 @@ public class Oberflaeche {
     private TextField robotInput;
     private TextField childInput;
     private TextField startTank;
+    private CheckBox endlessLoop;
 
     /*
      * initialisiert alle Werte/Variablen/Atribute
@@ -230,6 +231,13 @@ public class Oberflaeche {
             getTerritorium().setStartTankfuellung(val);
         });
 
+        endlessLoop = new CheckBox();
+        endlessLoop.setText("Endless Loop (Büchi)");
+        endlessLoop.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            getTerritorium().setEndlessLoop(newValue);
+        });
+        endlessLoop.setSelected(true);
+
         zuBeachtendeButtonsUndMenuItems();
     }
 
@@ -261,6 +269,7 @@ public class Oberflaeche {
         box.getChildren().add(this.childInput);
         box.getChildren().add(new Label("Start Tank:"));
         box.getChildren().add(this.startTank);
+        box.getChildren().add(this.endlessLoop);
         borderPaneForCodeField.setCenter(box);
         //borderPaneForCodeField.setRight();
         // Die folgenden Zahlen sind nur nach pers�nlichem Empfinden gesetzt
