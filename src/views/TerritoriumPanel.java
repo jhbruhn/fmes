@@ -30,22 +30,22 @@ import javafx.util.Duration;
 public class TerritoriumPanel extends Region implements Observer {
 
     private final Image felsenSmall = new Image(
-            getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/felsenSmall.png"));
+            getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/FelsenSmall.png"));
 
     private final Image ort1 = new Image(
-            getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/ort1.jpg"));
+            getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/ort1.jpg"));
 
     private final Image batterieSmall = new Image(
-            getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/batterieSmall.png"));
+            getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/BatterieSmall.png"));
 
     private final Image deleteSmall = new Image(
-            getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/deleteSmall.png"));
+            getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/deleteSmall.png"));
 
     private final Image submarineBugNordSmall = new Image(
-            getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/Roboter.png"));
+            getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/roboter.png"));
 
     private final Image submarineHeckNordSmall = new Image(
-            getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/Kind.png"));
+            getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/kind.png"));
 
     Canvas canvas = new Canvas();
     Group root = new Group();

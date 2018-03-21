@@ -7,7 +7,7 @@ public class FelsenDaException extends UBootRuntimeException {
 	AudioClip clip;
 
 	public void play() {
-		clip = new AudioClip(getClass().getResource("../resourcesPicturesAndSoundsVidoes/lost.wav").toString());
-		clip.play(1.0);
+		//clip = new AudioClip(getClass().getResource("../resourcesPicturesAndSoundsVidoes/lost.wav").toString());
+		//clip.play(1.0);
 	}
 }

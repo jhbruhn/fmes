@@ -65,7 +65,7 @@ Der Ablauf des Controllers ist in Algorithmus~\autoref{alg:controllerPseudo} ver
 		\Procedure{isSolveable}{$graph, robotPosition, childPosition$}
 			\State $state \gets graph.findState(robotPosition, childPosition)$
 			
-			\Return $state.enforceValue != -1$
+			\Return $state.enforceValue \neq -1$
 		\EndProcedure
 		\\
 		

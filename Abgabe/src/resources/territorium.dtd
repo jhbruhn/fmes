@@ -1,0 +1,109 @@
+<!ELEMENT territorium (attributes, feld)>
+<!ELEMENT attributes (fahrtRichtung, feldSpalteBug, feldSpalteHeck, feldReiheHeck, feldReiheBug, territoriumSpecialFinishNummer, startSpalteHeck, startSpalteBug, startReiheHeck, startReiheBug, resizeable, objectResizedWidth, objectResizedHeigth, entfernungBreiteDesSpielFeldes, entfernungHoeheDesSpielFeldes, beleuchtung, batterieAnBord, feldhoehe, feldbreite, nachfolgeLevel)>
+<!ELEMENT feld (feldZeile*)>
+<!ELEMENT feldZeile (feldElement*)>
+
+<!ELEMENT feldElement EMPTY>
+<!ATTLIST feldElement
+	value CDATA #REQUIRED
+>
+
+<!ELEMENT fahrtRichtung EMPTY>
+<!ATTLIST fahrtRichtung
+	value CDATA #REQUIRED
+>
+
+<!ELEMENT feldSpalteBug EMPTY>
+<!ATTLIST feldSpalteBug
+	value CDATA #REQUIRED
+>
+
+<!ELEMENT feldSpalteHeck EMPTY>
+<!ATTLIST feldSpalteHeck
+	value CDATA #REQUIRED
+>
+
+<!ELEMENT feldReiheHeck EMPTY>
+<!ATTLIST feldReiheHeck
+	value CDATA #REQUIRED
+>
+
+<!ELEMENT feldReiheBug EMPTY>
+<!ATTLIST feldReiheBug
+	value CDATA #REQUIRED
+>
+
+<!ELEMENT territoriumSpecialFinishNummer EMPTY>
+<!ATTLIST territoriumSpecialFinishNummer
+	value CDATA #REQUIRED
+>
+
+<!ELEMENT startSpalteHeck EMPTY>
+<!ATTLIST startSpalteHeck
+	value CDATA #REQUIRED
+>
+
+<!ELEMENT startSpalteBug EMPTY>
+<!ATTLIST startSpalteBug
+	value CDATA #REQUIRED
+>
+
+<!ELEMENT startReiheHeck EMPTY>
+<!ATTLIST startReiheHeck
+	value CDATA #REQUIRED
+>
+
+<!ELEMENT startReiheBug EMPTY>
+<!ATTLIST startReiheBug
+	value CDATA #REQUIRED
+>
+
+<!ELEMENT resizeable EMPTY>
+<!ATTLIST resizeable
+	value CDATA #REQUIRED
+>
+
+<!ELEMENT objectResizedWidth EMPTY>
+<!ATTLIST objectResizedWidth
+	value CDATA #REQUIRED
+>
+
+<!ELEMENT objectResizedHeigth EMPTY>
+<!ATTLIST objectResizedHeigth
+	value CDATA #REQUIRED
+>
+
+<!ELEMENT entfernungBreiteDesSpielFeldes EMPTY>
+<!ATTLIST entfernungBreiteDesSpielFeldes
+	value CDATA #REQUIRED
+>
+
+<!ELEMENT entfernungHoeheDesSpielFeldes EMPTY>
+<!ATTLIST entfernungHoeheDesSpielFeldes
+	value CDATA #REQUIRED
+>
+
+<!ELEMENT beleuchtung EMPTY>
+<!ATTLIST beleuchtung
+	value CDATA #REQUIRED
+>
+
+<!ELEMENT batterieAnBord EMPTY>
+<!ATTLIST batterieAnBord
+	value CDATA #REQUIRED
+>
+
+<!ELEMENT feldhoehe EMPTY>
+<!ATTLIST feldhoehe
+	value CDATA #REQUIRED
+>
+
+<!ELEMENT feldbreite EMPTY>
+<!ATTLIST feldbreite
+	value CDATA #REQUIRED
+>
+
+<!ELEMENT nachfolgeLevel EMPTY>
+<!ATTLIST nachfolgeLevel
+	value CDATA #REQUIRED
+>

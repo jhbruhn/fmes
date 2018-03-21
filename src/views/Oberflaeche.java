@@ -181,15 +181,15 @@ public class Oberflaeche {
         buttonHinweis = new Button();
         toggleBearbeitenSpielfeld = new ToggleGroup();
         buttonStart = new Button("", new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/startSmall.png"))));
+                new Image(getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/startSmall.png"))));
        buttonStop = new Button("", new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/stopSmall.png"))));
+                new Image(getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/stopSmall.png"))));
         comboboxButtonBearbeitenAuswahl = new ComboBox<ImageView>();
         slider = new Slider();
         labelBottom = new Label();
         split = new SplitPane();
         clip = new AudioClip(
-                getClass().getResource("../resourcesPicturesAndSoundsVidoes/BabyCryingSounds.wav").toString());
+                getClass().getResource("/resourcesPicturesAndSoundsVidoes/BabyCryingSounds.wav").toString());
         border = new BorderPane();
         innerborder = new BorderPane();
         al = new ArrayList<RadioMenuItem>();
@@ -301,7 +301,7 @@ public class Oberflaeche {
         // die Farbe wieder "sch�n" gew�hlt.
 
         Scene scene = new Scene(root, 1250, 750);
-        scene.getStylesheets().add(Oberflaeche.class.getResource("../resources/Style.txt").toExternalForm());
+        scene.getStylesheets().add(Oberflaeche.class.getResource("/resources/Style.txt").toExternalForm());
         primaryStage.setScene(scene);
     }
 
@@ -351,17 +351,17 @@ public class Oberflaeche {
 
         comboboxButtonBearbeitenAuswahl.getItems().addAll(
                 new ImageView(new Image(
-                        getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/roboter.png"))),
+                        getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/roboter.png"))),
                 new ImageView(new Image(
-                        getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/kind.png"))),
+                        getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/kind.png"))),
                 new ImageView(new Image(
-                        getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/felsenSmall.png"))),
+                        getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/FelsenSmall.png"))),
                 new ImageView(new Image(
-                        getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/batterieSmall.png"))),
+                        getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/BatterieSmall.png"))),
                 new ImageView(
-                        new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/location.png"))),
+                        new Image(getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/location.png"))),
                 new ImageView(new Image(
-                        getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/deleteSmall.png"))));
+                        getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/deleteSmall.png"))));
 
         comboboxButtonBearbeitenAuswahl.setCellFactory(new ImageCombo());
 
@@ -606,46 +606,46 @@ public class Oberflaeche {
     private void setImagesOnMenuItems() {
         // Vorher noch eben das Logo xD
         getPrimaryStage().getIcons().add(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/roboter.png")));
+                new Image(getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/roboter.png")));
 
         // Images in die MenuLeiste einf�gen
 
         // Datei-Images
         spracheMenuItem.setGraphic(new ImageView(new Image(
-                getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/languageVerySmall.png"))));
+                getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/languageVerySmall.png"))));
         deutschSprache.setGraphic(new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/germanVerySmall.png"))));
+                new Image(getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/germanVerySmall.png"))));
         englishSprache.setGraphic(new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/englishVerySmall.png"))));
+                new Image(getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/englishVerySmall.png"))));
         quitMenuItem.setGraphic(new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/cancel.png"))));
+                new Image(getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/cancel.png"))));
 
         groeßeAendernMenuItem.setGraphic(new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/sizeVerySmall.png"))));
+                new Image(getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/sizeVerySmall.png"))));
         rezisableImageCheck();
         tankstellenImageCheck();
         roboterMenuItem.setGraphic(new ImageView(new Image(
-                getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/roboterSmall.png"))));
+                getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/roboterSmall.png"))));
         felsen.setGraphic(new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/felsenVerySmall.png"))));
+                new Image(getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/FelsenVerySmall.png"))));
         child.setGraphic(new ImageView(new Image(
-                getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/kindSmall.png"))));
+                getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/kindSmall.png"))));
         batterie.setGraphic(new ImageView(new Image(
-                getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/batterieVerySmall.png"))));
+                getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/BatterieVerySmall.png"))));
         location.setGraphic(new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/locationSmall.png"))));
+                new Image(getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/locationSmall.png"))));
         deleteBefehl.setGraphic(new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/deleteVerySmall.png"))));
+                new Image(getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/deleteVerySmall.png"))));
 
         // Simulation-Images
         startMenuItem.setGraphic(new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/startVerySmall.png"))));
+                new Image(getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/startVerySmall.png"))));
         stopMenuItem.setGraphic(new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/stopVerySmall.png"))));
+                new Image(getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/stopVerySmall.png"))));
 
         // Hilfe-Images
         hinweisMenuItem.setGraphic(new ImageView(new Image(
-                getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/fragezeichenVerySmall.png"))));
+                getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/fragezeichenVerySmall.png"))));
     }
 
     /*
@@ -724,21 +724,21 @@ public class Oberflaeche {
     public void rezisableImageCheck() {
         if (getTerritorium().isResizeable()) {
             resizeableMenuItem.setGraphic(new ImageView(new Image(
-                    getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/startVerySmall.png"))));
+                    getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/startVerySmall.png"))));
         } else {
             resizeableMenuItem.setGraphic(new ImageView(new Image(
-                    getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/stopVerySmall.png"))));
+                    getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/stopVerySmall.png"))));
         }
     }
 
     public void tankstellenImageCheck(){
         if (getTerritorium().isTrankfuellungBeachten()) {
             tankStelleBenoetigtMenuItem.setGraphic(new ImageView(new Image(
-                    getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/tankstelleSmall.png"))));
+                    getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/tankstelleSmall.png"))));
             tankStelleBenoetigtMenuItem.setText(international.getRb().getString("tankfuellung"));
         } else {
             tankStelleBenoetigtMenuItem.setGraphic(new ImageView(new Image(
-                    getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/stopVerySmall.png"))));
+                    getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/stopVerySmall.png"))));
             tankStelleBenoetigtMenuItem.setText(international.getRb().getString("kTankfuellung"));
         }
     }

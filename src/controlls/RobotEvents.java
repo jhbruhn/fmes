@@ -207,10 +207,10 @@ public class RobotEvents {
         Stage s = new Stage();
         GridPane grid = new GridPane();
         Button buttonOK = new Button("", new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/startSmall.png"))));
+                new Image(getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/startSmall.png"))));
         buttonOK.setTooltip(new Tooltip(rb.getString("buttonOK")));
         Button buttonAbbrechen = new Button("", new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/stopSmall.png"))));
+                new Image(getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/stopSmall.png"))));
         buttonAbbrechen.setTooltip(new Tooltip(rb.getString("buttonAbbrechen")));
         buttonOK.setDisable(true);
         NumberTextField heigthZahlentextfeld = new NumberTextField(grid, rb);
@@ -325,9 +325,9 @@ public class RobotEvents {
         GridPane grid = new GridPane();
         TextField textName = new TextField();
         Button buttonName = new Button("", new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/startSmall.png"))));
+                new Image(getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/startSmall.png"))));
         Button buttonAbbrechenName = new Button("", new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/stopSmall.png"))));
+                new Image(getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/stopSmall.png"))));
         buttonAbbrechenName.setOnAction(e -> {
             p.setName(fehlerText);
             stage.close();
@@ -381,9 +381,9 @@ public class RobotEvents {
         TextField textName = new TextField();
         NumberTextField textSpecial = new NumberTextField(grid, rb);
         Button buttonName = new Button("", new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/startSmall.png"))));
+                new Image(getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/startSmall.png"))));
         Button buttonAbbrechenName = new Button("", new ImageView(
-                new Image(getClass().getResourceAsStream("../resourcesPicturesAndSoundsVidoes/stopSmall.png"))));
+                new Image(getClass().getResourceAsStream("/resourcesPicturesAndSoundsVidoes/stopSmall.png"))));
         buttonAbbrechenName.setOnAction(e -> {
             p.setName(fehlerText);
             stage.close();
