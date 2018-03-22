@@ -1683,11 +1683,18 @@
       <option name="project" value="LOCAL" />
       <updated>1519650448087</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="praesi gliederung Spielfeld">
+      <created>1521746719098</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1521746719098</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56369000" />
+    <option name="totallyTimeSpent" value="57024000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
@@ -1783,8 +1790,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Well played so far" />
-    <MESSAGE value="videos udn einige hd bilder rausgenommen" />
     <MESSAGE value="Wieder weiter falschen Code entfernt" />
     <MESSAGE value="laesst sich wieder starten" />
     <MESSAGE value="kleinere änderungen beim movement" />
@@ -1808,7 +1813,9 @@
     <MESSAGE value="es kann während des spiels nichts mehr gesetzt werden" />
     <MESSAGE value="weiter doku" />
     <MESSAGE value="muller in doku" />
-    <option name="LAST_COMMIT_MESSAGE" value="muller in doku" />
+    <MESSAGE value="praesi gliederung Spielfeld" />
+    <MESSAGE value="praesi Spielfeld done" />
+    <option name="LAST_COMMIT_MESSAGE" value="praesi Spielfeld done" />
   </component>
   <component name="WindowStateProjectService">
     <state width="259" height="644" key="Git.Branch.Popup" />
