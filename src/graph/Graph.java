@@ -238,7 +238,8 @@ public class Graph implements Cloneable {
 
             for (Transition t : transitions) {
                 if (state.isRobotState) {
-                    if ((newState == null && t.to.enforceValue < state.enforceValue && t.to.enforceValue != -1) || (newState != null && t.to.enforceValue < newState.enforceValue && t.to.enforceValue != -1)) {
+                    if ((newState == null && t.to.enforceValue < state.enforceValue && t.to.enforceValue != -1)
+                            || (newState != null && t.to.enforceValue < newState.enforceValue && t.to.enforceValue != -1)) {
                         transition = t;
                         newState = t.to;
                         enforceTemp = t.to.enforceValue;
