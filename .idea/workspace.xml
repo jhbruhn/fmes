@@ -8,6 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2572ffed-2cd9-40a8-bcde-eb9c765ad732" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Dokumentation/Roboter.pptx" afterPath="$PROJECT_DIR$/Dokumentation/Roboter.pptx" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -716,7 +717,7 @@
       <workItem from="1519588506425" duration="262000" />
       <workItem from="1519646901785" duration="4433000" />
       <workItem from="1522162243085" duration="1318000" />
-      <workItem from="1522164748704" duration="296000" />
+      <workItem from="1522164748704" duration="359000" />
     </task>
     <task id="LOCAL-00001" summary="RandomChildMovement dummy">
       <created>1515076638098</created>
@@ -963,11 +964,18 @@
       <option name="project" value="LOCAL" />
       <updated>1522164216105</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="praesi code snippet size">
+      <created>1522165061079</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1522165061079</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62192000" />
+    <option name="totallyTimeSpent" value="62255000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
@@ -1042,7 +1050,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="laesst sich wieder starten" />
     <MESSAGE value="kleinere änderungen beim movement" />
     <MESSAGE value="der roboter kann jetzt sinnig bewegt werden" />
     <MESSAGE value="bewegungen gehen und die methoden dafür sind verbessert" />
@@ -1067,7 +1074,8 @@
     <MESSAGE value="praesi gliederung Spielfeld" />
     <MESSAGE value="praesi Spielfeld done" />
     <MESSAGE value="praesi code snippet" />
-    <option name="LAST_COMMIT_MESSAGE" value="praesi code snippet" />
+    <MESSAGE value="praesi code snippet size" />
+    <option name="LAST_COMMIT_MESSAGE" value="praesi code snippet size" />
   </component>
   <component name="WindowStateProjectService">
     <state width="259" height="644" key="Git.Branch.Popup" />
